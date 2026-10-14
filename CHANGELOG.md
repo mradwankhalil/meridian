@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.82.0](https://github.com/rynfar/meridian/compare/meridian-v1.81.0...meridian-v1.82.0) (2026-10-14)
+
+
+### Features
+
+* configure Antigravity conversation idle retention independently ([#1356](https://github.com/rynfar/meridian/issues/1356)) ([b68710f](https://github.com/rynfar/meridian/commit/b68710f057a3bbdb4e01d650c0bd94b62247eea7))
+
+
+### Bug Fixes
+
+* hand CLI-rejected undeclared tool calls to the client ([#1373](https://github.com/rynfar/meridian/issues/1373)) ([8d447ea](https://github.com/rynfar/meridian/commit/8d447ea35284b49edf2bbf9f569c31e08fb4788b))
+* isolate Polytoken parent, child, and native title conversations ([#1343](https://github.com/rynfar/meridian/issues/1343)) ([a48a849](https://github.com/rynfar/meridian/commit/a48a84982453d3b4748ddbdf566455597e13c836))
+* **passthrough:** stop a lifted turn budget at the forwarded tool batch ([#1370](https://github.com/rynfar/meridian/issues/1370)) ([431ec20](https://github.com/rynfar/meridian/commit/431ec2014db53018e07711643142fd38abfbe47f))
+* **plugins:** read plugins.json from the config directory ([#1360](https://github.com/rynfar/meridian/issues/1360)) ([58c4126](https://github.com/rynfar/meridian/commit/58c4126c343e924afae6023c90f7fb0565d31130))
+* preserve healthy streaming turns through queueing and tool generation ([#1344](https://github.com/rynfar/meridian/issues/1344)) ([8edccd7](https://github.com/rynfar/meridian/commit/8edccd790f56fdee72a20b71337eef8ab6dec1ed))
+* preserve Home Manager environment values through systemd ([#1353](https://github.com/rynfar/meridian/issues/1353)) ([506a811](https://github.com/rynfar/meridian/commit/506a811d319184381164dab5995703cbcd5b9906))
+* preserve passthrough tools across overlapping SDK queries ([#1349](https://github.com/rynfar/meridian/issues/1349)) ([3f5f4f8](https://github.com/rynfar/meridian/commit/3f5f4f81cd2205ebd62381d8c574d6a6f9ded2d9))
+* prevent historical image amplification during replay ([#1351](https://github.com/rynfar/meridian/issues/1351)) ([a8a214b](https://github.com/rynfar/meridian/commit/a8a214bfc53784c3e87456447ae9a327be6a70b2))
+* report the actual Extra Usage refusal to clients ([#1346](https://github.com/rynfar/meridian/issues/1346)) ([16fac4c](https://github.com/rynfar/meridian/commit/16fac4c6b4b95a97f7dbb7ff4d00946d5e3aa06f))
+* resume a tool checkpoint settled as per-call echo/result pairs ([#1201](https://github.com/rynfar/meridian/issues/1201)) ([fa4266e](https://github.com/rynfar/meridian/commit/fa4266e16e0339bc86c36db249bc20432c24c648))
+* resume OpenCode checkpoints after instruction updates ([#1354](https://github.com/rynfar/meridian/issues/1354)) ([fa90c9a](https://github.com/rynfar/meridian/commit/fa90c9aaf1e99d5fbd69f6725ce8be0dcc3cfff3))
+* retain priority failover across SSE keepalives ([#1350](https://github.com/rynfar/meridian/issues/1350)) ([736e9fd](https://github.com/rynfar/meridian/commit/736e9fd6162ebd8cadbfbcd687dfec2c7acdc129))
+* **session:** isolate Claude Code auto-mode classifier requests from session resume ([#1211](https://github.com/rynfar/meridian/issues/1211)) ([eb1f462](https://github.com/rynfar/meridian/commit/eb1f4621178bdd035cfa31262ff2ff83122fa06b))
+* **session:** join original SDK pipes and reserve escalation time ([#1334](https://github.com/rynfar/meridian/issues/1334)) ([0d12f6a](https://github.com/rynfar/meridian/commit/0d12f6a11f52f78bdb8760a5b16f29acea4bb8a7))
+* synchronize npm lock with the supported Claude Code floor ([#1355](https://github.com/rynfar/meridian/issues/1355)) ([fb5854b](https://github.com/rynfar/meridian/commit/fb5854be5be50bb5abad95d1eb955ca881d3dbc8))
+* treat Sonnet 5+ as a native 1M-context model ([#1213](https://github.com/rynfar/meridian/issues/1213)) ([55edbcc](https://github.com/rynfar/meridian/commit/55edbcc35f1b008628967b07a05b632dc47063df))
+
 ## [1.81.0](https://github.com/rynfar/meridian/compare/meridian-v1.80.0...meridian-v1.81.0) (2026-10-12)
 
 
