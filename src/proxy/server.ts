@@ -109,7 +109,7 @@ import { extractAdvisorModel, extractSystemText, getLastUserMessage, stripAdviso
 import { requireAuth, authEnabled } from "./auth"
 import { detectAdapter } from "./adapters/detect"
 import { rootSessionIdOf } from "./adapter"
-import { buildQueryOptions, isCliThinkingDisplay, promptCachingDisabled, resolveQueryConfigDir, singleTurnCapLiftRaisesBudget, type QueryContext } from "./query"
+import { buildQueryOptions, isCliThinkingDisplay, promptCachingDisabled, passthroughThinking, resolveQueryConfigDir, singleTurnCapLiftRaisesBudget, type QueryContext } from "./query"
 import { normalizeEffort } from "./effort"
 import { parseOutputFormat, structuredOutputText } from "./structuredOutput"
 import { runTransformHook, buildPipeline, createRequestContext } from "./transform"
@@ -2863,6 +2863,8 @@ function createProxyServerWithAuthOwner(config: Partial<ProxyConfig>, authOwner:
             plog(`[PROXY] ${requestMeta.requestId} thinking disabled (thinking beta stripped by ${getBetaPolicyFromEnv()} policy)`)
           }
         }
+        // Thinking Passthrough forwards the blocks, so default them to readable.
+        thinking = passthroughThinking(thinking, sdkFeatures.thinkingPassthrough)
         const thinkingCompatibilityError = haikuThinkingCompatibilityError(resolvedHaikuModel(), thinking)
         if (thinkingCompatibilityError) {
           return c.json({ type: "error", error: { type: "invalid_request_error", message: thinkingCompatibilityError } }, 400)

@@ -22,6 +22,7 @@ import { assistantMessage, withMockSdkSessionId } from "./helpers"
 // `defaultThinking`  = the merged value getFeaturesForAdapter() returns.
 let explicitThinking: "adaptive" | "enabled" | "disabled" | undefined = undefined
 let defaultThinking: "adaptive" | "enabled" | "disabled" = "disabled"
+let thinkingPassthrough = false
 
 // Self-contained feature object (no delegation to the real module — once mocked,
 // the namespace IS the mock, so delegating would recurse infinitely).
@@ -42,7 +43,7 @@ const FEATURES = {
 
 mock.module("../proxy/sdkFeatures", () => ({
   getExplicitThinking: () => explicitThinking,
-  getFeaturesForAdapter: () => ({ ...FEATURES, thinking: defaultThinking }),
+  getFeaturesForAdapter: () => ({ ...FEATURES, thinking: defaultThinking, thinkingPassthrough }),
 }))
 
 // ─── captured query params ────────────────────────────────────────────────────
@@ -104,7 +105,39 @@ describe("per-adapter thinking setting — explicit \"disabled\" is authoritativ
     mockMessages = [assistantMessage([{ type: "text", text: "ok" }])]
     explicitThinking = undefined
     defaultThinking = "disabled"
+    thinkingPassthrough = false
     clearSessionCache()
+  })
+
+  // Thinking Passthrough with no display reached the client as signed blocks
+  // with empty text: the adapter default named no display and neither did the
+  // client, and current models omit the text unless one is named.
+  it("Thinking Passthrough defaults the display to summarized", async () => {
+    thinkingPassthrough = true
+    defaultThinking = "adaptive"
+    const app = createTestApp()
+    await post(app, BASE_BODY)
+    expect(capturedOptions.thinking).toEqual({ type: "adaptive", display: "summarized" })
+
+    await post(app, { ...BASE_BODY, thinking: { type: "adaptive" } })
+    expect(capturedOptions.thinking).toEqual({ type: "adaptive", display: "summarized" })
+  })
+
+  it("Thinking Passthrough keeps a display the client named and never turns thinking on", async () => {
+    thinkingPassthrough = true
+    const app = createTestApp()
+    await post(app, { ...BASE_BODY, thinking: { type: "adaptive", display: "omitted" } })
+    expect(capturedOptions.thinking).toEqual({ type: "adaptive", display: "omitted" })
+
+    await post(app, BASE_BODY)
+    expect(capturedOptions.thinking).toBeUndefined()
+  })
+
+  it("without Thinking Passthrough the display is left to the model default", async () => {
+    defaultThinking = "adaptive"
+    const app = createTestApp()
+    await post(app, BASE_BODY)
+    expect(capturedOptions.thinking).toEqual({ type: "adaptive" })
   })
 
   it("overrides client body.thinking when explicitly disabled", async () => {

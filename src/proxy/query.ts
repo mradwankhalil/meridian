@@ -573,6 +573,23 @@ export function sdkThinking(thinking: NonNullable<QueryContext["thinking"]>): Th
 }
 
 /**
+ * The thinking option for a client that is forwarded the thinking blocks.
+ *
+ * Current models omit the thinking text unless a display is named, so a
+ * passthrough client that names none receives signed blocks with nothing in
+ * them. Ask for the summary on its behalf. A display the client did name is
+ * its own choice and is left alone, including one `sdkThinking` will drop.
+ */
+export function passthroughThinking(
+  thinking: QueryContext["thinking"],
+  thinkingPassthrough: boolean,
+): QueryContext["thinking"] {
+  if (!thinkingPassthrough || !thinking || thinking.type === "disabled") return thinking
+  if (thinking.display !== undefined) return thinking
+  return { ...thinking, display: "summarized" }
+}
+
+/**
  * Prompt-level counter-instruction to suppress writes to the CLI's proxy-host
  * scratchpad directory in passthrough mode (#627, #1049).
  * Avoids setting CLAUDE_CODE_SESSION_KIND=bg which causes CLI 2.1.274+ to
