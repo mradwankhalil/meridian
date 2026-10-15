@@ -301,7 +301,7 @@ describe("documented plugin message transforms at SDK ingress", () => {
       const history: Message[] = [{ role: "user", content: "REMOVE_FROM_EXECUTION first poll" }, { role: "user", content: "objective" }, ...Array.from({ length: 8 }, (_, index) => [{ role: "user", content: `context ${index}` }, { role: "assistant", content: "я".repeat(60_000) }]).flat(), { role: "user", content: "live question" }]
       const response = await post(app, history, "modify", stream, "fixture-overflow-unchanged", true)
       if (!stream) expect(response.status).toBe(400)
-      else expect(await response.text()).toContain("Prompt exceeds the model's context window")
+      else expect(await response.text()).toContain("Prompt is too long for the model's context window")
       expect(calls).toHaveLength(1)
       expect(calls[0]?.options?.env?.ANTHROPIC_DEFAULT_SONNET_MODEL).toBe("claude-sonnet-5-5")
       expect(capturedText(0)).not.toContain("REMOVE_FROM_EXECUTION")
