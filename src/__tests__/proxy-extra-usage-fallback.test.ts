@@ -42,6 +42,7 @@ let rateLimitBenches: Array<{ profileId: string | undefined; until: number; sess
 let lifecycleAtQuery: Array<LifecycleResourceSnapshot | undefined> = []
 let lifecycleBeforeSdkEvents: Array<LifecycleResourceSnapshot | undefined> = []
 let reconcileBeforeSdkEvents = false
+let resumeFallbackRefusal: "extra_usage" | "rate_limit" | undefined
 
 function readLifecycleResource(sessionId: string): LifecycleResourceSnapshot | undefined {
   const sidecar = JSON.parse(readFileSync(join(getSessionStoreDir(), "session-gc.json"), "utf8")) as {
@@ -135,6 +136,17 @@ installSdkMock(() => ({
       }
       if (mockBehavior === "always_extra_usage") {
         throw new Error(EXTRA_USAGE_ERROR)
+      }
+
+      // Model a resumed transcript that fits the extended window but not the
+      // base window. Its history belongs to the SDK, not the submitted delta.
+      if (resumeFallbackRefusal && opts.options?.resume) {
+        if (model.endsWith("[1m]")) {
+          throw new Error(resumeFallbackRefusal === "extra_usage"
+            ? EXTRA_USAGE_ERROR
+            : "429 rate limit exceeded for 1m context")
+        }
+        throw new Error('API Error: 400 {"type":"invalid_request_error","message":"prompt is too long: 435234 tokens > 200000 maximum"}')
       }
 
       if (mockBehavior === "extra_usage_then_succeed" && callIndex === 1) {
@@ -240,6 +252,7 @@ describe("Extra usage required fallback", () => {
     lifecycleAtQuery = []
     lifecycleBeforeSdkEvents = []
     reconcileBeforeSdkEvents = false
+    resumeFallbackRefusal = undefined
     queryCallCount = 0
     mockBehavior = "succeed"
   })
@@ -378,6 +391,41 @@ describe("Extra usage required fallback", () => {
         { model: "sonnet", callIndex: 4, resume: undefined, sessionId: freshFallbackSessionId },
       ])
     })
+  })
+
+  describe("Resumed context exceeds the fallback window", () => {
+    for (const refusal of ["extra_usage", "rate_limit"] as const) {
+      it.each([false, true])(`preserves the client compaction signal after ${refusal} (stream=%s)`, async (stream) => {
+        const app = createTestApp()
+        const headers = { "x-opencode-session": `overflow-${refusal}-${stream}` }
+        // Large client history is accepted on the initial extended request;
+        // the next request resumes that SDK transcript with a short delta.
+        const history = { role: "user", content: "history ".repeat(110_000) }
+        const initial = await post(app, {
+          model: "sonnet", stream: false, messages: [history],
+        }, headers)
+        expect(initial.status).toBe(200)
+        const initialBody = await initial.json()
+        const sourceSessionId = queryCalls[0]!.sessionId
+        resumeFallbackRefusal = refusal
+
+        const response = await post(app, {
+          model: "sonnet", stream,
+          messages: [history, { role: "assistant", content: initialBody.content }, { role: "user", content: "continue" }],
+        }, headers)
+        const error = stream
+          ? parseSSE(await response.text()).find((event) => event.event === "error")?.data.error
+          : (await response.json()).error
+
+        expect(response.status).toBe(stream ? 200 : 400)
+        expect(queryCalls.map((call) => call.model)).toEqual(["sonnet[1m]", "sonnet[1m]", "sonnet"])
+        expect(queryCalls.slice(1).every((call) => call.resume === sourceSessionId)).toBe(true)
+        expect(error?.type).toBe("invalid_request_error")
+        expect(error?.message).toMatch(/prompt is too long/i)
+        // Failed forks must not replace the last successful source transcript.
+        expect(lookupSharedSession(headers["x-opencode-session"])?.claudeSessionId).toBe(sourceSessionId)
+      })
+    }
   })
 
   describe("No backoff needed", () => {

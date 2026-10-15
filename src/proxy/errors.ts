@@ -417,11 +417,14 @@ export function classifyError(errMsg: string, model?: string): ClassifiedError {
   // "transient, try again" to every client retry policy, so an overflow that
   // can only ever fail identically gets replayed at full upstream cost. 400
   // says the request itself is the problem.
+  // Keep Anthropic's canonical "prompt is too long" signal: clients such as
+  // OpenCode use it to distinguish overflow from other invalid requests and
+  // compact reactively, even below their advertised context-window threshold.
   if (CONTEXT_OVERFLOW_SIGNALS.some(rx => rx.test(lower))) {
     return {
       status: 400,
       type: "invalid_request_error",
-      message: "Prompt exceeds the model's context window. Compact or trim the conversation before retrying — an identical retry fails the same way."
+      message: "Prompt is too long for the model's context window. Compact or trim the conversation before retrying — an identical retry fails the same way."
     }
   }
 
