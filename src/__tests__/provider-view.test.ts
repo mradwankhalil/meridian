@@ -21,6 +21,16 @@ describe('provider presentation and contract', () => {
     expect(html).not.toContain('data-provider-card="claude"')
     expect(html).not.toContain('Manage Claude accounts')
   })
+  it('offers a ChatGPT tab only where ChatGPT is served', () => {
+    const tabs = (html: string) => [...html.matchAll(/data-provider="([a-z]+)"/g)].map(match => match[1])
+    expect(tabs(providerOverview(sample))).toEqual(['all', 'claude', 'antigravity'])
+    const claudeOnly = providerOverview(sample, 'chatgpt')
+    expect(claudeOnly).toContain('data-provider="all" aria-pressed="true"')
+    expect(claudeOnly).toContain('data-provider-card="claude"')
+    const served = { ...sample, providers: [...sample.providers, { ...disabledProvider('chatgpt'), enabled: true, status: 'healthy', accounts: [] }] }
+    expect(tabs(providerOverview(served))).toEqual(['all', 'claude', 'antigravity', 'chatgpt'])
+    expect(providerOverview(served, 'chatgpt')).not.toContain('data-provider-card="claude"')
+  })
   it('rejects malformed desktop provider data rather than rendering invented numbers', () => {
     expect(parseProviderSnapshot(sample)).toEqual(sample)
     expect(() => parseProviderSnapshot({ ...sample, providers: [{ id: 'antigravity' }] })).toThrow()
@@ -28,6 +38,12 @@ describe('provider presentation and contract', () => {
   it('normalizes Claude token counts and omits absent activity', () => {
     expect(claudeProvider({status:'healthy'}, {}, {}).activity).toBeUndefined()
     expect(claudeProvider({}, {totalRequests:2,tokenUsage:{totalInputTokens:33,totalOutputTokens:4}}, {}).activity?.inputTokens).toBe(33)
+  })
+  it('reads Claude\'s own verdict on an instance that also serves ChatGPT, and none when it serves ChatGPT alone', () => {
+    const both = { status: 'degraded', backends: { claude: { status: 'unhealthy' }, chatgpt: { status: 'healthy' } } }
+    expect(claudeProvider(both, {}, {}).status).toBe('unhealthy')
+    const chatGptOnly = { status: 'healthy', backends: { chatgpt: { status: 'healthy' } } }
+    expect(claudeProvider(chatGptOnly, {}, {})).toMatchObject({ enabled: false, status: 'disabled' })
   })
   it('rejects orphan, duplicated and role-invalid tool history before replay', () => {
     const call = {type:'tool_use',id:'one',name:'read',input:{}}

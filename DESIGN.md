@@ -75,8 +75,9 @@ Meridian is deliberately **two-tone**: blue and violet appear together only
 in the brand gradient. Everywhere else, each has a fixed job:
 
 - **Blue (`--accent`)** = *you can click it, or it is the active thing.*
-  Links, nav highlight, buttons, focus rings, active tab underline, the
-  active account card border + pill, section emphasis.
+  Links, nav highlight, buttons, focus rings, active tab underline, section
+  emphasis. The one exception is the active *account* card, whose border and
+  pill are its provider's brand (see Provider brands below).
 - **Violet (`--accent2`)** = *literal or meta, never interactive.*
   Inline code / command snippets, mono identifiers, and the telemetry
   dashboard’s session-lineage & meta annotations (e.g. the `undo` lineage
@@ -110,6 +111,41 @@ Both keep their text at phone width, where the plain status shows only its dot.
 Draining and offline status retain precedence; combined instances name Claude
 explicitly and do not imply Antigravity is unavailable. Existing hostname and
 provenance composition remains shared across pages.
+
+### Provider brands
+
+Account cards on `/` and `/profiles` show which provider an account belongs
+to, and which account is active for each provider, in that provider's brand.
+Brand colours appear on account cards and their provider chips and headings,
+nowhere else.
+
+| Token | Value | Use |
+|---|---|---|
+| `--claude` | `#c15f3c` | Claude accounts |
+| `--chatgpt` | `#74aa9c` | ChatGPT seats |
+
+Each has `-bright` (the brand mixed 30% toward white: hover, badge and pill
+text) and `-rgb` (tinted fills). A card's `.provider-<id>` class
+(`profileProviders.ts`) points `--brand`, `--brand-bright` and `--brand-rgb`
+at its provider, so card CSS never names one.
+
+- **Every card:** a brand stripe on its left edge and a brand badge naming
+  the provider.
+- **Active:** brand border + 1px brand ring, brand dot and brand Active pill.
+  There is one per provider.
+- **Switchable on hover:** `-bright` border with a faint brand fill.
+- **Spent or failing:** shown by dimming and the existing badges. The active
+  border is never recoloured or faded, and the active card's name row, with
+  its Active pill and spent badge, never dims. Only its figures do.
+- **Needs a login:** a red border, the same for every provider, and a
+  needs-login badge. An active card keeps its brand ring outside the red.
+- **Controls stay blue:** buttons, links, focus rings, drag handles and drop
+  targets.
+
+ChatGPT's brand is its green-grey, not its violet `#ab68ff`. The violet shares
+`--accent2`'s hue (ΔE2000 9), and its brighter tint is `--accent2` itself.
+The web UI is dark-only. A light theme would need `#4a8a7a` for ChatGPT
+(4.0:1 on white), because `#74aa9c` there is 2.6:1.
 
 ## 3. The backsplash
 
@@ -181,15 +217,17 @@ account card on the home page (or the Profiles page). The header chip only
 ## 6. Component vocabulary
 
 - **Card:** `--surface`, 1px `--border`, radius 12px, padding 16–20px.
-  Active card: `--accent` border + 1px accent ring. Clickable cards get
-  `cursor: pointer` and an accent border on hover, plus a hover-revealed
-  uppercase hint (e.g. “Click to activate”).
+  Active account card: its provider's brand border + 1px brand ring.
+  Clickable cards get `cursor: pointer` and a hover border (the brighter
+  provider brand on an account card), plus a hover-revealed uppercase hint
+  (e.g. “Click to activate”).
 - **Stats strip:** one flex row of cells separated by 1px `--border`
   dividers inside a single card — label (micro-label), value (20px/700),
   optional muted detail line. Use instead of a grid of chunky cards.
 - **Pills:** radius 10–20px, tinted fill + tinted border of the same hue
-  (e.g. Active pill: blue text on `rgba(88,166,255,0.12)` with
-  `rgba(88,166,255,0.35)` border). Status badges: green/muted/red variants.
+  (e.g. the update chip: blue text on `rgba(88,166,255,0.12)` with
+  `rgba(88,166,255,0.35)` border; an account's Active pill does the same in
+  its provider's brand). Status badges: green/muted/red variants.
 - **Usage bar:** 6–8px track in `--surface2`, radius 3–4px, fill colored
   by the utilization thresholds; percentage readout matches the fill color.
 - **Buttons:** `--surface2` fill, accent text + accent border; hover =
@@ -285,7 +323,14 @@ Keep provider identity separate from model identity: Claude models reached
 through Antigravity consume a Google allowance. Claude profile controls stay
 inside the Claude account view. Shared totals must label partial data. Use the
 existing blue active underline, neutral cards, violet endpoint/model literals,
-and semantic quota thresholds; provider identity does not invent a new palette.
+and semantic quota thresholds. The provider brands (§2) stay on account cards.
+
+`/` and `/profiles` list every account in one grid, grouped by provider
+(Claude, then ChatGPT) under a heading for each. Chips above the grid show or
+hide a provider. All chips start on, the browser remembers the choice for both
+pages, and chips appear only while two or more providers have accounts. A
+card moves only among its own provider's cards, because each provider's pool
+is ranked on its own.
 
 The desktop menu bar separates account quota groups and labels combined activity.
 Provider selection belongs in managed-service settings, with tool permission as

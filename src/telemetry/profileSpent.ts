@@ -36,6 +36,8 @@ export interface SpendInput {
   error?: string | null
   /** `loggedIn` for this profile from /profiles/list. */
   loggedIn?: boolean | null
+  /** `provider` from /profiles/list; absent for a Claude profile. */
+  provider?: string | null
 }
 
 export type SpendState = "unknown" | "available" | "fading" | "spent"
@@ -80,11 +82,16 @@ export const isUnusableJs = "function isUnusable(p){if(p.loggedIn===false)return
  * The worse of the general windows, or null when none of them carries a
  * number. Null means "no evidence", which is not the same as zero and must
  * not render as a pristine account.
+ *
+ * A ChatGPT seat reports only its account-wide windows - per-model limits
+ * never reach its quota entry - and their widths vary by plan (a free seat
+ * has a single 30-day window), so every window it reports is a general one.
  */
-export function generalUtilization(windows: readonly SpendWindow[] | null | undefined): number | null {
+export function generalUtilization(windows: readonly SpendWindow[] | null | undefined, provider?: string | null): number | null {
+  const everyWindow = provider === "chatgpt"
   let worst: number | null = null
   for (const w of windows ?? []) {
-    if (!GENERAL_WINDOW_TYPES.includes(w.type)) continue
+    if (!everyWindow && !GENERAL_WINDOW_TYPES.includes(w.type)) continue
     const u = w.utilization
     if (u == null || !Number.isFinite(u)) continue
     const clamped = Math.max(0, Math.min(1, u))
@@ -97,7 +104,7 @@ export function computeProfileSpend(input: SpendInput): ProfileSpend {
   if (isUnusable(input)) {
     return { fraction: 1, state: "spent", fade: 0, reason: "unusable" }
   }
-  const fraction = generalUtilization(input.windows)
+  const fraction = generalUtilization(input.windows, input.provider)
   if (fraction == null) {
     return { fraction: null, state: "unknown", fade: 0, reason: null }
   }

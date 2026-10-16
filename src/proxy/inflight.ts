@@ -16,7 +16,7 @@
  * snapshot.
  */
 
-export type InflightUpstream = "claude" | "antigravity"
+export type InflightUpstream = "claude" | "antigravity" | "chatgpt"
 
 export interface InflightCounts {
   readonly streams: number

@@ -28,11 +28,17 @@ export interface LoginCallbackPageParams {
   ok: boolean
   profileId?: string
   message?: string
+  /** Success text in place of the Claude-profile sentence. */
+  okMessage?: string
+  /** Absolute when the page is served from another origin (the ChatGPT loopback redirect). */
+  backHref?: string
 }
 
 export function renderLoginCallbackPage(params: LoginCallbackPageParams): string {
   const title = params.ok ? "Signed in" : "Login failed"
-  const detail = params.ok
+  const detail = params.ok && params.okMessage
+    ? escapeHtml(params.okMessage)
+    : params.ok
     ? `Profile <strong>${escapeHtml(params.profileId ?? "")}</strong> is authenticated. You can close this tab — the Profiles page has already updated.`
     : escapeHtml(params.message ?? "The login could not be completed.")
 
@@ -67,7 +73,7 @@ export function renderLoginCallbackPage(params: LoginCallbackPageParams): string
   <div class="mark ${params.ok ? "ok" : "err"}">${params.ok ? "\u2713" : "\u2717"}</div>
   <h1>${escapeHtml(title)}</h1>
   <p>${detail}</p>
-  <a class="back" href="/profiles">Back to Profiles</a>
+  <a class="back" href="${escapeHtml(params.backHref ?? "/profiles")}">Back to Profiles</a>
 </div>
 </body>
 </html>`

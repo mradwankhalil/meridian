@@ -196,6 +196,14 @@ export interface RequestMetric {
   /** Cache hit ratio: cacheRead / (cacheRead + cacheCreation + uncached).
    *  1.0 = perfect caching, 0.0 = no caching. undefined when no token data. */
   cacheHitRate?: number
+
+  /** ChatGPT only: hidden reasoning tokens. Already INSIDE outputTokens and
+   *  priced there - informational, never added to cost again. */
+  reasoningOutputTokens?: number
+
+  /** ChatGPT only: the model the client asked for, when a Fallback Model
+   *  retry served this request on `model` instead. */
+  fallbackFromModel?: string
 }
 
 export interface PhaseTiming {

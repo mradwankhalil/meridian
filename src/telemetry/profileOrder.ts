@@ -32,6 +32,19 @@ export function moveInOrder<T>(order: readonly T[], from: number, to: number): T
 }
 
 /**
+ * `moveInOrder`, refused across groups: `groups[i]` is the group of
+ * `order[i]`, and a move to a different group returns an unchanged copy.
+ *
+ * The saved order is one list, but the pages group it by provider and the
+ * router ranks each provider's pool on its own, so a Claude account dragged
+ * among ChatGPT seats would land in a place that means nothing.
+ */
+export function moveWithinGroup<T>(order: readonly T[], groups: readonly string[], from: number, to: number): T[] {
+  if (groups[from] === undefined || groups[from] !== groups[to]) return order.slice()
+  return moveInOrder(order, from, to)
+}
+
+/**
  * Sort `items` by the id sequence in `order`.
  *
  * Ids in `order` come first, in that order. Anything not listed keeps its
@@ -146,6 +159,12 @@ window.meridianReorder = (function () {
     return next;
   }
 
+  // Mirrors moveWithinGroup in src/telemetry/profileOrder.ts.
+  function moveWithinGroup(order, groups, from, to) {
+    if (groups[from] === undefined || groups[from] !== groups[to]) return order.slice();
+    return moveInOrder(order, from, to);
+  }
+
   function sortByOrder(items, order) {
     // Null-prototype: a profile called "constructor" or "toString" would
     // otherwise test true against Object.prototype and rank as position 0.
@@ -218,6 +237,7 @@ window.meridianReorder = (function () {
 
   var state = { order: [], envPinned: false };
   var fromIndex = null;
+  var fromGroup = '';
   var pendingFocusId = null;
   var onSaved = function () {};
 
@@ -234,29 +254,46 @@ window.meridianReorder = (function () {
     if (live) live.textContent = message;
   }
 
-  function noteHtml(reorderable) {
+  function noteHtml(reorderable, withChatGpt, grouped) {
+    var seats = withChatGpt
+      ? (grouped ? ' ChatGPT seats are tried in their own order, after the active seat.' : ' ChatGPT seats are tried in this order too, after the active seat.')
+      : '';
     return reorderable
       ? '<div class="order-note">Drag a card by its handle to reorder, or focus a handle and press \\u2191 / \\u2193. '
-        + 'The order is saved, and drives <a href="/settings" style="color:var(--accent)">Priority routing</a> \\u2014 the pool drains from the top.</div>'
-      : '<div class="order-note locked">Order is pinned by the <code>MERIDIAN_PROFILE_ORDER</code> environment variable. Unset it to reorder from here.</div>';
+        + (grouped ? 'Each provider keeps its own order, so a card moves only among its provider\\u2019s cards. ' : '')
+        + 'The order is saved, and drives <a href="/settings" style="color:var(--accent)">Priority routing</a> \\u2014 the pool drains from the top.' + seats + '</div>'
+      : '<div class="order-note locked">Order is pinned by the <code>MERIDIAN_PROFILE_ORDER</code> environment variable. Unset it to reorder from here.' + seats + '</div>';
   }
 
-  function handleHtml(id, index, total) {
-    return '<span class="order-index">' + (index + 1) + '</span>'
+  // index is the card's place among every card on the page, which is what a
+  // move works on; place and size are its position within its own group,
+  // which is what the reader is shown.
+  function handleHtml(id, index, place, size) {
+    return '<span class="order-index">' + (place + 1) + '</span>'
       + '<button type="button" class="drag-handle" draggable="true" data-index="' + index + '"'
       + ' title="Drag to reorder, or press \\u2191 / \\u2193"'
-      + ' aria-label="Reorder ' + escAttr(id) + ', position ' + (index + 1) + ' of ' + total
+      + ' aria-label="Reorder ' + escAttr(id) + ', position ' + (place + 1) + ' of ' + size
       + '. Press arrow up or arrow down to move.">\\u283f</button>';
   }
 
   // The rendered order is the truth the server must agree with — read it back
   // off the DOM rather than from the cached config, which may list ids the
   // current /profiles/list no longer has (PUT rejects unknown ids outright).
+  // Cards hidden by a provider chip are still in the DOM, so their place in
+  // the saved order survives a move among the others.
   function currentOrderIds() {
     var ids = [];
     var cards = document.querySelectorAll('.profile-card[data-id]');
     for (var i = 0; i < cards.length; i++) ids.push(cards[i].dataset.id);
     return ids;
+  }
+
+  // Each card's group (its provider), in the same order as currentOrderIds().
+  function currentGroups() {
+    var groups = [];
+    var cards = document.querySelectorAll('.profile-card[data-id]');
+    for (var i = 0; i < cards.length; i++) groups.push(cards[i].dataset.group || '');
+    return groups;
   }
 
   function clearMarks() {
@@ -284,8 +321,17 @@ window.meridianReorder = (function () {
 
   function moveTo(from, to) {
     var order = currentOrderIds();
-    if (to < 0 || to >= order.length || from === to) return;
-    save(moveInOrder(order, from, to), order[from] + ' moved to position ' + (to + 1) + ' of ' + order.length + '.');
+    var groups = currentGroups();
+    if (to < 0 || to >= order.length || from === to || groups[from] !== groups[to]) return;
+    var nextGroups = moveInOrder(groups, from, to);
+    var place = 0;
+    var size = 0;
+    for (var i = 0; i < nextGroups.length; i++) {
+      if (nextGroups[i] !== groups[from]) continue;
+      if (i < to) place++;
+      size++;
+    }
+    save(moveWithinGroup(order, groups, from, to), order[from] + ' moved to position ' + (place + 1) + ' of ' + size + '.');
   }
 
   function init(opts) {
@@ -297,6 +343,7 @@ window.meridianReorder = (function () {
       if (!handle) return;
       var card = handle.closest('.profile-card');
       fromIndex = Number(handle.dataset.index);
+      fromGroup = card.dataset.group || '';
       pointerSeenAt = Date.now();
       e.dataTransfer.effectAllowed = 'move';
       // Firefox will not start a drag at all unless the payload is set.
@@ -308,7 +355,9 @@ window.meridianReorder = (function () {
     content.addEventListener('dragover', function (e) {
       if (fromIndex === null) return;
       var card = e.target.closest && e.target.closest('.profile-card');
-      if (!card) return;
+      // Another provider's card is no drop target: the pointer shows the move
+      // is refused, and nothing lights up.
+      if (!card || (card.dataset.group || '') !== fromGroup) return;
       // preventDefault is what makes an element a drop target at all.
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
@@ -320,7 +369,7 @@ window.meridianReorder = (function () {
     content.addEventListener('drop', function (e) {
       if (fromIndex === null) return;
       var card = e.target.closest && e.target.closest('.profile-card');
-      if (!card) return;
+      if (!card || (card.dataset.group || '') !== fromGroup) return;
       e.preventDefault();
       var from = fromIndex;
       var to = Number(card.dataset.index);
@@ -336,9 +385,12 @@ window.meridianReorder = (function () {
       if (!handle) return;
       e.preventDefault();
       var order = currentOrderIds();
+      var groups = currentGroups();
       var from = Number(handle.dataset.index);
       var to = e.key === 'ArrowUp' ? from - 1 : from + 1;
-      if (to < 0 || to >= order.length) return;
+      // The first and last of a provider's cards stop at its edge, as the
+      // first and last card on the page stop at the page's.
+      if (to < 0 || to >= order.length || groups[to] !== groups[from]) return;
       pendingFocusId = order[from];
       moveTo(from, to);
     });

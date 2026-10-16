@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.83.0](https://github.com/rynfar/meridian/compare/meridian-v1.82.0...meridian-v1.83.0) (2026-10-15)
+
+
+### Features
+
+* **profiles:** track each login's lifetime and say when it needs renewing ([#1260](https://github.com/rynfar/meridian/issues/1260)) ([5c8a942](https://github.com/rynfar/meridian/commit/5c8a9425a8116a8dfe0e55b8ce57bcab53e52084))
+* serve GPT models from ChatGPT subscriptions ([#1377](https://github.com/rynfar/meridian/issues/1377)) ([282254e](https://github.com/rynfar/meridian/commit/282254e0581cec0c42e160ff0540600fecc29bfe))
+
+
+### Bug Fixes
+
+* **claude-code:** isolate interactive session-title and first-caption side calls ([#1381](https://github.com/rynfar/meridian/issues/1381)) ([626a175](https://github.com/rynfar/meridian/commit/626a175165c5295fb2a4de42023d6f9117f18f1e))
+* default thinking display to summarized under Thinking Passthrough ([#1374](https://github.com/rynfar/meridian/issues/1374)) ([769f6b9](https://github.com/rynfar/meridian/commit/769f6b9c92b117d77da6fbc0d14a81e7ea12b60b))
+* keep Antigravity prompts within agy's input step limit instead of losing the newest turn ([#1382](https://github.com/rynfar/meridian/issues/1382)) ([72dd813](https://github.com/rynfar/meridian/commit/72dd81384bc79196e4dc68830a93c05c5ba0f5a1))
+* **proxy:** clear session-turn watchdog when queued waiter cancels ([#1380](https://github.com/rynfar/meridian/issues/1380)) ([#1383](https://github.com/rynfar/meridian/issues/1383)) ([2878599](https://github.com/rynfar/meridian/commit/2878599b70589f35fae904b8b1e68678d1693713))
+* **proxy:** retain rollback UUIDs across managed forks ([#1371](https://github.com/rynfar/meridian/issues/1371)) and enable ToolSearch for deferred passthrough tools ([#1368](https://github.com/rynfar/meridian/issues/1368)) ([#1386](https://github.com/rynfar/meridian/issues/1386)) ([42352ed](https://github.com/rynfar/meridian/commit/42352edc995661a8650495c14b52bc48f20d5b81))
+* recover passthrough tool calls the CLI rejects as unparseable JSON ([#1361](https://github.com/rynfar/meridian/issues/1361)) ([e41b284](https://github.com/rynfar/meridian/commit/e41b28437e0ac6a5ea4442e8f7c26b9af61dc99f))
+* route streamed OpenAI tool arguments by content block ([#1376](https://github.com/rynfar/meridian/issues/1376)) ([7c935a4](https://github.com/rynfar/meridian/commit/7c935a407d3505a1078a9cc4d8748abf907149ae))
+
 ## [1.82.0](https://github.com/rynfar/meridian/compare/meridian-v1.81.0...meridian-v1.82.0) (2026-10-14)
 
 

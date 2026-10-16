@@ -16,7 +16,7 @@ if (args.includes("--version") || args.includes("-v")) {
   process.exit(0)
 }
 
-if (args.includes("--help") || args.includes("-h")) {
+if ((args.includes("--help") || args.includes("-h")) && args[0] !== "chatgpt-migrate" && args[0] !== "instance-import") {
   console.log(`meridian v${version}
 
 Local API bridge for Claude and Antigravity subscriptions.
@@ -27,8 +27,10 @@ Commands:
   (default)        Start the proxy server
   status           Show what a running instance is doing (the / page, in the terminal)
   setup            Configure client integrations (run once after install)
-  profile          Manage Claude account profiles (add, list, switch, remove)
+  profile          Manage Claude account profiles and ChatGPT seats (add, list, switch, remove)
   refresh-token    Refresh the Claude Code OAuth token
+  chatgpt-migrate  Move ChatGPT accounts from oc-codex-multi-auth into Meridian, or back with --reverse (--help)
+  instance-import  Move one Meridian instance's ChatGPT seats and their history into another (--help)
   test-error-report  Crash with a test error to check error reporting reaches the collector
 
 Setup options:
@@ -79,6 +81,7 @@ if (args[0] === "profile") {
   const subcommand = args[1]
   const profileId = args[2]
   const headless = args.includes("--headless")
+  const chatgpt = args.includes("--chatgpt")
 
   if (subcommand === "add" && profileId) {
     const oauthFlagIdx = args.indexOf("--oauth-token", 3)
@@ -86,14 +89,14 @@ if (args[0] === "profile") {
       const tokenArg = args[oauthFlagIdx + 1]
       await profileAddOauthToken(profileId, tokenArg?.startsWith("--") ? undefined : tokenArg)
     } else {
-      await profileAdd(profileId, { headless })
+      await profileAdd(profileId, { headless, chatgpt })
     }
   }
-  else if (subcommand === "list" || subcommand === "ls") profileList()
-  else if (subcommand === "remove" && profileId) profileRemove(profileId)
-  else if (subcommand === "rename" && profileId && args[3]) profileRename(profileId, args[3])
+  else if (subcommand === "list" || subcommand === "ls") await profileList()
+  else if (subcommand === "remove" && profileId) await profileRemove(profileId)
+  else if (subcommand === "rename" && profileId && args[3]) await profileRename(profileId, args[3])
   else if (subcommand === "switch" && profileId) await profileSwitch(profileId)
-  else if (subcommand === "login" && profileId) await profileLogin(profileId, { headless })
+  else if (subcommand === "login" && profileId) await profileLogin(profileId, { headless, chatgpt })
   else profileHelp()
   process.exit(0)
 }
@@ -211,6 +214,16 @@ if (args[0] === "setup") {
     }
   }
   process.exit(0)
+}
+
+if (args[0] === "chatgpt-migrate") {
+  const { runMigrateCli } = await import("../src/proxy/chatgpt/migrate/cli")
+  process.exit(await runMigrateCli(args.slice(1)))
+}
+
+if (args[0] === "instance-import") {
+  const { runInstanceImportCli } = await import("../src/proxy/instanceImport/cli")
+  process.exit(await runInstanceImportCli(args.slice(1)))
 }
 
 if (args[0] === "refresh-token") {

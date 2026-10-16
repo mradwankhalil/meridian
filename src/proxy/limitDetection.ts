@@ -37,7 +37,7 @@
  */
 
 /** How the bucket was determined. See the ladder in the module doc. */
-export type LimitSource = "sdk_event" | "error_message" | "cached_usage" | "unknown"
+export type LimitSource = "sdk_event" | "error_message" | "cached_usage" | "response_headers" | "unknown"
 
 export interface LimitDiagnosis {
   /** Anthropic's window key ("five_hour", "seven_day", "seven_day_opus", …),

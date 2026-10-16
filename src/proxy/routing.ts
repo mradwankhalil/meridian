@@ -282,6 +282,10 @@ export class ProfileExhaustion {
     return true
   }
 
+  forget(id: string): void {
+    this.marks.delete(id)
+  }
+
   /** Live entries only — expired marks are dropped on read. */
   snapshot(): ExhaustionEntry[] {
     const out: ExhaustionEntry[] = []

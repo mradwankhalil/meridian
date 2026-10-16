@@ -46,7 +46,9 @@ CREATE TABLE IF NOT EXISTS metrics (
   route_group_id       TEXT,
   route_attempt        INTEGER,
   route_refused_bucket TEXT,
-  resolved_model       TEXT
+  resolved_model       TEXT,
+  reasoning_output_tokens INTEGER,
+  fallback_from_model  TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_metrics_ts    ON metrics(timestamp);
 CREATE INDEX IF NOT EXISTS idx_metrics_model ON metrics(model);
@@ -70,6 +72,8 @@ const METRICS_MIGRATIONS = [
   "ALTER TABLE metrics ADD COLUMN route_attempt INTEGER",
   "ALTER TABLE metrics ADD COLUMN route_refused_bucket TEXT",
   "ALTER TABLE metrics ADD COLUMN resolved_model TEXT",
+  "ALTER TABLE metrics ADD COLUMN reasoning_output_tokens INTEGER",
+  "ALTER TABLE metrics ADD COLUMN fallback_from_model TEXT",
 ]
 
 const LOGS_SCHEMA = `
@@ -138,7 +142,8 @@ class SqliteTelemetryStore implements ITelemetryStore {
         upstream_duration_ms, total_duration_ms, content_blocks, text_events, error,
         input_tokens, output_tokens, cache_read_input_tokens,
         cache_creation_input_tokens, cache_hit_rate, profile_id, envelope_violations,
-        route_kind, route_group_id, route_attempt, route_refused_bucket
+        route_kind, route_group_id, route_attempt, route_refused_bucket,
+        reasoning_output_tokens, fallback_from_model
       ) VALUES (
         @requestId, @timestamp, @adapter, @requestSource, @model, @requestModel, @resolvedModel, @mode,
         @isResume, @isPassthrough, @lineageType,
@@ -148,7 +153,8 @@ class SqliteTelemetryStore implements ITelemetryStore {
         @upstreamDurationMs, @totalDurationMs, @contentBlocks, @textEvents, @error,
         @inputTokens, @outputTokens, @cacheReadInputTokens,
         @cacheCreationInputTokens, @cacheHitRate, @profileId, @envelopeViolations,
-        @routeKind, @routeGroupId, @routeAttempt, @routeRefusedBucket
+        @routeKind, @routeGroupId, @routeAttempt, @routeRefusedBucket,
+        @reasoningOutputTokens, @fallbackFromModel
       )
     `)
 
@@ -204,6 +210,8 @@ class SqliteTelemetryStore implements ITelemetryStore {
         routeGroupId: metric.routeGroupId ?? null,
         routeAttempt: metric.routeAttempt ?? null,
         routeRefusedBucket: metric.routeRefusedBucket ?? null,
+        reasoningOutputTokens: metric.reasoningOutputTokens ?? null,
+        fallbackFromModel: metric.fallbackFromModel ?? null,
       })
     } catch (err) {
       console.error("[telemetry] SQLite write failed, skipping:", err)
@@ -437,6 +445,8 @@ function rowToMetric(r: Record<string, unknown>): RequestMetric {
     routeGroupId: (r.route_group_id as string) ?? undefined,
     routeAttempt: (r.route_attempt as number) ?? undefined,
     routeRefusedBucket: (r.route_refused_bucket as string) ?? undefined,
+    reasoningOutputTokens: (r.reasoning_output_tokens as number) ?? undefined,
+    fallbackFromModel: (r.fallback_from_model as string) ?? undefined,
   }
 }
 

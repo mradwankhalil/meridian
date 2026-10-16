@@ -54,6 +54,8 @@ export interface ReadinessInput {
   readonly profileCount: number
   /** Whether a Claude executable resolves for this instance. */
   readonly claudeExecutableResolved: boolean
+  /** ChatGPT seats, when this instance serves ChatGPT; absent when it does not. */
+  readonly chatGptAccounts?: number
   /** Why this instance's configured Claude egress is declared unreachable,
    *  or null/absent when no outage is declared. See ./upstreamReachability.ts. */
   readonly claudeUnreachable?: string | null
@@ -91,28 +93,35 @@ export interface ReadinessInput {
  *                      else, for minutes), and it turns back on its own after a
  *                      hold, so even an outage every instance shares costs a
  *                      bounded window rather than taking the fleet out for good.
+ *
+ * An instance serving ChatGPT counts its seats as profiles. With no Claude
+ * profile it serves ChatGPT alone, and needs neither a Claude executable nor
+ * a reachable Anthropic.
  */
 export function readinessReport(input: ReadinessInput): ProbeReport {
+  const servesClaude = input.chatGptAccounts === undefined || input.profileCount > 0
+  const accounts = input.profileCount + (input.chatGptAccounts ?? 0)
   const claudeUnreachable = input.claudeUnreachable ?? null
   const checks: ProbeCheck[] = [
     {
       name: "profiles",
-      ok: input.profileCount > 0,
-      ...(input.profileCount > 0 ? {} : { detail: "no profiles configured" }),
+      ok: accounts > 0,
+      ...(accounts > 0 ? {} : { detail: "no profiles configured" }),
     },
-    {
+  ]
+  if (servesClaude) {
+    checks.push({
       name: "claude-executable",
       ok: input.claudeExecutableResolved,
       ...(input.claudeExecutableResolved
         ? {}
         : { detail: "no Claude executable resolved (set MERIDIAN_CLAUDE_PATH or install @anthropic-ai/claude-code)" }),
-    },
-    {
+    }, {
       name: "upstream-claude",
       ok: claudeUnreachable === null,
       ...(claudeUnreachable === null ? {} : { detail: claudeUnreachable }),
-    },
-  ]
+    })
+  }
   return { ok: checks.every(c => c.ok), checks }
 }
 

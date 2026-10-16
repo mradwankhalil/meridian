@@ -44,6 +44,14 @@ describe("generalUtilization", () => {
     expect(generalUtilization([win("seven_day", 1.4)])).toBe(1)
     expect(generalUtilization([win("seven_day", -0.2)])).toBe(0)
   })
+
+  it("counts every window a ChatGPT seat reports, whatever its width", () => {
+    // A free seat's only window is 30 days wide; skipping it would read a
+    // spent seat as having no evidence at all.
+    expect(generalUtilization([win("30d", 1)], "chatgpt")).toBe(1)
+    expect(generalUtilization([win("30d", 1)])).toBeNull()
+    expect(computeProfileSpend({ windows: [win("30d", 1)], provider: "chatgpt" }).state).toBe("spent")
+  })
 })
 
 describe("isUnusable", () => {

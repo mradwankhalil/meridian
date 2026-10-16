@@ -8,6 +8,7 @@
  */
 
 import { describe, expect, test } from "bun:test"
+import { runInNewContext } from "node:vm"
 import { providerPageHtml } from "../telemetry/providerPage"
 import { landingHtml } from "../telemetry/landing"
 import { dashboardHtml } from "../telemetry/dashboard"
@@ -250,9 +251,70 @@ describe("landing page layout", () => {
 
   test("account cards come from configured profiles, not synthetic cost buckets", () => {
     // With profiles configured, only pl.profiles render (no "default" card);
-    // the single-account fallback labels the card with the login email.
+    // the single-account fallback is the ambient Claude login alone. No
+    // telemetry key becomes a card: those were the ghost cards a
+    // ChatGPT-only instance showed for seats it no longer had.
     expect(landingHtml).toContain("configured.length>0")
-    expect(landingHtml).toContain("k==='default'?(email||'account')")
+    expect(landingHtml).toContain("profs.push({id:'default',label:email||'account',configured:false})")
+    expect(landingHtml).not.toContain("for(var k in byProfile){if(!seen[k])profs.push")
+    expect(landingHtml).not.toContain("for(var k in quotaByProfile){profs.push")
+  })
+
+  describe("past usage and the Claude-free intro", () => {
+    const pageFunction = (name: string) => {
+      const start = landingHtml.indexOf(`function ${name}(`)
+      expect(start, name).toBeGreaterThanOrEqual(0)
+      return landingHtml.slice(start, landingHtml.indexOf("\n}\n", start) + 2)
+    }
+    const fns = runInNewContext(
+      "function isChatGptProfile(p){return !!p&&(p.provider==='chatgpt'||p.type==='chatgpt')}\n"
+        + pageFunction("servesClaude") + pageFunction("pastUsage")
+        + ";({servesClaude, pastUsage})",
+    ) as {
+      servesClaude: (h: unknown, pl: unknown) => boolean
+      pastUsage: (byProfile: unknown, cards: unknown) => Array<{ id: string; requests: number }>
+    }
+
+    test("an instance serving only ChatGPT does not serve Claude, whatever its telemetry holds", () => {
+      expect(fns.servesClaude({ auth: { loggedIn: null } }, { profiles: [], chatgpt: { owner: {} } })).toBe(false)
+      expect(fns.servesClaude({}, { profiles: [{ id: "s", type: "chatgpt" }], chatgpt: { owner: {} } })).toBe(false)
+      expect(fns.servesClaude({ auth: { loggedIn: true } }, { profiles: [], chatgpt: { owner: {} } })).toBe(true)
+      expect(fns.servesClaude({}, { profiles: [{ id: "c", type: "claude-max" }], chatgpt: { owner: {} } })).toBe(true)
+      expect(fns.servesClaude({}, { profiles: [] })).toBe(true)
+      // /profiles/list failed to load; /health still says ChatGPT.
+      expect(fns.servesClaude({ auth: { loggedIn: null }, chatgpt: { mode: "owned" } }, null)).toBe(false)
+      expect(fns.servesClaude({ auth: { loggedIn: true }, chatgpt: { mode: "owned" } }, null)).toBe(true)
+      expect(fns.servesClaude({ auth: { loggedIn: null } }, null)).toBe(true)
+    })
+
+    test("a ChatGPT-only intro names only ChatGPT and the page's own https base", () => {
+      const intro = runInNewContext(
+        "function isChatGptProfile(p){return !!p&&(p.provider==='chatgpt'||p.type==='chatgpt')}\n"
+          + "function esc(s){return String(s)}\n"
+          + pageFunction("servesClaude") + pageFunction("introSection") + ";introSection",
+        { location: { origin: "https://meridian.example", port: "", host: "meridian.example" } },
+      ) as (h: unknown, pl: unknown) => string
+      const health = { auth: { loggedIn: null }, chatgpt: { mode: "owned" }, mode: "passthrough" }
+      for (const pl of [{ profiles: [{ id: "seat", type: "chatgpt" }], chatgpt: { owner: {} } }, null]) {
+        const text = intro(health, pl)
+        expect(text).toContain("ChatGPT, in your tools.")
+        expect(text).toContain("https://meridian.example/v1")
+        expect(text).not.toContain("ANTHROPIC_BASE_URL")
+        expect(text).not.toContain("Claude")
+        expect(text).not.toContain("http://")
+      }
+      const both = intro({ auth: { loggedIn: true, email: "a@b.test" }, chatgpt: { mode: "owned" } }, { profiles: [], chatgpt: { owner: {} } })
+      expect(both).toContain("ANTHROPIC_BASE_URL")
+      expect(both).toContain("<code>https://meridian.example</code>")
+    })
+
+    test("lists telemetry ids no card shows, a renamed card's former names excepted", () => {
+      const rows = fns.pastUsage(
+        { default: { requests: 100 }, "old-seat": { requests: 27, estimatedUsd: 0.17 }, renamed: { requests: 4 }, live: { requests: 9 }, idle: { requests: 0 } },
+        [{ id: "live", entry: { aliases: ["renamed"] } }],
+      )
+      expect(rows.map(r => [r.id, r.requests])).toEqual([["default", 100], ["old-seat", 27]])
+    })
   })
 })
 
@@ -295,6 +357,7 @@ describe("design-system conformance (DESIGN.md)", () => {
     "src/telemetry/dashboard.ts",
     "src/telemetry/settingsPage.ts",
     "src/telemetry/profilePage.ts",
+    "src/telemetry/profileProviders.ts",
     "src/telemetry/loginCallbackPage.ts",
     "src/proxy/plugins/pluginPage.ts",
   ]
@@ -467,5 +530,89 @@ describe("per-page titles do not repeat the brand", () => {
 
   test("plugins page drops the redundant back-link", () => {
     expect(pluginPageHtml).not.toContain("Back to Meridian")
+  })
+})
+
+describe("header active-profile chip", () => {
+  function stubElement() {
+    const classes = new Set<string>()
+    return {
+      innerHTML: "", title: "", textContent: "", className: "", hidden: false,
+      classes,
+      classList: {
+        add: (name: string) => { classes.add(name) },
+        remove: (name: string) => { classes.delete(name) },
+        toggle: (name: string, on: boolean) => { if (on) classes.add(name); else classes.delete(name) },
+      },
+      removeAttribute: () => undefined,
+      setAttribute: () => undefined,
+      replaceChildren: () => undefined,
+      addEventListener: () => undefined,
+      contains: () => false,
+      querySelector: () => stubElement(),
+    }
+  }
+  function escapingDiv() {
+    let text = ""
+    return {
+      set textContent(value: string) { text = String(value) },
+      get innerHTML() { return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") },
+    }
+  }
+
+  // The script the page ships, run against a stub DOM with /profiles/list answering `list`.
+  async function chipFor(list: unknown) {
+    const elements = new Map<string, ReturnType<typeof stubElement>>()
+    const byId = (id: string) => {
+      let found = elements.get(id)
+      if (!found) { found = stubElement(); elements.set(id, found) }
+      return found
+    }
+    runInNewContext(profileBarJs, {
+      document: { getElementById: byId, querySelectorAll: () => [], createElement: escapingDiv, addEventListener: () => undefined },
+      location: { pathname: "/" },
+      window: { addEventListener: () => undefined },
+      MutationObserver: class { observe() {} },
+      requestAnimationFrame: () => 0,
+      fetch: (url: string) => Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(url === "/profiles/list" ? list : { status: "healthy" }),
+      }),
+      setInterval: () => 0, setTimeout: () => 0, clearTimeout: () => undefined,
+    })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    return byId("mhProfile")
+  }
+
+  const claude = (id: string, isActive: boolean) => ({ id, type: "claude-max", isActive })
+  const seat = (id: string, isActive: boolean) => ({ id, type: "chatgpt", provider: "chatgpt", isActive })
+  const follow = { url: "http://127.0.0.1:3456", activeProfile: "work", stale: false }
+
+  test("names the active profile of each provider, and only those", async () => {
+    const chip = await chipFor({ profiles: [claude("work", true), claude("spare", false), seat("oferty-c487c4", true), seat("damian-989a40", false)], follow: null })
+    expect(chip.innerHTML).toBe('<span class="mh-profile-name">work</span> <span class="mh-profile-type">claude-max</span> \u00b7 <span class="mh-profile-name">oferty-c487c4</span> <span class="mh-profile-type">chatgpt</span>')
+    expect(chip.title).toBe("Active profiles, one per provider — switch from the home page — work, oferty-c487c4")
+    expect(chip.classes.has("visible")).toBe(true)
+    expect(chip.classes.has("following")).toBe(false)
+  })
+
+  test("a ChatGPT-only instance shows its active seat", async () => {
+    const chip = await chipFor({ profiles: [seat("oferty-c487c4", false), seat("enriquetrevino1011-e1dde4", true)], follow: null })
+    expect(chip.innerHTML).toBe('<span class="mh-profile-name">enriquetrevino1011-e1dde4</span> <span class="mh-profile-type">chatgpt</span>')
+    expect(chip.title).toBe("Active profile — switch from the home page — enriquetrevino1011-e1dde4")
+  })
+
+  test("follow mode labels the Claude profile it follows, never the seat beside it", async () => {
+    const chip = await chipFor({ profiles: [claude("work", true), seat("oferty-c487c4", true)], follow })
+    expect(chip.innerHTML).toBe('<span class="mh-profile-name">work</span> <span class="mh-profile-type">claude-max</span> <span class="mh-profile-follow">following</span> \u00b7 <span class="mh-profile-name">oferty-c487c4</span> <span class="mh-profile-type">chatgpt</span>')
+    expect(chip.classes.has("following")).toBe(true)
+    expect(chip.title).toContain("Switching here is refused; switch on the followed instance. The ChatGPT seat beside it is not followed and switches from the home page.")
+  })
+
+  test("follow mode says nothing about following when only a seat is active", async () => {
+    const chip = await chipFor({ profiles: [claude("work", false), seat("oferty-c487c4", true)], follow })
+    expect(chip.innerHTML).toBe('<span class="mh-profile-name">oferty-c487c4</span> <span class="mh-profile-type">chatgpt</span>')
+    expect(chip.classes.has("following")).toBe(false)
+    expect(chip.title).toBe("Active profile — switch from the home page — oferty-c487c4")
   })
 })

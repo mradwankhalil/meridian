@@ -273,3 +273,30 @@ describe("renderCliDashboard — colour", () => {
     expect(cool).toContain("\x1b[38;5;71m")
   })
 })
+
+describe("renderCliDashboard — accounts come from configuration, not telemetry", () => {
+  // Telemetry keeps the ids of seats an instance no longer has; on an instance
+  // serving only ChatGPT, every one of them used to become an account row.
+  const leftover: SummaryPayload = {
+    ...summary,
+    costEstimate: { totalUsd: 0.17, byProfile: { default: { requests: 100, estimatedUsd: 0 }, "former-seat": { requests: 27, estimatedUsd: 0.17 } } },
+  }
+
+  it("draws no account for a ChatGPT-only instance with no seat yet", () => {
+    const out = renderCliDashboard({
+      ...healthyFleet,
+      health: { status: "degraded", mode: "internal" },
+      profileList: { profiles: [], chatgpt: { owner: { name: "meridian" } } },
+      quota: { profiles: [] },
+      summary: leftover,
+    })
+    expect(out).not.toContain("former-seat")
+    expect(out).not.toMatch(/\baccount\b.*\$0\.00/)
+  })
+
+  it("still draws the ambient Claude login as the one account, and nothing else", () => {
+    const out = renderCliDashboard({ ...healthyFleet, profileList: { profiles: [] }, quota: { profiles: [] }, summary: leftover })
+    expect(out).toContain("someone@example.com")
+    expect(out).not.toContain("former-seat")
+  })
+})

@@ -75,6 +75,20 @@ server orchestration. The build packages self-contained retry integrations under
 `dist/antigravity-clients`; npm, Nix and Docker installations carry those assets.
 Setup prepares edits before writing, preserves unrelated settings, rejects malformed
 or conflicting input, creates private backups and uses per-file atomic replacement.
+`chatgpt/migrate/` implements `meridian chatgpt-migrate`: credential discovery
+(`sources.ts`), /proc scanning (`processes.ts`), opencode config resolution and
+jsonc editing (`opencodeConfig.ts`), stripping under oc-codex-multi-auth's own
+locks (`strip.ts`, `files.ts`), duplicate detection and naming on import
+(`duplicates.ts`), finding the running instance's store and config directory
+(`instance.ts`), the `--reverse` hand-back to the plugin (`reverse.ts`, with
+the pure store merge in `handback.ts`) and the owned-store adapter
+(`ownedStore.ts`), which writes only through `chatgpt/credentials.ts` under the
+writer lease. The server never imports it.
+`instanceImport/` implements `meridian instance-import`: the pure plan that names
+every seat the way the destination will (`plan.ts`), the telemetry copy keyed on
+`request_id` and its column-by-column verification (`telemetry.ts`), and the run
+under both stores' writer leases that retires the source by renaming its files
+(`importer.ts`). The server never imports it.
 `telemetry/providerSetup.ts` shares pure command generation and setup presentation
 between the web provider page and desktop. Desktop clipboard requests contain
 choices rather than arbitrary text; the main process validates them against its
@@ -261,6 +275,9 @@ src/
 │   ├── dashboard.ts           ← HTML dashboard
 │   ├── pricing.ts             ← Static API list prices + cost estimation (pure)
 │   ├── pricingStore.ts        ← User pricing overrides (persisted JSON)
+│   ├── openaiPricingData.ts   ← Generated OpenAI list prices (scripts/update-openai-pricing.ts)
+│   ├── openaiPricingUpdate.ts ← Builds/validates that table from models.dev + LiteLLM (pure)
+│   ├── openaiOfficialPricing.ts ← Hand-kept official OpenAI rates guarding the update
 │   ├── profileBar.ts          ← Shared profile switcher bar (injected into HTML pages)
 │   ├── profilePage.ts         ← Profile management page HTML
 │   ├── pageLayout.ts          ← Contained/wide layout setting, stamped on each page as it is served

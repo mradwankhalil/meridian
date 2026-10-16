@@ -172,6 +172,14 @@ return unavailable expiry facts and preserve the existing authentication
 provenance. A changed or missing current deadline replaces the displayed value;
 Meridian does not infer a new login or retain a separate login-history file.
 
+### ChatGPT seats
+
+An instance serving [ChatGPT subscriptions](configuration.md#chatgpt-subscriptions) lists each seat as a profile of `type: "chatgpt"` beside the Claude ones, and the same commands and routes act on it. Each provider keeps its own active account, so switching a seat never moves the Claude pointer.
+
+Meridian renews each seat in its own store on the eighth day of its ten-day access token, whether or not work is sent to it, one seat per minute at most (`[chatgpt] renewing account … ahead of expiry`). A request renews only the seat it is routed to, so without this a seat no work goes to runs out and cannot serve though nothing refused it. A failed exchange leaves its seat needing a sign-in, so after OpenAI fails one, renewing ahead of expiry pauses for six hours.
+
+When OpenAI refuses a renewal, the log line and the `cause` field of `POST /profiles/chatgpt/refresh` name which refusal it was: `refresh token expired`, `refresh token already used` (another program renewed the same login first) or `refresh token revoked`. A failure on OpenAI's side records `HTTP <status>` instead.
+
 ### Switching profiles
 
 ```bash

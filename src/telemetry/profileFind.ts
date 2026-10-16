@@ -32,7 +32,8 @@ function profileIdFromHash(hash) {
   try { return decodeURIComponent(raw); } catch (_) { return raw; }
 }
 
-// Exact id, then a former name, then the same two ignoring case. An id beats
+// Exact id, then a former name, then a ChatGPT seat's raw seat id (every
+// route accepts one), then the id and former names ignoring case. An id beats
 // an alias so a name taken again by a new profile lands on the new owner,
 // matching how requests are routed.
 function resolveProfileAnchor(hash, profiles) {
@@ -43,6 +44,7 @@ function resolveProfileAnchor(hash, profiles) {
   var passes = [
     function (p) { return p.id === wanted; },
     function (p) { return (p.aliases || []).indexOf(wanted) >= 0; },
+    function (p) { return !!p.seat && p.seat === wanted; },
     function (p) { return String(p.id).toLowerCase() === lower; },
     function (p) {
       return (p.aliases || []).some(function (a) { return String(a).toLowerCase() === lower; });

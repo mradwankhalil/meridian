@@ -85,6 +85,9 @@ Environment variables, endpoints, authentication, SDK feature toggles, passthrou
 | `MERIDIAN_AUTH_RENEWAL_WARN_DAYS` | — | `3` | Renewal warning horizon reported by health when credential renewal information is available. |
 | `MERIDIAN_PLUGIN_DIR` | — | `<config dir>/plugins` | Plugin auto-discovery directory |
 | `MERIDIAN_PLUGIN_CONFIG` | — | `<config dir>/plugins.json` | Plugin manifest path |
+| `MERIDIAN_CHATGPT_CREDENTIALS` | — | unset | Serve GPT models from ChatGPT subscriptions: `owned`, `follow-external` or `off`. Unset means `owned` when Meridian's own ChatGPT store holds seats, else off. See [ChatGPT subscriptions](#chatgpt-subscriptions). |
+| `MERIDIAN_CHATGPT_STORE_PATH` | — | `<config dir>/chatgpt-accounts.json` | Meridian's own ChatGPT seat store (`owned` mode). |
+| `MERIDIAN_CODEX_POOL_PATH` | — | `~/.opencode/oc-codex-multi-auth-accounts.json` | The oc-codex-multi-auth store read in `follow-external` mode. |
 | `MERIDIAN_CREDENTIALS_READONLY` | `CLAUDE_PROXY_CREDENTIALS_READONLY` | unset | Set to `1` to forbid this instance from refreshing or writing OAuth credentials. For a second instance sharing another's credential files — see [Read-only credentials](#read-only-credentials). |
 
 †These are Meridian context defaults, not a billing guarantee. Availability and extended-context charges depend on the model and account; consult [Anthropic model configuration](https://code.claude.com/docs/en/model-config#extended-context). Historical Max/Team tests do not establish entitlement for another account.
@@ -153,6 +156,7 @@ With it set:
 |---|---|
 | Proactive refresh on boot and every 45s | Not scheduled |
 | Auth keepalive every 45s | Not scheduled |
+| Renewing owned ChatGPT seats ahead of expiry, on boot and every 60s | Not scheduled |
 | Auth-status cache (60s TTL) | Also invalidated when the credential file's mtime changes, so a rotation by the other instance is picked up on the next tick |
 | Any credential write | Refused at the credential store, and logged to stderr |
 | Any OAuth refresh request | Not sent — the grant would rotate the token server-side even if the result were never written |
@@ -718,13 +722,15 @@ HTTP requests before requesting a graceful shutdown:
   "oldestStartedAt": "2026-09-28T11:01:40.012Z",
   "upstreams": {
     "claude": { "streams": 1, "requests": 0, "queued": 2 },
-    "antigravity": { "streams": 0, "requests": 0, "queued": 0 }
+    "antigravity": { "streams": 0, "requests": 0, "queued": 0 },
+    "chatgpt": { "streams": 0, "requests": 0, "queued": 0 }
   }
 }
 ```
 
 - `scope` is `"client-http"`. `total` counts admitted Claude Messages requests
-  (including internal OpenAI translations) and combined Antigravity POSTs; zero
+  (including internal OpenAI translations), combined Antigravity POSTs and
+  ChatGPT gateway turns; zero
   means that none of those requests is currently admitted. It does not mean
   that restarting will interrupt no work. Each request counts once: in `queued`
   while it waits for its session's turn or a free SDK slot, otherwise in
@@ -737,6 +743,8 @@ HTTP requests before requesting a graceful shutdown:
   after their `POST` returned and processes waiting for a client tool result
   are not counted. The standalone
   `MERIDIAN_BACKEND=antigravity` server does not serve `/inflight`.
+- `chatgpt` appears only when the ChatGPT gateway is configured and counts
+  every turn it serves on `/v1/responses` and `/v1/messages`.
 - Meridian's own background work (token refresh, usage polling, session
   cleanup) is never counted.
 - Only a loopback peer (`127.0.0.0/8`, `::1`) gets an answer, and not through a
@@ -1175,7 +1183,128 @@ ANTHROPIC_API_KEY=your-secret-key ANTHROPIC_BASE_URL=http://meridian-host:3456 o
 | `meridian profile login <name> [--headless]` | Re-authenticate an expired profile, adding it first if that name has no profile yet (browser-login profiles only); `--headless` uses the URL/code flow |
 | `meridian profile remove <name>` | Remove a profile and its credentials |
 | `meridian refresh-token` | Manually refresh the Claude OAuth token (exits 0/1) |
+| `meridian chatgpt-migrate [--reverse] [--dry-run] [--step <steps>]` | Move ChatGPT accounts from oc-codex-multi-auth and opencode's OpenAI login into Meridian's store, or with `--reverse` hand them back. See [ChatGPT migration](#chatgpt-migration) |
+| `meridian instance-import --from <dir> --to <dir> [--apply]` | Move one Meridian instance's ChatGPT seats, settings and telemetry into another, then retire the source. See [Moving ChatGPT seats between instances](#moving-chatgpt-seats-between-instances) |
 | `meridian test-error-report` | Crash on purpose so the configured [error-reporting](#error-reporting) collector receives a test issue. Always exits 1; when reporting is off it only prints how to turn it on |
+
+## ChatGPT subscriptions
+
+Meridian can serve OpenAI models from ChatGPT subscriptions (Plus, Pro,
+Business) beside Claude. A request for an OpenAI model (`gpt-*`, `chatgpt-*`,
+`codex*`, `o<n>*`) on `POST /v1/responses` is passed through to the Codex
+backend with one of your ChatGPT seats; every other model keeps going to
+Claude. The ChatGPT path never enters the Claude pipeline: no Agent SDK, no
+system prompt and no request plugins, so a Claude-oriented plugin cannot
+rewrite a GPT request. A GPT model is never answered by Claude: on
+`/v1/messages` it gets a 404 saying to use the Responses API.
+
+`POST /v1/images/generations` and `POST /v1/images/edits` (the OpenAI Images
+API) always go to ChatGPT, whatever model the body names, on the same seats
+and with the same failover as a Responses turn. The body is sent to the Codex
+backend's image endpoints as the client wrote it, and its JSON answer comes
+back unchanged. Without ChatGPT they answer 404.
+
+| `MERIDIAN_CHATGPT_CREDENTIALS` | Seats come from |
+|---|---|
+| `owned` | Meridian's own store (`MERIDIAN_CHATGPT_STORE_PATH`). Meridian takes a writer lease on it at startup and is the only program that renews its seats, each before its access token runs out. |
+| `follow-external` | The oc-codex-multi-auth store (`MERIDIAN_CODEX_POOL_PATH`), read-only. Meridian never refreshes or writes it; that tool owns sign-in, renewal and removal. |
+| `off` | Nowhere: GPT model names keep meaning Claude, as before. |
+
+Unset, Meridian runs `owned` once its own store holds a seat, and is off
+otherwise, so an instance nobody configured for ChatGPT is unchanged.
+
+**Adding a seat** (`owned`): on `/profiles`, type a name and choose
+**Connect with ChatGPT**, or run `meridian profile add <name> --chatgpt`
+(`--headless` for a device code). ChatGPT redirects the browser to
+`http://127.0.0.1:1455/auth/callback`; from another machine, paste the address
+the tab ended on into the panel, or use the device code. Seats already signed
+in to oc-codex-multi-auth move over with [`meridian chatgpt-migrate`](#chatgpt-migration).
+
+**Seats are profiles.** `/profiles/list`, `/v1/usage/quota/all`,
+`POST /profiles/active`, `/profiles/events` and `meridian profile
+list|switch|rename|remove|login` cover seats as they cover Claude profiles,
+with `type: "chatgpt"`. Each provider has its own active account. A turn goes
+to the active seat, else the next seat with plan quota in the saved profile
+order; a seat that is rate limited or refuses a model is benched and the next
+one is tried before any output reaches the client. `x-meridian-profile` pins a
+turn to one seat. `POST /profiles/chatgpt/remove` deletes an owned seat with
+its credentials.
+
+**Settings → ChatGPT** holds the gateway's own options: forwarding reasoning
+summaries, a per-request cost cap, a fallback model, when a seat with its plan
+spent may serve on purchased Codex credits (`never` by default), and where
+free-plan seats rank.
+
+**Telemetry and health.** Each turn is recorded with `adapter: "chatgpt"`,
+valued at OpenAI list prices for the model that served it. `/health` carries a
+`chatgpt` block (seat counts only) and judges the instance by every backend it
+serves, `/readyz` counts seats as profiles, and `/v1/models` lists the models
+the Codex backend's catalog offers.
+
+Point an OpenAI-compatible client's base URL at `http://127.0.0.1:3456/v1`.
+For OpenCode, set `provider.openai.options.baseURL` to that address.
+
+## ChatGPT migration
+
+`meridian chatgpt-migrate` hands ChatGPT subscription accounts from oc-codex-multi-auth (and opencode's own `openai` OAuth login in `auth.json`) to Meridian. Refresh tokens are single-use, so exactly one program may refresh each account; the command moves that authority rather than copying it.
+
+| Step | What it does |
+|------|--------------|
+| `processes` | Lists running opencode processes that still hold the tokens in memory: those whose effective config loads the plugin, and, while `auth.json` holds an OpenAI login, every opencode process. A process whose config changed after it started counts only if that file may have listed the plugin when it started: the `.meridian-backup` the `plugin` step wrote shows when the plugin was removed, so a later unrelated rewrite of the file does not flag processes started after the removal. systemd units are named with the command that stops them. Nothing is killed |
+| `import` | Reads every copy of every account (global and per-project stores, flagged store, `backups/`, keychain entries with `CODEX_KEYCHAIN=1` or `--keychain`, `auth.json`) and writes the freshest token per seat into Meridian's store. Accounts found only in backups need `--include-backup-only` |
+| `strip` | Removes the refresh tokens from the plugin's stores under its own locks, removes the `openai` OAuth entry from `auth.json`, and moves `backups/` aside. Each original is kept as `<name>.meridian-backup` (mode 0600). A source holding a seat Meridian does not hold yet, or holds an older token for, is refused unless `--strip-unowned` |
+| `plugin` | Removes oc-codex-multi-auth from every opencode config that loads it, global and project-level, and from the TUI configs (`tui.json`/`tui.jsonc`) that load its quota status bar, keeping comments |
+| `provider` | Sets `provider.<id>.options.baseURL` (default provider `openai`, `--provider` to change) to Meridian in the global config file that takes precedence |
+| `validate` | Checks through the running Meridian that each account reports its quota; `--test-prompt` also sends one short prompt on the cheapest model |
+
+Steps run in that order; `--step import,strip` runs a subset. `import` and `strip` refuse while a process holds the tokens unless `--force`, which overrides that check and nothing else: the `processes` step then reports the holders without failing the run. Run with `--dry-run` first: it reads everything, writes nothing, and never prints a token. After `import`, run Meridian with `MERIDIAN_CHATGPT_CREDENTIALS=owned` (or unset) so it refreshes the accounts, and restart opencode after `plugin` and `provider`.
+
+The store and the settings (where profile names are saved) are those of the Meridian server running at `--meridian-url`, found in `/proc` by its port, so an instance with its own `HOME` or `MERIDIAN_CHATGPT_STORE_PATH` is migrated into the files it actually reads. The command prints which ones it uses, and the flags to pass when that instance is stopped. `--store` and `--config-dir` win over everything, then `MERIDIAN_CHATGPT_STORE_PATH` and `MERIDIAN_CONFIG_DIR` when this shell sets them, then the running instance, then the defaults.
+
+### Duplicates on import
+
+`import` compares every seat with the ChatGPT profiles Meridian already holds:
+
+- **Same seat** (same `accountUserId`): never a second profile. The one record keeps whichever token is fresher, and its profile name. Two records for one seat would hold one single-use refresh token twice, and the second renewal would fail.
+- **Possible duplicate** (another `accountUserId` with the same email in the same workspace): imported under `<name> (possibly duplicate of <existing profile>)`, spelled as a profile id, e.g. `alice-shared-3b18-possibly-duplicate-of-alice-shared`. The name is saved in `chatGptProfileNames`; rename it on `/profiles` once checked. `--skip-possible-duplicates` leaves these seats out. Each such seat has its own refresh token, so importing it renews nothing twice.
+- A seat whose refresh token Meridian already holds under another seat is refused.
+
+Email alone is not identity (one person holds seats in several workspaces), and neither is the workspace (a Business workspace holds many people). The dry run prints every match.
+
+### Reverse: handing seats back to oc-codex-multi-auth
+
+`meridian chatgpt-migrate --reverse` undoes the migration, step by step:
+
+| Step | What it does |
+|------|--------------|
+| `processes` | Lists opencode processes that still hold plugin tokens (refused for `handback` without `--force`), and the ones that need a restart to load the plugin again |
+| `handback` | Writes Meridian's seats into the plugin's global store (`--plugin-store` for another), merged by `accountUserId`: every other account is kept, and the store as it was is preserved as `.meridian-backup`. A `.meridian-backup` original whose refresh token Meridian never renewed is restored whole; otherwise Meridian's current token is laid over the plugin's own record. Then the seats are removed from Meridian's store, under its writer lease, so exactly one program renews each. Stop Meridian first; a seat with an interrupted renewal is skipped unless `--include-interrupted` (`--force` only overrides the process check). `--seat <profile or seat id>` hands back only some |
+| `plugin` | Puts oc-codex-multi-auth back in every config whose preserved original listed it, at its old position, and in the global file whose plugin list opencode uses. Its TUI status bar goes back into the `tui.json` files that listed it, or into the global `tui.json` (where the plugin's installer puts it) when none did. The spec is the one the original named, else `oc-codex-multi-auth@latest`; `--plugin-path <repo>` writes `file://<repo>` instead (it must be a checkout of the plugin; build it with `npm ci && npm run build`) |
+| `provider` | Undoes the `provider` step: `baseURL` goes back to its value before the migration (or away), and the placeholder `apiKey` goes only if the provider had none before |
+| `verify` | Checks that no seat is renewed by both, that opencode's global config loads the plugin and its global TUI config the status bar, and that the provider no longer points at Meridian |
+
+The plugin restores opencode's own `openai` login in `auth.json` from its store when it loads; the `backups/` directory the forward `strip` moved aside holds spent tokens and stays aside. Restart opencode afterwards.
+
+## Moving ChatGPT seats between instances
+
+`meridian instance-import` folds one instance's ChatGPT seats into another, for example a separate ChatGPT instance into the one that serves Claude, so a single Meridian serves both. Each instance is named by its config directory (its `MERIDIAN_CONFIG_DIR`); `--from-store`/`--to-store` and `--from-telemetry`/`--to-telemetry` name a store or database the instance keeps elsewhere (`MERIDIAN_CHATGPT_STORE_PATH`, `MERIDIAN_TELEMETRY_DB`).
+
+```bash
+meridian instance-import --from ~/.config/meridian-gpt --to ~/.config/meridian          # what would happen
+meridian instance-import --from ~/.config/meridian-gpt --to ~/.config/meridian --apply  # do it
+```
+
+| Moved | How |
+|---|---|
+| ChatGPT seats | Every account in the source's store, with its credentials unchanged and in its order, written through the destination store's writer lease |
+| Seat names | `chatGptProfileNames`, `chatGptProfileAliases` and `chatGptActiveSeat` (unless the destination has an active seat of its own), so every seat keeps its profile name and former names |
+| ChatGPT features | `chatgpt` and `integrations` keys the destination does not set; a value both set differently is a conflict. Routing order entries that name a seat |
+| Prices | `model-pricing.json` overrides the destination does not have |
+| Telemetry | Every request and diagnostic log entry, with all its columns, under the same profile ids, so each seat's requests and estimated value on `/` and `/telemetry` are what they were |
+
+Other settings (`layout`, `claudeExecutable`, ...) and Claude profiles stay with their instance; a source with Claude profiles is refused. The plan is computed the way the destination will name its seats: a name the destination already uses for a Claude profile, a former name, or another seat, and requests filed under such a name, are conflicts, and nothing is written. `--rename <old>=<new>` files a seat, or requests filed under `<old>`, under another name.
+
+With `--apply`, neither instance may be serving ChatGPT: stop the source, and the destination unless it has no ChatGPT seats yet (a destination still serving Claude may keep running). Telemetry is copied first, in short transactions beside the running destination, and read back column by column; then the settings; the seats last. Only after the whole destination has been checked again is the source retired: each file it read is renamed to `<name>.imported-<time>`, and nothing is deleted. A run that stops part-way leaves the source in place, and running the command again continues it without copying a request twice. Once it succeeds, restart the destination with `MERIDIAN_CHATGPT_CREDENTIALS=owned` (or unset).
 
 ## SDK Feature Toggles (Experimental)
 

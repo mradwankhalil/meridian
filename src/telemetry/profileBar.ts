@@ -54,6 +54,18 @@ export const themeCss = `
     --queue:     #d29922;
     --ttfb:      #58a6ff;
     --upstream:  #3fb950;
+    /* Provider brands, for account cards only (profileProviders.ts): a
+       card's stripe and badge, its provider's chip and heading, and the
+       border of each provider's active account. -bright is the brand mixed
+       30% toward white, for hover and badge text; -rgb feeds tinted fills.
+       ChatGPT is its green-grey, not its violet #ab68ff: that one shares
+       --accent2's hue, and its bright tint is --accent2 itself. */
+    --claude:         #c15f3c;
+    --claude-bright:  #d48f76;
+    --claude-rgb:     193,95,60;
+    --chatgpt:        #74aa9c;
+    --chatgpt-bright: #9ec3ba;
+    --chatgpt-rgb:    116,170,156;
   }
   /* Banner backsplash — the brand look: a gentle diagonal wash with soft
      blue (top-left) and violet (bottom-right) glows. Pages must not set
@@ -590,23 +602,32 @@ export const profileBarJs = `
     });
 
     fetch('/profiles/list').then(function(r) { return r.json(); }).then(function(data) {
-      var current = (data.profiles || []).find(function(p) { return p.isActive; });
-      if (!current) { profileChip.classList.remove('visible'); return; }
+      // One per provider: an instance serving Claude and ChatGPT has an active
+      // Claude account and an active ChatGPT seat, and both take work.
+      var actives = (data.profiles || []).filter(function(p) { return p.isActive; });
+      if (actives.length === 0) { profileChip.classList.remove('visible'); return; }
+      var claudeActive = actives.some(function(p) { return p.provider !== 'chatgpt'; });
+      var seatActive = actives.some(function(p) { return p.provider === 'chatgpt'; });
       // Follow mode: say so on every page. An instance quietly taking its
       // active profile from another one, with a picker that won't stick, is
-      // otherwise an hour of confusion.
-      var follow = data.follow;
+      // otherwise an hour of confusion. It follows the Claude pointer only.
+      var follow = claudeActive ? data.follow : null;
       var followLabel = follow ? (follow.activeProfile ? 'following' : 'follow: local') : '';
       if (follow && follow.stale) followLabel += ' (stale)';
-      profileChip.innerHTML = '<span class="mh-profile-name">' + esc(current.id) + '</span> <span class="mh-profile-type">' + esc(current.type || '') + '</span>'
-        + (follow ? ' <span class="mh-profile-follow">' + esc(followLabel) + '</span>' : '');
+      profileChip.innerHTML = actives.map(function(p) {
+        return '<span class="mh-profile-name">' + esc(p.id) + '</span> <span class="mh-profile-type">' + esc(p.type || '') + '</span>'
+          + (follow && p.provider !== 'chatgpt' ? ' <span class="mh-profile-follow">' + esc(followLabel) + '</span>' : '');
+      }).join(' \\u00b7 ');
       profileChip.classList.toggle('following', !!follow);
       profileChip.title = follow
         ? 'Active profile follows ' + follow.url + ' (MERIDIAN_FOLLOW_ACTIVE)'
           + (follow.activeProfile ? '' : ' — no usable value from it, using the local profile')
           + '. Switching here is refused; switch on the followed instance.'
-        : 'Active profile — switch from the home page';
-      profileChip.title += ' — ' + current.id;
+          + (seatActive ? ' The ChatGPT seat beside it is not followed and switches from the home page.' : '')
+        : actives.length > 1
+          ? 'Active profiles, one per provider — switch from the home page'
+          : 'Active profile — switch from the home page';
+      profileChip.title += ' — ' + actives.map(function(p) { return p.id; }).join(', ');
       profileChip.classList.add('visible');
     }).catch(function() {});
   }

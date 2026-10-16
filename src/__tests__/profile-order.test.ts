@@ -2,11 +2,13 @@
  * Unit tests for the profile-reordering helpers — pure functions, no mocks.
  */
 import { describe, expect, it } from "bun:test"
+import { runInNewContext } from "node:vm"
 import {
   EDGE_ZONE_PX,
   MAX_SCROLL_PX_PER_FRAME,
   edgeScrollVelocity,
   moveInOrder,
+  moveWithinGroup,
   reorderClientJs,
   sortByOrder,
 } from "../telemetry/profileOrder"
@@ -161,5 +163,121 @@ describe("one gesture implementation, shared by both pages", () => {
     expect(reorderClientJs).toContain("requestAnimationFrame")
     expect(reorderClientJs).toContain(`var EDGE_ZONE_PX = ${EDGE_ZONE_PX};`)
     expect(reorderClientJs).toContain(`var MAX_SCROLL_PX_PER_FRAME = ${MAX_SCROLL_PX_PER_FRAME};`)
+  })
+})
+
+describe("moveWithinGroup", () => {
+  const order = ["c1", "c2", "g1", "g2"]
+  const groups = ["claude", "claude", "chatgpt", "chatgpt"]
+
+  it("moves within a group", () => {
+    expect(moveWithinGroup(order, groups, 0, 1)).toEqual(["c2", "c1", "g1", "g2"])
+    expect(moveWithinGroup(order, groups, 3, 2)).toEqual(["c1", "c2", "g2", "g1"])
+  })
+
+  it("refuses a move into another group with an unchanged copy", () => {
+    const result = moveWithinGroup(order, groups, 1, 2)
+    expect(result).toEqual(order)
+    expect(result).not.toBe(order)
+  })
+
+  it("refuses an index outside the list", () => {
+    expect(moveWithinGroup(order, groups, -1, 0)).toEqual(order)
+    expect(moveWithinGroup(order, groups, 3, 4)).toEqual(order)
+  })
+})
+
+describe("the drag gesture keeps a card among its own provider's cards", () => {
+  // The cards a page draws: grouped by provider, data-index across the page.
+  function harness() {
+    const content: Record<string, (e: unknown) => void> = {}
+    const doc: Record<string, (e?: unknown) => void> = {}
+    const saves: string[][] = []
+    const status = { textContent: "" }
+    const cards = [["c1", "claude"], ["c2", "claude"], ["g1", "chatgpt"], ["g2", "chatgpt"]].map(([id, group], index) => {
+      const classes = new Set<string>()
+      const card: Record<string, unknown> = {
+        classes,
+        dataset: { id, group, index: String(index) },
+        classList: {
+          add: (...names: string[]) => names.forEach(n => classes.add(n)),
+          remove: (...names: string[]) => names.forEach(n => classes.delete(n)),
+        },
+      }
+      const handle = { dataset: { index: String(index) }, focus() {}, closest: (s: string) => (s === ".drag-handle" ? handle : s === ".profile-card" ? card : null) }
+      card.closest = (s: string) => (s === ".profile-card" ? card : null)
+      card.querySelector = (s: string) => (s === ".drag-handle" ? handle : null)
+      return { card, handle, classes }
+    })
+    const marked = (...names: string[]) => cards.filter(c => names.some(n => c.classes.has(n))).map(c => c.card)
+    const sandbox: Record<string, unknown> = {
+      document: {
+        getElementById: (id: string) => (id === "content" ? { addEventListener: (t: string, fn: (e: unknown) => void) => { content[t] = fn } } : id === "orderStatus" ? status : null),
+        addEventListener: (t: string, fn: () => void) => { doc[t] = fn },
+        querySelectorAll: (s: string) =>
+          s === ".profile-card[data-id]" ? cards.map(c => c.card)
+            : s === ".profile-card.drop-target" ? marked("drop-target")
+              : s === ".profile-card.dragging, .profile-card.drop-target" ? marked("dragging", "drop-target")
+                : [],
+        activeElement: null,
+      },
+      fetch: (_url: string, init: { body: string }) => {
+        saves.push(JSON.parse(init.body).profileOrder)
+        return Promise.resolve({ ok: true })
+      },
+      requestAnimationFrame: () => 0, cancelAnimationFrame() {}, scrollBy() {}, innerHeight: 800,
+    }
+    sandbox.window = sandbox
+    runInNewContext(reorderClientJs, sandbox)
+    const reorder = sandbox.meridianReorder as { init(o: { onSaved(): void }): void }
+    reorder.init({ onSaved() {} })
+    const at = (id: string) => cards.find(c => c.card.dataset && (c.card.dataset as { id: string }).id === id)!
+    const settle = () => new Promise(resolve => setTimeout(resolve, 0))
+    return {
+      saves, status, at, settle,
+      drag(from: string) {
+        content.dragstart!({ target: at(from).handle, dataTransfer: { setData() {}, setDragImage() {} } })
+      },
+      over(to: string) {
+        let accepted = false
+        content.dragover!({ target: at(to).card, preventDefault: () => { accepted = true }, dataTransfer: {} })
+        return accepted
+      },
+      drop(to: string) { content.drop!({ target: at(to).card, preventDefault() {} }) },
+      end() { doc.dragend!() },
+      key(id: string, key: "ArrowUp" | "ArrowDown") { content.keydown!({ key, target: at(id).handle, preventDefault() {} }) },
+    }
+  }
+
+  it("another provider's card is no drop target, and a drop there saves nothing", () => {
+    const h = harness()
+    h.drag("c1")
+    expect(h.over("g1")).toBe(false)
+    expect(h.at("g1").classes.has("drop-target")).toBe(false)
+    h.drop("g1")
+    h.end()
+    expect(h.saves).toEqual([])
+  })
+
+  it("a drop on its own provider's card saves the move", async () => {
+    const h = harness()
+    h.drag("c1")
+    expect(h.over("c2")).toBe(true)
+    expect(h.at("c2").classes.has("drop-target")).toBe(true)
+    h.drop("c2")
+    await h.settle()
+    expect(h.saves).toEqual([["c2", "c1", "g1", "g2"]])
+    expect(h.status.textContent).toBe("c1 moved to position 2 of 2.")
+  })
+
+  it("the arrow keys stop at the edge of a provider's cards", async () => {
+    const h = harness()
+    h.key("c2", "ArrowDown")
+    h.key("g1", "ArrowUp")
+    expect(h.saves).toEqual([])
+    h.key("g1", "ArrowDown")
+    await h.settle()
+    expect(h.saves).toEqual([["c1", "c2", "g2", "g1"]])
+    expect(h.status.textContent).toBe("g1 moved to position 2 of 2.")
   })
 })

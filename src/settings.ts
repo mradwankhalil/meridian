@@ -44,6 +44,16 @@ export interface MeridianSettings {
    *  profiles.json order. MERIDIAN_PROFILE_ORDER env var takes precedence. */
   profileOrder?: string[]
   priorityFailback?: PriorityFailbackPolicy
+  /** The ChatGPT seat (accountUserId) unpinned ChatGPT turns go to first; POST /profiles/active. */
+  chatGptActiveSeat?: string
+  /** Operator-chosen profile ids for ChatGPT seats, keyed by seat id (accountUserId). */
+  chatGptProfileNames?: Record<string, string>
+  /**
+   * Former ids of renamed ChatGPT seats, keyed by seat id. The ChatGPT half of
+   * a Claude profile's `aliases`: a request, link or exclusion naming one still
+   * reaches the seat until a profile takes that name again.
+   */
+  chatGptProfileAliases?: Record<string, string[]>
 
   /**
    * Keep telemetry in SQLite instead of memory, so it survives a restart.
@@ -62,6 +72,11 @@ export interface MeridianSettings {
   telemetrySize?: number
   /** Entries the in-memory diagnostic log ring holds. MERIDIAN_DIAGNOSTIC_LOG_SIZE wins. */
   diagnosticLogSize?: number
+
+  integrations?: MeridianIntegrationSettings
+
+  /** ChatGPT gateway features. Re-read per request; resolved in proxy/chatgpt/features.ts. */
+  chatgpt?: ChatGptFeatureSettings
 
   /**
    * Sentry-protocol DSN (GlitchTip, Sentry) that Meridian's own uncaught
@@ -105,6 +120,36 @@ export interface MeridianSettings {
   upstreamUnreachableAfterMs?: number
   upstreamUnreachableHoldMs?: number
   upstreamUnreachableMinFailures?: number
+}
+
+/** What the operator saved; absent keys take the defaults in proxy/chatgpt/features.ts. */
+export type ChatGptFeatureSettings = {
+  thinkingPassthrough?: boolean
+  /** "client" | "auto" | "concise" | "detailed"; see ChatGptReasoningSummary. */
+  reasoningSummary?: string
+  maxBudgetUsd?: number
+  fallbackModel?: string
+  /** "never" | "reserve" | "immediately"; see ChatGptCreditsPolicy. */
+  creditsPolicy?: string
+  /** Seat id (accountUserId) -> policy overriding `creditsPolicy` for that seat. */
+  seatCreditsPolicy?: Record<string, string>
+  /** "before-credits" | "after-credits"; see ChatGptFreeSeatOrder. */
+  freeSeatOrder?: string
+}
+
+/**
+ * A type alias rather than an interface so it carries an implicit index
+ * signature: flags written by a newer build survive a round-trip through an
+ * older one.
+ */
+export type MeridianIntegrationSettings = {
+  /** ChatGPT account usage windows, read with the accounts' own access tokens. Never refreshes. */
+  codexUsage?: boolean
+}
+
+/** On unless the operator turned it off; off means no usage request at all. */
+export function isCodexUsageEnabled(settings: MeridianSettings): boolean {
+  return settings.integrations?.codexUsage ?? true
 }
 
 /**
