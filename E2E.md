@@ -51,6 +51,13 @@ those sources load executable hooks/plugins as well as markdown. Client-owned
 instructions must arrive in the client system context. Explicit SDK hooks,
 memory settings, preset selection and non-passthrough source selection remain.
 
+Existing native sessions can retain SessionStart guidance injected before this
+isolation policy. Removing a discovery source does not erase saved guidance.
+A fresh client conversation is required to establish an uncontaminated native
+session; do not treat successful resumed tool filtering as proof of clean
+instructions. The owned resumed-session probe in the maintenance evidence
+records this limitation separately from the fresh-session gate.
+
 ## Overlapping passthrough queries
 
 ```sh
