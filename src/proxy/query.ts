@@ -800,8 +800,8 @@ export function buildQueryOptions(ctx: QueryContext, abortController?: AbortCont
       // `--setting-sources=` → subprocess loads nothing. Omitting the key
       // makes claude-code fall back to its built-in default (user + project
       // + local) and slurp CLAUDE.md from the PROXY HOST's cwd into the
-      // system prompt regardless of claudeMd:"off" — #490 fixed this for
-      // passthrough; this extends the same guarantee to every adapter.
+      // system prompt regardless of claudeMd:"off". Client-owned passthrough
+      // always stays isolated; SDK-owned tools retain the selected sources.
       settingSources: sdkSettingSources,
       ...(onStderr ? { stderr: onStderr } : {}),
       env: {

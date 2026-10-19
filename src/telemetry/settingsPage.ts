@@ -292,7 +292,7 @@ ${profileBarHtml}
 const FEATURES = [
   { key: 'codeSystemPrompt', label: 'Claude Code Prompt', desc: 'Include the built-in Claude Code system prompt (tool usage rules, safety guidelines, coding best practices)', type: 'toggle' },
   { key: 'clientSystemPrompt', label: 'Client Prompt', desc: 'Include the system prompt sent by the connecting agent (e.g. OpenCode or Crush instructions)', type: 'toggle' },
-  { key: 'claudeMd', label: 'CLAUDE.md', desc: 'Load CLAUDE.md instruction files — Off: none, Project: ./CLAUDE.md only, Full: ~/.claude/CLAUDE.md + ./CLAUDE.md', type: 'select', options: ['off', 'project', 'full'] },
+  { key: 'claudeMd', label: 'CLAUDE.md', desc: 'Load host instruction files for SDK-owned tool execution — Off: none, Project: ./CLAUDE.md, Full: user + project. Passthrough always uses client-supplied instructions.', type: 'select', options: ['off', 'project', 'full'] },
   { key: 'memory', label: 'Memory', desc: 'Read and write memories across sessions', type: 'toggle' },
   { key: 'dreaming', label: 'Auto-Dream', desc: 'Background memory consolidation', type: 'toggle' },
   { key: 'thinking', label: 'Thinking', desc: 'Extended thinking mode', type: 'select', options: ['disabled', 'adaptive', 'enabled'] },

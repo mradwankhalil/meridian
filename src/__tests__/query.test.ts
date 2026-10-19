@@ -535,7 +535,7 @@ describe("buildQueryOptions", () => {
     // In passthrough, context and tools must come from the client instead.
     const result = buildQueryOptions(makeContext({
       passthrough: true,
-      settingSources: ["project"] as any,
+      settingSources: ["project"],
     }))
     expect(result.options.settingSources).toEqual([])
   })
