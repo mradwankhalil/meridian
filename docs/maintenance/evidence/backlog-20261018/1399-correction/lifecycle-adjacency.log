@@ -1,0 +1,84 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/session-lifecycle-windows-gc.test.ts:
+(pass) session GC deletes retired transcripts on every platform > launches multiline deletion code in the exact Node process, even through a PATH shim [72.17ms]
+(pass) session GC deletes retired transcripts on every platform > runGc drives a retired transcript to deleted through the default fenced child [145.74ms]
+(pass) session GC deletes retired transcripts on every platform > runGc tree-kills and joins a timed-out deletion child [2072.99ms]
+(pass) session GC deletes retired transcripts on every platform > the child's gate outlives the incarnation probe on a short deletion budget [188.38ms]
+(pass) session GC deletes retired transcripts on every platform > the pending backlog drains instead of filling up [374.02ms]
+(skip) session GC deletes retired transcripts on every platform > reconcile recovers a deleting claim whose executor pid was reused by a live process
+
+src/__tests__/session-gc-contention.test.ts:
+{"gc":false,"resources":1400,"pins":800,"requests":24,"timeouts":0,"gcFailed":false,"hashes":33900,"elapsedMs":343,"maxRequestMs":342,"lockHoldsMs":[15,9,9,11,23,13,16,16,13,9,13,13,7,9,9,9,8,9,8,12,16,8,17,11]}
+(pass) durably admits 24 simultaneous registrations with a large sidecar (GC=%s) [383.53ms]
+{"gc":true,"resources":1400,"pins":800,"requests":24,"timeouts":0,"gcFailed":false,"hashes":42148,"elapsedMs":389,"maxRequestMs":369,"lockHoldsMs":[10,9,17,15,22,22,22,23,12,9,9,8,9,9,9,8,9,7,10,7,9,8,8,10,8,7,5]}
+(pass) durably admits 24 simultaneous registrations with a large sidecar (GC=%s) [429.20ms]
+
+src/__tests__/session-lifecycle-process.test.ts:
+(pass) session lifecycle leases across OS processes > does not retire or delete a transcript leased by a live writer process [266.14ms]
+(pass) session lifecycle leases across OS processes > keeps an orphaned real SDK gate fenced until its exact executor exits [200.18ms]
+(pass) session lifecycle leases across OS processes > recovers an unarmed lease after its owner process dies [218.72ms]
+(pass) session lifecycle leases across OS processes > classifies a child-reported absent transcript as notFound and tombstones it [198.45ms]
+(pass) session lifecycle leases across OS processes > keeps a genuine child deletion failure failed for retry [115.62ms]
+
+src/__tests__/session-lifecycle.test.ts:
+(pass) session transcript lifecycle > keys ownership by config directory and session id [0.76ms]
+(pass) session transcript lifecycle > persists a prepared intent before commit with private atomic storage [15.22ms]
+(pass) session transcript lifecycle > validates and upgrades a legacy v1 resource without unsafe shape coercion [23.27ms]
+(pass) session transcript lifecycle > registers a legacy live transcript and safely revives only pre-delete states [118.50ms]
+(pass) session transcript lifecycle > requires preallocation and separately bounds backlog and total ownership [27.06ms]
+(pass) session transcript lifecycle > reserves live current/predecessor capacity beyond the pending backlog limit [37.72ms]
+(pass) session transcript lifecycle > never exceeds the pending bound when many live resources become unpinned [21.77ms]
+(pass) session transcript lifecycle > leaves admission capacity while retiring live resources after a profile switch [19.01ms]
+(pass) session transcript lifecycle > continues bounded passive cleanup with a reserved admission slot (limit=%s) [86.47ms]
+(pass) session transcript lifecycle > continues bounded passive cleanup with a reserved admission slot (limit=%s) [72.51ms]
+(pass) session transcript lifecycle > defers retirement instead of refusing racing publications, without overbooking [13.80ms]
+(pass) session transcript lifecycle > still refuses a publication when the whole backlog is in-flight work [9.20ms]
+(pass) session transcript lifecycle > defers the newest retirement so the deletion queue keeps its oldest head [35.61ms]
+(pass) session transcript lifecycle > still enforces total ownership when passive retirement leaves pending capacity [16.66ms]
+(pass) session transcript lifecycle > never lets a delayed publisher recreate a deleted locator after tombstone pruning [75.42ms]
+(pass) session transcript lifecycle > rejects delayed exact references after prune and same-locator recreation [70.99ms]
+(pass) session transcript lifecycle > rolls back legacy lifecycle attachment when its exact store CAS loses or throws [11.09ms]
+(pass) session transcript lifecycle > promotes a pinned prepared intent after crash recovery [17.01ms]
+(pass) session transcript lifecycle > blocks cross-process deletion while a durable writer lease is active [44.98ms]
+(pass) session transcript lifecycle > makes durable SDK writer leases exclusive across requests and proxies [23.95ms]
+(pass) session transcript lifecycle > expires an unarmed writer lease older than its TTL, independently of the prepared grace [14.20ms]
+(pass) session transcript lifecycle > keeps a fresh unarmed writer lease exclusive [8.12ms]
+(pass) session transcript lifecycle > releases a joined writer's lease on the next sweep when its lock is busy [35.18ms]
+(pass) session transcript lifecycle > still surfaces a joined writer's release failure that retrying cannot fix [10.05ms]
+(pass) session transcript lifecycle > keeps a non-recoverable writer lease fenced until the host reboots [37.81ms]
+(pass) session transcript lifecycle > pins a resource by its exact generation or by a generation-less legacy pin [14.25ms]
+(pass) session transcript lifecycle > retires an unpinned live resource once its stale publication lease expires [11.03ms]
+(pass) session transcript lifecycle > keeps current and previous pins and deletes only retired forks [103.46ms]
+(pass) session transcript lifecycle > never replenishes a lowered remaining attempt allowance, including failed attempts [52.14ms]
+(pass) session transcript lifecycle > can lower the remaining allowance to zero before claiming a deletion [10.53ms]
+(pass) session transcript lifecycle > treats not-found as idempotent success and tombstones the resource [21.32ms]
+(pass) session transcript lifecycle > does not mistake child ENOENT or generic errors for a missing session [22.53ms]
+(pass) session transcript lifecycle > uses a real Node executable when tests run under Bun [0.33ms]
+(pass) session transcript lifecycle > clips child output keeping both ends within the budget [0.33ms]
+(pass) session transcript lifecycle > keeps a verdict that the old tail-only clip would have lost (#1030) [0.24ms]
+(pass) session transcript lifecycle > defers retired deletion through the reader-drain grace period [37.63ms]
+(pass) session transcript lifecycle > backs off failures and retries deterministically [31.10ms]
+(pass) session transcript lifecycle > keeps an uncertain stale deleting lease fail-closed [8.61ms]
+(pass) session transcript lifecycle > recovers a deleting orphan only after the exact executor is dead [20.44ms]
+(pass) session transcript lifecycle > keeps a deleting orphan fenced while its exact executor may be alive [13.75ms]
+(pass) session transcript lifecycle > fails closed on a corrupt sidecar without calling the deleter [2.95ms]
+(pass) session transcript lifecycle > recovers an abandoned stale lock without unlinking a successor [41.83ms]
+(pass) session transcript lifecycle > repeatedly adopts dead lifecycle recovery claims and cleans resolved tombstones [76.12ms]
+(pass) session transcript lifecycle > fails closed for live and remote lifecycle recovery owners [17.61ms]
+(pass) session transcript lifecycle > times out under lock contention and never proceeds unlocked [5.14ms]
+(pass) session transcript lifecycle > initialises one lock candidate per acquisition, not one per retry [3.70ms]
+(pass) session transcript lifecycle > grants the lock to one process's callers in arrival order [407.73ms]
+(pass) session transcript lifecycle > hands the turn on when a queued caller cancels admission [5.67ms]
+(pass) session transcript lifecycle > never overlaps a second physical deleter with an uncertain first [107.94ms]
+(pass) session transcript lifecycle > leaves a timed-out custom deleter fenced in deleting state [22.73ms]
+(pass) session transcript lifecycle > refreshes durable pins before every destructive claim [11.10ms]
+
+1 tests skipped:
+(skip) session GC deletes retired transcripts on every platform > reconcile recovers a deleting claim whose executor pid was reused by a live process
+
+ 63 pass
+ 1 skip
+ 0 fail
+ 357 expect() calls
+Ran 64 tests across 4 files. [7.04s]

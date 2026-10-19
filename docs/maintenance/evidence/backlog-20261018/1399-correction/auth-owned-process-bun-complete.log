@@ -1,0 +1,4 @@
+{"runtime":"1.3.11","rawEvents":["stdout.close","stderr.close","exit","callback","close"],"exitCode":0}
+{"rawShellEvents":["stderr.close","stdout.close","exit","callback","close"],"exitCode":0}
+{"ownedResult":"success","joined":true,"elapsedMs":7}
+{"ownedShellResult":"success","joined":true,"elapsedMs":6}

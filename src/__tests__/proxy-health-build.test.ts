@@ -6,12 +6,13 @@
  * site header, and a downstream plugin actually read to answer "is this
  * instance running what I think it is, and is it current?".
  *
- * Isolated in its own `bun test` invocation (see the `test` script): this file
- * stubs auth as logged-in, and `mock.module` is process-global in bun, so
- * leaking that into files asserting unauthenticated behaviour would be a
- * cross-file failure with no obvious cause.
+ * Isolated in its own `bun test` invocation for the captured build-provenance
+ * state. Auth and executable answers use file-scoped model fixtures.
  */
+import { installModelsMock, setModelsMock } from "./modelsMock"
 import { describe, expect, it, mock, afterEach } from "bun:test"
+import { tmpdir } from "node:os"
+import { join } from "node:path"
 
 // Spread the real module and override only the auth lookup — replacing
 // ../proxy/models wholesale would drop the dozen other exports server.ts
@@ -23,8 +24,7 @@ let resolveExecutable = () => Promise.resolve("claude")
 
 const authCalls: Array<{ profileId?: string; envOverrides?: Record<string, string> }> = []
 
-mock.module("../proxy/models", () => ({
-  ...realModels,
+const healthModels = () => ({
   getClaudeAuthStatusAsync: async (profileId?: string, envOverrides?: Record<string, string>) => {
     authCalls.push({ profileId, envOverrides })
     return {
@@ -34,7 +34,8 @@ mock.module("../proxy/models", () => ({
     }
   },
   resolveClaudeExecutableAsync: () => resolveExecutable(),
-}))
+})
+installModelsMock(healthModels)
 
 const { createProxyServer } = await import("../proxy/server")
 const { startUpdateCheck, stopUpdateCheck } = await import("../proxy/updateCheck")
@@ -64,6 +65,7 @@ const STAMPS = [
 ] as const
 
 afterEach(() => {
+  setModelsMock(healthModels)
   for (const key of STAMPS) delete process.env[key]
   authCalls.length = 0
   resolveExecutable = () => Promise.resolve("claude")
@@ -250,7 +252,7 @@ describe("/health build provenance", () => {
   it("reports an available update once the check resolves", async () => {
     setSetting("checkForUpdates", true)
     await startUpdateCheck({
-      cachePath: `/tmp/meridian-health-build-${process.pid}.json`,
+      cachePath: join(tmpdir(), `meridian-health-build-${process.pid}.json`),
       fetchLatest: async () => "1.99.0",
     })
 
@@ -262,8 +264,7 @@ describe("/health build provenance", () => {
   it("attaches build to the not-logged-in response too", async () => {
     // Provenance is most useful when something is already wrong; a broken
     // install is exactly when someone asks "what am I even running?".
-    mock.module("../proxy/models", () => ({
-      ...realModels,
+    setModelsMock(() => ({
       getClaudeAuthStatusAsync: async () => ({ loggedIn: false }),
       resolveClaudeExecutableAsync: () => resolveExecutable(),
     }))

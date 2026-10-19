@@ -1,0 +1,1325 @@
+{
+  "schemaVersion": 1,
+  "scope": "Read-only credit addendum for additive #1399 corrections; historical 58-commit snapshot remains unchanged",
+  "snapshotAtUtc": "2026-10-19T05:48:13.836413+00:00",
+  "freshMain": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+  "policyRoute": {
+    "approvedInPr": 1413,
+    "adoptedMainCommit": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+    "ordinaryProductGatesUnchanged": true
+  },
+  "historicalManifest": {
+    "path": "/private/tmp/meridian-pr1409-20261018/docs/maintenance/evidence/backlog-20261018/forwarded-credit-manifest.json",
+    "sha256": "a12ec7becafc2a90f1e7ebca2d25277cac9af88684d6aa9d81c3460aa6f5938a",
+    "commitCount": 58,
+    "unchangedAfterThisAudit": true
+  },
+  "summary": {
+    "currentIntroducedCommitCount": 60,
+    "original58StillPresent": 58,
+    "missingHistoricalCommits": [],
+    "addedCommitCount": 2,
+    "newCommits": [
+      "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "4644524c4905f364e995210fbcc2bb3e6952dbd4"
+    ],
+    "historicalIdentityParentOrSignatureChanges": [],
+    "authorCounts": {
+      "eamonster27": 14,
+      "passabilities": 42,
+      "rynfar": 4
+    },
+    "signerCounts": {
+      "passabilities": 56,
+      "rynfar": 4
+    },
+    "all60GitHubSignaturesValid": true,
+    "onlyHeadChangeSinceHistoricalSnapshot": [
+      {
+        "number": 1399,
+        "old": "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+        "new": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+      }
+    ],
+    "new1399ChainFastForwardProven": true,
+    "historicalGitHubAuthorCommitterLoginMappingsUnchanged": true
+  },
+  "newCorrectionCommits": [
+    {
+      "oid": "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+      "url": "https://github.com/rynfar/meridian/commit/4644524c4905f364e995210fbcc2bb3e6952dbd4",
+      "messageHeadline": "fix: lower remaining session GC work during shutdown",
+      "authoredDate": "2026-10-19T05:32:27Z",
+      "committedDate": "2026-10-19T05:32:27Z",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T05:32:27Z",
+        "user": {
+          "login": "rynfar"
+        }
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T05:32:27Z",
+        "user": {
+          "login": "rynfar"
+        }
+      },
+      "signature": {
+        "isValid": true,
+        "state": "VALID",
+        "wasSignedByGitHub": false,
+        "email": "rynfar@gmail.com",
+        "signer": {
+          "login": "rynfar"
+        }
+      },
+      "parents": {
+        "totalCount": 1,
+        "nodes": [
+          {
+            "oid": "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5"
+          }
+        ]
+      },
+      "localMetadata": {
+        "sha": "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+        "author": {
+          "name": "Trevor Walker",
+          "email": "rynfar@gmail.com",
+          "dateWithOffset": "2026-10-18T23:32:27-06:00"
+        },
+        "committer": {
+          "name": "Trevor Walker",
+          "email": "rynfar@gmail.com",
+          "dateWithOffset": "2026-10-18T23:32:27-06:00"
+        },
+        "parents": [
+          "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5"
+        ],
+        "subject": "fix: lower remaining session GC work during shutdown",
+        "signatureHeaderPresent": true,
+        "signatureHeaderKind": "SSH"
+      }
+    },
+    {
+      "oid": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "url": "https://github.com/rynfar/meridian/commit/1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "messageHeadline": "test: cover shutdown joining an active session GC sweep",
+      "authoredDate": "2026-10-19T05:32:27Z",
+      "committedDate": "2026-10-19T05:32:27Z",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T05:32:27Z",
+        "user": {
+          "login": "rynfar"
+        }
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T05:32:27Z",
+        "user": {
+          "login": "rynfar"
+        }
+      },
+      "signature": {
+        "isValid": true,
+        "state": "VALID",
+        "wasSignedByGitHub": false,
+        "email": "rynfar@gmail.com",
+        "signer": {
+          "login": "rynfar"
+        }
+      },
+      "parents": {
+        "totalCount": 1,
+        "nodes": [
+          {
+            "oid": "4644524c4905f364e995210fbcc2bb3e6952dbd4"
+          }
+        ]
+      },
+      "localMetadata": {
+        "sha": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+        "author": {
+          "name": "Trevor Walker",
+          "email": "rynfar@gmail.com",
+          "dateWithOffset": "2026-10-18T23:32:27-06:00"
+        },
+        "committer": {
+          "name": "Trevor Walker",
+          "email": "rynfar@gmail.com",
+          "dateWithOffset": "2026-10-18T23:32:27-06:00"
+        },
+        "parents": [
+          "4644524c4905f364e995210fbcc2bb3e6952dbd4"
+        ],
+        "subject": "test: cover shutdown joining an active session GC sweep",
+        "signatureHeaderPresent": true,
+        "signatureHeaderKind": "SSH"
+      }
+    }
+  ],
+  "new1399LocalAncestry": {
+    "sourceAncestorOfNew": true,
+    "addedChain": [
+      "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+      "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+    ],
+    "introducedVsFreshMain": [
+      "2d577070bf528c5ab03fda2b1497103d7fba1543",
+      "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+      "238cc7963563f90b1218ef9522a03aad3e655911",
+      "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+      "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+      "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+      "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+      "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+      "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+    ]
+  },
+  "githubComparisonsToFreshMain": [
+    {
+      "number": 1394,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+      "status": "diverged",
+      "aheadBy": 6,
+      "behindBy": 6,
+      "totalCommits": 6,
+      "listedShas": [
+        "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+        "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+        "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+        "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+        "063af3f30428bdc192563a13c6429d67647bb81f",
+        "8dad6d4a89a17c5d18b47ab00f1a65be039578d9"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1395,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+      "status": "diverged",
+      "aheadBy": 5,
+      "behindBy": 6,
+      "totalCommits": 5,
+      "listedShas": [
+        "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+        "75356c496acf2af4f1a4d3f6386b919e48c06188",
+        "5619fd9f67ec86db1766d80b07f6c1638c045827",
+        "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+        "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1396,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+      "status": "diverged",
+      "aheadBy": 10,
+      "behindBy": 6,
+      "totalCommits": 10,
+      "listedShas": [
+        "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+        "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+        "b7a1504a1ef46109f14ec0617f64958f9043548e",
+        "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+        "d14f21332a195b61be8ce5a099c26a66d64523c6",
+        "709ac018b7390471fecd66e2d94e26da29b25b98",
+        "131cf72844fce1c80473ad79fcd433946878ed20",
+        "83d15d5357fc6d50c96cb44ad4355b865467929b",
+        "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+        "a40be1795a1b8dbcdeccfe8525b972c17609ff73"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1397,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+      "status": "diverged",
+      "aheadBy": 8,
+      "behindBy": 6,
+      "totalCommits": 8,
+      "listedShas": [
+        "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+        "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+        "b0d70e4291499c4f485e42e7a75cb88ece185672",
+        "b736addc389afbb694c4762c654545d555ac57b1",
+        "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+        "8145cebfec2ee52e779569859a21372cd8f75e9c",
+        "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+        "5617da1f52d2c8c1c970b574d6302ccb648de160"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1398,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+      "status": "diverged",
+      "aheadBy": 5,
+      "behindBy": 6,
+      "totalCommits": 5,
+      "listedShas": [
+        "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+        "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+        "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+        "5ae67bd609828497e588823d510a72f1e78576ad",
+        "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1399,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "status": "diverged",
+      "aheadBy": 9,
+      "behindBy": 6,
+      "totalCommits": 9,
+      "listedShas": [
+        "2d577070bf528c5ab03fda2b1497103d7fba1543",
+        "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+        "238cc7963563f90b1218ef9522a03aad3e655911",
+        "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+        "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+        "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+        "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+        "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+        "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1400,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+      "status": "diverged",
+      "aheadBy": 7,
+      "behindBy": 1,
+      "totalCommits": 7,
+      "listedShas": [
+        "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+        "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+        "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+        "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+        "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+        "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+        "9451a72aa48127ddd6106bedb48ecdb98e03f04d"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1401,
+      "main": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+      "head": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+      "status": "diverged",
+      "aheadBy": 10,
+      "behindBy": 6,
+      "totalCommits": 10,
+      "listedShas": [
+        "8c096b592879660548bb71e02f43c339f36982e1",
+        "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+        "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+        "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+        "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+        "7c3295817737d50529e825f80973768a5077f54b",
+        "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+        "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+        "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+        "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    }
+  ],
+  "original58ShaInventory": [
+    "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+    "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+    "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+    "063af3f30428bdc192563a13c6429d67647bb81f",
+    "131cf72844fce1c80473ad79fcd433946878ed20",
+    "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+    "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+    "238cc7963563f90b1218ef9522a03aad3e655911",
+    "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+    "2d577070bf528c5ab03fda2b1497103d7fba1543",
+    "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+    "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+    "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+    "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+    "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+    "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+    "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+    "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+    "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+    "5617da1f52d2c8c1c970b574d6302ccb648de160",
+    "5619fd9f67ec86db1766d80b07f6c1638c045827",
+    "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+    "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+    "5ae67bd609828497e588823d510a72f1e78576ad",
+    "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+    "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+    "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+    "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+    "709ac018b7390471fecd66e2d94e26da29b25b98",
+    "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+    "75356c496acf2af4f1a4d3f6386b919e48c06188",
+    "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+    "7c3295817737d50529e825f80973768a5077f54b",
+    "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+    "8145cebfec2ee52e779569859a21372cd8f75e9c",
+    "83d15d5357fc6d50c96cb44ad4355b865467929b",
+    "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+    "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+    "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+    "8c096b592879660548bb71e02f43c339f36982e1",
+    "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+    "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+    "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+    "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+    "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+    "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+    "b0d70e4291499c4f485e42e7a75cb88ece185672",
+    "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+    "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+    "b736addc389afbb694c4762c654545d555ac57b1",
+    "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+    "b7a1504a1ef46109f14ec0617f64958f9043548e",
+    "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+    "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+    "d14f21332a195b61be8ce5a099c26a66d64523c6",
+    "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+    "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+    "edd24f6a36f60539873396a3e64bb68a2ade02c1"
+  ],
+  "current60ShaInventory": [
+    "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+    "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+    "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+    "063af3f30428bdc192563a13c6429d67647bb81f",
+    "131cf72844fce1c80473ad79fcd433946878ed20",
+    "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+    "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+    "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+    "238cc7963563f90b1218ef9522a03aad3e655911",
+    "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+    "2d577070bf528c5ab03fda2b1497103d7fba1543",
+    "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+    "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+    "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+    "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+    "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+    "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+    "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+    "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+    "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+    "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+    "5617da1f52d2c8c1c970b574d6302ccb648de160",
+    "5619fd9f67ec86db1766d80b07f6c1638c045827",
+    "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+    "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+    "5ae67bd609828497e588823d510a72f1e78576ad",
+    "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+    "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+    "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+    "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+    "709ac018b7390471fecd66e2d94e26da29b25b98",
+    "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+    "75356c496acf2af4f1a4d3f6386b919e48c06188",
+    "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+    "7c3295817737d50529e825f80973768a5077f54b",
+    "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+    "8145cebfec2ee52e779569859a21372cd8f75e9c",
+    "83d15d5357fc6d50c96cb44ad4355b865467929b",
+    "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+    "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+    "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+    "8c096b592879660548bb71e02f43c339f36982e1",
+    "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+    "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+    "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+    "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+    "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+    "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+    "b0d70e4291499c4f485e42e7a75cb88ece185672",
+    "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+    "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+    "b736addc389afbb694c4762c654545d555ac57b1",
+    "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+    "b7a1504a1ef46109f14ec0617f64958f9043548e",
+    "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+    "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+    "d14f21332a195b61be8ce5a099c26a66d64523c6",
+    "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+    "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+    "edd24f6a36f60539873396a3e64bb68a2ade02c1"
+  ],
+  "currentPullRequests": [
+    {
+      "number": 1394,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/sdk-probe-async",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 6,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 6,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "Ng"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+        "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+        "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+        "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+        "063af3f30428bdc192563a13c6429d67647bb81f",
+        "8dad6d4a89a17c5d18b47ab00f1a65be039578d9"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293240/job/117156522309"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293134/job/117156519871"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293110/job/117156519173"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293206/job/117156520003"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293268/job/117156519639"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293268/job/117156519184"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293134/job/117156519413"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293110/job/117157321714"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293134/job/117156521873"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1395,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/client-working-directory",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 5,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 5,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "NQ"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+        "75356c496acf2af4f1a4d3f6386b919e48c06188",
+        "5619fd9f67ec86db1766d80b07f6c1638c045827",
+        "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+        "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295782/job/117156530200"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296085/job/117156529812"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295779/job/117156528268"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296261/job/117156530790"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295950/job/117156528757"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295950/job/117156528333"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296085/job/117156529469"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295779/job/117157415854"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296085/job/117156531493"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1396,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/system-turn-lineage",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 10,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 10,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MTA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+        "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+        "b7a1504a1ef46109f14ec0617f64958f9043548e",
+        "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+        "d14f21332a195b61be8ce5a099c26a66d64523c6",
+        "709ac018b7390471fecd66e2d94e26da29b25b98",
+        "131cf72844fce1c80473ad79fcd433946878ed20",
+        "83d15d5357fc6d50c96cb44ad4355b865467929b",
+        "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+        "a40be1795a1b8dbcdeccfe8525b972c17609ff73"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203479599/job/117901200361"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482443/job/117901207992"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482322/job/117901207355"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482358/job/117901207445"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482439/job/117901207974"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482439/job/117901207703"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482443/job/117901208217"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482322/job/117901763203"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482443/job/117901209070"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1397,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/priority-cancel",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 8,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 8,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+        "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+        "b0d70e4291499c4f485e42e7a75cb88ece185672",
+        "b736addc389afbb694c4762c654545d555ac57b1",
+        "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+        "8145cebfec2ee52e779569859a21372cd8f75e9c",
+        "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+        "5617da1f52d2c8c1c970b574d6302ccb648de160"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303595/job/117156556988"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303706/job/117156555594"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303604/job/117156554968"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303318/job/117156554256"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955304216/job/117156558931"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955304216/job/117156559449"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303706/job/117156555897"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303604/job/117157486012"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303706/job/117156557689"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1398,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/bun-startup-warning",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 5,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 5,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "NQ"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+        "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+        "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+        "5ae67bd609828497e588823d510a72f1e78576ad",
+        "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309032/job/117156576248"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309153/job/117156574440"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309105/job/117156574119"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309103/job/117156575023"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309076/job/117156574492"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309076/job/117156573920"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309153/job/117156574815"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309105/job/117157826221"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309153/job/117156575909"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1399,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/session-cleanup-throughput",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 9,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 9,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "2d577070bf528c5ab03fda2b1497103d7fba1543",
+        "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+        "238cc7963563f90b1218ef9522a03aad3e655911",
+        "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+        "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+        "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+        "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+        "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+        "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205236343/job/117906528363"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238710/job/117906534346"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238747/job/117906534635"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238714/job/117906534733"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238722/job/117906534855"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238722/job/117906534682"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238710/job/117906534507"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238747/job/117907318641"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39205238710/job/117906535551"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1400,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/model-allowance-failover",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 7,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 7,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "Nw"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+        "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+        "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+        "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+        "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+        "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+        "9451a72aa48127ddd6106bedb48ecdb98e03f04d"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955316963/job/117156605637"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317237/job/117156604768"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317247/job/117156604899"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317253/job/117156605093"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317215/job/117156612733"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317215/job/117156612375"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317237/job/117156604535"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317247/job/117157778053"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317237/job/117156606506"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    },
+    {
+      "number": 1401,
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+      "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/stale-copy-guard",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 10,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 10,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MTA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "8c096b592879660548bb71e02f43c339f36982e1",
+        "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+        "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+        "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+        "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+        "7c3295817737d50529e825f80973768a5077f54b",
+        "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+        "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+        "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+        "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec"
+      ],
+      "checks": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320110/job/117156617120"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320143/job/117156615462"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320199/job/117156615010"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320192/job/117156615233"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320251/job/117156614961"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320251/job/117156615302"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320143/job/117156615406"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320199/job/117157856825"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320143/job/117156616887"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Source checkout was preserved; no fetch, branch/checkout edit, push, merge, comment, release, test or model call was made.",
+    "Not all eight heads existed in the local object database; the all-head local rev-list attempt was unavailable. Complete GitHub PR connections and per-head comparisons to the fixed fresh-main SHA independently establish the current introduced union. Local #1399 ancestry was verified.",
+    "This credit-only audit does not clear #1399 full local npm-test failure (89 failing instances per worker report) or the missing actual affected-client hour of live evidence. CI success is recorded separately, not substituted for a green local gate.",
+    "Refresh heads, all commit pages/signatures, main and required checks again immediately before landing; this snapshot is not authorization to merge."
+  ]
+}

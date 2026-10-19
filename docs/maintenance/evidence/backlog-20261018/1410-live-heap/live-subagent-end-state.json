@@ -1,0 +1,22 @@
+{
+  "head": "423477f19812b08e15d332d4f7c9c91ebf4e8650",
+  "gitStatusPorcelain": "",
+  "clientEndVersion": "opencode v2.0.21",
+  "nativeEndVersion": "2.1.302 (Claude Code)",
+  "pinnedClientServeOrRunProcessesRemaining": 0,
+  "actualLiveActorsJoined": true,
+  "E41ActorsJoined": true,
+  "privateGrantAbsent": true,
+  "OAuthTokenPatternScanDataFiles": "PASS",
+  "postRunHarnessChanges": [
+    "explicit E2E_ALLOW_LIVE_MODEL opt-in on actual stable harness",
+    "path parameters on actual stable harness",
+    "complete routing environment allow-list on E41 harness",
+    "removed daemon-spawning debug config from credentialless preflight"
+  ],
+  "postRunHarnessChangesInferenceRerun": false,
+  "syntaxChecks": [
+    "guarded-actual-v2-live.mjs PASS",
+    "create-access-only-grant.mjs PASS"
+  ]
+}

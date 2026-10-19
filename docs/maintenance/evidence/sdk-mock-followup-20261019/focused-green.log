@@ -1,0 +1,42 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-cross-process-coordination.test.ts:
+(pass) proxy coordination across OS processes > does not inherit the parent suite's HTTP authentication into coordination workers [837.35ms]
+(pass) proxy coordination across OS processes > reports a worker's startup refusal instead of losing it behind an SDK timeout [45.50ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: main first, stream=false [2261.82ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: side first, stream=false [2260.15ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: main first, stream=true [2165.04ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: side first, stream=true [2224.43ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=false, stream=false [1424.20ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=true, stream=false [1608.48ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=false, stream=true [1526.26ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=true, stream=true [1661.88ms]
+(pass) proxy coordination across OS processes > serializes one session and rejects a stale arrival after durable advancement [1403.69ms]
+(pass) proxy coordination across OS processes > refreshes durable lineage and resume state after waiting for another process [1468.35ms]
+(pass) proxy coordination across OS processes > allows different sessions to run concurrently in different processes [1385.32ms]
+
+src/__tests__/store-mutation-loop-lag.test.ts:
+[loop-lag-sample] {"label":"baseline-0","lagMs":37.40583300000071,"synchronousWorkMs":35.24891600000046,"processCpuMs":33.463}
+[loop-lag-sample] {"label":"baseline-1","lagMs":25.456624999998894,"synchronousWorkMs":25.43424999999843,"processCpuMs":22.708}
+[loop-lag-sample] {"label":"baseline-2","lagMs":22.162874999998166,"synchronousWorkMs":22.13604199999827,"processCpuMs":21.64}
+[loop-lag-sample] {"label":"warm-1","lagMs":8.776625000002241,"synchronousWorkMs":8.755084000000352,"processCpuMs":8.082}
+[loop-lag-sample] {"label":"warm-2","lagMs":16.9431250000016,"synchronousWorkMs":16.926292000000103,"processCpuMs":6.934}
+[loop-lag-sample] {"label":"warm-3","lagMs":17.239332999997714,"synchronousWorkMs":17.224332999998296,"processCpuMs":7.452}
+[loop-lag-sample] {"label":"warm-4","lagMs":8.182333000000654,"synchronousWorkMs":8.16412499999933,"processCpuMs":6.24}
+[loop-lag-sample] {"label":"warm-5","lagMs":12.244500000000698,"synchronousWorkMs":12.22583400000076,"processCpuMs":6.82}
+[loop-lag-sample] {"label":"warm-locator","lagMs":5.400499999999738,"synchronousWorkMs":5.387125000001106,"processCpuMs":7.477}
+[loop-lag] 6.6 MB store: warm mutation median 12.2 ms, max 17.2 ms; full-document baseline median 25.5 ms
+(pass) session store mutation cost on a large store > keeps a warm mutation's loop lag well below the full-document parse, serialize and write it replaced [309.37ms]
+(pass) session store mutation cost on a large store > never re-parses the store or re-serializes unchanged entries on a warm mutation [13.03ms]
+(pass) copy-on-write store mutations > writes exactly the document a full serialization would produce [6.20ms]
+(pass) copy-on-write store mutations > owns nested caller data before memoizing serialized entries [4.48ms]
+(pass) copy-on-write store mutations > prevents nested lookup edits from diverging from memoized disk bytes [2.73ms]
+(pass) copy-on-write store mutations > protects nested history parsed from a foreign writer before exposing it [3.31ms]
+(pass) copy-on-write store mutations > hands out frozen entries and leaves earlier reads untouched by later mutations [5.29ms]
+(pass) copy-on-write store mutations > discards a mutator's partial changes when it throws [3.58ms]
+(pass) copy-on-write store mutations > builds a mutation on a foreign writer's document, not on the stale cache [4.97ms]
+
+ 22 pass
+ 0 fail
+ 98 expect() calls
+Ran 22 tests across 2 files. [20.98s]

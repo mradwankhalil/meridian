@@ -1,0 +1,27 @@
+{
+  "name": "meridian-1410-scrub-consumer",
+  "version": "file:../../private/tmp/meridian-1410-scrub-consumer",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "@rynfar/meridian-plugin-opencode-scrub": "^0.2.3"
+      }
+    },
+    "../../private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub": {
+      "version": "0.2.3",
+      "resolved": "https://registry.npmjs.org/@rynfar/meridian-plugin-opencode-scrub/-/meridian-plugin-opencode-scrub-0.2.3.tgz",
+      "integrity": "sha512-JOlxV0VAbWcXGTC+bsi4K2d4g3vb2UG5y8s1HzKjWkeAm7kmdIYcHbPie+ror2HTaNaRKIpzGOkPqqonEgs5YA==",
+      "license": "MIT",
+      "peerDependencies": {
+        "@rynfar/meridian": "*"
+      },
+      "peerDependenciesMeta": {
+        "@rynfar/meridian": {
+          "optional": true
+        }
+      }
+    }
+  }
+}

@@ -14,12 +14,14 @@
  * precedence: user config > instance features > adapter defaults > global.
  */
 import { describe, it, expect, beforeEach, afterEach } from "bun:test"
+import { tmpdir } from "node:os"
+import { join } from "node:path"
 import { getFeaturesForAdapter, getExplicitThinking } from "../proxy/sdkFeatures"
 
 const savedConfigDir = process.env.MERIDIAN_CONFIG_DIR
 
 beforeEach(() => {
-  process.env.MERIDIAN_CONFIG_DIR = `/tmp/meridian-polytoken-features-${Date.now()}-${Math.random().toString(36).slice(2)}`
+  process.env.MERIDIAN_CONFIG_DIR = join(tmpdir(), `meridian-polytoken-features-${Date.now()}-${Math.random().toString(36).slice(2)}`)
 })
 
 afterEach(() => {

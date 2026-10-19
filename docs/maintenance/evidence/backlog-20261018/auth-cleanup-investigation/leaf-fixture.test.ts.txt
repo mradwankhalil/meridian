@@ -1,0 +1,123 @@
+import assert from 'node:assert/strict'
+import { EventEmitter } from 'node:events'
+import { PassThrough } from 'node:stream'
+import { mock, test } from 'bun:test'
+
+// Only two production leaf files are imported below. No models/server/SDK,
+// credential/configuration readers, real child APIs, or network are imported.
+type Fixture = {
+  child: EventEmitter & { pid: number; stdout: PassThrough; stderr: PassThrough; kill: (signal: string) => boolean }
+  callback(error: Error | null, stdout: string): void
+  signals: string[]
+}
+let current: Fixture | undefined
+let fakeStarts = 0
+const refuse = () => { throw new Error('No native command is allowed in this fixture') }
+const fakeExec = (command: string, _options: unknown, callback: Fixture['callback']) => {
+  assert.equal(command, 'FAKE_LOOKUP_DO_NOT_RUN')
+  const signals: string[] = []
+  const child = Object.assign(new EventEmitter(), {
+    pid: 800000 + ++fakeStarts, stdout: new PassThrough(), stderr: new PassThrough(),
+    kill(signal: string) { signals.push(signal); return true },
+  })
+  current = { child, callback, signals }
+  return child
+}
+const fakeApis = { exec: fakeExec, execFile: refuse, execSync: refuse, execFileSync: refuse,
+  spawn: refuse, spawnSync: refuse, fork: refuse }
+mock.module('child_process', () => fakeApis)
+mock.module('node:child_process', () => fakeApis)
+globalThis.fetch = refuse as typeof fetch
+test('owned process leaf witnesses remain distinct until the exact late join', async () => {
+const mockedChild = await import('child_process')
+assert.equal(mockedChild.exec, fakeExec, 'child_process mock must be active before production import')
+const { startOwnedClaudeProcess } = await import('/Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1/src/proxy/authStatusProcess.ts')
+const { createClaudeResolution } = await import('/Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1/src/proxy/claudeResolverOwnership.ts')
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+const report: Array<Record<string, unknown>> = []
+const witnesses = ['callback', 'exit', 'stdout-close', 'stderr-close', 'child-close'] as const
+type Witness = typeof witnesses[number]
+function witness(fake: Fixture, event: Witness) {
+  if (event === 'callback') fake.callback(null, 'synthetic-output')
+  else if (event === 'exit') fake.child.emit('exit', 0, null)
+  else if (event === 'stdout-close') fake.child.stdout.emit('close')
+  else if (event === 'stderr-close') fake.child.stderr.emit('close')
+  else fake.child.emit('close', 0, null)
+}
+function start() {
+  const handle = startOwnedClaudeProcess({ shell: 'FAKE_LOOKUP_DO_NOT_RUN' }, { timeoutMs: 10000, killGraceMs: 5, joinGraceMs: 10 })
+  assert(current)
+  const fake = current
+  const observed = { result: 'pending', joined: false }
+  void handle.result.then(() => { observed.result = 'fulfilled' }, error => { observed.result = error.reason ?? error.name })
+  void handle.joined.then(() => { observed.joined = true })
+  return { handle, fake, observed }
+}
+
+// A result remains pending across each delayed transition until the final
+// independent witness, despite earlier callback/process/other-pipe settlement.
+{
+  const { handle, fake, observed } = start()
+  const states: unknown[] = []
+  for (const event of ['callback', 'stdout-close', 'exit', 'child-close', 'stderr-close'] as const) {
+    witness(fake, event); await sleep(1)
+    states.push({ after: event, ...observed, isJoined: handle.isJoined() })
+  }
+  assert.equal(await handle.result, 'synthetic-output')
+  await handle.joined
+  assert.deepEqual(fake.signals, [])
+  assert.equal((states[3] as { isJoined: boolean }).isJoined, false)
+  assert.equal((states[4] as { isJoined: boolean }).isJoined, true)
+  report.push({ case: 'delayed-complete-positive-control', states, signals: fake.signals })
+}
+
+for (const omitted of witnesses) {
+  const { handle, fake, observed } = start()
+  for (const event of witnesses) if (event !== omitted) witness(fake, event)
+  await sleep(1)
+  assert.equal(handle.isJoined(), false)
+  assert.equal(observed.result, 'pending')
+  const before = { ...observed, isJoined: handle.isJoined() }
+  const rejected = await handle.cancel().then(() => 'fulfilled', error => error.reason)
+  assert.equal(rejected, 'join')
+  await sleep(1)
+  assert.equal(observed.result, 'join')
+  assert.equal(observed.joined, false)
+  const afterBoundedCancel = { ...observed, isJoined: handle.isJoined(), cancel: rejected }
+  witness(fake, omitted)
+  await handle.joined
+  await sleep(1)
+  assert.equal(handle.isJoined(), true)
+  assert.equal(observed.result, 'join')
+  await handle.cancel()
+  report.push({ case: 'one-missing-witness', omitted, before, afterBoundedCancel,
+    afterLateWitness: { ...observed, isJoined: handle.isJoined() }, signals: fake.signals })
+}
+
+// Shared resolution custody follows the actual joined witness, independently
+// of its already-rejected result; no models global or real resolver runs here.
+{
+  let leaf: ReturnType<typeof startOwnedClaudeProcess> | undefined
+  const resolution = createClaudeResolution(async scope => {
+    scope.active()
+    leaf = scope.own(startOwnedClaudeProcess({ shell: 'FAKE_LOOKUP_DO_NOT_RUN' }, { timeoutMs: 10000, killGraceMs: 5, joinGraceMs: 10 }))
+    return await leaf.result
+  })
+  const lease = resolution.acquire()
+  await sleep(1)
+  assert(current && leaf)
+  const fake = current
+  for (const event of witnesses) if (event !== 'stderr-close') witness(fake, event)
+  assert.equal(await lease.cancel().then(() => 'fulfilled', error => error.reason), 'join')
+  await resolution.result.catch(() => undefined)
+  await sleep(1)
+  const beforeLateWitness = { failed: resolution.hasUnconfirmedFailure(), isJoined: resolution.isJoined(), leafJoined: leaf.isJoined() }
+  assert.deepEqual(beforeLateWitness, { failed: true, isJoined: false, leafJoined: false })
+  witness(fake, 'stderr-close')
+  await resolution.joined
+  assert.equal(resolution.hasUnconfirmedFailure(), false)
+  report.push({ case: 'resolution-quarantine-custody', beforeLateWitness,
+    afterLateWitness: { failed: resolution.hasUnconfirmedFailure(), isJoined: resolution.isJoined(), leafJoined: leaf.isJoined() }, signals: fake.signals })
+}
+console.log(JSON.stringify({ safety: { actualChildStarts: 0, actualNetworkCalls: 0, sdkImports: 0, credentialReads: 0, fakeStarts }, sourceHead: '1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811', result: 'PASS', cases: report }, null, 2))
+}, 10000)

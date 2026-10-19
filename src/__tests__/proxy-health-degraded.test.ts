@@ -1,26 +1,20 @@
 /**
  * Test for degraded health when auth status returns null.
  *
- * Separated from proxy-async-ops.test.ts because it needs to mock
- * ../proxy/models before server.ts imports it — preventing races
- * with parallel test files that share the module singleton.
+ * Selects a file-scoped auth answer through the shared models dispatcher,
+ * independently of HTTP suites that install a logged-in SDK fixture.
  */
 
+import { installModelsMock } from "./modelsMock"
 import { describe, it, expect, mock } from "bun:test"
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
-// Static import of the real resolveSdkModelDefaults BEFORE mock.module(). This
-// pulls the real impl (the static import is hoisted) so we can pass it through
-// the mocked module unchanged. mock.module() in Bun is process-global; if we
-// stubbed it as () => ({}) it would leak to proxy-env-stripping.test.ts running
-// in parallel and break its model-pin assertions.
-import { resolveSdkModelDefaults } from "../proxy/models"
+// Unspecified model exports retain their real implementation.
 
-mock.module("../proxy/models", () => ({
+installModelsMock(() => ({
   getClaudeAuthStatusAsync: async () => null,
   resolveClaudeExecutableAsync: async () => "claude",
-  resolveSdkModelDefaults,
   mapModelToClaudeModel: (model: string) => {
     if (model.toLowerCase().includes("opus")) return "opus"
     if (model.toLowerCase().includes("haiku")) return "haiku"

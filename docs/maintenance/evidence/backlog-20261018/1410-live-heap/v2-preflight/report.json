@@ -1,0 +1,106 @@
+{
+  "result": "PASS",
+  "scope": "Credentialless actual stable client + built Meridian V2 plugin; controlled local catalog; no SDK or model inference",
+  "root": "/private/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-1410-client-preflight-rgGN5n",
+  "repo": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe",
+  "binary": "/private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli/bin/opencode.exe",
+  "model": "claude-opus-5-5",
+  "context": 1000031,
+  "platform": "darwin/arm64",
+  "node": "v22.22.3",
+  "modelCalls": 0,
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/v1/models",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/models",
+      "status": 200
+    }
+  ],
+  "children": [
+    {
+      "label": "version",
+      "pid": 82869,
+      "close": true,
+      "stdoutClose": true,
+      "stderrClose": true,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "label": "setup",
+      "pid": 83369,
+      "close": true,
+      "stdoutClose": true,
+      "stderrClose": true,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "label": "config-sources",
+      "pid": 85785,
+      "close": true,
+      "stdoutClose": true,
+      "stderrClose": true,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "label": "actual-client-api",
+      "pid": 87870,
+      "close": true,
+      "stdoutClose": true,
+      "stderrClose": true,
+      "code": 130,
+      "signal": null
+    }
+  ],
+  "client": "opencode v2.0.21",
+  "plugin": {
+    "path": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian-v2",
+    "entrySha256": "d8fd970f561a05a1d2716f7a118ec7e59e44d1942b25a1edca263a00cc779b56",
+    "manifest": {
+      "name": "@rynfar/meridian-opencode-v2-plugin",
+      "private": true,
+      "type": "module",
+      "main": "./index.js"
+    },
+    "owner": "@rynfar/meridian",
+    "ownerVersion": "1.83.1",
+    "effectiveEntries": 1,
+    "setupExit": 0
+  },
+  "config": {
+    "generation": "v2",
+    "field": "plugins",
+    "exactlyOne": true,
+    "providerBaseURL": "http://127.0.0.1:49401/v1",
+    "model": "anthropic/claude-opus-5-5",
+    "hardcodedModelWindow": false,
+    "isolatedHome": true,
+    "isolatedXdg": true
+  },
+  "catalogAdoption": {
+    "providerID": "anthropic",
+    "id": "claude-opus-5-5",
+    "name": "Owned credentialless discovery 327a19e6-92e7-4c9a-b3e3-bb694b27d9a4",
+    "context": 1000031,
+    "variants": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  "loadWitness": {
+    "beforeInference": true,
+    "kind": "Actual OpenCode API catalog adopted uniquely named model and window from plugin-issued GET /v1/models",
+    "fixtureOnly": true
+  },
+  "joined": true
+}

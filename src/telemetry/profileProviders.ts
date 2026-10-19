@@ -11,10 +11,11 @@
  *
  * The chips above the grid show or hide a provider. All are on until someone
  * turns one off; what is hidden is remembered in localStorage, as the landing
- * page's sort is, and both pages share it. Chips exist only while two or more
- * providers have accounts: a provider with none has no chip, and a lone
- * provider is always shown, because its chip could do nothing but empty the
- * page.
+ * page's sort is, and both pages share it. A link can name the chips that are
+ * on instead, as `?provider=claude`, without touching what is remembered
+ * (profileFilterUrl.ts). Chips exist only while two or more providers have
+ * accounts: a provider with none has no chip, and a lone provider is always
+ * shown, because its chip could do nothing but empty the page.
  *
  * Adding a provider (Antigravity) is one PROFILE_PROVIDERS entry plus its
  * `--<id>`, `--<id>-bright` and `--<id>-rgb` tokens in themeCss; the CSS below
@@ -24,6 +25,8 @@
  * pages, and the tests evaluate this exact text (profile-providers.test.ts),
  * as profileFacts.ts is tested.
  */
+
+import { profileFilterUrlJs } from "./profileFilterUrl"
 
 export interface ProfileProvider {
   /** The `provider` /profiles/list sends, and the suffix of its theme tokens. */
@@ -41,6 +44,9 @@ export const PROFILE_PROVIDERS: readonly ProfileProvider[] = [
 
 /** localStorage key: a JSON array of the provider ids whose chip is off. */
 export const HIDDEN_PROVIDERS_KEY = "meridian.hiddenProviders"
+
+/** Query parameter naming the provider chips that are on (profileFilterUrl.ts). */
+export const PROVIDER_URL_PARAM = "provider"
 
 /** Shown in place of the grid when every provider's chip is off. */
 export const PROVIDERS_NONE_SHOWN_HTML = 'Every provider is hidden. '
@@ -108,6 +114,7 @@ export const profileProvidersJs = `
 var meridianProviders = (function () {
   var PROVIDERS = ${JSON.stringify(PROFILE_PROVIDERS)};
   var STORAGE_KEY = ${JSON.stringify(HIDDEN_PROVIDERS_KEY)};
+  var URL_PARAM = ${JSON.stringify(PROVIDER_URL_PARAM)};
   var NONE_SHOWN_HTML = ${JSON.stringify(PROVIDERS_NONE_SHOWN_HTML)};
   // Null-prototype, so a key named "constructor" is not a provider.
   var byId = Object.create(null);
@@ -186,7 +193,27 @@ var meridianProviders = (function () {
 
   var storage = null;
   try { storage = localStorage; } catch (_) { storage = null; }
-  var hidden = readHidden(storage);
+  var filterUrl = ${profileFilterUrlJs};
+  var IDS = PROVIDERS.map(function (p) { return p.id; });
+  // Whether ?provider= decides the chips (profileFilterUrl.ts), rather than
+  // the remembered choice.
+  var fromUrl = false;
+  var hidden = [];
+
+  // Takes the chips from the address (including an explicitly empty choice),
+  // or from storage when the parameter is absent or contains only unknown ids.
+  // Called again on popstate, when the address can change under the page.
+  function fromLocation() {
+    var on = filterUrl.read(URL_PARAM, IDS);
+    fromUrl = on !== null;
+    hidden = fromUrl ? IDS.filter(function (id) { return on.indexOf(id) < 0; }) : readHidden(storage);
+  }
+  fromLocation();
+
+  function save() {
+    if (fromUrl) filterUrl.write(URL_PARAM, IDS.filter(function (id) { return hidden.indexOf(id) < 0; }));
+    else writeHidden(storage, hidden);
+  }
 
   function isHidden(id) { return hidden.indexOf(id) >= 0; }
 
@@ -195,12 +222,12 @@ var meridianProviders = (function () {
   function setHidden(id, hide) {
     if (!byId[id] || isHidden(id) === !!hide) return;
     hidden = hide ? hidden.concat([id]) : hidden.filter(function (h) { return h !== id; });
-    writeHidden(storage, hidden);
+    save();
   }
 
   function showAll() {
     hidden = [];
-    writeHidden(storage, hidden);
+    save();
   }
 
   function label(id) { return byId[id] ? byId[id].label : id; }
@@ -278,6 +305,7 @@ var meridianProviders = (function () {
     visibleIn: visibleIn,
     isHidden: isHidden,
     visible: visible,
+    fromLocation: fromLocation,
     setHidden: setHidden,
     showAll: showAll,
     label: label,

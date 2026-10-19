@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from "node:url"
 
 const testDir = dirname(fileURLToPath(import.meta.url))
 const serverModule = pathToFileURL(resolve(testDir, "../proxy/server.ts")).href
+const sdkMockModule = pathToFileURL(resolve(testDir, "sdkMock.ts")).href
 const sessionStoreModule = pathToFileURL(resolve(testDir, "../proxy/sessionStore.ts")).href
 
 // Each worker is a separate Bun OS process with its own module graph and
@@ -32,6 +33,11 @@ function event(name, extra = {}) {
   }) + "\n")
 }
 
+try {
+if (process.env.MERIDIAN_TEST_WORKER_STARTUP_ERROR) {
+  throw new Error(process.env.MERIDIAN_TEST_WORKER_STARTUP_ERROR)
+}
+
 // Import a cache-busted copy as the implementation, then mock the canonical
 // module imported by server.ts. The wrapper exposes the exact moment the route
 // takes its durable arrival snapshot, before it waits on the process lock.
@@ -48,7 +54,8 @@ mock.module(process.env.SESSION_STORE_MODULE, () => ({
   },
 }))
 
-mock.module("@anthropic-ai/claude-agent-sdk", () => ({
+const { setSdkMock, sdkMockQuery, assertSyntheticClaudeBoundary } = await import(process.env.SDK_MOCK_MODULE)
+setSdkMock(() => ({
   query: (params) => {
     const call = ++queryCall
     const resume = params?.options?.resume ?? null
@@ -138,6 +145,9 @@ mock.module("@anthropic-ai/claude-agent-sdk", () => ({
   tool: () => ({}),
 }))
 
+const sdk = await import("@anthropic-ai/claude-agent-sdk")
+if (sdk.query !== sdkMockQuery) throw new Error("SDK worker mock identity was not installed")
+await assertSyntheticClaudeBoundary()
 const { createProxyServer } = await import(process.env.SERVER_MODULE)
 const app = createProxyServer({ port: 0, host: "127.0.0.1", silent: true }).app
 const request = new Request("http://localhost/v1/messages", {
@@ -155,6 +165,9 @@ try {
   const response = await app.fetch(request)
   const body = await response.text()
   event("result", { status: response.status, body })
+} finally {
+  requestActive = false
+}
 } catch (error) {
   event("worker-error", {
     errorName: error?.name ?? "Error",
@@ -162,8 +175,6 @@ try {
     stack: error?.stack,
   })
   throw error
-} finally {
-  requestActive = false
 }
 `
 
@@ -217,7 +228,7 @@ function spawnProxyWorker(
   id: string,
   clientSessionId: string,
   messages: Array<{ role: string, content: unknown }>,
-  options: { adapter?: "pi"; stream?: boolean; passthrough?: boolean } = {},
+  options: { adapter?: "pi"; stream?: boolean; passthrough?: boolean; startupError?: string } = {},
 ): WorkerHandle {
   const releaseFile = join(paths.base, `release-${id}`)
   const requestBody = JSON.stringify({
@@ -227,15 +238,27 @@ function spawnProxyWorker(
     messages,
     ...(options.adapter === "pi" ? { metadata: { user_id: JSON.stringify({ session_id: clientSessionId }) } } : {}),
   })
+  // `bun -e` does not run the test preload. Reapply its namespace isolation
+  // before setting the worker's own knobs: unrelated files may have changed
+  // auth, routing, profiles or telemetry in the parent process since preload.
+  const inheritedEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) =>
+    !key.startsWith("MERIDIAN_") && !key.startsWith("CLAUDE_PROXY_")))
   const child = Bun.spawn([process.execPath, "-e", workerSource], {
     env: {
-      ...process.env,
+      ...inheritedEnv,
       SERVER_MODULE: serverModule,
+      SDK_MOCK_MODULE: sdkMockModule,
       SESSION_STORE_MODULE: sessionStoreModule,
+      // These workers model the same proxy configuration and share canonical
+      // SDK config paths, as well as the explicitly shared session store.
+      MERIDIAN_CONFIG_DIR: join(paths.base, "config"),
       MERIDIAN_SESSION_DIR: paths.sessions,
       MERIDIAN_PASSTHROUGH: options.passthrough ? "1" : "0",
       CLAUDE_PROXY_PASSTHROUGH: "0",
       MERIDIAN_MAX_CONCURRENT: "8",
+      // Match the preload's existing SDK-double contract: this query mock
+      // never creates a native SDK child. Real proxy runs do not set this.
+      MERIDIAN_TEST_DISABLE_SDK_PROCESS_GATE: "1",
       // The test controls release through a file and has its own 15–20s
       // timeout. A test-configured 5s watchdog can abort a healthy owner while
       // another test file or OS process delays this harness's release call.
@@ -245,6 +268,7 @@ function spawnProxyWorker(
       EVENT_FILE: paths.events,
       RELEASE_FILE: releaseFile,
       WORKER_ID: id,
+      MERIDIAN_TEST_WORKER_STARTUP_ERROR: options.startupError ?? "",
       CLIENT_SESSION_ID: clientSessionId,
       REQUEST_HEADERS: JSON.stringify(options.adapter === "pi"
         ? { "x-meridian-agent": "pi" } : { "x-opencode-session": clientSessionId }),
@@ -283,9 +307,16 @@ async function waitForEvent(
     }
     const found = all.find(item => item.workerId === workerId && item.name === name)
     if (found) return found
+    const completed = all.find(item => item.workerId === workerId && item.name === "result")
+    if (completed) {
+      throw new Error(`${workerId} completed before ${name}: status=${completed.status}; body=${completed.body}`)
+    }
     await Bun.sleep(10)
   }
-  throw new Error(`Timed out waiting for ${workerId}:${name}`)
+  // afterEach removes the owned event file, so retain its lifecycle facts in
+  // the failure itself rather than erasing the only diagnostic evidence.
+  const observed = (await readEvents(path)).filter(item => item.workerId === workerId)
+  throw new Error(`Timed out waiting for ${workerId}:${name}; observed=${JSON.stringify(observed)}`)
 }
 
 async function release(worker: WorkerHandle): Promise<void> {
@@ -325,6 +356,30 @@ function conflictBody(event: WorkerEvent): unknown {
 }
 
 describe("proxy coordination across OS processes", () => {
+  test("does not inherit the parent suite's HTTP authentication into coordination workers", async () => {
+    const previousKey = process.env.MERIDIAN_API_KEY
+    process.env.MERIDIAN_API_KEY = "owned-parent-fixture-key"
+    try {
+      const paths = await makePaths()
+      const worker = spawnProxyWorker(paths, "isolated-auth", "isolated-auth-session",
+        [{ role: "user", content: "owned coordination request" }])
+      await waitForEvent(paths.events, worker.id, "sdk-start")
+      await release(worker)
+      expect((await result(paths, worker)).status).toBe(200)
+    } finally {
+      if (previousKey === undefined) delete process.env.MERIDIAN_API_KEY
+      else process.env.MERIDIAN_API_KEY = previousKey
+    }
+  })
+
+  test("reports a worker's startup refusal instead of losing it behind an SDK timeout", async () => {
+    const paths = await makePaths()
+    const worker = spawnProxyWorker(paths, "startup-refusal", "startup-refusal-session",
+      [{ role: "user", content: "never dispatched" }], { startupError: "owned fixture startup refusal" })
+    await expect(waitForEvent(paths.events, worker.id, "sdk-start")).rejects.toThrow("owned fixture startup refusal")
+    expect((await readEvents(paths.events)).some(item => item.name === "sdk-start")).toBe(false)
+  })
+
   for (const stream of [false, true]) {
     for (const firstName of ["main", "side"] as const) {
       test(`Pi keeps both branches valid across processes: ${firstName} first, stream=${stream}`, async () => {

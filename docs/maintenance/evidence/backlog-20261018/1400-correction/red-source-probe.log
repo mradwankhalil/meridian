@@ -1,0 +1,12 @@
+{"bun":"1.3.11","pr":1400,"reportedMs":600000,"effectiveEarliestMs":10800000}
+18 | const effectiveEarliestMs = Math.min(
+19 |   priorityExhaustion.benchedUntil("active", "fable"),
+20 |   priorityExhaustion.benchedUntil("other", "fable"),
+21 | )
+22 | console.log(JSON.stringify({ bun: Bun.version, pr: 1400, reportedMs, effectiveEarliestMs }))
+23 | if (reportedMs !== effectiveEarliestMs) throw new Error(`Retry-After contradicts effective benches: ${reportedMs} != ${effectiveEarliestMs}`)
+                                                       ^
+error: Retry-After contradicts effective benches: 600000 != 10800000
+      at /private/tmp/meridian-1400-correction-evidence/pool-source-probe.ts:23:51
+
+Bun v1.3.11 (macOS arm64)

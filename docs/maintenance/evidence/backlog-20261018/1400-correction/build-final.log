@@ -1,0 +1,65 @@
+
+> @rynfar/meridian@1.83.1 build
+> bun scripts/build.ts
+
+Bundled 630 modules in 112ms
+
+  cli.js                          16.70 KB   (entry point)
+  cli-kd3a89bj.js                 2.44 MB    (chunk)
+  cli-z097nbx0.js                 4.82 KB    (chunk)
+  cli-kvzyq9qz.js                 1.1 KB     (chunk)
+  cli-82p2f5d2.js                 159.99 KB  (chunk)
+  cli-10hhsazq.js                 33.16 KB   (chunk)
+  cli-76g34tbp.js                 4.0 KB     (chunk)
+  cli-3pbr881b.js                 24.14 KB   (chunk)
+  cli-8bp9109t.js                 36.0 KB    (chunk)
+  cli-zhw955t8.js                 21.33 KB   (chunk)
+  cli-s6a80rxg.js                 49.22 KB   (chunk)
+  cli-hvvpdt24.js                 21.27 KB   (chunk)
+  cli-1jstkdj9.js                 0.82 KB    (chunk)
+  cli-09084bat.js                 14.99 KB   (chunk)
+  cli-3zwfvexc.js                 2.13 KB    (chunk)
+  cli-jjey8jw4.js                 42.0 KB    (chunk)
+  cli-s3zrafwp.js                 8.29 KB    (chunk)
+  cli-fnxd9xyq.js                 1.29 KB    (chunk)
+  cli-v7cjbcec.js                 483 bytes  (chunk)
+  cli-tegctb7a.js                 2.12 KB    (chunk)
+  cli-sry5aqdj.js                 1.41 KB    (chunk)
+  cli-yppcmh73.js                 41.23 KB   (chunk)
+  cli-p9swy5t3.js                 2.35 KB    (chunk)
+  cliDashboard-8mv4r9m5.js        11.42 KB   (chunk)
+  profiles-gzs8pj2z.js            0.98 KB    (chunk)
+  organizationName-ysm8jj6s.js    0.75 KB    (chunk)
+  socketActivation-s3xh5s16.js    256 bytes  (chunk)
+  profileCli-6h996577.js          1.44 KB    (chunk)
+  antigravitySetup-pabmt1sj.js    10.77 KB   (chunk)
+  setup-wcapwy7k.js               0.90 KB    (chunk)
+  cli-jaq9fvq8.js                 128.81 KB  (chunk)
+  cli-5z36r8a5.js                 39.51 KB   (chunk)
+  tokenRefresh-pcx8bx9s.js        1.19 KB    (chunk)
+  index-8n0xvz0m.js               0.51 KB    (chunk)
+  statusProbe-9x9q261e.js         5.38 KB    (chunk)
+  server.js                       1.11 KB    (entry point)
+  meridian-v2.js                  0.69 MB    (entry point)
+  profilePage-td8jswk5.js         109.93 KB  (chunk)
+  profileRename-355f4pvs.js       484 bytes  (chunk)
+  loginCallbackPage-h0y8eapp.js   155 bytes  (chunk)
+  stats-4c4ewmdh.js               310 bytes  (chunk)
+  pluginPage-ja0t9z05.js          17.31 KB   (chunk)
+
+Bundled 87 modules in 13ms
+
+  buildObservationWorker.js  0.50 MB  (entry point)
+
+Bundled 3 modules in 6ms
+
+  index.js  9.25 KB  (entry point)
+
+Bundled 116 modules in 27ms
+
+  index.js  0.69 MB  (entry point)
+
+  fixed: profilePage-td8jswk5.js
+  fixed: cli-kd3a89bj.js
+fix-bun-exports: patched 2 file(s)
+Certified local build 2 (6870f04f-6094-4571-bc6c-f0b42b3f64da)

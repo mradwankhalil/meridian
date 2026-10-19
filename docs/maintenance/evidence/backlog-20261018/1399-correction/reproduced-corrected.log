@@ -1,0 +1,15 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-session-gc-capacity.test.ts:
+(pass) session GC capacity > preserves ordinary throughput through joined deletion transactions [1956.17ms]
+(pass) session GC capacity > preserves draining throughput through joined deletion transactions [1287.33ms]
+(pass) session GC capacity > preserves lower configured drain cap through joined deletion transactions [862.60ms]
+(pass) session GC capacity > lowers the remaining allowance when idle close joins deletion 1 [1058.04ms]
+(pass) session GC capacity > lowers the remaining allowance when idle close joins deletion 25 [1455.34ms]
+(pass) session GC capacity > retires every orphaned transcript in one sweep, past the 256 the backlog used to hold [2730.45ms]
+(pass) session GC capacity > keeps a draining proxy's sweeps, close()'s final one among them, to 16 deletions [196.55ms]
+
+ 7 pass
+ 0 fail
+ 32 expect() calls
+Ran 7 tests across 1 file. [11.29s]

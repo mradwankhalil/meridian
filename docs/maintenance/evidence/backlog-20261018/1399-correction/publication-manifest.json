@@ -1,0 +1,243 @@
+{
+  "kind": "Selected publication; original source inventory is historical, not a claim all source files are published",
+  "source_inventory": "source-inventory.json",
+  "source_file_count": 65,
+  "unchanged_selected_source_files": 30,
+  "selected": [
+    {
+      "path": "result.md",
+      "bytes": 6130,
+      "sha256": "a08cbcae10892a741440b6c409f8f8d23480f45192b2ca202332f81341031e27",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "review-record.md",
+      "bytes": 8299,
+      "sha256": "d84565fe2afd13b1fb64cbc79966ec11f0489f076b6ea73615e4b31a719fe357",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproduce-offline.sh",
+      "bytes": 1703,
+      "sha256": "04b92639481c24defb6926b381b0c54d80709c4a44730fcb068dac0e5d6d4719",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "regression-tests.patch",
+      "bytes": 4924,
+      "sha256": "a7d837a45121207759e1461de12fae77ad9a6803e98d790451922c052a8b930f",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "correction.patch",
+      "bytes": 10881,
+      "sha256": "c578bf837a870d1a1552d0be3e03f743eecdc30e93fa81a1796c9343ca0771ba",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "original-head-regression.log",
+      "bytes": 2027,
+      "sha256": "b62ff56e2a16db801a08a64d3556b39ed1c1b40c156ba328acb8b4376c6681ee",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "focused-green.log",
+      "bytes": 1818,
+      "sha256": "43488f103eab6aab5b0d4bad07a5e8160064add88c44cd10b2f14f1b2e2678a3",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "lifecycle-adjacency.log",
+      "bytes": 8507,
+      "sha256": "aeaf417af347d4a3e7b659695ef4c50c3b9c5a03dd139df7adae2a0073aa8b90",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproduced-original.log",
+      "bytes": 2114,
+      "sha256": "63d074b4a6f7b135f1d91a4e43b204bbebc28a8bf8772d1bdbc5c29840b671da",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproduced-original.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproduced-corrected.log",
+      "bytes": 939,
+      "sha256": "20dc35aef10ef8e613059a695379d188b5b522657d33c8c646c0dbbd7818aff3",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproduced-corrected.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproducer-validation.log",
+      "bytes": 958,
+      "sha256": "e577490c5dea3b0f0c53f2a82268286dc0b79297224b3758ca35feb9c934489d",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "reproducer-validation.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "full-suite-failures.json",
+      "bytes": 18871,
+      "sha256": "47f27c35c6b423714f4c32d6bd556ccde4ed4a808c0eb02b3ec0b1773c92da96",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "npm-test.exit",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "gate-counts.json",
+      "bytes": 6309,
+      "sha256": "b5337e18c18d10e8fdbb0b82aed94c671dc9b3db0fb8e4580976bc7a99870175",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "remaining-gates.json",
+      "bytes": 5170,
+      "sha256": "f114052608a7ec2c47fb9fb48b37cbd28f282ee559e356586be0019e37c48a95",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "run-remaining-gates.py",
+      "bytes": 1505,
+      "sha256": "30f5c9d70489df0201799e71557eca1619e2276d1afecb5dee1abdee41580b81",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "typecheck.log",
+      "bytes": 151,
+      "sha256": "19f9afff86ca4dae2628476bbd7850c11bdf8a6b4e51e5dfe03235dfc289c252",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "build.log",
+      "bytes": 2789,
+      "sha256": "a4b42def039e541cd7a0e861cff9be8016717df599bb7b04c48d8272122806e4",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "pr-final.json",
+      "bytes": 2799,
+      "sha256": "768687ac3c05780d5e1b4444674773abe650055c521fd1f8d6e00c118e8c2f03",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "offline-sdk-commands.sh",
+      "bytes": 396,
+      "sha256": "e6a15456492fe88e77c7b2a766f83841c129a12d9a84892ab2d2e49ce52c9baa",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "offline-sdk-normal.log",
+      "bytes": 471,
+      "sha256": "98ed8d67ff892fbe813d1884e25e7c3c764e10d8ab46d7ca4c445588ec6055c4",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "offline-sdk-normal.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "offline-sdk-drain.log",
+      "bytes": 479,
+      "sha256": "4b81459e2f8908176b0f4dcf20ffa65e8ed608c34be3c4142946d4b874de35ea",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "offline-sdk-drain.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "auth-owned-process-probe.ts",
+      "bytes": 2480,
+      "sha256": "a271cdeb87c689ee0b5a74d52dfd846131603d97d788fdb4415e5d39f8f5e1dc",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "auth-owned-process-bun-complete.log",
+      "bytes": 307,
+      "sha256": "97139ced551da5d8776cd3f84b18e51d2e6fe8c4ffc6cce761a8ae3ed1d4fe22",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "auth-source-identities.txt",
+      "bytes": 164,
+      "sha256": "f1ee4cc061538942b33a8106318a228528d41e132f991c45261e90c2017c1dd5",
+      "origin": "unchanged reviewed source transfer"
+    },
+    {
+      "path": "source-inventory.json",
+      "bytes": 6158,
+      "sha256": "8eb2873daf901671d7ed4a39b92ef53a9d65b55d26fdb7e346be66e4f742c640",
+      "origin": "source inventory copy"
+    },
+    {
+      "path": "full-suite-excerpt.json",
+      "bytes": 7061,
+      "sha256": "2c9eecf6503dfe651c736ce8c093774ad6a29715fbc1d4ff02984334873ae9e2",
+      "origin": "explicit derived publication receipt"
+    },
+    {
+      "path": "runtime-qualification.json",
+      "bytes": 6223,
+      "sha256": "bb77af4f828045f4d975359ed242aeb2e3a0a7de77477debc05d8e610777d214",
+      "origin": "explicit derived publication receipt"
+    }
+  ],
+  "omitted_source_files": [
+    "auth-external-shell-probe.log",
+    "auth-owned-process-bun.log",
+    "correction-commits.txt",
+    "dependency-install.log",
+    "host-load-during-suite.txt",
+    "npm-test-stage-02.log",
+    "npm-test-stage-03.log",
+    "npm-test-stage-04.log",
+    "npm-test-stage-05.log",
+    "npm-test-stage-06.log",
+    "npm-test-stage-07.log",
+    "npm-test-stage-08.log",
+    "npm-test-stage-09.log",
+    "npm-test-stage-10.log",
+    "npm-test-stage-11.log",
+    "npm-test-stage-12.log",
+    "npm-test-stage-13.log",
+    "npm-test-stage-14.log",
+    "npm-test-stage-15.log",
+    "npm-test-stage-16.log",
+    "npm-test-stage-17.log",
+    "npm-test-stage-18.log",
+    "npm-test-stage-19.log",
+    "npm-test-stage-20.log",
+    "npm-test-stage-21.log",
+    "npm-test-stage-22.log",
+    "npm-test-stage-23.log",
+    "npm-test-stage-24.log",
+    "npm-test.log",
+    "original-authors.txt",
+    "pr-after-push.json",
+    "pr-before-push.json",
+    "push.log",
+    "signatures.log",
+    "tooling-install.log"
+  ]
+}

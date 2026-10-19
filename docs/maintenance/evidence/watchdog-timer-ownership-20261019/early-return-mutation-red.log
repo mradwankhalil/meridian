@@ -1,0 +1,23 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-concurrency-coordination.test.ts:
+1453 |       expect(queryCalls).toBe(1)
+1454 | 
+1455 |       waiterAbort.abort()
+1456 |       expect((await secondP).status).toBe(499)
+1457 |       // The cancelled waiter must clear its own timer, even without a lease.
+1458 |       expect(pendingTimers()).toHaveLength(1)
+                                     ^
+error: expect(received).toHaveLength(expected)
+
+Expected length: 1
+Received length: 2
+
+      at <anonymous> (/private/tmp/meridian-watchdog-fixture-20261019/src/__tests__/proxy-concurrency-coordination.test.ts:1458:31)
+(fail) SDK and Session concurrency coordination > clears the session-turn watchdog timer when a queued waiter cancels before acquiring the lease (#1380) [376.20ms]
+
+ 0 pass
+ 36 filtered out
+ 1 fail
+ 6 expect() calls
+Ran 1 test across 1 file. [2.02s]

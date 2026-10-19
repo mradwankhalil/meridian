@@ -1,0 +1,10 @@
+{
+  "route": "/v1/messages",
+  "status": 200,
+  "model": "claude-opus-5-5",
+  "agent": "build",
+  "attested": true,
+  "completed": true,
+  "error": null,
+  "diagnostic": null
+}

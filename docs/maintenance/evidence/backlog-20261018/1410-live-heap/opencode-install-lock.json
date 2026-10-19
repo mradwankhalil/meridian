@@ -1,0 +1,203 @@
+{
+  "name": "meridian-1410-opencode-2021",
+  "version": "file:../../private/tmp/meridian-1410-opencode-2021",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "@opencode/cli": "^2.0.21"
+      }
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli/-/cli-2.0.21.tgz",
+      "integrity": "sha512-hXFVQlNX+usWsYR5xYxDl1pYyG525V7p0kAGI0Q/mhrLg/2FpyJwuw0bMVJ+fc4PxHKHPC0tsIwAG/8i3lusKg==",
+      "cpu": [
+        "arm64",
+        "x64"
+      ],
+      "hasInstallScript": true,
+      "license": "MIT",
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ],
+      "bin": {
+        "opencode": "bin/opencode.exe",
+        "opencode2": "bin/opencode.exe"
+      },
+      "optionalDependencies": {
+        "@opencode/cli-darwin-arm64": "2.0.21",
+        "@opencode/cli-darwin-x64": "2.0.21",
+        "@opencode/cli-darwin-x64-baseline": "2.0.21",
+        "@opencode/cli-linux-arm64": "2.0.21",
+        "@opencode/cli-linux-arm64-musl": "2.0.21",
+        "@opencode/cli-linux-x64": "2.0.21",
+        "@opencode/cli-linux-x64-baseline": "2.0.21",
+        "@opencode/cli-linux-x64-baseline-musl": "2.0.21",
+        "@opencode/cli-linux-x64-musl": "2.0.21",
+        "@opencode/cli-windows-arm64": "2.0.21",
+        "@opencode/cli-windows-x64": "2.0.21",
+        "@opencode/cli-windows-x64-baseline": "2.0.21"
+      }
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-darwin-arm64": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-darwin-arm64/-/cli-darwin-arm64-2.0.21.tgz",
+      "integrity": "sha512-dspUnJ767TClh6LqJ0y4/V1EbGVDjfmWsp+AJjLxhGR47q/ySvzZz2tNIDbX/q8lHC1Cpj3sUBdZ/6Vk8rOBSw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-darwin-x64": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-darwin-x64/-/cli-darwin-x64-2.0.21.tgz",
+      "integrity": "sha512-F1LkTx0gFcLDHAudmM0bHVkoWbi7hMEVGwF0PoH1G/GAUvRaERhr16YY9jIh2cSleY/SEm+Mg2N5E5cwugqlqg==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-darwin-x64-baseline": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-darwin-x64-baseline/-/cli-darwin-x64-baseline-2.0.21.tgz",
+      "integrity": "sha512-pu1EK2F3vAm5Vk4Ej2PEJtCtrThsVX/cbS7kBJjOTHL3W0+d1dDyUmThdj9hSQDK05u33JyghnyxM63w50CvCg==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-linux-arm64": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-linux-arm64/-/cli-linux-arm64-2.0.21.tgz",
+      "integrity": "sha512-2P8Ah4Ae9TylSrNy6Bo9x9MpsafvmylM0HJ4jHsY0m4BsdXpZOw1r8J6q8OTpuus6CUOuTYAgWZnPxEQO9GaIw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-linux-arm64-musl": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-linux-arm64-musl/-/cli-linux-arm64-musl-2.0.21.tgz",
+      "integrity": "sha512-P3fNeEtNZ24vEXy4/fpce7PLUx4cIWVGJ0xOgrdxEa75koHRRzPYtmLfuoO6+UVnpINiUVixZhK5ORopjKGstg==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-linux-x64": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-linux-x64/-/cli-linux-x64-2.0.21.tgz",
+      "integrity": "sha512-intPGPRrEoZk+5Qq2dzYcq3Wv07vWvQrv56WieurupI9jGJSEAfT4a9Pi6YMW4tEW6SapAds/95K0egVS2YwiA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-linux-x64-baseline": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-linux-x64-baseline/-/cli-linux-x64-baseline-2.0.21.tgz",
+      "integrity": "sha512-I/j7CToqgcBUOpOFRsmJdhCjOkQptrpZm00t6/ZvKeGqQcKjj49lIEZV+makXIRVRoslg3aO4nz24dz1PqXS4w==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-linux-x64-baseline-musl": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-linux-x64-baseline-musl/-/cli-linux-x64-baseline-musl-2.0.21.tgz",
+      "integrity": "sha512-zo+YgzUOVZBI7jflMezkmaCVB+PIQZDiGMmlSnKnGY3SeXYPde0UI2vsbFtRUKXsjds1sifxzkYUC0LT3vw34Q==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-linux-x64-musl": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-linux-x64-musl/-/cli-linux-x64-musl-2.0.21.tgz",
+      "integrity": "sha512-1uQPt081o9qIDNG1S+MYFFIUREftm7zKkGf0+AF908pJAI046XpkHLplA8plscfCTLguNA1xTItxw1JkDW2S2A==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-windows-arm64": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-windows-arm64/-/cli-windows-arm64-2.0.21.tgz",
+      "integrity": "sha512-B76EcVEdsMz4SS6T/LwDWKkcUL5TCQnzYH35Wzfpgp0+/Thw8SrwGYGxoQ4IbkZejCi7CgUB3ruFdHdJgXoe1w==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-windows-x64": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-windows-x64/-/cli-windows-x64-2.0.21.tgz",
+      "integrity": "sha512-qhWhsaEvigkj7TCFQAX81uouMQFG6klvX/yLkT7uHZM/FKuoOtr8rajJ+2NdzO/fVf2ffxI6ZuPlVlhQSHHPLA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "../../private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli-windows-x64-baseline": {
+      "version": "2.0.21",
+      "resolved": "https://registry.npmjs.org/@opencode/cli-windows-x64-baseline/-/cli-windows-x64-baseline-2.0.21.tgz",
+      "integrity": "sha512-JM69TOtpG2kVjTp0H2Ik6LeEy0ywYzWrFd/BVCShR0ngKFTQBYMxhwaNG+s3HihriQd1xnbtXOU8MF6A6X44LA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2118 @@
+{
+  "format": "Anthropic tools[]: {name,description,input_schema}",
+  "fixtureSha256": "0ce74a63b41e61bbab5b5c756fc39ad8226356e649137980906a688d114ea145",
+  "toolCount": 230,
+  "nativeToolCount": 11,
+  "githubSourceToolCount": 131,
+  "githubSecondaryAliases": 88,
+  "uniqueInputSchemas": 137,
+  "inputSchemaBytes": 194619,
+  "fixtureBytes": 366598,
+  "schemaCounts": {
+    "objects": 276,
+    "arrays": 63,
+    "enums": 212,
+    "anyOf": 11,
+    "oneOf": 12,
+    "allOf": 0,
+    "refs": 0,
+    "properties": 1330,
+    "maxObjectDepth": 4
+  },
+  "runtime": {
+    "node": "v22.22.3",
+    "typescript": "5.9.3",
+    "effect": "4.0.0-beta.83"
+  },
+  "sources": {
+    "opencode": {
+      "version": "1.18.34",
+      "commit": "aec0b9a6d8898f68f923aaf08b7306d931fd9d76"
+    },
+    "githubMcpServer": {
+      "commit": "e3809fe91c7546633241006bf0b91f23b2595e28"
+    }
+  },
+  "limitations": [
+    "Constructed realistic client-consumable catalog; not a captured reporter catalog or proof of any installed client/server configuration.",
+    "Eleven selected public native OpenCode tools plus all 131 unique-named GitHub MCP committed tool snapshots at pinned revision, and 88 explicit second-instance aliases; aliases have identical schemas/descriptions to their source tools.",
+    "Source snapshot directory may contain deprecated/conditional tools, so the 131-source set is a schema workload rather than a claim that one default GitHub MCP server advertises all 131 simultaneously.",
+    "Duplicate-named variant snapshots are deduplicated, preferring the canonical <tool-name>.snap file; output-only snapshots are excluded.",
+    "OpenCode native descriptions are public source templates, without expanding installed agent or skill metadata.",
+    "No model calls, credentials, user configuration, SDK transcripts, or client requests were read."
+  ],
+  "tools": [
+    {
+      "fixtureName": "apply_patch",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "apply_patch",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/apply_patch.ts",
+      "sourceSha256": "9bc5a1384a5e1b1cdd21943cb529dcde6e5e596706dee2111ccdb999d6b0ba22",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "edit",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "edit",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/edit.ts",
+      "sourceSha256": "f84d9d242137e1f18ce912188efb7a97b71bf4f255e0a69f16a1fe9d1ff236d4",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "glob",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "glob",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/glob.ts",
+      "sourceSha256": "a5069377ae916495a72be319d218878136fc13f18551f3e16981d8c692c68a4a",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "grep",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "grep",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/grep.ts",
+      "sourceSha256": "f7bbab8ae3fabfe3dd78b5728a283a56bff318d5b1f278d15d1c637227ff660f",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "lsp",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "lsp",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/lsp.ts",
+      "sourceSha256": "993e1316f12a44cde46eb8af34868a1ea2077a6e4ec749c25ec8b913a2e46da5",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "skill",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "skill",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/skill.ts",
+      "sourceSha256": "629ada0c0a0135cb003429aec233aeb165f0b98a2bd5171986bc319c11af3c07",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "webfetch",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "webfetch",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/webfetch.ts",
+      "sourceSha256": "8d9efbad1ffdf8dc29dbac80eb5372ba66a8c80fccaa1606d4e41a9c929a5b6b",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "websearch",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "websearch",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/websearch.ts",
+      "sourceSha256": "edb175726b7830d242f59417ce6961f44d39e500bccc068bf2dddbf61d5ca92a",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "write",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "write",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/write.ts",
+      "sourceSha256": "861de91cc67849e138c32a697c8eb1abab8e4912bfd97811ea1866b8e9af4096",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter."
+    },
+    {
+      "fixtureName": "read",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "read",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/read.ts",
+      "sourceSha256": "afec8294965cbd9b9e29d3453b682164f0ecdba26574ebc048e9ba21af209c68",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter.",
+      "dependency": "NonNegativeInt copied exactly from packages/schema/src/schema.ts at same commit"
+    },
+    {
+      "fixtureName": "task",
+      "sourceKind": "OpenCode native tool",
+      "sourceName": "task",
+      "sourceUrl": "https://github.com/anomalyco/opencode/blob/aec0b9a6d8898f68f923aaf08b7306d931fd9d76/packages/opencode/src/tool/task.ts",
+      "sourceSha256": "db09fa5868ad3ecfdd83aa2bb7243f85e9e2cd13d0b19fd6f307f7a337b2b36e",
+      "descriptionTemplate": true,
+      "conversion": "Extract only public Parameters expression (BaseParameters for default task mode); evaluate real Effect Schema; use unmodified public ToolJsonSchema.fromSchema converter.",
+      "mode": "Default foreground, experimental background disabled"
+    },
+    {
+      "fixtureName": "mcp__github_primary__actions_get",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "actions_get",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/actions_get.snap",
+      "sourceSha256": "64562b61a7bb5b4f6e16ffd169aa391527a2eb4d2d6bc48de699e8c3a2834c50",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__actions_list",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "actions_list",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/actions_list.snap",
+      "sourceSha256": "366ac64d75c7235274a3c902705f89718a1b19aa15f32cdcfce13863c64f1501",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__actions_run_trigger",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "actions_run_trigger",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/actions_run_trigger.snap",
+      "sourceSha256": "95b803597402a5db960517ac0b75b4767982b7614e11f9b603a1a540a52bd345",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_comment_to_pending_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_comment_to_pending_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_comment_to_pending_review.snap",
+      "sourceSha256": "652d78887307132442e191ff27618b37904a0fd52a65e312556a44ed6d45842f",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_issue_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_issue_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_issue_comment.snap",
+      "sourceSha256": "c6733346db7f86297cd902c72762fc3b62c5fc50b8d32639943bc1599acbbfc5",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_issue_comment_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_issue_comment_reaction",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_issue_comment_reaction.snap",
+      "sourceSha256": "7a102103b366fd9634e8d16eb11a8fb92dc18ca5c542859411930a5450743728",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_issue_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_issue_reaction",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_issue_reaction.snap",
+      "sourceSha256": "fbadc8f5d4f94632b000a582fb5c2f072bcc2da41162034145c1dfe1aab12819",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_pull_request_review_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_pull_request_review_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_pull_request_review_comment.snap",
+      "sourceSha256": "381caefbabbf8588fc82bf3ab3937b4f23c1449e3518ad5a4dcf84a9281f7306",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_pull_request_review_comment_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_pull_request_review_comment_reaction",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_pull_request_review_comment_reaction.snap",
+      "sourceSha256": "c4a919df7c31dff035d133f747ebb31d2672bb3e6488f64ef897875798bf2ff3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_reply_to_pull_request_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_reply_to_pull_request_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_reply_to_pull_request_comment.snap",
+      "sourceSha256": "1e46ecd0e056c46dfb5b7ba4e3265c52715464810a4a32987fe0de3a78c1785d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__add_sub_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_sub_issue",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_sub_issue.snap",
+      "sourceSha256": "f60e9ba477e11da3aaa28d317cf786b6e436cc17a138c6df6e31d0386a9b43fe",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__assign_copilot_to_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "assign_copilot_to_issue",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/assign_copilot_to_issue.snap",
+      "sourceSha256": "1b2ce90ffd4c9ffdde930ccdd09ad6d59910fb8b7b8311a520554d061820fbfa",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__assign_copilot_to_issue_with_intent",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "assign_copilot_to_issue_with_intent",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/assign_copilot_to_issue_with_intent.snap",
+      "sourceSha256": "6d30dfc577da70057960644a858c43f18bbf688f2e2f517c46ec29ed7602e0c3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_branch",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_branch",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_branch.snap",
+      "sourceSha256": "f85fd6748ca9a35dbd40f565eb9c99e09d5163eee2c5c95b62c2cb164f5311e9",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_gist",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_gist",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_gist.snap",
+      "sourceSha256": "d7c08b31421b880b6d8d5cc69782b40055735ef2acf6878b32112e20ce688f8f",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_issue",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_issue.snap",
+      "sourceSha256": "d6a6e3b53b31dbb42e5c59cb09f4247855d1c6be63d5dcb6ec423bb33b003e89",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_or_update_file",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_or_update_file",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_or_update_file.snap",
+      "sourceSha256": "1628c5dd3c1fbf577bd608bb70c2d352d973bd74ce07293ef4926332c6239508",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_pull_request",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_pull_request",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_pull_request.snap",
+      "sourceSha256": "30b11d9262aeaffe07d8e77058a9c91f02b529cbf9307cc901f13a351911d870",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_pull_request_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_pull_request_review.snap",
+      "sourceSha256": "c34e841f7f7edc5f243e57c6953d231b7104dd496de12fb3ed60adbbc5bdb4ad",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_repository",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_repository.snap",
+      "sourceSha256": "5f3e8415d773c6f389411d22f705963ad0aa9b5d1e860984ba8a9aa719374437",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__create_repository_ruleset",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_repository_ruleset",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_repository_ruleset.snap",
+      "sourceSha256": "f5659ba19892b696620cccc15358d8679968a1ed30942fc929f58537dd1d6bac",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__custom_properties_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "custom_properties_read",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/custom_properties_read.snap",
+      "sourceSha256": "e06ad37f1fe90fe0e776d15a6f20698a5f28216d549ba349175e985cf53c823d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__custom_properties_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "custom_properties_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/custom_properties_write.snap",
+      "sourceSha256": "66bd0391222b96f9a0485bff88978e3fb3e98f5143e5f209b52acae2cc06a6c0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__delete_file",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "delete_file",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/delete_file.snap",
+      "sourceSha256": "bde38a9b06606718dcc6b16600bd0d1b8f839fcb384e8ecffeb564a4b69f00ab",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__delete_pending_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "delete_pending_pull_request_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/delete_pending_pull_request_review.snap",
+      "sourceSha256": "bd7c4c1d24e41bc425475cb9206321185ec0669fb368ba5aa682f71085b7d73b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__delete_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "delete_repository",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/delete_repository.snap",
+      "sourceSha256": "807a8e033b971d0a6c5405946440a22b71d6d464300a2171a21e449b3cf71e84",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__discussion_comment_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "discussion_comment_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/discussion_comment_write.snap",
+      "sourceSha256": "413a047c0604b1027cf18d84b0383aa0aa374f2a8c3507094bd8153d01260f05",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__dismiss_notification",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "dismiss_notification",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/dismiss_notification.snap",
+      "sourceSha256": "7cd497cc35bfa92ecf38fa796a1d9ca9a32d46e686e5fb6e3b3426e801dbc777",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__find_duplicate",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "find_duplicate",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/find_duplicate_ff_duplicate_detection.snap",
+      "sourceSha256": "d589e6c0f91a612383bbd13281033c2e59bfae59926d19ec6c07a91dc9d697f0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__fork_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "fork_repository",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/fork_repository.snap",
+      "sourceSha256": "e95939a79f2a31e9b3db4388384e5e84d6c92f8d7ec13ba003cd1c82e7a34420",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_code_quality_finding",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_code_quality_finding",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_code_quality_finding.snap",
+      "sourceSha256": "5418396504e47d0c040d17fef3f8c7fa07ca3b84d447a44c7b40fab1850e082c",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_code_scanning_alert",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_code_scanning_alert",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_code_scanning_alert.snap",
+      "sourceSha256": "c2e70576a8e3df509f9f2e0f7b7b71b1efaf22bb26e7313ad51ff6c4fdc7fe86",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_commit",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_commit",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_commit.snap",
+      "sourceSha256": "2c6a32da66dc511737e29471a0a8bb277e20af42831aec1371c9c0a28d3c67d3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_dependabot_alert",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_dependabot_alert",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_dependabot_alert.snap",
+      "sourceSha256": "ce39d4f1f38bc86ae9830f3045c810f846d9a51863b99d3426032b6c60021908",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_discussion",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_discussion",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_discussion.snap",
+      "sourceSha256": "1f0d9ee863bad70a3b77889f53e1a51d0d9be50ec6c960d250ed7bc1f7e5e7b1",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_discussion_comments",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_discussion_comments",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_discussion_comments.snap",
+      "sourceSha256": "6885d3240f2703d3fc2297ebe9f449e95c45fd3d75ab1932f7a456ade99f4d66",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_file_blame",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_file_blame",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_file_blame.snap",
+      "sourceSha256": "21c3b21a8372fcd4c405cfe13fa611bcc2240ebe47d630fe92a0f02bdff641fe",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_file_contents",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_file_contents",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_file_contents.snap",
+      "sourceSha256": "22b40741c7b79d97c3951fcc0cb85da9b86c7ca245830cf3c33cd8f23fcd6e7a",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_gist",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_gist",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_gist.snap",
+      "sourceSha256": "2033391e72af65c4b1138a6154dd5e50c076457fc8d32e7b65597766c383b138",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_global_security_advisory",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_global_security_advisory",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_global_security_advisory.snap",
+      "sourceSha256": "e64d3f5306a5073fea2395fa98cf2c0ba1b0e7b4a215f62799c007f2c5f30b84",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_job_logs",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_job_logs",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_job_logs.snap",
+      "sourceSha256": "ae4db7a8b27a573335881a6e00f378cb30bc71cf6e0ad66a8b0b14f28ccf6a4a",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_label",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_label",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_label.snap",
+      "sourceSha256": "5ddd988434728868e53bef3b16d8fd4abb0f023a7310426c45d0b70cfbbc4831",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_latest_release",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_latest_release",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_latest_release.snap",
+      "sourceSha256": "da956bc4a567889fda619678ccc81841e365a6b76d49c243f37122869874d753",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_me",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_me",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_me.snap",
+      "sourceSha256": "69f0536121b0e9a827863bc93048f91fffa42866866fa21103ab1502d87a10cc",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_notification_details",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_notification_details",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_notification_details.snap",
+      "sourceSha256": "9809077c7d0bf085ffa99c1d25fac799a3d584f3b9328f4a51be5ce2eea41ff0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_release_by_tag",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_release_by_tag",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_release_by_tag.snap",
+      "sourceSha256": "93b34b78059ae872541da4ef890eab160bc86146abec9f2f2398b0a4ea995051",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_repository_tree",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_repository_tree",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_repository_tree.snap",
+      "sourceSha256": "759aa484f2c5628c485e928ad3a1f921c195858ab4ba4750d6686cc4526b967a",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_secret_scanning_alert",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_secret_scanning_alert",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_secret_scanning_alert.snap",
+      "sourceSha256": "8f31d18a794a0bf572bbaa7cffd24a5f833c805a96e913ffa24cf5aa4f58e90d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_tag",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_tag",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_tag.snap",
+      "sourceSha256": "f70834c8d61463c8c830bfc90da2ab59e61caec2077626566aae9dc8d8e28d86",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_team_members",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_team_members",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_team_members.snap",
+      "sourceSha256": "04f4457522d6f28e4519de252a109b8b3e9e6f20fe4d665607feae9cc693e193",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__get_teams",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_teams",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_teams.snap",
+      "sourceSha256": "60fd9b12a7d523b5d727b679c5ef5d21744e2302466b161b46f482c25aeaee35",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__hide_issue_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "hide_issue_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/hide_issue_comment.snap",
+      "sourceSha256": "b1772d05753f03baed035daa7b1662f4687276c2a983530d6d55499efe919b10",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__hide_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "hide_pull_request_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/hide_pull_request_review.snap",
+      "sourceSha256": "7772db81eb530c053f2ae73dcab1dfee1d67308898fcee3dde33561e072a06d4",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__hide_pull_request_review_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "hide_pull_request_review_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/hide_pull_request_review_comment.snap",
+      "sourceSha256": "a16f410a48aa15e83487c677798d4fddcd2c4afce78100f06c33097c80a80739",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__issue_dependency_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_dependency_read",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_dependency_read_ff_issue_dependencies.snap",
+      "sourceSha256": "f9905dcf11063170d5dd7b6afdf1751d28aeeedee1854ed335550c9a03823556",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__issue_dependency_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_dependency_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_dependency_write_ff_issue_dependencies.snap",
+      "sourceSha256": "6af3b044f7fecae8ba132c50c023f008a75c15294577a06987ed05b06675cbc3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__issue_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_read",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_read.snap",
+      "sourceSha256": "a8e48cd54d911d8b9b975450bffb03fc995498a291f5c1ed82332780d74f6f9b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__issue_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_write.snap",
+      "sourceSha256": "8da59963b361fe7cc97421d7979bb618da8e9b7c5fa39b03b0e7301161789081",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__label_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "label_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/label_write.snap",
+      "sourceSha256": "8738e2bb6e79ca1c4580531b460df270212e59a03e0218af00e87b0fc3de9759",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_branches",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_branches",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_branches.snap",
+      "sourceSha256": "ec54d73c9dfd79401331f2f674a02d44eed8218f0d3564e2ada8496d00c4b278",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_code_scanning_alerts",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_code_scanning_alerts",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_code_scanning_alerts.snap",
+      "sourceSha256": "00b3ddb25c84d9ae13d32c5ec01e62413ae1b227b6e68359293809e5f42a3b17",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_commits",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_commits",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_commits.snap",
+      "sourceSha256": "72a89a08ee118ce162227d12eb52afd5d1d35de6be6f23144abdf3f993fc3a9e",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_dependabot_alerts",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_dependabot_alerts",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_dependabot_alerts.snap",
+      "sourceSha256": "a6d16c85169b62779b74970c3a8dd22ed68d59ceb9f23d4ce59e3313a0c5361b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_discussion_categories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_discussion_categories",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_discussion_categories.snap",
+      "sourceSha256": "49a12f246c51ed94866df6108a679ce9e08ab698b1ef826104b12768d353cc51",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_discussions",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_discussions",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_discussions.snap",
+      "sourceSha256": "669e50c6154c47e02486c812577eeeb91495f61666acefac1341580c8014cfdb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_gists",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_gists",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_gists.snap",
+      "sourceSha256": "c5a7f5b46226e3892964e7b01a702d314a16542a26b21e320f07ee5b18565aa0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_global_security_advisories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_global_security_advisories",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_global_security_advisories.snap",
+      "sourceSha256": "48985b70d4b2c73fa8b3e007b60d15c08c853ff2a2562e00a6f9d25f7ef62b63",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_issue_fields",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_issue_fields",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_issue_fields.snap",
+      "sourceSha256": "a3cd4d5bfc8e4a49b73d6e93ab6267fb6800f94ae91ee76b1e0d7052d7c9ed34",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_issue_types",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_issue_types",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_issue_types.snap",
+      "sourceSha256": "90df980359b310d75aa2ffb5542a9e2483ddcf75f5b4721a840b460679494abc",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_issues",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_issues",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_issues.snap",
+      "sourceSha256": "e89db4668ef6c20901d7d91cac8485b4c1f8f2eb4afc6f244f79ae79032cf403",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_label",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_label",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_label.snap",
+      "sourceSha256": "3674a9614a30143ab15e6135274af642dba851ffa11e20baee44d83e13d7c4eb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_notifications",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_notifications",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_notifications.snap",
+      "sourceSha256": "f533ee26b58f2f5b6018a208bc15e4f9cef7097563183c5e88ccaaa22ea999e6",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_org_repository_security_advisories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_org_repository_security_advisories",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_org_repository_security_advisories.snap",
+      "sourceSha256": "4bc22dc4fcfb4a3f1ef6923154089ca2167779f14a3e515e8027b6c43caa98bb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_pull_requests",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_pull_requests",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_pull_requests.snap",
+      "sourceSha256": "d5d621c6f4a83c551fa6ef398c67ad85ded9f2b83ebddae2d187d05a6e6aec89",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_releases",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_releases",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_releases.snap",
+      "sourceSha256": "4268335a58502efa335b11da575eced08a09d14c82ace62da12b425cf57947fd",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_repository_collaborators",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_repository_collaborators",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_repository_collaborators.snap",
+      "sourceSha256": "c9b10bd3ef464121a14e9fee437d12a4b12c0c4a11b835fd97aa5fbe006fb570",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_repository_security_advisories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_repository_security_advisories",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_repository_security_advisories.snap",
+      "sourceSha256": "164dfa4923c6598e5b78e3a964aec5c76dd624b24d225a130d16ad42bb59fc06",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_secret_scanning_alerts",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_secret_scanning_alerts",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_secret_scanning_alerts.snap",
+      "sourceSha256": "aaa687798c5536c230b5c42ad937a050f3376a07a5b60088bfc24e745ac82a2b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_starred_repositories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_starred_repositories",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_starred_repositories.snap",
+      "sourceSha256": "d0952c08af326d845b82beea87a465dc348c2ecc386e1e8839538080f5b10724",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__list_tags",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_tags",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_tags.snap",
+      "sourceSha256": "ce7c13a7426ccac822f914b90787a5c616d62ddb193873de446e7d850a706ce5",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__manage_notification_subscription",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "manage_notification_subscription",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/manage_notification_subscription.snap",
+      "sourceSha256": "94a041ff6da9a1c36455f035bb0ea8f80842565a3011e7a60329c2a000e15cb6",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__manage_repository_notification_subscription",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "manage_repository_notification_subscription",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/manage_repository_notification_subscription.snap",
+      "sourceSha256": "31d28066a9ad0a5600783a0db98f917bec157953549d041c7fb27555d1242781",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__mark_all_notifications_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "mark_all_notifications_read",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/mark_all_notifications_read.snap",
+      "sourceSha256": "a93de4d53b4487dcae3ce482129ed58529f0ddb1fa8cc0777080e7b096d13364",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__merge_pull_request",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "merge_pull_request",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/merge_pull_request.snap",
+      "sourceSha256": "fe55df3cc4e1ae91407edcde47455af7f2053de65af0f5994e506a0921bb6c9b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__projects_get",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "projects_get",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/projects_get.snap",
+      "sourceSha256": "00f4b2332e232f1aaf319b558f2e36c83d2be7b4c6f84c49c317cd2ea424fc4d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__projects_list",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "projects_list",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/projects_list.snap",
+      "sourceSha256": "142106d626546a7e89652c34f02bb386ab60073afaf39e29e7c0f5fc4fb772f0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__projects_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "projects_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/projects_write.snap",
+      "sourceSha256": "a32d30d4ac98ba7f1e55617525c7f8d96fe647854335b131694168d3b3a32f3c",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__pull_request_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "pull_request_read",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/pull_request_read.snap",
+      "sourceSha256": "744aeed015f0271fa6854952c2d41d2115057dcb3119cab507f5be75ba8fa5e8",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__pull_request_review_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "pull_request_review_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/pull_request_review_write.snap",
+      "sourceSha256": "d90b313e52c322773e277775cffbc889d1129ffd1d4fd4f3e85469ff3e532fd8",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__push_files",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "push_files",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/push_files.snap",
+      "sourceSha256": "1b97edb55936d70dcdebb54d818f70ade6b95175ed2018aee7c88babe535bc1d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__remove_issue_comment_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "remove_issue_comment_reaction",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/remove_issue_comment_reaction.snap",
+      "sourceSha256": "144be528a471062f64b3c8d5b878ff902bde47b23ceb51dfc627b9fc8661fbc1",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__remove_issue_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "remove_issue_reaction",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/remove_issue_reaction.snap",
+      "sourceSha256": "2469348554ebc0c0261cf59c3ec8498ea2f66cc79f3ed35b7d5beda27acd4b81",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__remove_pull_request_review_comment_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "remove_pull_request_review_comment_reaction",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/remove_pull_request_review_comment_reaction.snap",
+      "sourceSha256": "7426f28495237d6cb49cf6e938abd3dc73153eaebfc7c9ca5ac93f956c6259ed",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__remove_sub_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "remove_sub_issue",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/remove_sub_issue.snap",
+      "sourceSha256": "a5022c1940cd34e9156df82abb783a4a8a6e9a40fb7ab7b7549fa36c36eb5bbf",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__repository_ruleset_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "repository_ruleset_read",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/repository_ruleset_read.snap",
+      "sourceSha256": "1df4a3af204d49302b7b7e3d5260093b590f3135d6d1f9153410f6c6165658e6",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__reprioritize_sub_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "reprioritize_sub_issue",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/reprioritize_sub_issue.snap",
+      "sourceSha256": "fbc3cfa9b38ef61d570fa10d6163d94a1b3db227d2d48c2baa88229855e98167",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__request_copilot_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "request_copilot_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/request_copilot_review.snap",
+      "sourceSha256": "6ca80c79b5efb0ba3d4913f6bd3040ea7dc6d520ccf061af163006be69d31fbd",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__request_pull_request_reviewers",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "request_pull_request_reviewers",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/request_pull_request_reviewers.snap",
+      "sourceSha256": "3d549388cae00075892ade35932a24bd4480647ca6fa03372f847ffd279eb794",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__resolve_review_thread",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "resolve_review_thread",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/resolve_review_thread.snap",
+      "sourceSha256": "44ffe74d40ba139aa844fe2aaa93e901789bd99d7892828bad8440f083d45372",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_code",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_code",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_code.snap",
+      "sourceSha256": "0fd1b423d55810000f3262fac44dd481bc3c7f4f7ffbe0ee36fe9cd643bfe06c",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_commits",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_commits",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_commits.snap",
+      "sourceSha256": "0e20ea0331bafaf86dd22856d76233e405de874a8cd363f487b669903db4fbbb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_issues",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_issues",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_issues.snap",
+      "sourceSha256": "f7ce861fd1f85caf9e220237ab4e711d955aa6c96347574253e5c93657b68d82",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_orgs",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_orgs",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_orgs.snap",
+      "sourceSha256": "661110ae5b1cba5c45b7ced293e6f4796aac8053ecbb73986d18e778fe67a738",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_pull_requests",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_pull_requests",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_pull_requests.snap",
+      "sourceSha256": "1177adc5198644466cf88746f581e4463c6ad21e1c9b7c7aaf945a919f620771",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_repositories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_repositories",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_repositories.snap",
+      "sourceSha256": "f7fe61b0b0c9620ca099ce1be5a5f147a907bf80cc7e226c3d0ccdc78e4fe8b6",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__search_users",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "search_users",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/search_users.snap",
+      "sourceSha256": "652a2b0c15e3bfeeeb0ae69ef185c4d0975fc8efa56a287f763d08ef73d0753b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__set_issue_fields",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "set_issue_fields",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/set_issue_fields.snap",
+      "sourceSha256": "e91a347784729c37fbb9033e43872e604d410976153864496bb750433e3eeb55",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__star_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "star_repository",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/star_repository.snap",
+      "sourceSha256": "8cec54c5569ff2c4cba1bf2b83330722f2fd754c98f09abcabe1a2b646f9b64d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__sub_issue_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "sub_issue_write",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/sub_issue_write.snap",
+      "sourceSha256": "dae46468b0d256e367cd0f7df8d1f5b07b554943399f474b4a9a686c565c5f2e",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__submit_pending_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "submit_pending_pull_request_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/submit_pending_pull_request_review.snap",
+      "sourceSha256": "1ef2a32dbbab04c3b8342f460e4c562b3377836de6f7bd8fbe537362c8aa089b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__ui_get",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "ui_get",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/ui_get.snap",
+      "sourceSha256": "6d2604152330ff8e3ddf9852935c2678c52a27c0ca1370d38b6f6a1bf5be0302",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__unhide_issue_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "unhide_issue_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/unhide_issue_comment.snap",
+      "sourceSha256": "461179977a8692d97a0dca3459c970f601f5a404524e878c77ca1ab55442f572",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__unhide_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "unhide_pull_request_review",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/unhide_pull_request_review.snap",
+      "sourceSha256": "87ae89e3aedb509337688943b311b3cbd760a869f6af398949b65da38724aab1",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__unhide_pull_request_review_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "unhide_pull_request_review_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/unhide_pull_request_review_comment.snap",
+      "sourceSha256": "733de61694fc6378e398318a7a9d25ec07bfbbfc6bfa6b704e002ddbebc6d837",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__unresolve_review_thread",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "unresolve_review_thread",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/unresolve_review_thread.snap",
+      "sourceSha256": "981edd525947f603419e27d4c2a337c018487482273887c83607ff80009c11b5",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__unstar_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "unstar_repository",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/unstar_repository.snap",
+      "sourceSha256": "c1c08e72698d44b3698e067dc8540aaf2c81d842106390e6c953be88268ae39b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_gist",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_gist",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_gist.snap",
+      "sourceSha256": "65d5c68b0c676f5b78ffa1678a2bac35e4a5f7c686fdf59926be955eb6343e10",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_assignees",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_assignees",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_assignees.snap",
+      "sourceSha256": "8747cdf8fdfb4be2d8730da22586e72330f91061e7f1ac8a80657a202c13c136",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_body",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_body",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_body.snap",
+      "sourceSha256": "cd01e77824c28a661ac7d243d06826422cb10e699de0896e4d9cc9dbcf9bea95",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_comment",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_comment.snap",
+      "sourceSha256": "e1eabe7d71f444a486643d37a4b5bad7dc0e98c2d6ec677ea582743ebed68128",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_labels",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_labels",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_labels.snap",
+      "sourceSha256": "ed3447e012245a4f3b24f0e4dc178a2ad1815b5d8a852fcc804fa1f6f35c2f62",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_milestone",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_milestone",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_milestone.snap",
+      "sourceSha256": "c07cc06c408e152b205ee95475dccafe8e04ca1f706b4396af536f4805077dd4",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_state",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_state",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_state.snap",
+      "sourceSha256": "bffe6a84f0125adfbcc32e8f2a892d9031f340da88dbb9a8644f3ef01324bc68",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_title",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_title",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_title.snap",
+      "sourceSha256": "fa25f39904e43fb63779e5717ccbb6cb92e25c329738ca520568e7a90d5a0c30",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_issue_type",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_issue_type",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_issue_type.snap",
+      "sourceSha256": "f532a9f1b684279390a62ac05c7014e2c43e66e50327e66efd5e6ab84a79a078",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_pull_request",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_pull_request",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_pull_request.snap",
+      "sourceSha256": "13a31e178bc1a898b901928ace0f51800df4217479301517d19dc4d6a9b2d2e2",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_pull_request_body",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_pull_request_body",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_pull_request_body.snap",
+      "sourceSha256": "9e4a7acb0e3d3eb6aa0741e15b14b27fc9fdf92594a092aaae84273ce416191e",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_pull_request_branch",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_pull_request_branch",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_pull_request_branch.snap",
+      "sourceSha256": "4db67eab9d978c0ca965dc0d11604ac8a4b6f94a309c5e69771ac857bdbb36f7",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_pull_request_draft_state",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_pull_request_draft_state",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_pull_request_draft_state.snap",
+      "sourceSha256": "336adbfad938dadc2d76004acdba27ff96b2cd0e74350a197a1b0d74f87b1618",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_pull_request_state",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_pull_request_state",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_pull_request_state.snap",
+      "sourceSha256": "f59cc4c4a912aca14616c49679e5a07d6230ed6bcb4fa28be0ff235c4ce9e71f",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_primary__update_pull_request_title",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "update_pull_request_title",
+      "serverAlias": "primary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/update_pull_request_title.snap",
+      "sourceSha256": "ab05f82ca7f52ae7b31e53b83d76613af46534b9db4be25901f37101342ecc67",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__actions_get",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "actions_get",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/actions_get.snap",
+      "sourceSha256": "64562b61a7bb5b4f6e16ffd169aa391527a2eb4d2d6bc48de699e8c3a2834c50",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__actions_list",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "actions_list",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/actions_list.snap",
+      "sourceSha256": "366ac64d75c7235274a3c902705f89718a1b19aa15f32cdcfce13863c64f1501",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__actions_run_trigger",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "actions_run_trigger",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/actions_run_trigger.snap",
+      "sourceSha256": "95b803597402a5db960517ac0b75b4767982b7614e11f9b603a1a540a52bd345",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_comment_to_pending_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_comment_to_pending_review",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_comment_to_pending_review.snap",
+      "sourceSha256": "652d78887307132442e191ff27618b37904a0fd52a65e312556a44ed6d45842f",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_issue_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_issue_comment",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_issue_comment.snap",
+      "sourceSha256": "c6733346db7f86297cd902c72762fc3b62c5fc50b8d32639943bc1599acbbfc5",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_issue_comment_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_issue_comment_reaction",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_issue_comment_reaction.snap",
+      "sourceSha256": "7a102103b366fd9634e8d16eb11a8fb92dc18ca5c542859411930a5450743728",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_issue_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_issue_reaction",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_issue_reaction.snap",
+      "sourceSha256": "fbadc8f5d4f94632b000a582fb5c2f072bcc2da41162034145c1dfe1aab12819",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_pull_request_review_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_pull_request_review_comment",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_pull_request_review_comment.snap",
+      "sourceSha256": "381caefbabbf8588fc82bf3ab3937b4f23c1449e3518ad5a4dcf84a9281f7306",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_pull_request_review_comment_reaction",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_pull_request_review_comment_reaction",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_pull_request_review_comment_reaction.snap",
+      "sourceSha256": "c4a919df7c31dff035d133f747ebb31d2672bb3e6488f64ef897875798bf2ff3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_reply_to_pull_request_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_reply_to_pull_request_comment",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_reply_to_pull_request_comment.snap",
+      "sourceSha256": "1e46ecd0e056c46dfb5b7ba4e3265c52715464810a4a32987fe0de3a78c1785d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__add_sub_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "add_sub_issue",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/add_sub_issue.snap",
+      "sourceSha256": "f60e9ba477e11da3aaa28d317cf786b6e436cc17a138c6df6e31d0386a9b43fe",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__assign_copilot_to_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "assign_copilot_to_issue",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/assign_copilot_to_issue.snap",
+      "sourceSha256": "1b2ce90ffd4c9ffdde930ccdd09ad6d59910fb8b7b8311a520554d061820fbfa",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__assign_copilot_to_issue_with_intent",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "assign_copilot_to_issue_with_intent",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/assign_copilot_to_issue_with_intent.snap",
+      "sourceSha256": "6d30dfc577da70057960644a858c43f18bbf688f2e2f517c46ec29ed7602e0c3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_branch",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_branch",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_branch.snap",
+      "sourceSha256": "f85fd6748ca9a35dbd40f565eb9c99e09d5163eee2c5c95b62c2cb164f5311e9",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_gist",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_gist",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_gist.snap",
+      "sourceSha256": "d7c08b31421b880b6d8d5cc69782b40055735ef2acf6878b32112e20ce688f8f",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_issue",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_issue",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_issue.snap",
+      "sourceSha256": "d6a6e3b53b31dbb42e5c59cb09f4247855d1c6be63d5dcb6ec423bb33b003e89",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_or_update_file",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_or_update_file",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_or_update_file.snap",
+      "sourceSha256": "1628c5dd3c1fbf577bd608bb70c2d352d973bd74ce07293ef4926332c6239508",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_pull_request",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_pull_request",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_pull_request.snap",
+      "sourceSha256": "30b11d9262aeaffe07d8e77058a9c91f02b529cbf9307cc901f13a351911d870",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_pull_request_review",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_pull_request_review.snap",
+      "sourceSha256": "c34e841f7f7edc5f243e57c6953d231b7104dd496de12fb3ed60adbbc5bdb4ad",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_repository",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_repository.snap",
+      "sourceSha256": "5f3e8415d773c6f389411d22f705963ad0aa9b5d1e860984ba8a9aa719374437",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__create_repository_ruleset",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "create_repository_ruleset",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/create_repository_ruleset.snap",
+      "sourceSha256": "f5659ba19892b696620cccc15358d8679968a1ed30942fc929f58537dd1d6bac",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__custom_properties_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "custom_properties_read",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/custom_properties_read.snap",
+      "sourceSha256": "e06ad37f1fe90fe0e776d15a6f20698a5f28216d549ba349175e985cf53c823d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__custom_properties_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "custom_properties_write",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/custom_properties_write.snap",
+      "sourceSha256": "66bd0391222b96f9a0485bff88978e3fb3e98f5143e5f209b52acae2cc06a6c0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__delete_file",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "delete_file",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/delete_file.snap",
+      "sourceSha256": "bde38a9b06606718dcc6b16600bd0d1b8f839fcb384e8ecffeb564a4b69f00ab",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__delete_pending_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "delete_pending_pull_request_review",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/delete_pending_pull_request_review.snap",
+      "sourceSha256": "bd7c4c1d24e41bc425475cb9206321185ec0669fb368ba5aa682f71085b7d73b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__delete_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "delete_repository",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/delete_repository.snap",
+      "sourceSha256": "807a8e033b971d0a6c5405946440a22b71d6d464300a2171a21e449b3cf71e84",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__discussion_comment_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "discussion_comment_write",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/discussion_comment_write.snap",
+      "sourceSha256": "413a047c0604b1027cf18d84b0383aa0aa374f2a8c3507094bd8153d01260f05",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__dismiss_notification",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "dismiss_notification",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/dismiss_notification.snap",
+      "sourceSha256": "7cd497cc35bfa92ecf38fa796a1d9ca9a32d46e686e5fb6e3b3426e801dbc777",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__find_duplicate",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "find_duplicate",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/find_duplicate_ff_duplicate_detection.snap",
+      "sourceSha256": "d589e6c0f91a612383bbd13281033c2e59bfae59926d19ec6c07a91dc9d697f0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__fork_repository",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "fork_repository",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/fork_repository.snap",
+      "sourceSha256": "e95939a79f2a31e9b3db4388384e5e84d6c92f8d7ec13ba003cd1c82e7a34420",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_code_quality_finding",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_code_quality_finding",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_code_quality_finding.snap",
+      "sourceSha256": "5418396504e47d0c040d17fef3f8c7fa07ca3b84d447a44c7b40fab1850e082c",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_code_scanning_alert",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_code_scanning_alert",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_code_scanning_alert.snap",
+      "sourceSha256": "c2e70576a8e3df509f9f2e0f7b7b71b1efaf22bb26e7313ad51ff6c4fdc7fe86",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_commit",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_commit",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_commit.snap",
+      "sourceSha256": "2c6a32da66dc511737e29471a0a8bb277e20af42831aec1371c9c0a28d3c67d3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_dependabot_alert",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_dependabot_alert",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_dependabot_alert.snap",
+      "sourceSha256": "ce39d4f1f38bc86ae9830f3045c810f846d9a51863b99d3426032b6c60021908",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_discussion",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_discussion",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_discussion.snap",
+      "sourceSha256": "1f0d9ee863bad70a3b77889f53e1a51d0d9be50ec6c960d250ed7bc1f7e5e7b1",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_discussion_comments",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_discussion_comments",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_discussion_comments.snap",
+      "sourceSha256": "6885d3240f2703d3fc2297ebe9f449e95c45fd3d75ab1932f7a456ade99f4d66",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_file_blame",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_file_blame",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_file_blame.snap",
+      "sourceSha256": "21c3b21a8372fcd4c405cfe13fa611bcc2240ebe47d630fe92a0f02bdff641fe",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_file_contents",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_file_contents",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_file_contents.snap",
+      "sourceSha256": "22b40741c7b79d97c3951fcc0cb85da9b86c7ca245830cf3c33cd8f23fcd6e7a",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_gist",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_gist",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_gist.snap",
+      "sourceSha256": "2033391e72af65c4b1138a6154dd5e50c076457fc8d32e7b65597766c383b138",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_global_security_advisory",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_global_security_advisory",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_global_security_advisory.snap",
+      "sourceSha256": "e64d3f5306a5073fea2395fa98cf2c0ba1b0e7b4a215f62799c007f2c5f30b84",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_job_logs",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_job_logs",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_job_logs.snap",
+      "sourceSha256": "ae4db7a8b27a573335881a6e00f378cb30bc71cf6e0ad66a8b0b14f28ccf6a4a",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_label",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_label",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_label.snap",
+      "sourceSha256": "5ddd988434728868e53bef3b16d8fd4abb0f023a7310426c45d0b70cfbbc4831",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_latest_release",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_latest_release",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_latest_release.snap",
+      "sourceSha256": "da956bc4a567889fda619678ccc81841e365a6b76d49c243f37122869874d753",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_me",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_me",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_me.snap",
+      "sourceSha256": "69f0536121b0e9a827863bc93048f91fffa42866866fa21103ab1502d87a10cc",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_notification_details",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_notification_details",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_notification_details.snap",
+      "sourceSha256": "9809077c7d0bf085ffa99c1d25fac799a3d584f3b9328f4a51be5ce2eea41ff0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_release_by_tag",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_release_by_tag",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_release_by_tag.snap",
+      "sourceSha256": "93b34b78059ae872541da4ef890eab160bc86146abec9f2f2398b0a4ea995051",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_repository_tree",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_repository_tree",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_repository_tree.snap",
+      "sourceSha256": "759aa484f2c5628c485e928ad3a1f921c195858ab4ba4750d6686cc4526b967a",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_secret_scanning_alert",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_secret_scanning_alert",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_secret_scanning_alert.snap",
+      "sourceSha256": "8f31d18a794a0bf572bbaa7cffd24a5f833c805a96e913ffa24cf5aa4f58e90d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_tag",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_tag",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_tag.snap",
+      "sourceSha256": "f70834c8d61463c8c830bfc90da2ab59e61caec2077626566aae9dc8d8e28d86",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_team_members",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_team_members",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_team_members.snap",
+      "sourceSha256": "04f4457522d6f28e4519de252a109b8b3e9e6f20fe4d665607feae9cc693e193",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__get_teams",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "get_teams",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/get_teams.snap",
+      "sourceSha256": "60fd9b12a7d523b5d727b679c5ef5d21744e2302466b161b46f482c25aeaee35",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__hide_issue_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "hide_issue_comment",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/hide_issue_comment.snap",
+      "sourceSha256": "b1772d05753f03baed035daa7b1662f4687276c2a983530d6d55499efe919b10",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__hide_pull_request_review",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "hide_pull_request_review",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/hide_pull_request_review.snap",
+      "sourceSha256": "7772db81eb530c053f2ae73dcab1dfee1d67308898fcee3dde33561e072a06d4",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__hide_pull_request_review_comment",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "hide_pull_request_review_comment",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/hide_pull_request_review_comment.snap",
+      "sourceSha256": "a16f410a48aa15e83487c677798d4fddcd2c4afce78100f06c33097c80a80739",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__issue_dependency_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_dependency_read",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_dependency_read_ff_issue_dependencies.snap",
+      "sourceSha256": "f9905dcf11063170d5dd7b6afdf1751d28aeeedee1854ed335550c9a03823556",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__issue_dependency_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_dependency_write",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_dependency_write_ff_issue_dependencies.snap",
+      "sourceSha256": "6af3b044f7fecae8ba132c50c023f008a75c15294577a06987ed05b06675cbc3",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__issue_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_read",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_read.snap",
+      "sourceSha256": "a8e48cd54d911d8b9b975450bffb03fc995498a291f5c1ed82332780d74f6f9b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__issue_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "issue_write",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/issue_write.snap",
+      "sourceSha256": "8da59963b361fe7cc97421d7979bb618da8e9b7c5fa39b03b0e7301161789081",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__label_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "label_write",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/label_write.snap",
+      "sourceSha256": "8738e2bb6e79ca1c4580531b460df270212e59a03e0218af00e87b0fc3de9759",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_branches",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_branches",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_branches.snap",
+      "sourceSha256": "ec54d73c9dfd79401331f2f674a02d44eed8218f0d3564e2ada8496d00c4b278",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_code_scanning_alerts",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_code_scanning_alerts",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_code_scanning_alerts.snap",
+      "sourceSha256": "00b3ddb25c84d9ae13d32c5ec01e62413ae1b227b6e68359293809e5f42a3b17",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_commits",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_commits",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_commits.snap",
+      "sourceSha256": "72a89a08ee118ce162227d12eb52afd5d1d35de6be6f23144abdf3f993fc3a9e",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_dependabot_alerts",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_dependabot_alerts",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_dependabot_alerts.snap",
+      "sourceSha256": "a6d16c85169b62779b74970c3a8dd22ed68d59ceb9f23d4ce59e3313a0c5361b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_discussion_categories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_discussion_categories",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_discussion_categories.snap",
+      "sourceSha256": "49a12f246c51ed94866df6108a679ce9e08ab698b1ef826104b12768d353cc51",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_discussions",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_discussions",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_discussions.snap",
+      "sourceSha256": "669e50c6154c47e02486c812577eeeb91495f61666acefac1341580c8014cfdb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_gists",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_gists",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_gists.snap",
+      "sourceSha256": "c5a7f5b46226e3892964e7b01a702d314a16542a26b21e320f07ee5b18565aa0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_global_security_advisories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_global_security_advisories",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_global_security_advisories.snap",
+      "sourceSha256": "48985b70d4b2c73fa8b3e007b60d15c08c853ff2a2562e00a6f9d25f7ef62b63",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_issue_fields",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_issue_fields",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_issue_fields.snap",
+      "sourceSha256": "a3cd4d5bfc8e4a49b73d6e93ab6267fb6800f94ae91ee76b1e0d7052d7c9ed34",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_issue_types",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_issue_types",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_issue_types.snap",
+      "sourceSha256": "90df980359b310d75aa2ffb5542a9e2483ddcf75f5b4721a840b460679494abc",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_issues",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_issues",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_issues.snap",
+      "sourceSha256": "e89db4668ef6c20901d7d91cac8485b4c1f8f2eb4afc6f244f79ae79032cf403",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_label",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_label",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_label.snap",
+      "sourceSha256": "3674a9614a30143ab15e6135274af642dba851ffa11e20baee44d83e13d7c4eb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_notifications",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_notifications",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_notifications.snap",
+      "sourceSha256": "f533ee26b58f2f5b6018a208bc15e4f9cef7097563183c5e88ccaaa22ea999e6",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_org_repository_security_advisories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_org_repository_security_advisories",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_org_repository_security_advisories.snap",
+      "sourceSha256": "4bc22dc4fcfb4a3f1ef6923154089ca2167779f14a3e515e8027b6c43caa98bb",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_pull_requests",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_pull_requests",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_pull_requests.snap",
+      "sourceSha256": "d5d621c6f4a83c551fa6ef398c67ad85ded9f2b83ebddae2d187d05a6e6aec89",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_releases",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_releases",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_releases.snap",
+      "sourceSha256": "4268335a58502efa335b11da575eced08a09d14c82ace62da12b425cf57947fd",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_repository_collaborators",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_repository_collaborators",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_repository_collaborators.snap",
+      "sourceSha256": "c9b10bd3ef464121a14e9fee437d12a4b12c0c4a11b835fd97aa5fbe006fb570",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_repository_security_advisories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_repository_security_advisories",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_repository_security_advisories.snap",
+      "sourceSha256": "164dfa4923c6598e5b78e3a964aec5c76dd624b24d225a130d16ad42bb59fc06",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_secret_scanning_alerts",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_secret_scanning_alerts",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_secret_scanning_alerts.snap",
+      "sourceSha256": "aaa687798c5536c230b5c42ad937a050f3376a07a5b60088bfc24e745ac82a2b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_starred_repositories",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_starred_repositories",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_starred_repositories.snap",
+      "sourceSha256": "d0952c08af326d845b82beea87a465dc348c2ecc386e1e8839538080f5b10724",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__list_tags",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "list_tags",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/list_tags.snap",
+      "sourceSha256": "ce7c13a7426ccac822f914b90787a5c616d62ddb193873de446e7d850a706ce5",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__manage_notification_subscription",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "manage_notification_subscription",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/manage_notification_subscription.snap",
+      "sourceSha256": "94a041ff6da9a1c36455f035bb0ea8f80842565a3011e7a60329c2a000e15cb6",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__manage_repository_notification_subscription",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "manage_repository_notification_subscription",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/manage_repository_notification_subscription.snap",
+      "sourceSha256": "31d28066a9ad0a5600783a0db98f917bec157953549d041c7fb27555d1242781",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__mark_all_notifications_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "mark_all_notifications_read",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/mark_all_notifications_read.snap",
+      "sourceSha256": "a93de4d53b4487dcae3ce482129ed58529f0ddb1fa8cc0777080e7b096d13364",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__merge_pull_request",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "merge_pull_request",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/merge_pull_request.snap",
+      "sourceSha256": "fe55df3cc4e1ae91407edcde47455af7f2053de65af0f5994e506a0921bb6c9b",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__projects_get",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "projects_get",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/projects_get.snap",
+      "sourceSha256": "00f4b2332e232f1aaf319b558f2e36c83d2be7b4c6f84c49c317cd2ea424fc4d",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__projects_list",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "projects_list",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/projects_list.snap",
+      "sourceSha256": "142106d626546a7e89652c34f02bb386ab60073afaf39e29e7c0f5fc4fb772f0",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__projects_write",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "projects_write",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/projects_write.snap",
+      "sourceSha256": "a32d30d4ac98ba7f1e55617525c7f8d96fe647854335b131694168d3b3a32f3c",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    },
+    {
+      "fixtureName": "mcp__github_secondary__pull_request_read",
+      "sourceKind": "GitHub MCP committed tool snapshot",
+      "sourceName": "pull_request_read",
+      "serverAlias": "secondary",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/e3809fe91c7546633241006bf0b91f23b2595e28/pkg/github/__toolsnaps__/pull_request_read.snap",
+      "sourceSha256": "744aeed015f0271fa6854952c2d41d2115057dcb3119cab507f5be75ba8fa5e8",
+      "conversion": "Preserve exact parsed inputSchema and description; namespace tool name as an explicit constructed MCP server alias. Discard outputSchema/annotations because Anthropic tools carry input schemas."
+    }
+  ]
+}

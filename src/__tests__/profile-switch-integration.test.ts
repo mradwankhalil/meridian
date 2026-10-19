@@ -4,6 +4,7 @@
  * Tests the profile switch API, session isolation across profiles,
  * and settings persistence contract.
  */
+import { installModelsMock } from "./modelsMock"
 import { describe, test, expect, beforeEach } from "bun:test"
 import { installSdkMock } from "./sdkMock"
 import { installLoggerMock } from "./loggerMock"
@@ -33,15 +34,12 @@ installLoggerMock(() => ({
   withClaudeLogContext: (_ctx: unknown, fn: () => unknown) => fn(),
 }))
 
-// Pass through the real resolveSdkModelDefaults — mock.module is process-global
-// in Bun, and stubbing it as () => ({}) leaks to proxy-env-stripping.test.ts.
-import { resolveSdkModelDefaults } from "../proxy/models"
+// Unspecified model exports retain their real implementation.
 
 // Mock models to avoid real auth checks
-mock.module("../proxy/models", () => ({
+installModelsMock(() => ({
   mapModelToClaudeModel: () => "sonnet",
   resolveClaudeExecutableAsync: async () => "claude",
-  resolveSdkModelDefaults,
   getClaudeAuthStatusAsync: async () => ({ loggedIn: true, email: "test@test.com", subscriptionType: "max" }),
   getAuthCacheInfo: () => ({ lastCheckedAt: 0, lastSuccessAt: 0, isFailure: false }),
   hasExtendedContext: () => false,

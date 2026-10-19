@@ -1,0 +1,147 @@
+{
+  "scope": "Read-only supported getSessionMessages metadata; no transcripts/private files/model requests",
+  "sessions": [
+    {
+      "ownedSession": "owned-1410:probe-turns-nonstream-29584",
+      "sessionId": "1d3bc6d5-506e-4882-8ae5-0ab392e47c2d",
+      "rows": [
+        {
+          "type": "user",
+          "uuid": "d55377a2-96ac-44ba-9c47-d9562448b6bd",
+          "contentTypes": [
+            "text"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "assistant",
+          "uuid": "3c83bc3a-77ad-4fe3-939d-f8a178eeb6d4",
+          "model": "claude-opus-5-5",
+          "stopReason": "tool_use",
+          "contentTypes": [
+            "tool_use"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "user",
+          "uuid": "838e678b-6750-436c-808e-af84e3460e13",
+          "contentTypes": [
+            "tool_result"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "assistant",
+          "uuid": "3fcbaaa6-dd36-4fcf-b30d-9c6aeef808ff",
+          "model": "claude-opus-5-5",
+          "stopReason": "tool_use",
+          "contentTypes": [
+            "tool_use"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "user",
+          "uuid": "4e02b145-2632-4cfe-9117-3be4e2ce8fee",
+          "contentTypes": [
+            "tool_result"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "assistant",
+          "uuid": "6eac504b-eb19-4fe8-8a2a-e785dc227fe2",
+          "model": "claude-opus-4-8",
+          "stopReason": "tool_use",
+          "contentTypes": [
+            "thinking"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "assistant",
+          "uuid": "0ef66c2d-80b3-4c5a-aad3-6546a5d35d2d",
+          "model": "claude-opus-4-8",
+          "stopReason": "tool_use",
+          "contentTypes": [
+            "tool_use"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        },
+        {
+          "type": "user",
+          "uuid": "98c7e4e3-5a7d-4012-957a-a02915bb9986",
+          "contentTypes": [
+            "tool_result"
+          ],
+          "isApiErrorMessage": false,
+          "keys": [
+            "type",
+            "uuid",
+            "session_id",
+            "message",
+            "parent_tool_use_id",
+            "timestamp"
+          ]
+        }
+      ]
+    }
+  ]
+}

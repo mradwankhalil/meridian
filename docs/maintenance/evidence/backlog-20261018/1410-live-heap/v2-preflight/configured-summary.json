@@ -1,0 +1,26 @@
+{
+  "plugin": {
+    "path": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian-v2",
+    "entrySha256": "d8fd970f561a05a1d2716f7a118ec7e59e44d1942b25a1edca263a00cc779b56",
+    "manifest": {
+      "name": "@rynfar/meridian-opencode-v2-plugin",
+      "private": true,
+      "type": "module",
+      "main": "./index.js"
+    },
+    "owner": "@rynfar/meridian",
+    "ownerVersion": "1.83.1",
+    "effectiveEntries": 1,
+    "setupExit": 0
+  },
+  "config": {
+    "generation": "v2",
+    "field": "plugins",
+    "exactlyOne": true,
+    "providerBaseURL": "http://127.0.0.1:49401/v1",
+    "model": "anthropic/claude-opus-5-5",
+    "hardcodedModelWindow": false,
+    "isolatedHome": true,
+    "isolatedXdg": true
+  }
+}

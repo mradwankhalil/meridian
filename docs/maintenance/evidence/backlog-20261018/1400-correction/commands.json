@@ -1,0 +1,121 @@
+{
+  "root": "/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388",
+  "bun": "/tmp/meridian-1400-tooling/bin/bun",
+  "bunVersion": "1.3.11",
+  "PATHPrefix": "/tmp/meridian-1400-tooling/bin",
+  "placeholder": "Except explicit install/baseline entries, bun expands to the pinned executable and <evidence> expands to /tmp/meridian-1400-correction-evidence. All test commands used PATH prefix shown.",
+  "records": [
+    {
+      "name": "install",
+      "command": "/tmp/meridian-1400-tooling/bin/bun install --frozen-lockfile --ignore-scripts",
+      "exitCode": 0,
+      "log": "install.log"
+    },
+    {
+      "name": "unguarded-baseline-control",
+      "command": "PATH=/tmp/meridian-1400-tooling/bin:$PATH /tmp/meridian-1400-tooling/bin/bun test src/__tests__/active-priority-integration.test.ts --test-name-pattern 'serves a Fable request from the next account'",
+      "exitCode": 0,
+      "log": "baseline-control.log"
+    },
+    {
+      "name": "offline-control",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/active-priority-integration.test.ts --test-name-pattern 'serves a Fable request from the next account'",
+      "exitCode": 0,
+      "log": "offline-control.log"
+    },
+    {
+      "name": "red-active",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/active-priority-integration.test.ts --test-name-pattern 'effective pool retry waits'",
+      "exitCode": 1,
+      "log": "red-active.log"
+    },
+    {
+      "name": "red-retained",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/priority-routing-integration.test.ts --test-name-pattern 'keeps the retained account'",
+      "exitCode": 1,
+      "log": "red-retained.log"
+    },
+    {
+      "name": "red-refinement",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/active-priority-integration.test.ts --test-name-pattern 'uses a bench extended'",
+      "exitCode": 1,
+      "log": "red-refinement.log"
+    },
+    {
+      "name": "red-source",
+      "command": "bun <evidence>/pool-source-probe.ts .",
+      "exitCode": 1,
+      "log": "red-source-probe.log"
+    },
+    {
+      "name": "red-expired-intermediate-correction",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/active-priority-integration.test.ts --test-name-pattern 'once an eligible bench has expired'",
+      "exitCode": 1,
+      "log": "red-expired.log"
+    },
+    {
+      "name": "final-active-file",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/active-priority-integration.test.ts",
+      "exitCode": 0,
+      "log": "green-active-file.log"
+    },
+    {
+      "name": "final-retained",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/priority-routing-integration.test.ts --test-name-pattern 'keeps the retained account'",
+      "exitCode": 0,
+      "log": "green-retained-final.log"
+    },
+    {
+      "name": "units",
+      "command": "bun test --preload <evidence>/offline-fixture.ts src/__tests__/routing.test.ts src/__tests__/errors.test.ts src/__tests__/limit-detection.test.ts src/__tests__/retry-after-unit.test.ts",
+      "exitCode": 0,
+      "log": "green-units.log"
+    },
+    {
+      "name": "typecheck",
+      "command": "PATH=/tmp/meridian-1400-tooling/bin:$PATH npm run typecheck",
+      "exitCode": 0,
+      "log": "typecheck-final.log"
+    },
+    {
+      "name": "build",
+      "command": "PATH=/tmp/meridian-1400-tooling/bin:$PATH npm run build",
+      "exitCode": 0,
+      "log": "build-final.log"
+    },
+    {
+      "name": "signature",
+      "command": "git -c gpg.ssh.allowedSignersFile=/tmp/meridian-1400-allowed-signers verify-commit HEAD",
+      "exitCode": 0,
+      "log": "signature-local.log"
+    },
+    {
+      "name": "final-source",
+      "command": "/tmp/meridian-1400-tooling/bin/bun <evidence>/pool-source-probe.ts .",
+      "exitCode": 0,
+      "log": "green-source-probe-final.log"
+    },
+    {
+      "name": "commit",
+      "command": "git commit -S -m 'fix: derive pool retry waits from effective benches' [body recorded in commit object]",
+      "exitCode": 0,
+      "log": "commit.log"
+    },
+    {
+      "name": "push",
+      "command": "git push https://github.com/passabilities/meridian.git HEAD:refs/heads/dex/model-allowance-failover",
+      "exitCode": 0,
+      "log": "push.log"
+    },
+    {
+      "name": "replay-syntax",
+      "command": "node --check <evidence>/replay.mjs",
+      "exitCode": 0
+    },
+    {
+      "name": "final-diff",
+      "command": "git diff --check HEAD^ HEAD",
+      "exitCode": 0
+    }
+  ]
+}

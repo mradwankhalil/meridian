@@ -1,0 +1,17 @@
+{
+  "scope": "Post-run supported product mapping lookup; not an admission-time config guard",
+  "rows": [
+    {
+      "mappingKey": "d348bdaf6c4eed68608795430578a6f2bbdc926c6530941829ee2097e7161e31",
+      "target": "6d254f347cf8e43dd63957fa27a0a957d18b6b02e51e65e3e08f5a20e5f1f235",
+      "configRelative": "config/profiles/owned-access-only",
+      "projectRelative": "proxy-work"
+    },
+    {
+      "mappingKey": "9ba9a709317271f586500a68ba4be403f121db2163e4fcba62cc986edbf84fa5",
+      "target": "b4aa697ffc3b6dc6a3e9dced114ad33b8fa12d9e57e08d85485f579608b1d5fc",
+      "configRelative": "config/profiles/owned-access-only",
+      "projectRelative": "proxy-work"
+    }
+  ]
+}

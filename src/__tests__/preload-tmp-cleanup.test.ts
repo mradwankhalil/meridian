@@ -54,6 +54,24 @@ describe("test preload scratch directories", () => {
     expect(testDirsIn(root)).toEqual([])
   }), 20_000)
 
+  it("redirect the run's TMPDIR, so fixtures and children spawned with process.env are removed with it", withRoot(root => {
+    const fixture = writeFixture(root, `
+      import { spawnSync } from "node:child_process"
+      import { mkdtempSync } from "node:fs"
+      import { tmpdir } from "node:os"
+      import { join } from "node:path"
+      test("tmpdir() is this process's own directory", () => {
+        expect(tmpdir()).toBe(join(${JSON.stringify(root)}, \`meridian-test-tmp-\${process.pid}\`))
+        mkdtempSync(join(tmpdir(), "leaked-fixture-"))
+        const child = spawnSync(process.execPath, ["-e", 'require("fs").mkdtempSync(require("path").join(require("os").tmpdir(), "leaked-child-"))'], { env: { ...process.env } })
+        expect(child.status).toBe(0)
+      })
+    `)
+    const result = runSuite(root, fixture)
+    expect({ status: result.status, output: result.stdout + result.stderr }).toMatchObject({ status: 0 })
+    expect(readdirSync(root).filter(name => name.startsWith("meridian-test-") || name.startsWith("leaked-"))).toEqual([])
+  }), 20_000)
+
   it("are removed when a run fails", withRoot(root => {
     const fixture = writeFixture(root, `test("fails", () => { expect(1).toBe(2) })`)
     const result = runSuite(root, fixture)
@@ -84,7 +102,7 @@ describe("test preload scratch directories", () => {
       if (child.pid === undefined) throw new Error("child has no process id")
       const killedDirs = testDirsFor(root, child.pid)
       const deadline = Date.now() + 10_000
-      while (!(existsSync(killedDirs.configDir) && existsSync(killedDirs.sessionDir))) {
+      while (!(existsSync(killedDirs.configDir) && existsSync(killedDirs.sessionDir) && existsSync(killedDirs.tempDir))) {
         if (spawnError) throw spawnError
         if (child.exitCode !== null || child.signalCode !== null) throw new Error("child exited before creating scratch directories")
         if (Date.now() > deadline) throw new Error("child never created its scratch directories")
@@ -94,6 +112,7 @@ describe("test preload scratch directories", () => {
       await exited
       expect(existsSync(killedDirs.configDir)).toBe(true)
       expect(existsSync(killedDirs.sessionDir)).toBe(true)
+      expect(existsSync(killedDirs.tempDir)).toBe(true)
 
       // This process is alive, so a directory carrying its pid must survive.
       const liveDirs = testDirsFor(root, process.pid)
@@ -174,12 +193,12 @@ describe("test preload scratch directories", () => {
   it("sweep removes only dead owners' directories", withRoot(root => {
     const dead = testDirsFor(root, 111111)
     const live = testDirsFor(root, 222222)
-    for (const dir of [dead.configDir, dead.sessionDir, live.configDir, live.sessionDir]) {
+    for (const dir of [dead.configDir, dead.sessionDir, dead.tempDir, live.configDir, live.sessionDir, live.tempDir]) {
       mkdirSync(join(dir, "nested"), { recursive: true })
     }
     const removed = sweepStaleTestDirs(root, pid => pid === 222222)
-    expect(removed.sort()).toEqual([dead.sessionDir, dead.configDir].sort())
-    expect(testDirsIn(root)).toEqual(["meridian-test-sessions-222222", "meridian-test-settings-222222"])
+    expect(removed.sort()).toEqual([dead.sessionDir, dead.configDir, dead.tempDir].sort())
+    expect(testDirsIn(root)).toEqual(["meridian-test-sessions-222222", "meridian-test-settings-222222", "meridian-test-tmp-222222"])
   }))
 })
 

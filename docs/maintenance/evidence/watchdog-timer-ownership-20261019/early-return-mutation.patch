@@ -1,0 +1,3 @@
+Insert the old early return before clearing leaseWatchdog:
+    const releaseSessionTurn = (forced: boolean) => {
+      if (leaseReleased || (!sessionTurnLease && !crossProcessTurnLease)) return

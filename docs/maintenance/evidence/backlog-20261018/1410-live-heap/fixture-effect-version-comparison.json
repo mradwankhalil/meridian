@@ -1,0 +1,41 @@
+{
+  "measuredFixtureSha256": "df872b711b2cebae00326778b1649bb80e2e7271418f4878207caf629bb5e17f",
+  "pinnedEffectFixtureSha256": "0ce74a63b41e61bbab5b5c756fc39ad8226356e649137980906a688d114ea145",
+  "byteIdentical": false,
+  "structurallyEqual": true,
+  "changedToolCount": 0,
+  "changedTools": [],
+  "mapOrderDifferences": [
+    {
+      "path": "/4/input_schema/properties/line",
+      "measuredKeyOrder": [
+        "minimum",
+        "type",
+        "description",
+        "maximum"
+      ],
+      "pinnedKeyOrder": [
+        "minimum",
+        "description",
+        "type",
+        "maximum"
+      ]
+    },
+    {
+      "path": "/4/input_schema/properties/character",
+      "measuredKeyOrder": [
+        "minimum",
+        "type",
+        "description",
+        "maximum"
+      ],
+      "pinnedKeyOrder": [
+        "minimum",
+        "description",
+        "type",
+        "maximum"
+      ]
+    }
+  ],
+  "mapOrderDifferenceCount": 2
+}

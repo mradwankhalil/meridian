@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "effect": "4.0.0-beta.83",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,7 @@
+300 orphaned transcripts (300 registered, 0 written in bulk), backlog 1000, proxy /Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1
+  note  lifecycle file 0.2 MB
+  note  the first sweep retired 300 in 0.1 s
+  note  the second sweep deleted 64 transcript file(s) in 12.7 s, 199 ms each; lifecycle file now {"deleted":64,"retired":236}
+  PASS  one sweep deletes 64 orphaned transcripts through the SDK — 64
+  PASS  within the sweep's 30-second budget — 12.7 s
+ALL PASS

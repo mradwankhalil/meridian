@@ -1,0 +1,41 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-session-gc-capacity.test.ts:
+(pass) session GC capacity > preserves ordinary throughput through joined deletion transactions [2369.50ms]
+(pass) session GC capacity > preserves draining throughput through joined deletion transactions [979.45ms]
+(pass) session GC capacity > preserves lower configured drain cap through joined deletion transactions [643.09ms]
+145 |         release.release()
+146 |         await closing
+147 |         expect(sweeps).toBe(1)
+148 |         // The active deletion counts toward the 16 remaining at shutdown;
+149 |         // completed pre-drain deletions do not consume the drain allowance.
+150 |         expect(deletions).toBe(pauseAt - 1 + 16)
+                                ^
+error: expect(received).toBe(expected)
+
+Expected: 16
+Received: 64
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1/src/__tests__/proxy-session-gc-capacity.test.ts:150:27)
+(fail) session GC capacity > lowers the remaining allowance when idle close joins deletion 1 [2284.36ms]
+145 |         release.release()
+146 |         await closing
+147 |         expect(sweeps).toBe(1)
+148 |         // The active deletion counts toward the 16 remaining at shutdown;
+149 |         // completed pre-drain deletions do not consume the drain allowance.
+150 |         expect(deletions).toBe(pauseAt - 1 + 16)
+                                ^
+error: expect(received).toBe(expected)
+
+Expected: 40
+Received: 64
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1/src/__tests__/proxy-session-gc-capacity.test.ts:150:27)
+(fail) session GC capacity > lowers the remaining allowance when idle close joins deletion 25 [1412.46ms]
+(pass) session GC capacity > retires every orphaned transcript in one sweep, past the 256 the backlog used to hold [2359.72ms]
+(pass) session GC capacity > keeps a draining proxy's sweeps, close()'s final one among them, to 16 deletions [40.33ms]
+
+ 5 pass
+ 2 fail
+ 28 expect() calls
+Ran 7 tests across 1 file. [12.12s]

@@ -1,0 +1,13 @@
+{
+  "providerID": "anthropic",
+  "id": "claude-opus-5-5",
+  "name": "Owned credentialless discovery 327a19e6-92e7-4c9a-b3e3-bb694b27d9a4",
+  "context": 1000031,
+  "variants": [
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+    "max"
+  ]
+}

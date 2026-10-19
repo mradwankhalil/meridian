@@ -1,0 +1,30 @@
+{
+  "result": "PASS",
+  "fixtureSha256": "df872b711b2cebae00326778b1649bb80e2e7271418f4878207caf629bb5e17f",
+  "baselineSource": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "currentSource": "423477f19812b08e15d332d4f7c9c91ebf4e8650",
+  "allFourSerializedCatalogsMatch": true,
+  "catalogs": [
+    {
+      "index": 0,
+      "count": 230,
+      "serializedSha256": "b7b58375a3d0128d5a9da64de51a7dc6a0b6d188abe5438b039fc894c7e56130"
+    },
+    {
+      "index": 1,
+      "count": 230,
+      "serializedSha256": "b7b58375a3d0128d5a9da64de51a7dc6a0b6d188abe5438b039fc894c7e56130"
+    },
+    {
+      "index": 2,
+      "count": 230,
+      "serializedSha256": "09a584df412ec54682ceb20991e7c619b2d865287c0d927b1fa05950765b6b2e"
+    },
+    {
+      "index": 3,
+      "count": 230,
+      "serializedSha256": "09a584df412ec54682ceb20991e7c619b2d865287c0d927b1fa05950765b6b2e"
+    }
+  ],
+  "scope": "Comparison of already saved real SDK MCP wire catalogs; no new calls"
+}

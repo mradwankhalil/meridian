@@ -1,0 +1,11 @@
+# Final evidence review addendum — 2026-10-19
+
+**PASS: no new material finding in the current uncommitted README.md and REVIEW_HANDOFF.md deltas.** Read-only follow-up in `/private/tmp/meridian-pr1409-20261018`; no edits, tests or model calls. `git diff --check` for both documents passes. Earlier detailed audit/test/link review is not repeated here.
+
+- The prior P3 is resolved: #1409 now states that unchanged-main and pinned-candidate comparisons completed with one failure each, and directs readers to the final runner-qualification section. Original four host-run failures and unresolved causality remain intact.
+- Both documents accurately record the supplied new owner instruction, **“Approve the commit-preserving route (recommended)”**, as approval for the bounded #1394–#1401 route. They do not convert it into a general future exception or permission for cherry-picking, history rewriting, silent closure, external comments or release publication.
+- #1413 is identified at `15f35f173d70d11c111da92081855bc36082ab0c`, with final-head CI pending and workflow adoption still required before product landing. The documents retain per-commit manifest refresh, ancestry/Author verification, signatures and every ordinary local/live/CI/product gate. No forwarded PR is claimed merged or newly merge-ready merely because route approval arrived.
+- New #1396 and #1410 follow-up tasks are described as running work, with their results explicitly **pending**. Their stated starting correction heads match the existing records. Actual Fable/model and matching-plugin OpenCode/heap work is not represented as successful acceptance; missing model access or runtime witnesses remain open gates. No paid Extra Usage or account/configuration changes are inferred.
+- Earlier full-test-red, CI-pending and real-client/model/heap limitations remain visible. Matching Meridian OpenCode plugin preflight and runtime route/header witnesses still govern any actual OpenCode/Claude run.
+
+Approval and task existence/status are supplied by the parent/session context in this narrow review, not newly re-audited through remote task tools. This addendum approves the truthfulness and gate preservation of the evidence wording; it is not a merge or live-acceptance verdict.

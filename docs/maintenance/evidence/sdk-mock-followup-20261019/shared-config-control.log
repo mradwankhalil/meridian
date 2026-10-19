@@ -1,0 +1,21 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-cross-process-coordination.test.ts:
+(pass) proxy coordination across OS processes > does not inherit the parent suite's HTTP authentication into coordination workers [1715.15ms]
+(pass) proxy coordination across OS processes > reports a worker's startup refusal instead of losing it behind an SDK timeout [37.17ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: main first, stream=false [3149.76ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: side first, stream=false [3431.46ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: main first, stream=true [3193.14ms]
+(pass) proxy coordination across OS processes > Pi keeps both branches valid across processes: side first, stream=true [3077.16ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=false, stream=false [1673.48ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=true, stream=false [1907.96ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=false, stream=true [1696.54ms]
+(pass) proxy coordination across OS processes > modified-history conflict is replayable only in passthrough across processes: passthrough=true, stream=true [2002.46ms]
+(pass) proxy coordination across OS processes > serializes one session and rejects a stale arrival after durable advancement [1693.53ms]
+(pass) proxy coordination across OS processes > refreshes durable lineage and resume state after waiting for another process [2070.75ms]
+(pass) proxy coordination across OS processes > allows different sessions to run concurrently in different processes [1805.71ms]
+
+ 13 pass
+ 0 fail
+ 70 expect() calls
+Ran 13 tests across 1 file. [27.89s]

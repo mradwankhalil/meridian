@@ -1,0 +1,132 @@
+{
+  "sdk": "0.2.141",
+  "runtime": {
+    "bun": "1.3.14",
+    "node": "24.3.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "modelCalls": 0,
+  "rows": [
+    {
+      "nested": false,
+      "firstDeclaredOrder": [
+        "a",
+        "b"
+      ],
+      "secondDeclaredOrder": [
+        "b",
+        "a"
+      ],
+      "sharedObject": false,
+      "identicalCloneReused": true,
+      "independentTransports": true,
+      "firstAdvertisedOrder": [
+        "a",
+        "b"
+      ],
+      "secondAdvertisedOrder": [
+        "b",
+        "a"
+      ],
+      "freshSecondOrder": [
+        "b",
+        "a"
+      ],
+      "serializedCatalogEqual": true,
+      "secondUnaffectedByClose": true,
+      "callSucceeded": true,
+      "inputUnchanged": true
+    },
+    {
+      "nested": false,
+      "firstDeclaredOrder": [
+        "b",
+        "a"
+      ],
+      "secondDeclaredOrder": [
+        "a",
+        "b"
+      ],
+      "sharedObject": false,
+      "identicalCloneReused": true,
+      "independentTransports": true,
+      "firstAdvertisedOrder": [
+        "b",
+        "a"
+      ],
+      "secondAdvertisedOrder": [
+        "a",
+        "b"
+      ],
+      "freshSecondOrder": [
+        "a",
+        "b"
+      ],
+      "serializedCatalogEqual": true,
+      "secondUnaffectedByClose": true,
+      "callSucceeded": true,
+      "inputUnchanged": true
+    },
+    {
+      "nested": true,
+      "firstDeclaredOrder": [
+        "a",
+        "b"
+      ],
+      "secondDeclaredOrder": [
+        "b",
+        "a"
+      ],
+      "sharedObject": false,
+      "identicalCloneReused": true,
+      "independentTransports": true,
+      "firstAdvertisedOrder": [
+        "a",
+        "b"
+      ],
+      "secondAdvertisedOrder": [
+        "b",
+        "a"
+      ],
+      "freshSecondOrder": [
+        "b",
+        "a"
+      ],
+      "serializedCatalogEqual": true,
+      "secondUnaffectedByClose": true,
+      "callSucceeded": true,
+      "inputUnchanged": true
+    },
+    {
+      "nested": true,
+      "firstDeclaredOrder": [
+        "b",
+        "a"
+      ],
+      "secondDeclaredOrder": [
+        "a",
+        "b"
+      ],
+      "sharedObject": false,
+      "identicalCloneReused": true,
+      "independentTransports": true,
+      "firstAdvertisedOrder": [
+        "b",
+        "a"
+      ],
+      "secondAdvertisedOrder": [
+        "a",
+        "b"
+      ],
+      "freshSecondOrder": [
+        "a",
+        "b"
+      ],
+      "serializedCatalogEqual": true,
+      "secondUnaffectedByClose": true,
+      "callSucceeded": true,
+      "inputUnchanged": true
+    }
+  ]
+}

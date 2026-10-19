@@ -1,0 +1,141 @@
+{
+  "scope": "Sanitized recorded native client probe; no additional inference",
+  "source": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "model": "claude-fable-5-1",
+  "originalHarnessResult": "INCOMPLETE_LIVE_ASSERTIONS",
+  "providerHttpRefusal": false,
+  "expectedCheckpointMaxTurns": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "actualClientExit": 0,
+  "ownedReceiptObserved": true,
+  "allObservedChildrenJoined": true,
+  "actualSubagentCount": 1,
+  "subagentRequestCounts": [
+    4
+  ],
+  "requestedExactModel": true,
+  "servedModels": [
+    "claude-opus-4-8",
+    "claude-fable-5-1"
+  ],
+  "exactServedModelEveryRound": false,
+  "transitions": [
+    {
+      "agent": "88157b0dc43ec51cf4a8381ddcbc69604f8c218aef1b203cdc68c1f82f79f57d",
+      "before": 3,
+      "after": 4,
+      "position": 4,
+      "shape": "retained-durable-prefix",
+      "durableDigest": "8b4b7da9ee9b00ac60026c7de7c8f6bbe0a2aad55959c73bd45a7241a5e3504b",
+      "knownExactReminderHash": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+    },
+    {
+      "agent": "88157b0dc43ec51cf4a8381ddcbc69604f8c218aef1b203cdc68c1f82f79f57d",
+      "before": 4,
+      "after": 5,
+      "position": 7,
+      "shape": "retained-durable-prefix",
+      "durableDigest": "5d5581c17affda74e3048be000a838fc85d98f533e0f6011c6f2c81c12ca5ead",
+      "knownExactReminderHash": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+    }
+  ],
+  "checkpointPairs": [
+    {
+      "prior": 2,
+      "current": 3,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false
+    },
+    {
+      "prior": 1,
+      "current": 6,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false
+    }
+  ],
+  "cache": [
+    {
+      "prior": 2,
+      "current": 3,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false,
+      "priorCached": 12204,
+      "read": 7497,
+      "ratio": 0.6143067846607669,
+      "passes95Percent": false
+    },
+    {
+      "prior": 1,
+      "current": 6,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false,
+      "priorCached": 22200,
+      "read": 5094,
+      "ratio": 0.22945945945945945,
+      "passes95Percent": false
+    }
+  ],
+  "unmet": [
+    "exact Fable served identity for every tool round",
+    "95% cache continuity",
+    "before-request immutable-source snapshots",
+    "separate live unchanged-tail negative control",
+    "all four E41 modes",
+    "exact reminder-only live shape unless observed"
+  ],
+  "publicSessionSummaries": [
+    {
+      "mappingKey": "1c3771653c6d44a1d04ef5269b319aa49355bef07210ad8697a1199c4b86d569",
+      "session": "4cbe6a6e33e3e4125747d4b51f1ef12956dfedc8a311b36e4193763276990f51",
+      "rowCount": 7,
+      "models": [
+        "claude-opus-4-8",
+        "claude-fable-5-1"
+      ],
+      "calls": [
+        {
+          "id": "c900899ca9c1c6eb06d8da614a442297749c56de78f5be7eba70895bfbdb50bd",
+          "name": "mcp__oc__Agent",
+          "fixturePathOwned": true
+        }
+      ],
+      "results": [
+        {
+          "id": "c900899ca9c1c6eb06d8da614a442297749c56de78f5be7eba70895bfbdb50bd",
+          "isError": false,
+          "forwardedDenial": false,
+          "contentDigest": "d333c8121199851e39ff5afc0ab7b49974a7b94c99503b723344f24b94a9bf84"
+        }
+      ],
+      "pendingToolCount": 0,
+      "everyCallHasExactlyOneRealResult": true,
+      "publishedTargetMatchesObservedQuery": true
+    },
+    {
+      "mappingKey": "f387abdd49afac4b5c85214612ed92ce1444f9e286b7fd415318ccd2f5af25c3",
+      "session": "2955bdadb0ad02406635522f7db138a4295e0376f70944808dc81a5cd350d67a",
+      "rowCount": 3,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "calls": [],
+      "results": [],
+      "pendingToolCount": 0,
+      "everyCallHasExactlyOneRealResult": false,
+      "publishedTargetMatchesObservedQuery": true
+    }
+  ],
+  "result": "LIVE_ACCEPTANCE_INCOMPLETE"
+}

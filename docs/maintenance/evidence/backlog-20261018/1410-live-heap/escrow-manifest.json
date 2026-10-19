@@ -1,0 +1,1142 @@
+{
+  "source": "/private/tmp/meridian-1410-live-evidence",
+  "destination": "/tmp/meridian-1410-live-evidence-escrow",
+  "scope": "Temporary sanitized transfer for separate maintainer evidence PR; not durable publication",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2759,
+      "sha256": "55c28f714935a6b7e8362db884c593f487be20d78e80e990eed55488536620a6"
+    },
+    {
+      "path": "actual-v2-live-report.json",
+      "bytes": 11149,
+      "sha256": "1cffc3a023c626ba76316794496e67a71149c99001d1d1451fb4c55486375f2a"
+    },
+    {
+      "path": "baseline-build.log",
+      "bytes": 2697,
+      "sha256": "579ea64006fb6de8128cd3cd9664f171f5e2ad764090c8118ee2fa34c1326b47"
+    },
+    {
+      "path": "baseline-catalogs.json",
+      "bytes": 1611,
+      "sha256": "8d4c074b043629629139ca091a92548abc88c8ba1de20f882278732509188019"
+    },
+    {
+      "path": "baseline-catalogs.log",
+      "bytes": 152,
+      "sha256": "626766c14273f670c2d08db7d96bcda1c674ab9d48b0917071b381fa287b8cb1"
+    },
+    {
+      "path": "baseline-heap.json",
+      "bytes": 4348,
+      "sha256": "2bbaa0ca68b2932ca12521a08b78a1a3495823557e14997440a5cd22be0cfdcc"
+    },
+    {
+      "path": "baseline-heap.log",
+      "bytes": 160,
+      "sha256": "fdaf2d859b161f0df5e4e5fea105326e74c1e261671d973da619b18d5a88df27"
+    },
+    {
+      "path": "baseline-install.log",
+      "bytes": 430,
+      "sha256": "2ea4c2ba8859deeaed0111e58dccc38c4fe30ccdb8aeda96496b5eb6b9710886"
+    },
+    {
+      "path": "catalog-comparison.json",
+      "bytes": 958,
+      "sha256": "5ce6f1a2f8dc7819e2abbef1d5a43982ee33f8f5e79b71cdc544a0f5333f9589"
+    },
+    {
+      "path": "client-derived-230-tools-effect-beta83.json",
+      "bytes": 366598,
+      "sha256": "0ce74a63b41e61bbab5b5c756fc39ad8226356e649137980906a688d114ea145"
+    },
+    {
+      "path": "client-derived-230-tools-effect-beta83.provenance.json",
+      "bytes": 158062,
+      "sha256": "b80072ccf09005e88f9380d3db8c8860bc322087f981a4ea514b4a8254f08a34"
+    },
+    {
+      "path": "client-derived-230-tools.json",
+      "bytes": 366598,
+      "sha256": "df872b711b2cebae00326778b1649bb80e2e7271418f4878207caf629bb5e17f"
+    },
+    {
+      "path": "client-derived-230-tools.provenance.json",
+      "bytes": 158061,
+      "sha256": "6d0b8493e67e4967c5ecdc78ca5072b25127fb7fd959bd4ffc37f8b2e9f77072"
+    },
+    {
+      "path": "client-derived-fixture-beta83-generation.json",
+      "bytes": 1847,
+      "sha256": "080305d705564d3a7637c866a45d6d0cd09a4ca4f9158d2ba751627fe03f2185"
+    },
+    {
+      "path": "client-derived-fixture-generation.json",
+      "bytes": 1846,
+      "sha256": "0db38128c614db283f5e4c388dab4235923bb012b95a100f1b0b375f572781a5"
+    },
+    {
+      "path": "commands.json",
+      "bytes": 2325,
+      "sha256": "f3a517306d80e86575578179fbed5945385ba8e1a1fb121a4852a5cee1ff7828"
+    },
+    {
+      "path": "create-access-only-grant.mjs",
+      "bytes": 1959,
+      "sha256": "fb8e00729ffde65fa82b53ae66df476ecc0c77ff04ee5e08d7d03e27c8f4d0f5"
+    },
+    {
+      "path": "credentialless-v2-preflight.mjs",
+      "bytes": 8576,
+      "sha256": "9d12e173cada55a7d0545abf306b269f73e64984edcb8706aef530a8e1c3c049"
+    },
+    {
+      "path": "current-build.log",
+      "bytes": 2695,
+      "sha256": "cd96c71d117dc1797290cca74be29901ad3201fa8911500864540d1757d1f717"
+    },
+    {
+      "path": "current-catalogs.json",
+      "bytes": 1609,
+      "sha256": "74d9e3ef14cce45a4a9c21832fe4bc90d54bef607dc2a460cfe0d889bbc9de18"
+    },
+    {
+      "path": "current-catalogs.log",
+      "bytes": 150,
+      "sha256": "7d776683c53e0de22958f0775a96741e77e1d9ae7fa0a24c267f9130831461fa"
+    },
+    {
+      "path": "current-heap.json",
+      "bytes": 4331,
+      "sha256": "178b3d045eacdb16eec41c5f53cf6ec2bc48275521b51ecea4ed564690e5d706"
+    },
+    {
+      "path": "current-heap.log",
+      "bytes": 158,
+      "sha256": "a40cc2428000d1cd457502134b07fa185624ac29bb743b3ed1c894ea3c083610"
+    },
+    {
+      "path": "current-install.log",
+      "bytes": 427,
+      "sha256": "fc007bc3fdd0ed6020cf4a665a7a0f6f4b9068ee44fe4aefb26c1020a1f0367d"
+    },
+    {
+      "path": "download-public-schema-sources.mjs",
+      "bytes": 2353,
+      "sha256": "f3e811864036a914f68f1cc36d8676ea6a99b315b88a1ef40ad3f2c1495baa8b"
+    },
+    {
+      "path": "e41-chain-json-fail.json",
+      "bytes": 4070,
+      "sha256": "74abed93200c8f06dbee2d932554a5a5a6cdd8053d240e823cd66d1cd78f2d35"
+    },
+    {
+      "path": "e41-chain-json-fail.log",
+      "bytes": 1079,
+      "sha256": "4aa05a87ae3a713dce6eaeb6e9f00677b3ab4c5cea525ff5f90e432e99196bcf"
+    },
+    {
+      "path": "e41-chain-json-initial-preflight-fail.json",
+      "bytes": 963,
+      "sha256": "966939800f7135a06144509fb7297d91382a5c0f1cfd5035f849a0f0a7fa8011"
+    },
+    {
+      "path": "e41-model-annotation-supported-api.json",
+      "bytes": 3698,
+      "sha256": "ff00cd038e977260ce5e2407d6d835e784a1a70bd863fde1d09a1d05106bb80a"
+    },
+    {
+      "path": "e42-preparation/E42-PREPARATION.md",
+      "bytes": 8987,
+      "sha256": "feadc81fcf15dd1cbadbb3367ebc6c6d91a382f76d5bc7e75372a7f2250e6577"
+    },
+    {
+      "path": "e42-preparation/LICENSE-opencode-2.0.21.txt",
+      "bytes": 1065,
+      "sha256": "625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
+    },
+    {
+      "path": "e42-preparation/extended-stable-flow.mjs",
+      "bytes": 12540,
+      "sha256": "2492043e6ea37c9040c542bae8d8f9c746c8abd205e77603b1f8756af30d6d4c"
+    },
+    {
+      "path": "e42-preparation/manifest.json",
+      "bytes": 1192,
+      "sha256": "22f658001472b8439387726b7fd7944dd6ac9afb8c5b6b6628a1b8e8031a32d6"
+    },
+    {
+      "path": "e42-preparation/preparation-checks.json",
+      "bytes": 340,
+      "sha256": "739544a538a6432a623798d53e0a5a61176f02330e812a0c3edf1854afbcf76e"
+    },
+    {
+      "path": "e42-preparation/stable-api.ts",
+      "bytes": 589,
+      "sha256": "b1ae04bbfbc750aea032b31f8c92acc70505a8642ea9766e1fc971ef2a6b5aba"
+    },
+    {
+      "path": "e42-preparation/stable-session-api-group.ts",
+      "bytes": 36296,
+      "sha256": "c0874712262ff0f0052f0dcd49aee3b3b3f137c815601dc2aa639395ec9111c8"
+    },
+    {
+      "path": "e42-preparation/stable-session-handler.ts",
+      "bytes": 27026,
+      "sha256": "040daca9c8059b785f87a3701350ad745c2d0de177f15950b1e11f9b9514ee8c"
+    },
+    {
+      "path": "e42-preparation/stable-session-revert-schema.ts",
+      "bytes": 3004,
+      "sha256": "ba0dc365e7bd78b155a0a02b0329321c1b70e8d773ab57e695fb7c8c7062a6ea"
+    },
+    {
+      "path": "fixture-effect-version-comparison.json",
+      "bytes": 937,
+      "sha256": "3eeaa1a08765f8f8f375e571760ed87b625874892c36bb1afc22d301f022febd"
+    },
+    {
+      "path": "fixture-generator-runtime/package-lock.json",
+      "bytes": 12254,
+      "sha256": "793374aba3c68ec7be95da014609e14971a1350c6002d1349e537b12c8ded47b"
+    },
+    {
+      "path": "fixture-generator-runtime/package.json",
+      "bytes": 85,
+      "sha256": "4d1740b31728231059c70fed4e3263bda163edcc2c5bb38141d92f07285b9934"
+    },
+    {
+      "path": "fixture-provenance-and-harness-review.md",
+      "bytes": 6751,
+      "sha256": "d08a63575a8f0c9e6724d6b050f0d51d4016f73c57f5702072d5765f8e10306e"
+    },
+    {
+      "path": "generate-client-derived-230-tools.mjs",
+      "bytes": 7927,
+      "sha256": "a4677d23f7f3b026cb25580e578544392a08583fe90fb7a0e3546bf5de745f24"
+    },
+    {
+      "path": "guarded-actual-v2-live.mjs",
+      "bytes": 18461,
+      "sha256": "276c6fa84b0610e20dde5cfd26d91d35beac605e3e59975bfc8822c53a7e4be1"
+    },
+    {
+      "path": "heap-comparison.json",
+      "bytes": 4410,
+      "sha256": "64a51a430c1e7eacd6e7800ea7038c9bc88a27b62a8c1f687d3d9bb8f4d7a609"
+    },
+    {
+      "path": "heap-harness-review.md",
+      "bytes": 5387,
+      "sha256": "b3acd7e37e4a2386bdc5fae66f75c5cb85cb2b773843d1e8facc43d2feb6e5da"
+    },
+    {
+      "path": "heap-proof-run.log",
+      "bytes": 5030,
+      "sha256": "5447545bef83ea5d187e86742002774896f2e24f3cd025165944777b32bd8fd1"
+    },
+    {
+      "path": "heap-worker.mjs",
+      "bytes": 8718,
+      "sha256": "612773fbaaf40780e4939fb7478c53895ee24e1b7bab3103474bc34f0f16bf01"
+    },
+    {
+      "path": "live-first-outcome.json",
+      "bytes": 177,
+      "sha256": "ce984cb626d7d9e51aeb10191e9a728642e0a1727971ee4cd3c1ec5164df6d7b"
+    },
+    {
+      "path": "live-pre-inference-preflight.json",
+      "bytes": 1098,
+      "sha256": "8013143f1430154a6fce04d549b9b248580c9e178e5f86290dd389ea50055a1b"
+    },
+    {
+      "path": "live-subagent-end-state.json",
+      "bytes": 796,
+      "sha256": "4558fd74a86054bd68daf1ee90e220fc50b3cf0104988ae8f2e7378c99209f23"
+    },
+    {
+      "path": "live-subagent-result.md",
+      "bytes": 9718,
+      "sha256": "8ab2dbadb076b246d3d71b91a1127fad5e686b581a3c69b80230cc91ff09b56f"
+    },
+    {
+      "path": "opencode-install-lock.json",
+      "bytes": 7327,
+      "sha256": "353ef72680af7fda0babb8f2371020e0d29030e946c94928fcb34154cee153c9"
+    },
+    {
+      "path": "owned-secret-cleanup.json",
+      "bytes": 153,
+      "sha256": "d267597c02c13b699ae94908739639944a2c0fdd30e33fdd41cbd8143bc69c23"
+    },
+    {
+      "path": "pr-final.json",
+      "bytes": 2755,
+      "sha256": "b0582eaa4dab1694dc34b68fb77cf90346e10fcb72d3c2c389d76ec3071948e6"
+    },
+    {
+      "path": "pr-start.json",
+      "bytes": 5123,
+      "sha256": "c37e38edee893d9e38468f5c8b03d08f709cbbd6e33fb076414975bb44f07862"
+    },
+    {
+      "path": "preflight-service-custody-correction.json",
+      "bytes": 458,
+      "sha256": "e5ebb4961f8e2f8454c76f8cd37d199d7c4ba77666768beea73095ed805ba9c9"
+    },
+    {
+      "path": "prepare-escrow.mjs",
+      "bytes": 2378,
+      "sha256": "68f5fa9c8babac8e3409926e51fb3dba44c21351b9f8113c4ac693a8dd27ca25"
+    },
+    {
+      "path": "public-schema-source-manifest.json",
+      "bytes": 31729,
+      "sha256": "0f0fee3bded044c3c4310844162a6cc01852da1233187cd97cebf489aae4b7ed"
+    },
+    {
+      "path": "public-schema-sources/LICENSE-github-mcp-server.txt",
+      "bytes": 1063,
+      "sha256": "9e48ecfa18e2b15169746a3c97beda4d1d6c6796097038498ca434ca7e0ccd44"
+    },
+    {
+      "path": "public-schema-sources/LICENSE-opencode.txt",
+      "bytes": 1065,
+      "sha256": "625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/listing.json",
+      "bytes": 186104,
+      "sha256": "6969c71ef7f06af15a7c19a698793c92b5320434cdca08b1372414688d010912"
+    },
+    {
+      "path": "public-schema-sources/opencode-apply_patch.ts",
+      "bytes": 11051,
+      "sha256": "9bc5a1384a5e1b1cdd21943cb529dcde6e5e596706dee2111ccdb999d6b0ba22"
+    },
+    {
+      "path": "public-schema-sources/opencode-apply_patch.txt",
+      "bytes": 1098,
+      "sha256": "2e88f3a8fb30723c4fd6a084ef20716dec6b6ea66aa943dde675e81c5cb1cc4e"
+    },
+    {
+      "path": "public-schema-sources/opencode-core-schema.ts",
+      "bytes": 2916,
+      "sha256": "0993e10641bd1138340c235145b0abd6b4913e13762878ea16545b31b155341b"
+    },
+    {
+      "path": "public-schema-sources/opencode-edit.ts",
+      "bytes": 24530,
+      "sha256": "f84d9d242137e1f18ce912188efb7a97b71bf4f255e0a69f16a1fe9d1ff236d4"
+    },
+    {
+      "path": "public-schema-sources/opencode-edit.txt",
+      "bytes": 1369,
+      "sha256": "4426ccf60241fe41d01bbafc1e7450ea6538003f9fca863ab0210492a74647f8"
+    },
+    {
+      "path": "public-schema-sources/opencode-glob.ts",
+      "bytes": 2895,
+      "sha256": "a5069377ae916495a72be319d218878136fc13f18551f3e16981d8c692c68a4a"
+    },
+    {
+      "path": "public-schema-sources/opencode-glob.txt",
+      "bytes": 517,
+      "sha256": "50b2d2c41d4b8d0286ab4542c6ec882421ac4ae5c0567ad213c3668ed973ed9a"
+    },
+    {
+      "path": "public-schema-sources/opencode-grep.ts",
+      "bytes": 4072,
+      "sha256": "f7bbab8ae3fabfe3dd78b5728a283a56bff318d5b1f278d15d1c637227ff660f"
+    },
+    {
+      "path": "public-schema-sources/opencode-grep.txt",
+      "bytes": 657,
+      "sha256": "97fa2a9929353d20d3418041aae53ffea3aaf63e9a6e2fdc8cff6db61c3f4c5e"
+    },
+    {
+      "path": "public-schema-sources/opencode-json-schema.ts",
+      "bytes": 5875,
+      "sha256": "123ae7e75b54161e54645d14f614700674acb6eb293d8a1249a9de57d84f4dba"
+    },
+    {
+      "path": "public-schema-sources/opencode-lsp.ts",
+      "bytes": 4329,
+      "sha256": "993e1316f12a44cde46eb8af34868a1ea2077a6e4ec749c25ec8b913a2e46da5"
+    },
+    {
+      "path": "public-schema-sources/opencode-lsp.txt",
+      "bytes": 1303,
+      "sha256": "8f25f3ea038c4fc7b5c37072eb2ccfe9c7abc8fc812bde6688bccb4d04ab454a"
+    },
+    {
+      "path": "public-schema-sources/opencode-mcp-websearch.ts",
+      "bytes": 2998,
+      "sha256": "44cec72f6a8995ff172bc774e4a2e689fd1aa77fb9cfb9575d66a0e4bab24a88"
+    },
+    {
+      "path": "public-schema-sources/opencode-package.json",
+      "bytes": 6052,
+      "sha256": "6ae4dee9338c330571a2a485e27c8feab3e78eb31f125605a540a2d13dc80e45"
+    },
+    {
+      "path": "public-schema-sources/opencode-plan.ts",
+      "bytes": 3131,
+      "sha256": "cbe103563700b770bf77ef9fd6ea3b1e97eed6aa996a8ce28342ff0ce6ee3719"
+    },
+    {
+      "path": "public-schema-sources/opencode-question.ts",
+      "bytes": 1528,
+      "sha256": "15a90d87b9b928d91c1558ba12b229a919c575e79f6af6b6a5809e439f36121e"
+    },
+    {
+      "path": "public-schema-sources/opencode-read.ts",
+      "bytes": 13126,
+      "sha256": "afec8294965cbd9b9e29d3453b682164f0ecdba26574ebc048e9ba21af209c68"
+    },
+    {
+      "path": "public-schema-sources/opencode-read.txt",
+      "bytes": 1158,
+      "sha256": "98ee843341c2dab2227add0019e48d4b2f0f00f9b042b853d1ee52bb34e6363d"
+    },
+    {
+      "path": "public-schema-sources/opencode-schema.ts",
+      "bytes": 444,
+      "sha256": "8bce49e6fbabc75b96c54d8a394287df2f3ea2513dd957f4bd34140449b01905"
+    },
+    {
+      "path": "public-schema-sources/opencode-shared-schema.ts",
+      "bytes": 1234,
+      "sha256": "a7cdac1ae9d21d9d71a3783a730ca29bc8fbe769d01479a19101a81eec2bb447"
+    },
+    {
+      "path": "public-schema-sources/opencode-shell.ts",
+      "bytes": 20439,
+      "sha256": "342d742ae324782d222465c202dcdfcb7cc35a4cecf04e87f9881f1794d921ac"
+    },
+    {
+      "path": "public-schema-sources/opencode-skill.ts",
+      "bytes": 2215,
+      "sha256": "629ada0c0a0135cb003429aec233aeb165f0b98a2bd5171986bc319c11af3c07"
+    },
+    {
+      "path": "public-schema-sources/opencode-skill.txt",
+      "bytes": 399,
+      "sha256": "226f63ce9fd51e51431205c90ef98e53a20ba5af690fdad241eba416db49c339"
+    },
+    {
+      "path": "public-schema-sources/opencode-task.ts",
+      "bytes": 14200,
+      "sha256": "db09fa5868ad3ecfdd83aa2bb7243f85e9e2cd13d0b19fd6f307f7a337b2b36e"
+    },
+    {
+      "path": "public-schema-sources/opencode-task.txt",
+      "bytes": 2305,
+      "sha256": "220dcf4ad2582dbdaf2b0bbc8b7f5fa78172b1337539ac1c8912f45f2b9e5d46"
+    },
+    {
+      "path": "public-schema-sources/opencode-todo.ts",
+      "bytes": 1338,
+      "sha256": "f18fdedc754e0842660a968fa225ed961fb516a544eb04209d8b44c7673df270"
+    },
+    {
+      "path": "public-schema-sources/opencode-webfetch.ts",
+      "bytes": 6881,
+      "sha256": "8d9efbad1ffdf8dc29dbac80eb5372ba66a8c80fccaa1606d4e41a9c929a5b6b"
+    },
+    {
+      "path": "public-schema-sources/opencode-webfetch.txt",
+      "bytes": 750,
+      "sha256": "0da3ec7c3f6bc47706553c1c522dacb2042d66a4c2bf09368e43ce4a72f3b7dc"
+    },
+    {
+      "path": "public-schema-sources/opencode-websearch.ts",
+      "bytes": 5189,
+      "sha256": "edb175726b7830d242f59417ce6961f44d39e500bccc068bf2dddbf61d5ca92a"
+    },
+    {
+      "path": "public-schema-sources/opencode-websearch.txt",
+      "bytes": 1033,
+      "sha256": "f31c862691e3bb9a90e81766f376b24d69ae7f408eaa9f3bb5507dc75a00e692"
+    },
+    {
+      "path": "public-schema-sources/opencode-write.ts",
+      "bytes": 3957,
+      "sha256": "861de91cc67849e138c32a697c8eb1abab8e4912bfd97811ea1866b8e9af4096"
+    },
+    {
+      "path": "public-schema-sources/opencode-write.txt",
+      "bytes": 623,
+      "sha256": "8b7197b6e3a8ec1d129eeb6b82608e4cab759bfcc60ba890ecf36322a6e45180"
+    },
+    {
+      "path": "qualified-e41-signed.mjs",
+      "bytes": 22813,
+      "sha256": "9d95b939910827fd2a5e71fb5a8252b95f07581e2579d395a86228e8ba381c16"
+    },
+    {
+      "path": "read-only-usage-guard.json",
+      "bytes": 472,
+      "sha256": "2dde2e712bb007dae1858036a84bb989dd9b4ae224d67685188ac76bdca20c4a"
+    },
+    {
+      "path": "read-only-usage-guard.mjs",
+      "bytes": 2025,
+      "sha256": "7fe40a1ff2e36cb67d77a76a4adc8905162f50c51352c0add919fd8d30dbd590"
+    },
+    {
+      "path": "reproduction-commands.txt",
+      "bytes": 1943,
+      "sha256": "cf7dfa3169882f1e458e92c2270b3e3329963071194c1085a8611db383069b5e"
+    },
+    {
+      "path": "run-heap-proof.mjs",
+      "bytes": 4190,
+      "sha256": "e94a0f16e3dfc5ec3df7bd7841abf835e2762ff361e068fab94f29ccc573d880"
+    },
+    {
+      "path": "scrub-install-lock.json",
+      "bytes": 874,
+      "sha256": "f4c231a7f237c6772552982afc0df741f51840d74e6dfdf6411bb2d47776e797"
+    },
+    {
+      "path": "v2-preflight/catalog-adoption.json",
+      "bytes": 243,
+      "sha256": "f365b360eb1b9d1df342ef2ae7a7f3ddaada8ddf8b2724eb79c629dbd2252612"
+    },
+    {
+      "path": "v2-preflight/configured-summary.json",
+      "bytes": 722,
+      "sha256": "da824ef4cc2d36007345f1759c0a27126115d0b618420ea59e3825b17129ee3e"
+    },
+    {
+      "path": "v2-preflight/report.json",
+      "bytes": 2712,
+      "sha256": "7e926a495fa699e2b51280f86205dd8a010164ea6dfe23b0caa99dcbfd8b1056"
+    },
+    {
+      "path": "verify-catalog-records.mjs",
+      "bytes": 1090,
+      "sha256": "ba9ea06c39962bc23555b033e2b11fa69a3b9b8d79686255559902ae044b6b7e"
+    },
+    {
+      "path": "RESULT.md",
+      "bytes": 22354,
+      "sha256": "3b7690e10ade29bbc328f2947fd621c93710f0d687b24fe949c0c257e186fb4d"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "baseline",
+      "reason": "generated compile/runtime directory"
+    },
+    {
+      "path": "current",
+      "reason": "generated compile/runtime directory"
+    },
+    {
+      "path": "fixture-generator-runtime/node_modules",
+      "reason": "generated compile/runtime directory"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/actions_get.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/actions_list.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/actions_run_trigger.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_comment_to_pending_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_issue_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_issue_comment_reaction.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_issue_reaction.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_pull_request_review_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_pull_request_review_comment_reaction.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_reply_to_pull_request_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/add_sub_issue.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/assign_copilot_to_issue.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/assign_copilot_to_issue_with_intent.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_branch.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_gist.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_issue.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_or_update_file.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_pull_request.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_pull_request_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_repository.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/create_repository_ruleset.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/custom_properties_read.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/custom_properties_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/delete_file.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/delete_pending_pull_request_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/delete_repository.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/discussion_comment_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/dismiss_notification.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/find_duplicate_ff_duplicate_detection.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/fork_repository.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_code_quality_finding.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_code_scanning_alert.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_commit.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_dependabot_alert.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_discussion.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_discussion_comments.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_file_blame.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_file_contents.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_gist.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_global_security_advisory.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_job_logs.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_job_logs_actions.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_label.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_latest_release.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_me.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_notification_details.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_release_by_tag.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_repository_tree.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_secret_scanning_alert.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_tag.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_team_members.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/get_teams.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/hide_issue_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/hide_pull_request_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/hide_pull_request_review_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/issue_dependency_read_ff_issue_dependencies.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/issue_dependency_write_ff_issue_dependencies.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/issue_read.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/issue_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/label_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_branches.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_branches_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_code_scanning_alerts.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_commits.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_dependabot_alerts.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_discussion_categories.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_discussions.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_gists.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_global_security_advisories.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_issue_fields.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_issue_types.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_issues.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_issues_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_label.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_notifications.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_org_repository_security_advisories.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_pull_requests.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_pull_requests_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_releases.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_repository_collaborators.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_repository_security_advisories.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_secret_scanning_alerts.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_starred_repositories.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_tags.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/list_tags_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/manage_notification_subscription.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/manage_repository_notification_subscription.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/mark_all_notifications_read.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/merge_pull_request.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/projects_get.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/projects_list.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/projects_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/pull_request_read.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/pull_request_review_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/pull_request_review_write_resolution_reason.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/push_files.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/remove_issue_comment_reaction.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/remove_issue_reaction.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/remove_pull_request_review_comment_reaction.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/remove_sub_issue.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/repository_ruleset_read.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/reprioritize_sub_issue.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/request_copilot_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/request_pull_request_reviewers.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/resolve_review_thread.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/resolve_review_thread_resolution_reason.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_code.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_code_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_commits.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_issues.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_issues_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_orgs.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_pull_requests.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_pull_requests_output.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_repositories.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/search_users.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/set_issue_fields.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/star_repository.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/sub_issue_write.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/submit_pending_pull_request_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/ui_get.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/unhide_issue_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/unhide_pull_request_review.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/unhide_pull_request_review_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/unresolve_review_thread.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/unstar_repository.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_gist.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_assignees.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_body.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_comment.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_labels.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_milestone.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_state.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_title.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_issue_type.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_pull_request.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_pull_request_body.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_pull_request_branch.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_pull_request_draft_state.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_pull_request_state.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "public-schema-sources/github-mcp/update_pull_request_title.snap",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/client-api.stderr",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/client-api.stdout",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/config-sources.stderr",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/config-sources.stdout",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/setup.stderr",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/setup.stdout",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/version.stderr",
+      "reason": "raw output or non-escrow file"
+    },
+    {
+      "path": "v2-preflight/version.stdout",
+      "reason": "raw output or non-escrow file"
+    }
+  ]
+}

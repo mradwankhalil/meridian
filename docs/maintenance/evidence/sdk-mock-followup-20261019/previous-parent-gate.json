@@ -1,0 +1,28 @@
+{
+  "head": "8ffbe0c22da9c066d33a06985edc1f529d088893",
+  "runtime": {
+    "bun": "1.3.11+af24e281e",
+    "node": "v22.22.3",
+    "platform": "Darwin arm64"
+  },
+  "gate": "npm test",
+  "exit": 1,
+  "invocations_started": 1,
+  "main_stage": {
+    "pass": 6480,
+    "skip": 36,
+    "fail": 1
+  },
+  "failure": "proxy coordination across OS processes > allows different sessions to run concurrently in different processes; parallel-first:sdk-start timeout after 5006.24ms",
+  "log_sha256": "00ae36e4d2b47dc1e6b5c8aabfbd2c771769d3795ac0ed9b3152db9419dae533",
+  "log_bytes": 1223150,
+  "failure_excerpt_lines": [
+    5302,
+    5315
+  ],
+  "footer_lines": [
+    10340,
+    10344
+  ],
+  "disposition": "HOLD: no merge; original timing failure and new worker-start timeout remain unresolved. Targeted passing diagnostic does not reclassify either failed run."
+}

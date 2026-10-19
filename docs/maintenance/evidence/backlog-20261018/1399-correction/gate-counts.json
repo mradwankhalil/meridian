@@ -1,0 +1,373 @@
+[
+  {
+    "name": "npm-test-stage-02",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-async-ops.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 1.183,
+    "pass": 3,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-03",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-session-store.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.304,
+    "pass": 24,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-04",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/session-store-pruning.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.187,
+    "pass": 5,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-05",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-session-store-locking.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.618,
+    "pass": 7,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-06",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/session-fingerprint-context.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 2.445,
+    "pass": 12,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-07",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-context-usage-store.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.539,
+    "pass": 3,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-08",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/models-auth-status.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 13.702,
+    "pass": 61,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-09",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-passthrough-thinking.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 1.323,
+    "pass": 10,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-10",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-session-recovery.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.172,
+    "pass": 11,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-11",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-thinking-setting.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 1.876,
+    "pass": 16,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-12",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/models.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.11,
+    "pass": 97,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-13",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/replay-budget.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.127,
+    "pass": 16,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-14",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-health-build.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.667,
+    "pass": 11,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-15",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/priority-routing-integration.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 171.922,
+    "pass": 85,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-16",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/follow-active-integration.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 3.233,
+    "pass": 7,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-17",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/store-mutation-loop-lag.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.561,
+    "pass": 9,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-18",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/profile-credential-isolation.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.697,
+    "pass": 8,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-19",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/header-settings-routes.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 0.909,
+    "pass": 24,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-20",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/priority-session-store.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 1.008,
+    "pass": 23,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-21",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/claude-executable-settings.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 7.022,
+    "pass": 12,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-22",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-idle-guard-queue.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 5.332,
+    "pass": 2,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-23",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/proxy-deny-hold-generating.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 7.054,
+    "pass": 3,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "npm-test-stage-24",
+    "argv": [
+      "bun",
+      "test",
+      "--timeout",
+      "30000",
+      "src/__tests__/upstream-reachability-routes.test.ts"
+    ],
+    "exit": 0,
+    "seconds": 4.958,
+    "pass": 15,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "typecheck",
+    "argv": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "exit": 0,
+    "seconds": 13.674,
+    "pass": 0,
+    "skip": 0,
+    "fail": 0
+  },
+  {
+    "name": "build",
+    "argv": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit": 0,
+    "seconds": 7.895,
+    "pass": 0,
+    "skip": 0,
+    "fail": 0
+  }
+]

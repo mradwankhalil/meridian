@@ -1,0 +1,177 @@
+{
+  "result": "PASS",
+  "scope": "Real SDK/Zod offline catalog/heap proof; zero model calls",
+  "action": "heap",
+  "mode": "current",
+  "source": "423477f19812b08e15d332d4f7c9c91ebf4e8650",
+  "runtime": {
+    "node": "v22.22.3",
+    "platform": "darwin",
+    "arch": "arm64",
+    "heapLimitBytes": 587202560
+  },
+  "versions": {
+    "sdk": "0.2.141",
+    "zod": "4.4.3"
+  },
+  "fixture": {
+    "sha256": "df872b711b2cebae00326778b1649bb80e2e7271418f4878207caf629bb5e17f",
+    "bytes": 366598,
+    "tools": 230
+  },
+  "modelCalls": 0,
+  "samples": [
+    {
+      "label": "fixture-loaded",
+      "heapUsed": 14443344,
+      "heapTotal": 34635776,
+      "rss": 84361216,
+      "external": 2687923
+    },
+    {
+      "label": "retained-1",
+      "heapUsed": 36787320,
+      "heapTotal": 72335360,
+      "rss": 132874240,
+      "external": 2687963,
+      "retainedSessions": 1,
+      "uniqueBuiltSets": 1,
+      "evictions": 0
+    },
+    {
+      "label": "retained-2",
+      "heapUsed": 37691600,
+      "heapTotal": 73596928,
+      "rss": 133496832,
+      "external": 2687963,
+      "retainedSessions": 2,
+      "uniqueBuiltSets": 1,
+      "evictions": 0
+    },
+    {
+      "label": "retained-4",
+      "heapUsed": 39496536,
+      "heapTotal": 74809344,
+      "rss": 134873088,
+      "external": 2687963,
+      "retainedSessions": 4,
+      "uniqueBuiltSets": 1,
+      "evictions": 0
+    },
+    {
+      "label": "retained-8",
+      "heapUsed": 43124296,
+      "heapTotal": 78544896,
+      "rss": 137396224,
+      "external": 2687963,
+      "retainedSessions": 8,
+      "uniqueBuiltSets": 1,
+      "evictions": 0
+    },
+    {
+      "label": "retained-12",
+      "heapUsed": 46745480,
+      "heapTotal": 82280448,
+      "rss": 144277504,
+      "external": 2687963,
+      "retainedSessions": 12,
+      "uniqueBuiltSets": 1,
+      "evictions": 0
+    },
+    {
+      "label": "identical-churn-1",
+      "heapUsed": 47182288,
+      "heapTotal": 83591168,
+      "rss": 145784832,
+      "external": 2687963,
+      "retainedSessions": 12,
+      "uniqueBuiltSets": 1,
+      "evictions": 12
+    },
+    {
+      "label": "identical-churn-2",
+      "heapUsed": 47183040,
+      "heapTotal": 83591168,
+      "rss": 146620416,
+      "external": 2687963,
+      "retainedSessions": 12,
+      "uniqueBuiltSets": 1,
+      "evictions": 24
+    },
+    {
+      "label": "identical-churn-3",
+      "heapUsed": 47183496,
+      "heapTotal": 83329024,
+      "rss": 146620416,
+      "external": 2687963,
+      "retainedSessions": 12,
+      "uniqueBuiltSets": 1,
+      "evictions": 36
+    },
+    {
+      "label": "all-session-owners-released",
+      "heapUsed": 15113480,
+      "heapTotal": 19693568,
+      "rss": 140951552,
+      "external": 2687963,
+      "retainedSessions": 0,
+      "weakTargetsStillObserved": 0
+    },
+    {
+      "label": "distinct-churn-1",
+      "heapUsed": 102656056,
+      "heapTotal": 140361728,
+      "rss": 243843072,
+      "external": 2687963,
+      "retainedSessions": 4,
+      "uniqueBuiltSets": 4,
+      "evictions": 8
+    },
+    {
+      "label": "distinct-churn-2",
+      "heapUsed": 102761840,
+      "heapTotal": 141410304,
+      "rss": 244662272,
+      "external": 2687963,
+      "retainedSessions": 4,
+      "uniqueBuiltSets": 4,
+      "evictions": 20
+    },
+    {
+      "label": "distinct-churn-3",
+      "heapUsed": 102772728,
+      "heapTotal": 142983168,
+      "rss": 248922112,
+      "external": 2687963,
+      "retainedSessions": 4,
+      "uniqueBuiltSets": 4,
+      "evictions": 32
+    },
+    {
+      "label": "distinct-owners-released",
+      "heapUsed": 16495176,
+      "heapTotal": 21807104,
+      "rss": 247021568,
+      "external": 2687963
+    }
+  ],
+  "assertions": {
+    "retainedSharing": true,
+    "identicalChurnBoundedOwners": true,
+    "distinctChurnBoundedOwners": true
+  },
+  "limits": {
+    "retainedSessionCapacity": 12,
+    "totalIdenticalAdmissions": 48,
+    "distinctCapacity": 4,
+    "totalDistinctAdmissions": 36,
+    "gc": "Explicit GC across event-loop turns; no assertion depends on immediate WeakRef/finalizer timing",
+    "notTested": [
+      "1000 simultaneously retained baseline sessions",
+      "Reporter private 230-tool catalog",
+      "Native CLI/model inference",
+      "Whole proxy/process session/transcript memory",
+      "Global weak-index size or exact finalizer latency"
+    ]
+  }
+}

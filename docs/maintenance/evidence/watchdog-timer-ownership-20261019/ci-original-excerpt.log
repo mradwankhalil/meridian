@@ -1,0 +1,74 @@
+test	Run npm test	2026-10-19T07:46:44.0764496Z (pass) SDK and Session concurrency coordination > aborts a wedged turn without releasing its fencing lease early [2110.04ms]
+test	Run npm test	2026-10-19T07:46:44.3342331Z 1434 |     await new Promise((resolve) => setTimeout(resolve, 25))
+test	Run npm test	2026-10-19T07:46:44.3342785Z 1435 |     waiterAbort.abort()
+test	Run npm test	2026-10-19T07:46:44.3343084Z 1436 |     expect((await secondP).status).toBe(499)
+test	Run npm test	2026-10-19T07:46:44.3343334Z 1437 | 
+test	Run npm test	2026-10-19T07:46:44.3343533Z 1438 |     firstControl.release()
+test	Run npm test	2026-10-19T07:46:44.3343810Z 1439 |     expect((await firstP).status).toBe(200)
+test	Run npm test	2026-10-19T07:46:44.3344101Z                                          ^
+test	Run npm test	2026-10-19T07:46:44.3344368Z error: expect(received).toBe(expected)
+test	Run npm test	2026-10-19T07:46:44.3344518Z 
+test	Run npm test	2026-10-19T07:46:44.3344595Z Expected: 200
+test	Run npm test	2026-10-19T07:46:44.3344766Z Received: 499
+test	Run npm test	2026-10-19T07:46:44.3344855Z 
+test	Run npm test	2026-10-19T07:46:44.3345202Z       at <anonymous> (/home/runner/work/meridian/meridian/src/__tests__/proxy-concurrency-coordination.test.ts:1439:35)
+test	Run npm test	2026-10-19T07:46:44.3345561Z 
+test	Run npm test	2026-10-19T07:46:44.3370633Z ##[error]Expected: 200
+test	Run npm test	2026-10-19T07:46:44.3379879Z (fail) SDK and Session concurrency coordination > clears the session-turn watchdog timer when a queued waiter cancels before acquiring the lease (#1380) [258.01ms]
+test	Run npm test	2026-10-19T07:46:44.3380473Z 
+test	Run npm test	2026-10-19T07:46:44.3380784Z ##[endgroup]
+test	Run npm test	2026-10-19T07:46:44.3380925Z 
+test	Run npm test	2026-10-19T07:46:44.3381292Z ##[group]src/__tests__/dependency-uri-resolution.test.ts:
+test	Run npm test	2026-10-19T07:46:44.3682465Z (pass) installed MCP schema URI resolution > canonicalizes the HTTP hostname in http://127。0。0。1/ [1.00ms]
+test	Run npm test	2026-10-19T07:46:44.3683762Z (pass) installed MCP schema URI resolution > canonicalizes the HTTP hostname in http://ＦＯＯ.test/payload
+test	Run npm test	2026-10-19T07:46:44.3684999Z (pass) installed MCP schema URI resolution > canonicalizes a scheme-relative hostname after resolving its scheme
+test	Run npm test	2026-10-19T07:46:44.3768403Z (pass) installed MCP schema URI resolution > resolves a canonical reference to an IDN schema without losing validation [8.00ms]
+test	Run npm test	2026-10-19T07:46:44.3769307Z 
+test	Run npm test	2026-10-19T07:46:44.3769860Z ##[endgroup]
+test	Run npm test	2026-10-19T07:46:44.3770009Z 
+test	Run npm test	2026-10-19T07:46:44.3770451Z ##[group]src/__tests__/proxy-source-keyed-session.test.ts:
+test	Run npm test	2026-10-19T07:46:44.3849352Z [PROXY] cf554a62-99f1-4769-a574-1eca474b442f adapter=pi source=subagent-worker model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.5762422Z [PROXY] cf554a62-99f1-4769-a574-1eca474b442f usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.5848848Z [PROXY] 06b72c1c-2a39-4ef6-9165-056b25764db1 adapter=pi source=subagent-worker model=sonnet stream=false tools=0 lineage=continuation session=a014e073 agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+test	Run npm test	2026-10-19T07:46:44.6087663Z [PROXY] 06b72c1c-2a39-4ef6-9165-056b25764db1 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.6089165Z [PROXY] 06b72c1c-2a39-4ef6-9165-056b25764db1 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+test	Run npm test	2026-10-19T07:46:44.6168772Z (pass) explicit session keys override the independence guard > pi subagent-worker WITH x-session-affinity resumes across turns [237.00ms]
+test	Run npm test	2026-10-19T07:46:44.6230097Z [PROXY] f092e4b1-3d39-4998-8984-9fe0ac97f506 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.6388483Z [PROXY] f092e4b1-3d39-4998-8984-9fe0ac97f506 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.6473836Z [PROXY] e9d7a0d4-3c7a-46e7-9eb0-007b7f0c3c61 adapter=opencode model=sonnet stream=false tools=0 lineage=continuation session=085addca agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+test	Run npm test	2026-10-19T07:46:44.6704725Z [PROXY] e9d7a0d4-3c7a-46e7-9eb0-007b7f0c3c61 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.6718803Z [PROXY] e9d7a0d4-3c7a-46e7-9eb0-007b7f0c3c61 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+test	Run npm test	2026-10-19T07:46:44.6798664Z (pass) explicit session keys override the independence guard > keyed OpenCode subagent mode resumes across turns [63.00ms]
+test	Run npm test	2026-10-19T07:46:44.6830136Z [PROXY] ec3bf3b1-99bf-421e-9473-a5f755c8ba46 adapter=pi source=subagent-worker model=sonnet stream=false tools=0 lineage=new session=new diverged=independent-request:subagent agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.7175891Z [PROXY] ec3bf3b1-99bf-421e-9473-a5f755c8ba46 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.7214883Z [PROXY] 6c2db685-223e-44a2-9a39-6a6451a24464 adapter=pi source=subagent-worker model=sonnet stream=false tools=0 lineage=new session=new diverged=independent-request:subagent agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+test	Run npm test	2026-10-19T07:46:44.7375123Z [PROXY] 6c2db685-223e-44a2-9a39-6a6451a24464 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.7412756Z (pass) explicit session keys override the independence guard > pi subagent-worker WITHOUT a session key keeps the independence guard (no resume) [62.00ms]
+test	Run npm test	2026-10-19T07:46:44.7468959Z [PROXY] bf008701-cf20-493f-ba59-0c66a7a50e4f adapter=pi source=subagent-worker model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.7591073Z [PROXY] bf008701-cf20-493f-ba59-0c66a7a50e4f usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.7704954Z [PROXY] 27881105-b362-4736-b93d-0ab2b9b01594 adapter=pi source=subagent-worker model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=subagent sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+test	Run npm test	2026-10-19T07:46:44.7849584Z [PROXY] 27881105-b362-4736-b93d-0ab2b9b01594 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.7928140Z (pass) explicit session keys override the independence guard > distinct affinity keys stay isolated (no cross-worker resume) [51.00ms]
+test	Run npm test	2026-10-19T07:46:44.7980438Z [PROXY] 6890371f-4c14-4bfb-b48f-de8104c9fccc adapter=opencode source=fork-memory-extract model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.8113154Z [PROXY] 6890371f-4c14-4bfb-b48f-de8104c9fccc usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.8272010Z [PROXY] 57f5763f-2e19-420c-8290-c94109cf2fa6 adapter=opencode source=fork-memory-extract model=sonnet stream=false tools=0 lineage=continuation session=812aa79c sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+test	Run npm test	2026-10-19T07:46:44.8503412Z [PROXY] 57f5763f-2e19-420c-8290-c94109cf2fa6 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.8504529Z [PROXY] 57f5763f-2e19-420c-8290-c94109cf2fa6 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+test	Run npm test	2026-10-19T07:46:44.8581947Z (pass) explicit session keys override the independence guard > fork sources with an explicit key resume too (opencode header path) [66.00ms]
+test	Run npm test	2026-10-19T07:46:44.8634171Z [PROXY] 94322ff3-b287-4e56-a353-0ae376fcfb54 adapter=pi model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.8796427Z [PROXY] 94322ff3-b287-4e56-a353-0ae376fcfb54 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.8879600Z [PROXY] 2ae168a1-a1b1-4fe1-8133-8f8cabe5aca7 adapter=pi model=sonnet stream=false tools=0 lineage=continuation session=663f6dcf sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=3 msgs=user[string] → assistant[tool_use] → user[tool_result]
+test	Run npm test	2026-10-19T07:46:44.9082508Z [PROXY] 2ae168a1-a1b1-4fe1-8133-8f8cabe5aca7 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.9084144Z [PROXY] 2ae168a1-a1b1-4fe1-8133-8f8cabe5aca7 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+test	Run npm test	2026-10-19T07:46:44.9195402Z (pass) OMP body session identity survives the tool-result bypass (#734) > resumes a tool-result turn when the body carries an OMP session id [61.00ms]
+test	Run npm test	2026-10-19T07:46:44.9224570Z [PROXY] ca1fd5d1-7437-49de-9890-52450d9c3639 adapter=pi model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.9396037Z [PROXY] ca1fd5d1-7437-49de-9890-52450d9c3639 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.9489750Z [PROXY] 7810a765-aa3e-41f7-8f3e-884849bc6698 adapter=pi model=sonnet stream=false tools=0 lineage=new session=new diverged=independent-request:headerless-tool-result sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=3 msgs=user[string] → assistant[tool_use] → user[tool_result]
+test	Run npm test	2026-10-19T07:46:44.9644981Z [PROXY] 7810a765-aa3e-41f7-8f3e-884849bc6698 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:46:44.9690391Z (pass) OMP body session identity survives the tool-result bypass (#734) > still refuses to resume a tool-result turn with no identity at all [50.00ms]
+test	Run npm test	2026-10-19T07:46:44.9724746Z [PROXY] 5c3968fc-7775-41d7-92ae-cbf6d0da3fc0 adapter=pi model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+test	Run npm test	2026-10-19T07:46:44.9884135Z [PROXY] 5c3968fc-7775-41d7-92ae-cbf6d0da3fc0 usage: input=10 output=50 cache=0%
+test	Run npm test	2026-10-19T07:47:39.6402031Z (pass) classifyError > busy session (bg agent) detection — #630 > ignores unrelated exit-1 failures [1.00ms]
+test	Run npm test	2026-10-19T07:50:14.7367035Z  6531 pass
+test	Run npm test	2026-10-19T07:50:14.7367348Z  1 fail
+test	Run npm test	2026-10-19T07:50:14.7367751Z Ran 6533 tests across 383 files. [309.78s]

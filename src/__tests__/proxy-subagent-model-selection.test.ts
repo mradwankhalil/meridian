@@ -6,6 +6,7 @@
  * conserving rate limit budget for the primary agent.
  */
 
+import { installModelsMock } from "./modelsMock"
 import { describe, it, expect, mock, beforeEach } from "bun:test"
 
 import { installSdkMock } from "./sdkMock"
@@ -50,12 +51,10 @@ installMcpToolsMock(() => ({
   createOpencodeMcpServer: () => ({ type: "sdk", name: "opencode", instance: {} }),
 }))
 
-// Pass through the real resolveSdkModelDefaults — mock.module is process-global
-// in Bun, and stubbing it as () => ({}) leaks to proxy-env-stripping.test.ts.
-import { resolveSdkModelDefaults } from "../proxy/models"
+// Unspecified model exports retain their real implementation.
 
 // Fix auth status so mapModelToClaudeModel always picks the max/1m path
-mock.module("../proxy/models", () => ({
+installModelsMock(() => ({
   mapModelToClaudeModel: (model: string, sub?: string | null, agentMode?: string | null) => {
     const base = model.toLowerCase()
     if (base.includes("opus")) return agentMode === "subagent" ? "opus" : "opus[1m]"
@@ -64,7 +63,6 @@ mock.module("../proxy/models", () => ({
     return "sonnet"
   },
   resolveClaudeExecutableAsync: async () => "claude",
-  resolveSdkModelDefaults,
   getClaudeAuthStatusAsync: async () => ({ loggedIn: true, subscriptionType: "max" }),
   getAuthCacheInfo: () => ({ lastCheckedAt: 0, lastSuccessAt: 0, isFailure: false }),
   hasExtendedContext: (m: string) => m.endsWith("[1m]"),

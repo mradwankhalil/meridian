@@ -1,0 +1,178 @@
+{
+  "kind": "sanitized derivative; full original is not included",
+  "original_sha256": "9a088aacd508d67dea5eccd2a3c5b09d333e733f85369487f5b0c68b72f5cb3e",
+  "original_bytes": 1271949,
+  "original_lines": 11354,
+  "selected_original_line_ranges": [
+    [
+      1,
+      17
+    ],
+    [
+      65,
+      81
+    ],
+    [
+      11350,
+      11354
+    ]
+  ],
+  "lines": [
+    {
+      "line": 1,
+      "text": ""
+    },
+    {
+      "line": 2,
+      "text": "> @rynfar/meridian@1.83.0 pretest"
+    },
+    {
+      "line": 3,
+      "text": "> tsc --noEmit"
+    },
+    {
+      "line": 4,
+      "text": ""
+    },
+    {
+      "line": 5,
+      "text": ""
+    },
+    {
+      "line": 6,
+      "text": "> @rynfar/meridian@1.83.0 test"
+    },
+    {
+      "line": 7,
+      "text": "> bun test ./src/__tests__ --timeout 30000 --path-ignore-patterns '**/*session-store*' --path-ignore-patterns '**/*store-mutation-loop-lag*' --path-ignore-patterns '**/*session-fingerprint-context*' --path-ignore-patterns '**/*priority-routing-integration*' --path-ignore-patterns '**/*proxy-async-ops*' --path-ignore-patterns '**/*models-auth-status*' --path-ignore-patterns '**/*proxy-context-usage-store*' --path-ignore-patterns '**/*proxy-passthrough-thinking*' --path-ignore-patterns '**/*proxy-thinking-setting*' --path-ignore-patterns '**/*session-recovery*' --path-ignore-patterns '**/*models.test*' --path-ignore-patterns '**/*replay-budget*' --path-ignore-patterns '**/*proxy-health-build*' --path-ignore-patterns '**/*follow-active-integration*' --path-ignore-patterns '**/*profile-credential-isolation*' --path-ignore-patterns '**/*header-settings-routes*' --path-ignore-patterns '**/*claude-executable-settings*' --path-ignore-patterns '**/*proxy-idle-guard-queue*' --path-ignore-patterns '**/*proxy-deny-hold-generating*' --path-ignore-patterns '**/*upstream-reachability-routes*' && bun test --timeout 30000 src/__tests__/proxy-async-ops.test.ts && bun test --timeout 30000 src/__tests__/proxy-session-store.test.ts && bun test --timeout 30000 src/__tests__/session-store-pruning.test.ts && bun test --timeout 30000 src/__tests__/proxy-session-store-locking.test.ts && bun test --timeout 30000 src/__tests__/session-fingerprint-context.test.ts && bun test --timeout 30000 src/__tests__/proxy-context-usage-store.test.ts && bun test --timeout 30000 src/__tests__/models-auth-status.test.ts && bun test --timeout 30000 src/__tests__/proxy-passthrough-thinking.test.ts && bun test --timeout 30000 src/__tests__/proxy-session-recovery.test.ts && bun test --timeout 30000 src/__tests__/proxy-thinking-setting.test.ts && bun test --timeout 30000 src/__tests__/models.test.ts && bun test --timeout 30000 src/__tests__/replay-budget.test.ts && bun test --timeout 30000 src/__tests__/proxy-health-build.test.ts && bun test --timeout 30000 src/__tests__/priority-routing-integration.test.ts && bun test --timeout 30000 src/__tests__/follow-active-integration.test.ts && bun test --timeout 30000 src/__tests__/store-mutation-loop-lag.test.ts && bun test --timeout 30000 src/__tests__/profile-credential-isolation.test.ts && bun test --timeout 30000 src/__tests__/header-settings-routes.test.ts && bun test --timeout 30000 src/__tests__/priority-session-store.test.ts && bun test --timeout 30000 src/__tests__/claude-executable-settings.test.ts && bun test --timeout 30000 src/__tests__/proxy-idle-guard-queue.test.ts && bun test --timeout 30000 src/__tests__/proxy-deny-hold-generating.test.ts && bun test --timeout 30000 src/__tests__/upstream-reachability-routes.test.ts"
+    },
+    {
+      "line": 8,
+      "text": ""
+    },
+    {
+      "line": 9,
+      "text": "bun test v1.3.11 (af24e281)"
+    },
+    {
+      "line": 10,
+      "text": ""
+    },
+    {
+      "line": 11,
+      "text": "src/__tests__/chatgpt-stream.test.ts:"
+    },
+    {
+      "line": 12,
+      "text": "(pass) sniffChatGptFailure - a failure hiding behind the preamble > sees response.failed even though response.created came first [8.76ms]"
+    },
+    {
+      "line": 13,
+      "text": "(pass) sniffChatGptFailure - a failure hiding behind the preamble > scans past several preamble frames to reach the failure [1.65ms]"
+    },
+    {
+      "line": 14,
+      "text": "(pass) sniffChatGptFailure - a failure hiding behind the preamble > finds it when the whole stream arrives as one chunk [0.24ms]"
+    },
+    {
+      "line": 15,
+      "text": "(pass) sniffChatGptFailure - a failure hiding behind the preamble > finds it when one frame is split across chunks [0.63ms]"
+    },
+    {
+      "line": 16,
+      "text": "(pass) sniffChatGptFailure - a failure hiding behind the preamble > treats a bare error event before output as a failure too [0.20ms]"
+    },
+    {
+      "line": 17,
+      "text": "(pass) sniffChatGptFailure - a failure hiding behind the preamble > hands back the bytes it consumed, so a last-account caller still has a body [0.81ms]"
+    },
+    {
+      "line": 65,
+      "text": "src/__tests__/proxy-system-reminder-preservation.test.ts:"
+    },
+    {
+      "line": 66,
+      "text": "[PROXY] 1bb10df7-e7b0-4ccd-94e4-fcdab4c56ef2 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]"
+    },
+    {
+      "line": 67,
+      "text": "[PROXY] Could not verify Claude auth status for the default account: Claude auth-status process cleanup is unconfirmed; no replacement check will start (1 in a row; no status known yet; next check in 5s)"
+    },
+    {
+      "line": 68,
+      "text": "106 |     }"
+    },
+    {
+      "line": 69,
+      "text": "107 | "
+    },
+    {
+      "line": 70,
+      "text": "108 |     await (await post(app, body)).json()"
+    },
+    {
+      "line": 71,
+      "text": "109 | "
+    },
+    {
+      "line": 72,
+      "text": "110 |     const prompt = getPromptText()"
+    },
+    {
+      "line": 73,
+      "text": "111 |     expect(prompt).toContain(\"bg_0aaa50b0\")"
+    },
+    {
+      "line": 74,
+      "text": "                         ^"
+    },
+    {
+      "line": 75,
+      "text": "error: expect(received).toContain(expected)"
+    },
+    {
+      "line": 76,
+      "text": ""
+    },
+    {
+      "line": 77,
+      "text": "Expected to contain: \"bg_0aaa50b0\""
+    },
+    {
+      "line": 78,
+      "text": "Received: \"undefined\""
+    },
+    {
+      "line": 79,
+      "text": ""
+    },
+    {
+      "line": 80,
+      "text": "      at <anonymous> (<REPO>/src/__tests__/proxy-system-reminder-preservation.test.ts:111:20)"
+    },
+    {
+      "line": 81,
+      "text": "(fail) issue #368: <system-reminder> preservation by adapter > OpenCode: preserves bg_* task IDs from <system-reminder> in the SDK prompt [5201.11ms]"
+    },
+    {
+      "line": 11350,
+      "text": " 6396 pass"
+    },
+    {
+      "line": 11351,
+      "text": " 36 skip"
+    },
+    {
+      "line": 11352,
+      "text": " 89 fail"
+    },
+    {
+      "line": 11353,
+      "text": " 30879 expect() calls"
+    },
+    {
+      "line": 11354,
+      "text": "Ran 6521 tests across 384 files. [409.03s]"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/active-priority-integration.test.ts:
+OFFLINE_FIXTURE_RUNTIME {"bun":"1.3.11","executable":"/private/tmp/meridian-1399-tooling/node_modules/bun/bin/bun.exe"}
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 3706265b-aba3-456c-86a8-42454cdc8311 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 3706265b-aba3-456c-86a8-42454cdc8311 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 3706265b-aba3-456c-86a8-42454cdc8311 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+823 |           if (stream) fablePingFirstDirs.add(dir)
+824 |         }
+825 |         const wait = await waitFrom(await post(app, {}, "a bench expires during failover", FABLE, stream))
+826 |         // No effective exclusion remains on work: retain the ordinary
+827 |         // retry fallback instead of waiting hours for personal or spare.
+828 |         expect(wait).toBe(60)
+                           ^
+error: expect(received).toBe(expected)
+
+Expected: 60
+Received: 10681
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:828:22)
+(fail) an allowance spent for one model > effective pool retry waits (JSON) > does not wait for another account once an eligible bench has expired [276.77ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] cb21869e-8698-466f-9b7a-f76ea20a05b9 adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb21869e-8698-466f-9b7a-f76ea20a05b9 adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb21869e-8698-466f-9b7a-f76ea20a05b9 adapter=opencode profile=spare(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+823 |           if (stream) fablePingFirstDirs.add(dir)
+824 |         }
+825 |         const wait = await waitFrom(await post(app, {}, "a bench expires during failover", FABLE, stream))
+826 |         // No effective exclusion remains on work: retain the ordinary
+827 |         // retry fallback instead of waiting hours for personal or spare.
+828 |         expect(wait).toBe(60)
+                           ^
+error: expect(received).toBe(expected)
+
+Expected: 60
+Received: 10680
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:828:22)
+(fail) an allowance spent for one model > effective pool retry waits (SSE) > does not wait for another account once an eligible bench has expired [181.21ms]
+SDK_BOUNDARY_TRAP {"attempts":[],"actualNativeChildren":0,"actualNetworkCalls":0}
+
+ 0 pass
+ 52 filtered out
+ 2 fail
+ 14 expect() calls
+Ran 2 tests across 1 file. [798.00ms]

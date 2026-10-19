@@ -1,0 +1,30 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-cross-process-coordination.test.ts:
+(fail) proxy coordination across OS processes > reports a worker's startup refusal instead of losing it behind an SDK timeout [5002.38ms]
+  ^ this test timed out after 5000ms.
+
+# Unhandled error between tests
+-------------------------------
+338 | describe("proxy coordination across OS processes", () => {
+339 |   test("reports a worker's startup refusal instead of losing it behind an SDK timeout", async () => {
+340 |     const paths = await makePaths()
+341 |     const worker = spawnProxyWorker(paths, "startup-refusal", "startup-refusal-session",
+342 |       [{ role: "user", content: "never dispatched" }], { startupError: "owned fixture startup refusal" })
+343 |     await expect(waitForEvent(paths.events, worker.id, "sdk-start")).rejects.toThrow("owned fixture startup refusal")
+                                                                                   ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "owned fixture startup refusal"
+Received message: "Timed out waiting for startup-refusal:sdk-start"
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-ac86ab45/src/__tests__/proxy-cross-process-coordination.test.ts:343:78)
+-------------------------------
+
+
+ 0 pass
+ 11 filtered out
+ 1 fail
+ 1 error
+ 1 expect() calls
+Ran 1 test across 1 file. [5.51s]

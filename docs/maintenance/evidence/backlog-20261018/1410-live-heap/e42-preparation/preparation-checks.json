@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "scope": "Syntax/import/pure helpers and closed gate only; all actual E42 extended flows UNRUN",
+  "actualClientCalls": 0,
+  "inferenceCalls": 0,
+  "accountCalls": 0,
+  "pairingValid": true,
+  "unpairedRejected": true,
+  "duplicateResultRejected": true,
+  "sanitizedWitness": true,
+  "closedLiveGateRejects": true
+}

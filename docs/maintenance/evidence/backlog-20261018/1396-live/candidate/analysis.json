@@ -1,0 +1,217 @@
+{
+  "scope": "Sanitized recorded native client probe; no additional inference",
+  "source": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+  "model": "claude-fable-5-1",
+  "originalHarnessResult": "BLOCKED_PROVIDER_REFUSAL",
+  "providerHttpRefusal": false,
+  "expectedCheckpointMaxTurns": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "actualClientExit": 0,
+  "ownedReceiptObserved": true,
+  "allObservedChildrenJoined": true,
+  "actualSubagentCount": 1,
+  "subagentRequestCounts": [
+    4
+  ],
+  "requestedExactModel": true,
+  "servedModels": [
+    "claude-opus-4-8",
+    "claude-fable-5-1"
+  ],
+  "exactServedModelEveryRound": false,
+  "transitions": [
+    {
+      "agent": "69b0f6055ac9b13f9d1f636bdd231b1c287b1d39b494e957e5a3b5a2c7759b43",
+      "before": 3,
+      "after": 4,
+      "position": 4,
+      "shape": "retained-durable-prefix",
+      "durableDigest": "38ccaaa9a4657b9eaac85a2e605318146a706d814e61c5536717d3a195ff7fc5",
+      "knownExactReminderHash": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+    },
+    {
+      "agent": "69b0f6055ac9b13f9d1f636bdd231b1c287b1d39b494e957e5a3b5a2c7759b43",
+      "before": 4,
+      "after": 5,
+      "position": 7,
+      "shape": "retained-durable-prefix",
+      "durableDigest": "39c2a3ba4337d7b23d315de7959204870423224886cc097ea46046ad6cc33eaa",
+      "knownExactReminderHash": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+    }
+  ],
+  "checkpointPairs": [
+    {
+      "prior": 2,
+      "current": 3,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false
+    },
+    {
+      "prior": 3,
+      "current": 4,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false
+    },
+    {
+      "prior": 4,
+      "current": 5,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false
+    },
+    {
+      "prior": 1,
+      "current": 6,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false
+    }
+  ],
+  "cache": [
+    {
+      "prior": 2,
+      "current": 3,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false,
+      "priorCached": 12154,
+      "read": 6112,
+      "ratio": 0.5028797103834128,
+      "passes95Percent": false
+    },
+    {
+      "prior": 3,
+      "current": 4,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false,
+      "priorCached": 12786,
+      "read": 6428,
+      "ratio": 0.5027373689973409,
+      "passes95Percent": false
+    },
+    {
+      "prior": 4,
+      "current": 5,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false,
+      "priorCached": 13448,
+      "read": 0,
+      "ratio": 0,
+      "passes95Percent": false
+    },
+    {
+      "prior": 1,
+      "current": 6,
+      "sourceMatches": true,
+      "checkpointMatches": true,
+      "fork": true,
+      "replay": false,
+      "priorCached": 22200,
+      "read": 0,
+      "ratio": 0,
+      "passes95Percent": false
+    }
+  ],
+  "unmet": [
+    "exact Fable served identity for every tool round",
+    "95% cache continuity",
+    "before-request immutable-source snapshots",
+    "separate live unchanged-tail negative control",
+    "all four E41 modes",
+    "exact reminder-only live shape unless observed"
+  ],
+  "publicSessionSummaries": [
+    {
+      "mappingKey": "d348bdaf6c4eed68608795430578a6f2bbdc926c6530941829ee2097e7161e31",
+      "session": "6d254f347cf8e43dd63957fa27a0a957d18b6b02e51e65e3e08f5a20e5f1f235",
+      "rowCount": 7,
+      "models": [
+        "claude-opus-4-8",
+        "claude-fable-5-1"
+      ],
+      "calls": [
+        {
+          "id": "ec6754ab61c07f6c629abf0069f77741bf2c1b0b43c33afacdcca44a98ef043a",
+          "name": "mcp__oc__Agent",
+          "fixturePathOwned": true
+        }
+      ],
+      "results": [
+        {
+          "id": "ec6754ab61c07f6c629abf0069f77741bf2c1b0b43c33afacdcca44a98ef043a",
+          "isError": false,
+          "forwardedDenial": false,
+          "contentDigest": "bdb5d0cd811a3652f050b6756cbd8a6dc16068c0166922a90a16805fb02adba3"
+        }
+      ],
+      "pendingToolCount": 0,
+      "everyCallHasExactlyOneRealResult": true,
+      "publishedTargetMatchesObservedQuery": true
+    },
+    {
+      "mappingKey": "9ba9a709317271f586500a68ba4be403f121db2163e4fcba62cc986edbf84fa5",
+      "session": "b4aa697ffc3b6dc6a3e9dced114ad33b8fa12d9e57e08d85485f579608b1d5fc",
+      "rowCount": 12,
+      "models": [
+        "claude-opus-4-8",
+        "claude-fable-5-1"
+      ],
+      "calls": [
+        {
+          "id": "b50996d674633f1eb80eb351f55e436252b289e7ae67286f50bacb2fdb758ddd",
+          "name": "mcp__oc__Read",
+          "fixturePathOwned": true
+        },
+        {
+          "id": "34a69e4f19ffd2759426dedb45e680d33b2948fbae37e57ae7e628256745626f",
+          "name": "mcp__oc__Read",
+          "fixturePathOwned": true
+        },
+        {
+          "id": "f9c979e45918becc9824171dca24bc2d8f6099f7c6ce281cfa7631d180fa9fec",
+          "name": "mcp__oc__Read",
+          "fixturePathOwned": true
+        }
+      ],
+      "results": [
+        {
+          "id": "b50996d674633f1eb80eb351f55e436252b289e7ae67286f50bacb2fdb758ddd",
+          "isError": false,
+          "forwardedDenial": false,
+          "contentDigest": "b216599bd8b94352364e468a8335ce86513d4b3a066178162a9acc7eeac947a0"
+        },
+        {
+          "id": "34a69e4f19ffd2759426dedb45e680d33b2948fbae37e57ae7e628256745626f",
+          "isError": false,
+          "forwardedDenial": false,
+          "contentDigest": "b86a1e74ef805e6e8bed1febb2abbc998a11ad0087d8ebe3f4fd88d8a5a51d9b"
+        },
+        {
+          "id": "f9c979e45918becc9824171dca24bc2d8f6099f7c6ce281cfa7631d180fa9fec",
+          "isError": false,
+          "forwardedDenial": false,
+          "contentDigest": "901fda5c898cd30d2cc95ccb3516e11d23a03c95517c2f03f69db51eb152dc6d"
+        }
+      ],
+      "pendingToolCount": 0,
+      "everyCallHasExactlyOneRealResult": true,
+      "publishedTargetMatchesObservedQuery": true
+    }
+  ],
+  "result": "LIVE_ACCEPTANCE_INCOMPLETE"
+}

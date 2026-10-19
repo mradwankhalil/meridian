@@ -1,0 +1,17 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/active-priority-integration.test.ts:
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] Claude auth status for profile "work" exited with code 1 reporting loggedIn: false; login required
+[PROXY] 934ea297-ff9e-4027-bf65-ff5a6eed447a adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] Claude auth status for profile "personal" exited with code 1 reporting loggedIn: false; login required
+[PROXY] 934ea297-ff9e-4027-bf65-ff5a6eed447a adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 934ea297-ff9e-4027-bf65-ff5a6eed447a usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > serves a Fable request from the next account when the active one has no Fable allowance left [774.27ms]
+
+ 1 pass
+ 41 filtered out
+ 0 fail
+ 3 expect() calls
+Ran 1 test across 1 file. [2.43s]

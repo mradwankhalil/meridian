@@ -1,0 +1,67 @@
+[
+  {
+    "label": "profiles-anchor-reveals-provider",
+    "href": "http://127.0.0.1:42242/profiles?provider=claude#c1",
+    "provider": "claude",
+    "shown": [
+      "c1"
+    ],
+    "chips": [
+      [
+        "claude",
+        "true"
+      ],
+      [
+        "chatgpt",
+        "false"
+      ]
+    ],
+    "emptyVisible": false,
+    "saved": "[\"claude\"]",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+  },
+  {
+    "label": "plain-profile-click-saves-preference",
+    "href": "http://127.0.0.1:42242/profiles",
+    "provider": null,
+    "shown": [
+      "c1",
+      "g1"
+    ],
+    "chips": [
+      [
+        "claude",
+        "true"
+      ],
+      [
+        "chatgpt",
+        "true"
+      ]
+    ],
+    "emptyVisible": false,
+    "saved": "[]",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+  },
+  {
+    "label": "plain-landing-restores-new-preference",
+    "href": "http://127.0.0.1:42242/",
+    "provider": null,
+    "shown": [
+      "c1",
+      "g1"
+    ],
+    "chips": [
+      [
+        "claude",
+        "true"
+      ],
+      [
+        "chatgpt",
+        "true"
+      ]
+    ],
+    "emptyVisible": false,
+    "saved": "[]",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "format": "Anthropic tools[]: {name,description,input_schema}",
+  "fixtureSha256": "0ce74a63b41e61bbab5b5c756fc39ad8226356e649137980906a688d114ea145",
+  "toolCount": 230,
+  "nativeToolCount": 11,
+  "githubSourceToolCount": 131,
+  "githubSecondaryAliases": 88,
+  "uniqueInputSchemas": 137,
+  "inputSchemaBytes": 194619,
+  "fixtureBytes": 366598,
+  "schemaCounts": {
+    "objects": 276,
+    "arrays": 63,
+    "enums": 212,
+    "anyOf": 11,
+    "oneOf": 12,
+    "allOf": 0,
+    "refs": 0,
+    "properties": 1330,
+    "maxObjectDepth": 4
+  },
+  "runtime": {
+    "node": "v22.22.3",
+    "typescript": "5.9.3",
+    "effect": "4.0.0-beta.83"
+  },
+  "sources": {
+    "opencode": {
+      "version": "1.18.34",
+      "commit": "aec0b9a6d8898f68f923aaf08b7306d931fd9d76"
+    },
+    "githubMcpServer": {
+      "commit": "e3809fe91c7546633241006bf0b91f23b2595e28"
+    }
+  },
+  "limitations": [
+    "Constructed realistic client-consumable catalog; not a captured reporter catalog or proof of any installed client/server configuration.",
+    "Eleven selected public native OpenCode tools plus all 131 unique-named GitHub MCP committed tool snapshots at pinned revision, and 88 explicit second-instance aliases; aliases have identical schemas/descriptions to their source tools.",
+    "Source snapshot directory may contain deprecated/conditional tools, so the 131-source set is a schema workload rather than a claim that one default GitHub MCP server advertises all 131 simultaneously.",
+    "Duplicate-named variant snapshots are deduplicated, preferring the canonical <tool-name>.snap file; output-only snapshots are excluded.",
+    "OpenCode native descriptions are public source templates, without expanding installed agent or skill metadata.",
+    "No model calls, credentials, user configuration, SDK transcripts, or client requests were read."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "clientPlugin": {
+    "path": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian/index.js",
+    "packageName": "@rynfar/meridian",
+    "packageVersion": "1.83.1",
+    "sha256": "c640cc02817d9ad05d5b61f6bd906fdccdb4ef71be42d11981aecaeb84bc434e",
+    "invocations": 0,
+    "errors": 0,
+    "preflight": true
+  },
+  "scope": "Real SDK/model E41 with installed client hook and server scrub; protocol host, not OpenCode executable",
+  "model": "claude-opus-5-5",
+  "stream": false,
+  "root": "/private/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-probe-proxy-sZgNX7",
+  "result": "FAIL",
+  "setup": {
+    "exit": 0,
+    "generation": "v1",
+    "field": "plugin",
+    "entries": 1,
+    "path": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian"
+  },
+  "runtimeRequests": [],
+  "phase": "server scrub preflight",
+  "failure": "Missing plugin inventory",
+  "failureCode": "ERR_ASSERTION",
+  "children": [],
+  "joined": true
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "mode": "baseline",
+    "action": "catalogs",
+    "command": [
+      "/Users/rynfar/.hermes/node/bin/node",
+      "--expose-gc",
+      "--max-old-space-size=512",
+      "/private/tmp/meridian-1410-live-evidence/heap-worker.mjs",
+      "/private/tmp/meridian-1410-live-baseline",
+      "/private/tmp/meridian-1410-live-evidence/baseline",
+      "/private/tmp/meridian-1410-live-evidence/client-derived-230-tools.json",
+      "baseline",
+      "/private/tmp/meridian-1410-live-evidence/baseline-catalogs.json",
+      "catalogs"
+    ],
+    "exitCode": 0,
+    "signal": null
+  },
+  {
+    "mode": "baseline",
+    "action": "heap",
+    "command": [
+      "/Users/rynfar/.hermes/node/bin/node",
+      "--expose-gc",
+      "--max-old-space-size=512",
+      "/private/tmp/meridian-1410-live-evidence/heap-worker.mjs",
+      "/private/tmp/meridian-1410-live-baseline",
+      "/private/tmp/meridian-1410-live-evidence/baseline",
+      "/private/tmp/meridian-1410-live-evidence/client-derived-230-tools.json",
+      "baseline",
+      "/private/tmp/meridian-1410-live-evidence/baseline-heap.json",
+      "heap"
+    ],
+    "exitCode": 0,
+    "signal": null
+  },
+  {
+    "mode": "current",
+    "action": "catalogs",
+    "command": [
+      "/Users/rynfar/.hermes/node/bin/node",
+      "--expose-gc",
+      "--max-old-space-size=512",
+      "/private/tmp/meridian-1410-live-evidence/heap-worker.mjs",
+      "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe",
+      "/private/tmp/meridian-1410-live-evidence/current",
+      "/private/tmp/meridian-1410-live-evidence/client-derived-230-tools.json",
+      "current",
+      "/private/tmp/meridian-1410-live-evidence/current-catalogs.json",
+      "catalogs"
+    ],
+    "exitCode": 0,
+    "signal": null
+  },
+  {
+    "mode": "current",
+    "action": "heap",
+    "command": [
+      "/Users/rynfar/.hermes/node/bin/node",
+      "--expose-gc",
+      "--max-old-space-size=512",
+      "/private/tmp/meridian-1410-live-evidence/heap-worker.mjs",
+      "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe",
+      "/private/tmp/meridian-1410-live-evidence/current",
+      "/private/tmp/meridian-1410-live-evidence/client-derived-230-tools.json",
+      "current",
+      "/private/tmp/meridian-1410-live-evidence/current-heap.json",
+      "heap"
+    ],
+    "exitCode": 0,
+    "signal": null
+  }
+]

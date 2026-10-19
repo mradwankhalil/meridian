@@ -1415,33 +1415,60 @@ describe("SDK and Session concurrency coordination", () => {
 
   it("clears the session-turn watchdog timer when a queued waiter cancels before acquiring the lease (#1380)", async () => {
     process.env.MERIDIAN_MAX_CONCURRENT = "2"
-    process.env.MERIDIAN_SESSION_TURN_MAX_HOLD_MS = "150"
+    // This checks timer ownership, not filesystem speed. The old 150ms live
+    // watchdog could abort the holder during durable I/O before it finished.
+    const holdMs = 60_137
+    process.env.MERIDIAN_SESSION_TURN_MAX_HOLD_MS = String(holdMs)
     resetProcessSdkSemaphoreForTests()
-    const app = createProxyServer({ port: 0, host: "127.0.0.1", silent: true }).app
-
-    const firstP = app.fetch(request([{ role: "user", content: "one" }], "cancel-waiter-1380"))
-    const firstControl = await waitForControl(0)
-
+    const clearTimeoutReal = globalThis.clearTimeout
+    // Observe the real timer functions without replacing either implementation.
+    const timerObserver = spyOn(globalThis, "setTimeout")
+    const clearObserver = spyOn(globalThis, "clearTimeout")
+    const watchdogTimers = () => timerObserver.mock.calls.flatMap(([, delay], index) => {
+      const result = timerObserver.mock.results[index]
+      return delay === holdMs && result?.type === "return" ? [result.value] : []
+    })
+    const pendingTimers = () => {
+      const cleared = new Set<unknown>(clearObserver.mock.calls.map(([timer]) => timer))
+      return watchdogTimers().filter(timer => !cleared.has(timer))
+    }
     const waiterAbort = new AbortController()
-    const secondP = app.fetch(request(
-      [{ role: "user", content: "two" }],
-      "cancel-waiter-1380",
-      false,
-      {},
-      waiterAbort.signal,
-    ))
+    const responses: Array<Promise<Response>> = []
+    let arrival: ReturnType<typeof observeTurnArrival> | undefined
+    try {
+      const app = createProxyServer({ port: 0, host: "127.0.0.1", silent: true }).app
+      const firstP = Promise.resolve(app.fetch(request([{ role: "user", content: "one" }], "cancel-waiter-1380")))
+      responses.push(firstP)
+      const firstControl = await waitForControl(0)
+      expect(pendingTimers()).toHaveLength(1)
 
-    await new Promise((resolve) => setTimeout(resolve, 25))
-    waiterAbort.abort()
-    expect((await secondP).status).toBe(499)
+      arrival = observeTurnArrival("cancel-waiter-1380")
+      const secondP = Promise.resolve(app.fetch(request(
+        [{ role: "user", content: "two" }], "cancel-waiter-1380", false, {}, waiterAbort.signal,
+      )))
+      responses.push(secondP)
+      await arrival.arrived
+      expect(watchdogTimers()).toHaveLength(2)
+      expect(pendingTimers()).toHaveLength(2)
+      expect(queryCalls).toBe(1)
 
-    firstControl.release()
-    expect((await firstP).status).toBe(200)
+      waiterAbort.abort()
+      expect((await secondP).status).toBe(499)
+      // The cancelled waiter must clear its own timer, even without a lease.
+      expect(pendingTimers()).toHaveLength(1)
 
-    // Wait past SESSION_TURN_MAX_HOLD_MS: neither the finished turn nor the
-    // cancelled waiter should fire session.turn_watchdog_abort.
-    await new Promise((resolve) => setTimeout(resolve, 220))
-    const watchdogEvents = loggedEvents.filter((e) => e.event === "session.turn_watchdog_abort")
-    expect(watchdogEvents).toEqual([])
+      firstControl.release()
+      expect((await firstP).status).toBe(200)
+      expect(pendingTimers()).toHaveLength(0)
+      expect(loggedEvents.filter(e => e.event === "session.turn_watchdog_abort")).toEqual([])
+    } finally {
+      waiterAbort.abort()
+      for (const control of controls) control.release()
+      await Promise.allSettled(responses)
+      arrival?.restore()
+      for (const timer of pendingTimers()) Reflect.apply(clearTimeoutReal, globalThis, [timer])
+      clearObserver.mockRestore()
+      timerObserver.mockRestore()
+    }
   })
 })

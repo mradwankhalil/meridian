@@ -1,0 +1,19 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-cross-process-coordination.test.ts:
+296 |     }
+297 |     const found = all.find(item => item.workerId === workerId && item.name === name)
+298 |     if (found) return found
+299 |     const completed = all.find(item => item.workerId === workerId && item.name === "result")
+300 |     if (completed) {
+301 |       throw new Error(`${workerId} completed before ${name}: status=${completed.status}; body=${completed.body}`)
+                      ^
+error: isolated-auth completed before sdk-start: status=401; body={"type":"error","error":{"type":"authentication_error","message":"Invalid or missing API key"}}
+      at waitForEvent (/Volumes/DevSSD/meridian/t3-worktrees/t3-ac86ab45/src/__tests__/proxy-cross-process-coordination.test.ts:301:17)
+      at async <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-ac86ab45/src/__tests__/proxy-cross-process-coordination.test.ts:355:13)
+(fail) proxy coordination across OS processes > does not inherit the parent suite's HTTP authentication into coordination workers [1412.21ms]
+
+ 0 pass
+ 12 filtered out
+ 1 fail
+Ran 1 test across 1 file. [1.80s]

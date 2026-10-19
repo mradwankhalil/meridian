@@ -1,0 +1,49 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/active-priority-integration.test.ts:
+OFFLINE_FIXTURE_RUNTIME {"bun":"1.3.11","executable":"/private/tmp/meridian-1399-tooling/node_modules/bun/bin/bun.exe"}
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] f5264930-9589-4640-b8f4-a52e72d781d0 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f5264930-9589-4640-b8f4-a52e72d781d0 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f5264930-9589-4640-b8f4-a52e72d781d0 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10798
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:804:9)
+(fail) an allowance spent for one model > effective pool retry waits (JSON) > uses a bench extended while later accounts are still being tried [559.04ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] e6fc43c6-8e04-4a67-b4a4-3b2debeb9a96 adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] e6fc43c6-8e04-4a67-b4a4-3b2debeb9a96 adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] e6fc43c6-8e04-4a67-b4a4-3b2debeb9a96 adapter=opencode profile=spare(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10798
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:804:9)
+(fail) an allowance spent for one model > effective pool retry waits (SSE) > uses a bench extended while later accounts are still being tried [267.49ms]
+SDK_BOUNDARY_TRAP {"attempts":[],"actualNativeChildren":0,"actualNetworkCalls":0}
+
+ 0 pass
+ 50 filtered out
+ 2 fail
+ 16 expect() calls
+Ran 2 tests across 1 file. [1.96s]

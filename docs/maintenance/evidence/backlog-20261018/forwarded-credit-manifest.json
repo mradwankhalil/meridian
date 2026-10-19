@@ -1,0 +1,4080 @@
+{
+  "schemaVersion": 1,
+  "repository": "rynfar/meridian",
+  "snapshotAtUtc": "2026-10-19T05:17:19.153928+00:00",
+  "scope": {
+    "pullRequests": [
+      1394,
+      1395,
+      1396,
+      1397,
+      1398,
+      1399,
+      1400,
+      1401
+    ],
+    "readOnly": true,
+    "noMergesOrPolicyChangePerformed": true,
+    "provenanceDefinition": "Published source-object metadata and GitHub unified-patch comparison; unsigned source objects do not cryptographically attest source authorship."
+  },
+  "repositorySettings": {
+    "full_name": "rynfar/meridian",
+    "allow_merge_commit": true,
+    "allow_squash_merge": true,
+    "allow_rebase_merge": true,
+    "allow_auto_merge": false,
+    "default_branch": "main",
+    "merge_commit_title": "MERGE_MESSAGE",
+    "merge_commit_message": "PR_TITLE",
+    "squash_merge_commit_title": "PR_TITLE",
+    "squash_merge_commit_message": "BLANK"
+  },
+  "mainProtection": {
+    "url": "https://api.github.com/repos/rynfar/meridian/branches/main/protection",
+    "required_signatures": {
+      "url": "https://api.github.com/repos/rynfar/meridian/branches/main/protection/required_signatures",
+      "enabled": true
+    },
+    "enforce_admins": {
+      "url": "https://api.github.com/repos/rynfar/meridian/branches/main/protection/enforce_admins",
+      "enabled": false
+    },
+    "required_linear_history": {
+      "enabled": false
+    },
+    "allow_force_pushes": {
+      "enabled": false
+    },
+    "allow_deletions": {
+      "enabled": false
+    },
+    "block_creations": {
+      "enabled": false
+    },
+    "required_conversation_resolution": {
+      "enabled": false
+    },
+    "lock_branch": {
+      "enabled": false
+    },
+    "allow_fork_syncing": {
+      "enabled": false
+    }
+  },
+  "rulesets": [],
+  "pullRequests": [
+    {
+      "number": 1394,
+      "url": "https://github.com/rynfar/meridian/pull/1394",
+      "title": "fix(session): probe the SDK process identity without blocking the event loop",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+        "ref": "dex/sdk-probe-async",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 6,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 6
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293240/job/117156522309"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293134/job/117156519871"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293110/job/117156519173"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293206/job/117156520003"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293268/job/117156519639"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293268/job/117156519184"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293134/job/117156519413"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293110/job/117157321714"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955293134/job/117156521873"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+          "url": "https://github.com/rynfar/meridian/commit/496ef5f4fe23bb67be0ca81b32d055bad067245c",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T22:18:34Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:09Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: probe each request's SDK wrapper without holding the event loop",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "5afedf10450f4d0f4d31faf0b7d5d9a72b74884e",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "7909898ce35cb63cc384cde877c0319be4892f3d",
+              "sourcePatchIdStable": "0915832550a04f043cd835f1cf42e6f1b618d727",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "src/__tests__/process-incarnation.test.ts",
+                "src/__tests__/sdk-process-gate.test.ts",
+                "src/proxy/session/processIncarnation.ts",
+                "src/proxy/session/sdkProcessGate.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "E2E.md"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 17:18:34 -0500"
+          }
+        },
+        {
+          "sha": "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+          "url": "https://github.com/rynfar/meridian/commit/3973d3a57760f3f77ee72fcaba145fc9911228b0",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:31:43Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:09Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(session): bound the awaited SDK wrapper probe with an outer deadline",
+          "parents": [
+            "496ef5f4fe23bb67be0ca81b32d055bad067245c"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+          "url": "https://github.com/rynfar/meridian/commit/70aa323130ea6158e434e00152a5cbcb39eeeecf",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:42Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:09Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test: drop the fork's E2E label from the SDK gate test comment",
+          "parents": [
+            "3973d3a57760f3f77ee72fcaba145fc9911228b0"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+          "url": "https://github.com/rynfar/meridian/commit/bb4ea765011fe123704a29ca4f176bf43cd04e93",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:55:19Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(session): refuse an SDK wrapper capture that outlived its wrapper",
+          "parents": [
+            "70aa323130ea6158e434e00152a5cbcb39eeeecf"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "063af3f30428bdc192563a13c6429d67647bb81f",
+          "url": "https://github.com/rynfar/meridian/commit/063af3f30428bdc192563a13c6429d67647bb81f",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:56:57Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test: drive the awaited darwin and win32 process probes on any platform",
+          "parents": [
+            "bb4ea765011fe123704a29ca4f176bf43cd04e93"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+          "url": "https://github.com/rynfar/meridian/commit/8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:57:23Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(e2e): mark the loaded-host probe result as owed and note the exit check",
+          "parents": [
+            "063af3f30428bdc192563a13c6429d67647bb81f"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 1,
+        "passabilities": 5
+      },
+      "signerCounts": {
+        "passabilities": 6
+      }
+    },
+    {
+      "number": 1395,
+      "url": "https://github.com/rynfar/meridian/pull/1395",
+      "title": "fix(claude-code): read the client's working directory from the messages",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+        "ref": "dex/client-working-directory",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 5,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295782/job/117156530200"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296085/job/117156529812"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295779/job/117156528268"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296261/job/117156530790"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295950/job/117156528757"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295950/job/117156528333"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296085/job/117156529469"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955295779/job/117157415854"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955296085/job/117156531493"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+          "url": "https://github.com/rynfar/meridian/commit/57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T03:59:05Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: run a Claude Code client's SDK child where the client works",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "03f025a5a68a543dc25812b1a1e065b70ada8431",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "24fe8c572a3f720f4ee2e68dfe6a81a37d742760",
+              "sourcePatchIdStable": "4fd85a03750cedaac31d9c36467705608315416b",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "src/__tests__/claude-code-adapter.test.ts",
+                "src/__tests__/claude-code-cwd-note.test.ts",
+                "src/__tests__/fixtures/claude-code-request-2.1.290-system-turn.json",
+                "src/__tests__/fixtures/claude-code-request-2.1.290-user-reminder.json",
+                "src/__tests__/proxy-tool-blocking.test.ts",
+                "src/proxy/adapters/claudecode.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Mon, 5 Oct 2026 22:59:05 -0500"
+          }
+        },
+        {
+          "sha": "75356c496acf2af4f1a4d3f6386b919e48c06188",
+          "url": "https://github.com/rynfar/meridian/commit/75356c496acf2af4f1a4d3f6386b919e48c06188",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:31:48Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(claude-code): cover the one-time replay after the working directory moves",
+          "parents": [
+            "57dbfb73e1bfc9f6796137921c0969f4c38e583b"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "5619fd9f67ec86db1766d80b07f6c1638c045827",
+          "url": "https://github.com/rynfar/meridian/commit/5619fd9f67ec86db1766d80b07f6c1638c045827",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:31:49Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(claude-code): record the gate for a working directory sent among the messages",
+          "parents": [
+            "75356c496acf2af4f1a4d3f6386b919e48c06188"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+          "url": "https://github.com/rynfar/meridian/commit/68396216ac0a5d11f27b05da89ed1377428a2ea5",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:53:45Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(claude-code): read only the reminder blocks that open the first user message",
+          "parents": [
+            "5619fd9f67ec86db1766d80b07f6c1638c045827"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+          "url": "https://github.com/rynfar/meridian/commit/6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(claude-code): name the log events the working-directory upgrade check requires",
+          "parents": [
+            "68396216ac0a5d11f27b05da89ed1377428a2ea5"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 1,
+        "passabilities": 4
+      },
+      "signerCounts": {
+        "passabilities": 5
+      }
+    },
+    {
+      "number": 1396,
+      "url": "https://github.com/rynfar/meridian/pull/1396",
+      "title": "fix(claude-code): resume tool rounds after a one-request system reminder",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+        "ref": "dex/system-turn-lineage",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 10,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 10
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "UNSTABLE",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "PENDING",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "IN_PROGRESS",
+              "conclusion": null,
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482443/job/117901207992"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203479599/job/117901200361"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482322/job/117901207355"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482358/job/117901207445"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482439/job/117901207974"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482439/job/117901207703"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "IN_PROGRESS",
+              "conclusion": null,
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482322/job/117901763203"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482443/job/117901208217"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39203482443/job/117901209070"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+          "url": "https://github.com/rynfar/meridian/commit/7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-05T20:06:59Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: resume Claude Code tool rounds after a one-request system reminder",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "762f0955420b95a5552cc80d52ac021074e5331f",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "71b2b7fbb813177db804725568bc6c3092fc4bec",
+              "sourcePatchIdStable": "7246f9b7f0c45b72e15bccdd7517c4ff2bd61daf",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "scripts/e2e-claude-code-system-turns.mjs",
+                "src/__tests__/claude-code-system-turn-lineage.test.ts",
+                "src/__tests__/passthrough-early-stop-integration.test.ts",
+                "src/proxy/adapters/claudecode.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "E2E.md"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Mon, 5 Oct 2026 15:06:59 -0500"
+          }
+        },
+        {
+          "sha": "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+          "url": "https://github.com/rynfar/meridian/commit/edd24f6a36f60539873396a3e64bb68a2ade02c1",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-05T20:45:15Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs: describe the Claude Code system-turn lineage rule",
+          "parents": [
+            "7dcb2149c8b6d7cc8a5008440268e7e6afb74655"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "849ea02700a7854d25adfcd3b35a9c6df7a57060",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "49e511bf1978f8e74a8281df1aa862cf96305843",
+              "sourcePatchIdStable": "49e511bf1978f8e74a8281df1aa862cf96305843",
+              "stablePatchIdEqual": true,
+              "exactAddedRemovedLinesByFile": [
+                "ARCHITECTURE.md"
+              ],
+              "differentAddedRemovedLinesByFile": [],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Mon, 5 Oct 2026 15:45:15 -0500"
+          }
+        },
+        {
+          "sha": "b7a1504a1ef46109f14ec0617f64958f9043548e",
+          "url": "https://github.com/rynfar/meridian/commit/b7a1504a1ef46109f14ec0617f64958f9043548e",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-08T12:43:28Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: resume Fable rounds after a system turn that is the reminder alone",
+          "parents": [
+            "edd24f6a36f60539873396a3e64bb68a2ade02c1"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "0e092fe8a4ce5258d9bc4badd1ecb2a76d641669",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "0e81556ab9a2d199f859ed38d5de680fb3d976a2",
+              "sourcePatchIdStable": "5a5c020af18e4984732633bb3a7ba319ab564e28",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "src/__tests__/claude-code-system-turn-lineage.test.ts",
+                "src/__tests__/passthrough-early-stop-integration.test.ts",
+                "src/proxy/adapters/claudecode.ts",
+                "src/proxy/server.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "E2E.md"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Thu, 8 Oct 2026 07:43:28 -0500"
+          }
+        },
+        {
+          "sha": "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+          "url": "https://github.com/rynfar/meridian/commit/034ed0a6719a661bcc372af65fbdaba1bb433e91",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:34:45Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(e2e): pick the conversation's SDK queries by their client tools in the system-turns gate",
+          "parents": [
+            "b7a1504a1ef46109f14ec0617f64958f9043548e"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "d14f21332a195b61be8ce5a099c26a66d64523c6",
+          "url": "https://github.com/rynfar/meridian/commit/d14f21332a195b61be8ce5a099c26a66d64523c6",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:35:08Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs: place the system-turn lineage gate beside the trailing-reminder gates",
+          "parents": [
+            "034ed0a6719a661bcc372af65fbdaba1bb433e91"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "709ac018b7390471fecd66e2d94e26da29b25b98",
+          "url": "https://github.com/rynfar/meridian/commit/709ac018b7390471fecd66e2d94e26da29b25b98",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:53:52Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(adapter): state that lineage canonicalizers may drop only trailing one-request turns",
+          "parents": [
+            "d14f21332a195b61be8ce5a099c26a66d64523c6"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "131cf72844fce1c80473ad79fcd433946878ed20",
+          "url": "https://github.com/rynfar/meridian/commit/131cf72844fce1c80473ad79fcd433946878ed20",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:39Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:14Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(session): size the silent-recovery UUID map to the lineage",
+          "parents": [
+            "709ac018b7390471fecd66e2d94e26da29b25b98"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "83d15d5357fc6d50c96cb44ad4355b865467929b",
+          "url": "https://github.com/rynfar/meridian/commit/83d15d5357fc6d50c96cb44ad4355b865467929b",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:55:21Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:14Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(e2e): tighten the system-turn lineage section and list its product-fit risks",
+          "parents": [
+            "131cf72844fce1c80473ad79fcd433946878ed20"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+          "url": "https://github.com/rynfar/meridian/commit/db52bfd0187d9b61e3627f71059564f27e71b2cb",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar",
+            "githubUserId": 11325514
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar",
+            "githubUserId": 11325514
+          },
+          "subject": "fix: preserve durable Claude Code system tails in lineage",
+          "parents": [
+            "83d15d5357fc6d50c96cb44ad4355b865467929b"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-19T05:14:06Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "rynfar"
+            },
+            "email": "rynfar@gmail.com"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+          "url": "https://github.com/rynfar/meridian/commit/a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar",
+            "githubUserId": 11325514
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar",
+            "githubUserId": 11325514
+          },
+          "subject": "test: require witnessed Claude Code batching reminder coverage",
+          "parents": [
+            "db52bfd0187d9b61e3627f71059564f27e71b2cb"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-19T05:14:06Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "rynfar"
+            },
+            "email": "rynfar@gmail.com"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 3,
+        "passabilities": 5,
+        "rynfar": 2
+      },
+      "signerCounts": {
+        "passabilities": 8,
+        "rynfar": 2
+      }
+    },
+    {
+      "number": 1397,
+      "url": "https://github.com/rynfar/meridian/pull/1397",
+      "title": "fix: stop the model when a client cancels a priority-routed request",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+        "ref": "dex/priority-cancel",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 8,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 8
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303595/job/117156556988"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303706/job/117156555594"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303604/job/117156554968"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303318/job/117156554256"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955304216/job/117156558931"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955304216/job/117156559449"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303706/job/117156555897"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303604/job/117157486012"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955303706/job/117156557689"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+          "url": "https://github.com/rynfar/meridian/commit/759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T09:43:55Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: stop the model when a client cancels a priority-routed request",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "e836030083bb1e62f630cdb953fe391a4b067ffb",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "02bc7f804012bb377fe8beecb7265f9b92c81609",
+              "sourcePatchIdStable": "8a2aa958e9f1e3c14833a1c78b2159f3f7cf5129",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "scripts/e2e-claude-code-priority-cancel.mjs",
+                "src/proxy/server.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "src/__tests__/priority-client-cancel.test.ts"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [
+                "scripts/e2e-claude-code-parallel-subagents.mjs",
+                "src/__tests__/account-return-trip.test.ts"
+              ],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 04:43:55 -0500"
+          }
+        },
+        {
+          "sha": "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+          "url": "https://github.com/rynfar/meridian/commit/b22ea383f9bce19bee13c690b32e7c08f93867f5",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T09:45:41Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test: record the carry review and a cancelled priority request",
+          "parents": [
+            "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "carved from commit",
+              "sourceSha": "ca46feb25daf7d6331201cf0a62959fc51f4e783",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "27ba696157bd20fae31270fa8dff6389a6e020f1",
+              "sourcePatchIdStable": "d6e4fe1f57fb9cf04c5a7bcd9935c9c4b1973133",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [],
+              "differentAddedRemovedLinesByFile": [
+                "E2E.md"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 04:45:41 -0500"
+          }
+        },
+        {
+          "sha": "b0d70e4291499c4f485e42e7a75cb88ece185672",
+          "url": "https://github.com/rynfar/meridian/commit/b0d70e4291499c4f485e42e7a75cb88ece185672",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:59:42Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test: hold a priority-routed request to end at the cancel, and the watchdog to reach it",
+          "parents": [
+            "b22ea383f9bce19bee13c690b32e7c08f93867f5"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "b736addc389afbb694c4762c654545d555ac57b1",
+          "url": "https://github.com/rynfar/meridian/commit/b736addc389afbb694c4762c654545d555ac57b1",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:03:28Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test: make the priority cancel gate fail on main through the session-turn watchdog",
+          "parents": [
+            "b0d70e4291499c4f485e42e7a75cb88ece185672"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+          "url": "https://github.com/rynfar/meridian/commit/604cf7aa3332f82148e8124447f10ac1a3b20d96",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:04:17Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:46Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs: re-measure the priority-routed cancel on current main",
+          "parents": [
+            "b736addc389afbb694c4762c654545d555ac57b1"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "8145cebfec2ee52e779569859a21372cd8f75e9c",
+          "url": "https://github.com/rynfar/meridian/commit/8145cebfec2ee52e779569859a21372cd8f75e9c",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:01Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:46Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs: state who detaches a priority-routed request's abort link",
+          "parents": [
+            "604cf7aa3332f82148e8124447f10ac1a3b20d96"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+          "url": "https://github.com/rynfar/meridian/commit/83d46bb5fa3d5eae3777e39fd1369c96146512df",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:12:53Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:12:53Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test: hold a parent's cancellation and shutdown to stop a priority-routed turn",
+          "parents": [
+            "8145cebfec2ee52e779569859a21372cd8f75e9c"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+          "url": "https://github.com/rynfar/meridian/commit/5617da1f52d2c8c1c970b574d6302ccb648de160",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:13:24Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:13:24Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs: correct the priority-cancel evidence and when the abort link was detached",
+          "parents": [
+            "83d46bb5fa3d5eae3777e39fd1369c96146512df"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 2,
+        "passabilities": 6
+      },
+      "signerCounts": {
+        "passabilities": 8
+      }
+    },
+    {
+      "number": 1398,
+      "url": "https://github.com/rynfar/meridian/pull/1398",
+      "title": "fix: warn at startup when running under Bun",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+        "ref": "dex/bun-startup-warning",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 5,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309032/job/117156576248"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309153/job/117156574440"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309105/job/117156574119"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309103/job/117156575023"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309076/job/117156574492"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309076/job/117156573920"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309153/job/117156574815"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309105/job/117157826221"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955309153/job/117156575909"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+          "url": "https://github.com/rynfar/meridian/commit/0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T11:07:38Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: say at startup that a proxy under Bun cannot stop a cancelled request",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "38d43c0d6a836006a7090378b28bc44a25582b19",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "567bb15e61f4bfdd7ee5d60cca42dd6292ff8e7a",
+              "sourcePatchIdStable": "1345ec61dcdecb38254ff0346cf9ad77e0719a94",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "ARCHITECTURE.md",
+                "src/__tests__/runtime-cancel-warning.test.ts",
+                "src/proxy/runtimeCancelWarning.ts",
+                "src/proxy/server.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "E2E.md"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 06:07:38 -0500"
+          }
+        },
+        {
+          "sha": "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+          "url": "https://github.com/rynfar/meridian/commit/02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:24:51Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(proxy): drop the unmeasured timing claim from the Bun warning note",
+          "parents": [
+            "0341a48bed945f4a4671fcdec9fa18c84e7708d1"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+          "url": "https://github.com/rynfar/meridian/commit/38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:07Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "style(proxy): drop the task label and reflow the Bun warning comments",
+          "parents": [
+            "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "5ae67bd609828497e588823d510a72f1e78576ad",
+          "url": "https://github.com/rynfar/meridian/commit/5ae67bd609828497e588823d510a72f1e78576ad",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:55:14Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(proxy): scope the Bun warning to probed releases and name both remedies",
+          "parents": [
+            "38ca32f56b5f350a72d771eb3f7bc410b6f3f610"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+          "url": "https://github.com/rynfar/meridian/commit/e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:57:00Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(e2e): record the offline startup and node:http checks for the Bun warning",
+          "parents": [
+            "5ae67bd609828497e588823d510a72f1e78576ad"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 1,
+        "passabilities": 4
+      },
+      "signerCounts": {
+        "passabilities": 5
+      }
+    },
+    {
+      "number": 1399,
+      "url": "https://github.com/rynfar/meridian/pull/1399",
+      "title": "fix(session): let session cleanup keep up with the transcripts turns leave",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+        "ref": "dex/session-cleanup-throughput",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 7,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 7
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312367/job/117156588683"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312430/job/117156587746"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312436/job/117156587680"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312324/job/117156587899"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312362/job/117156587476"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312362/job/117156587416"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312430/job/117156587556"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312436/job/117157352539"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955312430/job/117156589622"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "2d577070bf528c5ab03fda2b1497103d7fba1543",
+          "url": "https://github.com/rynfar/meridian/commit/2d577070bf528c5ab03fda2b1497103d7fba1543",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-10T06:15:38Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:48Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: let the session GC keep up with the transcripts turns leave",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "3617ecacebeb39ded1da24d8764ef81a7a1d43f1",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "24df8d1138ca265aa46fc909b2c921a8dad7e576",
+              "sourcePatchIdStable": "5a96262e7cdb624a25e8cca39d5eb95a2573b707",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [],
+              "differentAddedRemovedLinesByFile": [
+                "docs/configuration.md",
+                "scripts/e2e-session-gc-throughput.mjs",
+                "src/__tests__/preload.ts",
+                "src/__tests__/proxy-session-gc-capacity.test.ts",
+                "src/proxy/server.ts"
+              ],
+              "forwardedOnlyFiles": [
+                "src/__tests__/session-gc-limits.test.ts",
+                "src/proxy/sessionGcLimits.ts"
+              ],
+              "sourceOnlyFiles": [
+                "E2E.md",
+                "src/__tests__/turn-limits.test.ts",
+                "src/proxy/turnLimits.ts"
+              ],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Sat, 10 Oct 2026 01:15:38 -0500"
+          }
+        },
+        {
+          "sha": "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+          "url": "https://github.com/rynfar/meridian/commit/cc56a1b387e2b1115a6ff97b185b715d8156181d",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:14Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:48Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(session): measure session GC sweeps against a large lifecycle file",
+          "parents": [
+            "2d577070bf528c5ab03fda2b1497103d7fba1543"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "238cc7963563f90b1218ef9522a03aad3e655911",
+          "url": "https://github.com/rynfar/meridian/commit/238cc7963563f90b1218ef9522a03aad3e655911",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:55Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:48Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(session): record session GC throughput against a large lifecycle file",
+          "parents": [
+            "cc56a1b387e2b1115a6ff97b185b715d8156181d"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+          "url": "https://github.com/rynfar/meridian/commit/5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:14:38Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:14:38Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "refactor(session): resolve the session GC limits in one pure function",
+          "parents": [
+            "238cc7963563f90b1218ef9522a03aad3e655911"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+          "url": "https://github.com/rynfar/meridian/commit/b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:18:00Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:18:00Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(session): keep the shutdown session GC sweep at 16 deletions",
+          "parents": [
+            "5870b6c2e6bbdda973e078fbd25d28d0a728cced"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+          "url": "https://github.com/rynfar/meridian/commit/5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:53Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:53Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(session): measure a draining proxy's session GC sweep",
+          "parents": [
+            "b2d99c54aed8c3e948ba91127fe1d430d8a8a573"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+          "url": "https://github.com/rynfar/meridian/commit/a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:54Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:54Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(session): correct the session GC throughput rationale",
+          "parents": [
+            "5442fef89e8a954fbdee78b6b0705dcfe2d941f8"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 1,
+        "passabilities": 6
+      },
+      "signerCounts": {
+        "passabilities": 7
+      }
+    },
+    {
+      "number": 1400,
+      "url": "https://github.com/rynfar/meridian/pull/1400",
+      "title": "fix(routing): fail over a model whose allowance is spent without benching the whole account",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+        "ref": "dex/model-allowance-failover",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 7,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 7
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955316963/job/117156605637"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317237/job/117156604768"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317247/job/117156604899"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317253/job/117156605093"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317215/job/117156612733"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317215/job/117156612375"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317237/job/117156604535"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317247/job/117157778053"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955317237/job/117156606506"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+          "url": "https://github.com/rynfar/meridian/commit/29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T00:42:37Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:10Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: fail over a model whose allowance is spent, and only that model",
+          "parents": [
+            "095b4869b5fe386e2f3a273cc5b60ec3853c8659"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "cherry picked from commit",
+              "sourceSha": "9cc451c435cea66ffaf3d2ee30bc77a69a23b4bf",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "addc9a3b86edab6f64347c844dc7bb9be9663835",
+              "sourcePatchIdStable": "aed7aa4268c6086655c7c402ffa945cadd0deb10",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "docs/profiles.md",
+                "src/__tests__/active-priority-integration.test.ts",
+                "src/__tests__/errors.test.ts",
+                "src/__tests__/limit-detection.test.ts",
+                "src/__tests__/retry-after-unit.test.ts",
+                "src/__tests__/routing.test.ts",
+                "src/proxy/errors.ts",
+                "src/proxy/limitDetection.ts",
+                "src/proxy/retryAfter.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "E2E.md",
+                "scripts/e2e-model-allowance-failover-live.mjs",
+                "src/proxy/routing.ts",
+                "src/proxy/server.ts"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Mon, 5 Oct 2026 19:42:37 -0500"
+          }
+        },
+        {
+          "sha": "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+          "url": "https://github.com/rynfar/meridian/commit/34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:00:55Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(routing): cover model-scoped benches on the in-stream failover path",
+          "parents": [
+            "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+          "url": "https://github.com/rynfar/meridian/commit/851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:01:47Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(e2e): mark the model-allowance runs as source-branch evidence owed on this build",
+          "parents": [
+            "34e7e52136f8a3107ddc0c1eaaf158465008fc1f"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+          "url": "https://github.com/rynfar/meridian/commit/4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:02:47Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(architecture): describe model-scoped benches in the priority dispatcher",
+          "parents": [
+            "851d1592a3fb01164b2adea4f9f7e7bf146781a5"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+          "url": "https://github.com/rynfar/meridian/commit/21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:28:11Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "refactor(routing): take the pool wait from the resolved priority order",
+          "parents": [
+            "4342d0b3d4094015bf252fee2fdf4f83803e77f6"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+          "url": "https://github.com/rynfar/meridian/commit/a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:28:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(routing): hold the allowance freshness check and both pool waits",
+          "parents": [
+            "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+          "url": "https://github.com/rynfar/meridian/commit/9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:28:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(profiles): say which exhausted-pool refusals carry the pool wait",
+          "parents": [
+            "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 1,
+        "passabilities": 6
+      },
+      "signerCounts": {
+        "passabilities": 7
+      }
+    },
+    {
+      "number": 1401,
+      "url": "https://github.com/rynfar/meridian/pull/1401",
+      "title": "fix(session): do not resume an account's stale copy after the conversation moved on",
+      "opener": {
+        "login": "passabilities",
+        "id": 6958300
+      },
+      "head": {
+        "sha": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+        "ref": "dex/stale-copy-guard",
+        "repo": "passabilities/meridian"
+      },
+      "base": {
+        "sha": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+        "ref": "main"
+      },
+      "commitCount": 10,
+      "commitPages": [
+        {
+          "page": 1,
+          "count": 10
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "mergeStateStatusAtSnapshot": "CLEAN",
+      "state": "OPEN",
+      "isDraft": false,
+      "reviewDecision": null,
+      "finalHeadCheckSnapshot": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "authorship",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320110/job/117156617120"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "test",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320143/job/117156615462"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320199/job/117156615010"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320192/job/117156615233"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (ubuntu-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320251/job/117156614961"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "desktop-build (macos-latest)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320251/job/117156615302"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "windows-smoke",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320143/job/117156615406"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "build-push",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320199/job/117157856825"
+            },
+            {
+              "__typename": "CheckRun",
+              "name": "changelog-duplication",
+              "status": "COMPLETED",
+              "conclusion": "SKIPPED",
+              "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/38955320143/job/117156616887"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      },
+      "commits": [
+        {
+          "sha": "8c096b592879660548bb71e02f43c339f36982e1",
+          "url": "https://github.com/rynfar/meridian/commit/8c096b592879660548bb71e02f43c339f36982e1",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T08:23:02Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:49Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: take a moved conversation's session with it",
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "carved from commit",
+              "sourceSha": "835cbf192cd6dc742ef29241724d2e2c988f8239",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "4e25263a316df079509b347d64f2c173b70e9c88",
+              "sourcePatchIdStable": "7421a124e69d17bdc2022929351cabd5ce254e37",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "src/proxy/session/cache.ts",
+                "src/proxy/session/lineage.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "src/__tests__/account-return-trip.test.ts",
+                "src/proxy/server.ts"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [
+                "ARCHITECTURE.md",
+                "docs/configuration.md",
+                "docs/profiles.md",
+                "scripts/e2e-session-carry-cli.mjs",
+                "scripts/e2e-session-carry-live.mjs",
+                "src/__tests__/session-carry.test.ts",
+                "src/proxy/sessionCarry.ts",
+                "src/proxy/sessionStore.ts"
+              ],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 03:23:02 -0500"
+          }
+        },
+        {
+          "sha": "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+          "url": "https://github.com/rynfar/meridian/commit/44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T09:14:50Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:49Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: carry a conversation only from a copy that holds more of it",
+          "parents": [
+            "8c096b592879660548bb71e02f43c339f36982e1"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "carved from commit",
+              "sourceSha": "48f782521901867b7dcd8a82a1d84efceadf2ecc",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "5925e6d8fa31967abe749bda62eec07ac1af2e5a",
+              "sourcePatchIdStable": "f20ac88aaedd946394c0a01da098eda2c8989b9f",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [
+                "src/proxy/session/cache.ts"
+              ],
+              "differentAddedRemovedLinesByFile": [
+                "src/__tests__/account-return-trip.test.ts",
+                "src/proxy/server.ts"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [
+                "ARCHITECTURE.md",
+                "docs/configuration.md",
+                "docs/profiles.md",
+                "src/__tests__/session-carry.test.ts",
+                "src/proxy/sessionCarry.ts"
+              ],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 04:14:50 -0500"
+          }
+        },
+        {
+          "sha": "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+          "url": "https://github.com/rynfar/meridian/commit/14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:59:40Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "refactor(session): name the key a conversation's copy has on each account",
+          "parents": [
+            "44a1343fcd41ff7724dee3c6591cf11fb93d2330"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+          "url": "https://github.com/rynfar/meridian/commit/b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T10:53:20Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: carry a conversation keyed by its fingerprint as one keyed by a session",
+          "parents": [
+            "14d5213633e5cc24a498a48bdb0cf94cd4734ee8"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "carved from commit",
+              "sourceSha": "0b9c8c4004bbdeb3bd456ed501847e90fa1218a3",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "c645ac16bb74ebec34150e33a4e29226065f5c0f",
+              "sourcePatchIdStable": "2cd238d14263257e6b72a85a7673d445641b9cc1",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [],
+              "differentAddedRemovedLinesByFile": [
+                "src/__tests__/account-return-trip.test.ts",
+                "src/proxy/server.ts"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [
+                "E2E.md"
+              ],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 05:53:20 -0500"
+          }
+        },
+        {
+          "sha": "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+          "url": "https://github.com/rynfar/meridian/commit/8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T11:04:46Z",
+            "login": "eamonster27",
+            "githubUserId": 15204339
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix: carry a session over a copy that no longer matches, never past a lost reply",
+          "parents": [
+            "b75bf73b16e0ea6d994bc192701e0f84c0df6230"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": [
+            {
+              "claimedRelation": "carved from commit",
+              "sourceSha": "8f6ec0f700a07ec1440843a999a8e9189cb16ca3",
+              "sourceApiRepository": "rynfar/meridian",
+              "sameCommitObject": false,
+              "sourceAuthorMetadataEqual": true,
+              "sourceCommitterMetadataEqual": false,
+              "forwardedPatchIdStable": "1b216bc394e50b290bda34565d59022af19bad35",
+              "sourcePatchIdStable": "942ba4de7edc13c4db32adaa1c059d8d7fa3dbfa",
+              "stablePatchIdEqual": false,
+              "exactAddedRemovedLinesByFile": [],
+              "differentAddedRemovedLinesByFile": [
+                "src/__tests__/session-copy-held.test.ts"
+              ],
+              "forwardedOnlyFiles": [],
+              "sourceOnlyFiles": [
+                "ARCHITECTURE.md",
+                "E2E.md",
+                "docs/profiles.md",
+                "src/__tests__/account-return-trip.test.ts",
+                "src/proxy/server.ts",
+                "src/proxy/session/cache.ts"
+              ],
+              "comparisonLimits": "Exact added/removed-line equality ignores hunk positions/context; stable patch ID covers full unified patch. Neither means identical commit object or original signature.",
+              "sourceAuthorRawDateHeaderEqual": true,
+              "sourceAuthorRawFromHeaderEqual": true
+            }
+          ],
+          "gitFormatPatchAuthorHeaders": {
+            "from": "=DEX <eamonbachari@gmail.com>",
+            "date": "Tue, 6 Oct 2026 06:04:46 -0500"
+          }
+        },
+        {
+          "sha": "7c3295817737d50529e825f80973768a5077f54b",
+          "url": "https://github.com/rynfar/meridian/commit/7c3295817737d50529e825f80973768a5077f54b",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:49Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "fix(session): check other accounts' copies only when this account's would be resumed",
+          "parents": [
+            "8a53f0f8b787d7e343e159144b6d4ec54f1e928f"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+          "url": "https://github.com/rynfar/meridian/commit/8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:49Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:51Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "test(session): pin the stale-copy guard's controls and raw-lineage proof",
+          "parents": [
+            "7c3295817737d50529e825f80973768a5077f54b"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+          "url": "https://github.com/rynfar/meridian/commit/3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:07:28Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:51Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(session): describe the stale-copy guard and the live evidence it owes",
+          "parents": [
+            "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+          "url": "https://github.com/rynfar/meridian/commit/69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(session): state the moved-on-elsewhere rule and the control's limit precisely",
+          "parents": [
+            "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        },
+        {
+          "sha": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+          "url": "https://github.com/rynfar/meridian/commit/356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities",
+            "githubUserId": 6958300
+          },
+          "subject": "docs(session): run the rewind control as its own conversation and log moved-on-elsewhere",
+          "parents": [
+            "69a20f664cf6203afdd0d824561a980a3ef9d4c7"
+          ],
+          "signature": {
+            "restVerified": true,
+            "restReason": "valid",
+            "githubVerifiedAt": "2026-10-16T19:28:59Z",
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "signer": {
+              "login": "passabilities"
+            },
+            "email": "noah@passabilities.dev"
+          },
+          "provenance": []
+        }
+      ],
+      "authorCounts": {
+        "eamonster27": 4,
+        "passabilities": 6
+      },
+      "signerCounts": {
+        "passabilities": 10
+      }
+    }
+  ],
+  "originalSources": [
+    {
+      "sha": "03f025a5a68a543dc25812b1a1e065b70ada8431",
+      "url": "https://github.com/rynfar/meridian/commit/03f025a5a68a543dc25812b1a1e065b70ada8431",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T03:59:05Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T03:59:05Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: run a Claude Code client's SDK child where the client works",
+      "parents": [
+        "46f4936051052b0c8c8f99fcefa6d10de553bdda"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 6
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 6,
+      "patchIdStable": "4fd85a03750cedaac31d9c36467705608315416b",
+      "patchSha256": "cc9b9e40ec83546b78d2bb1aeab86bd212a50c7db87133d2c73677cd78577cd8",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Mon, 5 Oct 2026 22:59:05 -0500"
+      }
+    },
+    {
+      "sha": "0b9c8c4004bbdeb3bd456ed501847e90fa1218a3",
+      "url": "https://github.com/rynfar/meridian/commit/0b9c8c4004bbdeb3bd456ed501847e90fa1218a3",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T10:53:20Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T10:53:20Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: carry a conversation keyed by its fingerprint as one keyed by a session",
+      "parents": [
+        "1d628183cd6e8b6acbcd4a3e854d93966df94d64"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 3
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 3,
+      "patchIdStable": "2cd238d14263257e6b72a85a7673d445641b9cc1",
+      "patchSha256": "dfa0545073a4c7f4d49d75b75d95aab93869b6211bb2465106391039c6e23fe1",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 05:53:20 -0500"
+      }
+    },
+    {
+      "sha": "0e092fe8a4ce5258d9bc4badd1ecb2a76d641669",
+      "url": "https://github.com/rynfar/meridian/commit/0e092fe8a4ce5258d9bc4badd1ecb2a76d641669",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-08T12:43:28Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-08T12:43:28Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: resume Fable rounds after a system turn that is the reminder alone",
+      "parents": [
+        "5afedf10450f4d0f4d31faf0b7d5d9a72b74884e"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 5,
+      "patchIdStable": "5a5c020af18e4984732633bb3a7ba319ab564e28",
+      "patchSha256": "5f2ab532e38353d5862ea3fd0a1897b516004fad8c6baa24c154ad4fbd3251b6",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Thu, 8 Oct 2026 07:43:28 -0500"
+      }
+    },
+    {
+      "sha": "3617ecacebeb39ded1da24d8764ef81a7a1d43f1",
+      "url": "https://github.com/rynfar/meridian/commit/3617ecacebeb39ded1da24d8764ef81a7a1d43f1",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-10T06:15:38Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-10T06:15:38Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: let the session GC keep up with the transcripts turns leave",
+      "parents": [
+        "a134177d9bb9ee2346031e218f5360d346723b30"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 8
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 8,
+      "patchIdStable": "5a96262e7cdb624a25e8cca39d5eb95a2573b707",
+      "patchSha256": "2dfd3383d328fb33baf10eb7ae0a979f220ff61c5fd39c1f64524447bacdf9b4",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Sat, 10 Oct 2026 01:15:38 -0500"
+      }
+    },
+    {
+      "sha": "38d43c0d6a836006a7090378b28bc44a25582b19",
+      "url": "https://github.com/rynfar/meridian/commit/38d43c0d6a836006a7090378b28bc44a25582b19",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T11:07:38Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T11:07:38Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: say at startup that a proxy under Bun cannot stop a cancelled request",
+      "parents": [
+        "8f6ec0f700a07ec1440843a999a8e9189cb16ca3"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 5,
+      "patchIdStable": "1345ec61dcdecb38254ff0346cf9ad77e0719a94",
+      "patchSha256": "5e3fbb28388adf0c2c34f281b175d21e44feb08a172c99a5c0d47c76cc336fa7",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 06:07:38 -0500"
+      }
+    },
+    {
+      "sha": "48f782521901867b7dcd8a82a1d84efceadf2ecc",
+      "url": "https://github.com/rynfar/meridian/commit/48f782521901867b7dcd8a82a1d84efceadf2ecc",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T09:14:50Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T09:14:50Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: carry a conversation only from a copy that holds more of it",
+      "parents": [
+        "48e63e385bdeb21f27800db974bc06a3c3b920cf"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 8
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 8,
+      "patchIdStable": "f20ac88aaedd946394c0a01da098eda2c8989b9f",
+      "patchSha256": "69b2d7ecc0f56b6f912cb29a4c831582f8d9f209004ec40ec6635ec0b94157cc",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 04:14:50 -0500"
+      }
+    },
+    {
+      "sha": "5afedf10450f4d0f4d31faf0b7d5d9a72b74884e",
+      "url": "https://github.com/rynfar/meridian/commit/5afedf10450f4d0f4d31faf0b7d5d9a72b74884e",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T22:18:34Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T22:18:34Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: probe each request's SDK wrapper without holding the event loop",
+      "parents": [
+        "4a662faaa46852f006c77f19adab448d5784eb8f"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 5,
+      "patchIdStable": "0915832550a04f043cd835f1cf42e6f1b618d727",
+      "patchSha256": "4b8a74f6dec09a10d700c739ba29f1b89e424303a5351c64660ed3dd2ed48cac",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 17:18:34 -0500"
+      }
+    },
+    {
+      "sha": "762f0955420b95a5552cc80d52ac021074e5331f",
+      "url": "https://github.com/rynfar/meridian/commit/762f0955420b95a5552cc80d52ac021074e5331f",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-05T20:06:59Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-05T20:06:59Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: resume Claude Code tool rounds after a one-request system reminder",
+      "parents": [
+        "2a5d97266fb71ca6775a128071b3c80475ed4fee"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 5,
+      "patchIdStable": "7246f9b7f0c45b72e15bccdd7517c4ff2bd61daf",
+      "patchSha256": "a309feb461eda1b021355ebfc221b48b129b30ca0161db9caf9e21d1dd8be847",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Mon, 5 Oct 2026 15:06:59 -0500"
+      }
+    },
+    {
+      "sha": "835cbf192cd6dc742ef29241724d2e2c988f8239",
+      "url": "https://github.com/rynfar/meridian/commit/835cbf192cd6dc742ef29241724d2e2c988f8239",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T08:23:02Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T08:23:02Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: take a moved conversation's session with it",
+      "parents": [
+        "73fb28d57018b4d32b08a528f8e3865f4b935ea3"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 12
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 12,
+      "patchIdStable": "7421a124e69d17bdc2022929351cabd5ce254e37",
+      "patchSha256": "f1a79a5312d87f2889d1ed0820bace68cb17a48e83560c9df5ea859970e08dbe",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 03:23:02 -0500"
+      }
+    },
+    {
+      "sha": "849ea02700a7854d25adfcd3b35a9c6df7a57060",
+      "url": "https://github.com/rynfar/meridian/commit/849ea02700a7854d25adfcd3b35a9c6df7a57060",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-05T20:45:15Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-05T20:45:15Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "docs: describe the Claude Code system-turn lineage rule",
+      "parents": [
+        "762f0955420b95a5552cc80d52ac021074e5331f"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 1
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 1,
+      "patchIdStable": "49e511bf1978f8e74a8281df1aa862cf96305843",
+      "patchSha256": "335f851f13f82284b99f8ca7da390a45a3907e806dee508b1c05a2b32464be68",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Mon, 5 Oct 2026 15:45:15 -0500"
+      }
+    },
+    {
+      "sha": "8f6ec0f700a07ec1440843a999a8e9189cb16ca3",
+      "url": "https://github.com/rynfar/meridian/commit/8f6ec0f700a07ec1440843a999a8e9189cb16ca3",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T11:04:46Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T11:04:46Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: carry a session over a copy that no longer matches, never past a lost reply",
+      "parents": [
+        "0b9c8c4004bbdeb3bd456ed501847e90fa1218a3"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 7
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 7,
+      "patchIdStable": "942ba4de7edc13c4db32adaa1c059d8d7fa3dbfa",
+      "patchSha256": "bdede09602a1fa99fddceef732c4ee1f7f6ce4199371600062d6774b89c84d1d",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 06:04:46 -0500"
+      }
+    },
+    {
+      "sha": "9cc451c435cea66ffaf3d2ee30bc77a69a23b4bf",
+      "url": "https://github.com/rynfar/meridian/commit/9cc451c435cea66ffaf3d2ee30bc77a69a23b4bf",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T00:42:37Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T00:42:37Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: fail over a model whose allowance is spent, and only that model",
+      "parents": [
+        "c0f59adcfe22338260abd174704c1f21f257194d"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 13
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 13,
+      "patchIdStable": "aed7aa4268c6086655c7c402ffa945cadd0deb10",
+      "patchSha256": "6647a7f396c9d41e6a7c8f1fac20470e372a0467bc9944ce94cebb50227158bf",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Mon, 5 Oct 2026 19:42:37 -0500"
+      }
+    },
+    {
+      "sha": "ca46feb25daf7d6331201cf0a62959fc51f4e783",
+      "url": "https://github.com/rynfar/meridian/commit/ca46feb25daf7d6331201cf0a62959fc51f4e783",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T09:45:41Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T09:45:41Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "test: record the carry review and a cancelled priority request",
+      "parents": [
+        "e836030083bb1e62f630cdb953fe391a4b067ffb"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 1
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 1,
+      "patchIdStable": "d6e4fe1f57fb9cf04c5a7bcd9935c9c4b1973133",
+      "patchSha256": "84c9177c54624d1614c301991faef1bc34caf0830d5e60b8f8180d73af1704a0",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 04:45:41 -0500"
+      }
+    },
+    {
+      "sha": "e836030083bb1e62f630cdb953fe391a4b067ffb",
+      "url": "https://github.com/rynfar/meridian/commit/e836030083bb1e62f630cdb953fe391a4b067ffb",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T09:43:55Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "committer": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T09:43:55Z",
+        "login": "eamonster27",
+        "githubUserId": 15204339
+      },
+      "subject": "fix: stop the model when a client cancels a priority-routed request",
+      "parents": [
+        "48f782521901867b7dcd8a82a1d84efceadf2ecc"
+      ],
+      "signature": {
+        "restVerified": false,
+        "restReason": "unsigned",
+        "githubVerifiedAt": null,
+        "originalSignaturePresent": false
+      },
+      "queriedRepository": "rynfar/meridian",
+      "filePages": [
+        {
+          "page": 1,
+          "count": 5
+        }
+      ],
+      "allFilePagesFetched": true,
+      "fileCount": 5,
+      "patchIdStable": "8a2aa958e9f1e3c14833a1c78b2159f3f7cf5129",
+      "patchSha256": "27c8fc0757377d6591a2b51b5095ec972d39ad3b10729254f131a0ccf309cf19",
+      "gitFormatPatchAuthorHeaders": {
+        "from": "=DEX <eamonbachari@gmail.com>",
+        "date": "Tue, 6 Oct 2026 04:43:55 -0500"
+      }
+    }
+  ],
+  "summary": {
+    "pullRequestCount": 8,
+    "commitCount": 58,
+    "authorCounts": {
+      "eamonster27": 14,
+      "passabilities": 42,
+      "rynfar": 2
+    },
+    "signerCounts": {
+      "passabilities": 56,
+      "rynfar": 2
+    },
+    "allCurrentCommitsGitHubSignatureValid": true,
+    "sourceReferenceCount": 14,
+    "sourceAuthorAndDatePreservedCount": 14,
+    "unchangedOriginalCommitObjectCount": 0,
+    "stablePatchIdEqualCount": 1,
+    "originalSourceSignatures": {
+      "unsigned": 14
+    },
+    "sourceRawAuthorDateIncludingOffsetPreservedCount": 14
+  },
+  "interpretation": {
+    "recommendedExistingForwardedPrMergeMethod": "normal merge commit after documented owner policy exception and all gates",
+    "retains": "Current 58 commit objects, their Authors/AuthorDates, current Committers/CommitterDates and signatures",
+    "doesNotRestore": "The 14 original source commit SHAs/trees/parents or original signatures; all 14 originals were unsigned",
+    "noBypassRequiredByAuditedAuthorship": "All 58 current PR commits have VALID GitHub signature verification, merge commits allowed, required linear history disabled",
+    "notMergeApproval": "Live E2E, material correctness findings, final-head CI and immediate pre-merge revalidation remain gates",
+    "officialSources": [
+      "https://docs.github.com/en/pull-requests/reference/pull-request-merges",
+      "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches"
+    ]
+  },
+  "reportingLimitations": [
+    "origin/main scripts/attribution-audit.mjs groups carried commit emails under the PR opener in emailsByLogin, so its per-contributor tally can conflate mixed-source forwarded authors. Verify this batch by actual Author/login metadata and exact-SHA ancestry; no historical audit was run."
+  ]
+}

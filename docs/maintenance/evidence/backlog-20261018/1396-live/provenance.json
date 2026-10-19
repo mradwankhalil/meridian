@@ -1,0 +1,19 @@
+{
+  "recordedAtUtc": "2026-10-19T05:35:15.564572+00:00",
+  "candidateSource": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+  "candidateTree": "31fa9355df3e86f5b25f01ffab2d0efb7c2753e5",
+  "baselineSource": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "baselineTree": "aff2161455f8c49b4422ea63740c32b3da45738f",
+  "candidateImportedBuildSha256": "97134f2cf6b705c5b7bd729559b3728ac4405eaf1a43c59999315b99d067c06e",
+  "baselineImportedBuildSha256": "083a96112848885597b4d6e18ed7bdd917ba14eb3e4e8b4a2cbff5fcc215636e",
+  "lockSha256": "88afa150de1c9a1cd04919825cb42ea149fc511df1ec52499466c904d4122bab",
+  "candidateHarnessSha256": "749a668d9af40e4cb37e95be08cf6cfe3f33a8f26c7a367557b634b0281097f2",
+  "baselineHarnessSha256": "75412d0351c242801ba23299c3408bd6b9758f647ad0edc35889a91f624814dd",
+  "analysisHarnessSha256": "1631ad8204a028b7719b71e20367b99e9ed114185858033f14c574a37c3be2fb",
+  "frozenInstall": "bun install --frozen-lockfile (Bun1.3.14)",
+  "build": "PATH=/tmp/meridian-1396-tooling/node_modules/.bin:$PATH npm run build (Bun1.3.11)",
+  "workingTreeSourceClean": true,
+  "buildHashesCapturedAfterRunsWithoutSubsequentRebuild": true,
+  "stockNodeVersion": "v22.22.3",
+  "bunReportedNodeCompatibilityVersion": "v24.3.0"
+}

@@ -1,0 +1,41 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/priority-routing-integration.test.ts:
+OFFLINE_FIXTURE_RUNTIME {"bun":"1.3.11","executable":"/private/tmp/meridian-1399-tooling/node_modules/bun/bin/bun.exe"}
+[PROXY] d64ed2be-4c1c-4d70-abb9-e0e4a4587528 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=12ms msgCount=1 msgs=user[string]
+[PROXY] d64ed2be-4c1c-4d70-abb9-e0e4a4587528 usage: input=10 output=50 cache=0%
+[PROXY] c519272d-25f0-44dd-8540-36def22dd1cc adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] c519272d-25f0-44dd-8540-36def22dd1cc rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] c519272d-25f0-44dd-8540-36def22dd1cc rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] c519272d-25f0-44dd-8540-36def22dd1cc adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] c519272d-25f0-44dd-8540-36def22dd1cc usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 66dd7b05-784b-4350-8aba-b7d12bee0c4c adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=continuation session=f45974d9 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=10ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] 66dd7b05-784b-4350-8aba-b7d12bee0c4c rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 66dd7b05-784b-4350-8aba-b7d12bee0c4c rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] a2c0744d-43f2-4474-8771-5d96a92c27c0 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=continuation session=f45974d9 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] a2c0744d-43f2-4474-8771-5d96a92c27c0 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] a2c0744d-43f2-4474-8771-5d96a92c27c0 rate-limited on sonnet, retry 2/2 in 2000ms
+(pass) priority routing > keeps the retained account's longer exclusion after a shorter repeat (JSON) [9959.44ms]
+[PROXY] 78a95fed-de72-43a3-8610-f921b0e76bcd adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=11ms msgCount=1 msgs=user[string]
+[PROXY] 78a95fed-de72-43a3-8610-f921b0e76bcd usage: input=10 output=50 cache=0%
+[PROXY] d1387337-3a3d-43c1-8ddd-e4f39621d6c7 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d1387337-3a3d-43c1-8ddd-e4f39621d6c7 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] d1387337-3a3d-43c1-8ddd-e4f39621d6c7 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] d1387337-3a3d-43c1-8ddd-e4f39621d6c7 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d1387337-3a3d-43c1-8ddd-e4f39621d6c7 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 622a316b-1119-4fe8-a3fb-0e4fa0937158 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=continuation session=f6c4b4d6 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] 622a316b-1119-4fe8-a3fb-0e4fa0937158 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 622a316b-1119-4fe8-a3fb-0e4fa0937158 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] a8f46095-8156-48c3-b721-d993359342e6 adapter=opencode profile=personal(priority) model=sonnet stream=true tools=0 lineage=continuation session=f6c4b4d6 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=9ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] a8f46095-8156-48c3-b721-d993359342e6 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] a8f46095-8156-48c3-b721-d993359342e6 rate-limited on sonnet, retry 2/2 in 2000ms
+(pass) priority routing > keeps the retained account's longer exclusion after a shorter repeat (SSE) [10553.32ms]
+SDK_BOUNDARY_TRAP {"attempts":[],"actualNativeChildren":0,"actualNetworkCalls":0}
+
+ 2 pass
+ 89 filtered out
+ 0 fail
+ 27 expect() calls
+Ran 2 tests across 1 file. [21.35s]

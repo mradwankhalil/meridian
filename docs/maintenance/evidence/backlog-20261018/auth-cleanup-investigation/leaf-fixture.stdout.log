@@ -1,0 +1,169 @@
+bun test v1.3.11 (af24e281)
+{
+  "safety": {
+    "actualChildStarts": 0,
+    "actualNetworkCalls": 0,
+    "sdkImports": 0,
+    "credentialReads": 0,
+    "fakeStarts": 7
+  },
+  "sourceHead": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+  "result": "PASS",
+  "cases": [
+    {
+      "case": "delayed-complete-positive-control",
+      "states": [
+        {
+          "after": "callback",
+          "result": "pending",
+          "joined": false,
+          "isJoined": false
+        },
+        {
+          "after": "stdout-close",
+          "result": "pending",
+          "joined": false,
+          "isJoined": false
+        },
+        {
+          "after": "exit",
+          "result": "pending",
+          "joined": false,
+          "isJoined": false
+        },
+        {
+          "after": "child-close",
+          "result": "pending",
+          "joined": false,
+          "isJoined": false
+        },
+        {
+          "after": "stderr-close",
+          "result": "fulfilled",
+          "joined": true,
+          "isJoined": true
+        }
+      ],
+      "signals": []
+    },
+    {
+      "case": "one-missing-witness",
+      "omitted": "callback",
+      "before": {
+        "result": "pending",
+        "joined": false,
+        "isJoined": false
+      },
+      "afterBoundedCancel": {
+        "result": "join",
+        "joined": false,
+        "isJoined": false,
+        "cancel": "join"
+      },
+      "afterLateWitness": {
+        "result": "join",
+        "joined": true,
+        "isJoined": true
+      },
+      "signals": []
+    },
+    {
+      "case": "one-missing-witness",
+      "omitted": "exit",
+      "before": {
+        "result": "pending",
+        "joined": false,
+        "isJoined": false
+      },
+      "afterBoundedCancel": {
+        "result": "join",
+        "joined": false,
+        "isJoined": false,
+        "cancel": "join"
+      },
+      "afterLateWitness": {
+        "result": "join",
+        "joined": true,
+        "isJoined": true
+      },
+      "signals": []
+    },
+    {
+      "case": "one-missing-witness",
+      "omitted": "stdout-close",
+      "before": {
+        "result": "pending",
+        "joined": false,
+        "isJoined": false
+      },
+      "afterBoundedCancel": {
+        "result": "join",
+        "joined": false,
+        "isJoined": false,
+        "cancel": "join"
+      },
+      "afterLateWitness": {
+        "result": "join",
+        "joined": true,
+        "isJoined": true
+      },
+      "signals": []
+    },
+    {
+      "case": "one-missing-witness",
+      "omitted": "stderr-close",
+      "before": {
+        "result": "pending",
+        "joined": false,
+        "isJoined": false
+      },
+      "afterBoundedCancel": {
+        "result": "join",
+        "joined": false,
+        "isJoined": false,
+        "cancel": "join"
+      },
+      "afterLateWitness": {
+        "result": "join",
+        "joined": true,
+        "isJoined": true
+      },
+      "signals": []
+    },
+    {
+      "case": "one-missing-witness",
+      "omitted": "child-close",
+      "before": {
+        "result": "pending",
+        "joined": false,
+        "isJoined": false
+      },
+      "afterBoundedCancel": {
+        "result": "join",
+        "joined": false,
+        "isJoined": false,
+        "cancel": "join"
+      },
+      "afterLateWitness": {
+        "result": "join",
+        "joined": true,
+        "isJoined": true
+      },
+      "signals": []
+    },
+    {
+      "case": "resolution-quarantine-custody",
+      "beforeLateWitness": {
+        "failed": true,
+        "isJoined": false,
+        "leafJoined": false
+      },
+      "afterLateWitness": {
+        "failed": false,
+        "isJoined": true,
+        "leafJoined": true
+      },
+      "signals": []
+    }
+  ]
+}

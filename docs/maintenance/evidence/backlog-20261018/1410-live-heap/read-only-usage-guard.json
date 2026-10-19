@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "scope": "Read-only official usage endpoint; no inference",
+  "modelCalls": 0,
+  "credentialWrites": 0,
+  "refreshCalls": 0,
+  "http": [
+    {
+      "status": 200,
+      "extraUsageEnabled": false
+    }
+  ],
+  "credential": {
+    "presence": "present",
+    "refreshTokenExpiresAt": 1793688335540,
+    "accessTokenExpiresAt": 1792415397540
+  },
+  "status": null,
+  "error": null,
+  "stale": false,
+  "extraUsageEnabled": false,
+  "canInfer": true
+}

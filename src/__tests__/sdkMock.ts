@@ -1,4 +1,7 @@
-import { mock, beforeAll } from "bun:test"
+import { mock, beforeAll, afterAll } from "bun:test"
+
+import { clearSdkModelsBoundary, setSdkModelsBoundary } from "./modelsMock"
+export { MOCK_CLAUDE_EXECUTABLE, assertSyntheticClaudeBoundary } from "./modelsMock"
 
 /**
  * One process-global mock of the Claude Agent SDK, shared by every test file.
@@ -52,6 +55,7 @@ export interface SdkMockModule {
 
 let active: SdkMockModule | null = null
 let activeOwner = "<none>"
+let activeScope: object | undefined
 
 function resolve(name: keyof SdkMockModule): SdkExport {
   if (!active) {
@@ -69,22 +73,35 @@ function resolve(name: keyof SdkMockModule): SdkExport {
   return impl
 }
 
+export const sdkMockQuery = (...args: never[]) => resolve("query")(...args)
+
 mock.module("@anthropic-ai/claude-agent-sdk", () => ({
-  query: (...args: never[]) => resolve("query")(...args),
+  query: sdkMockQuery,
   createSdkMcpServer: (...args: never[]) => resolve("createSdkMcpServer")(...args),
   tool: (...args: never[]) => resolve("tool")(...args),
 }))
 
 /**
- * Install this file's SDK mock for the duration of its tests.
+ * Install this file's SDK mock and synthetic executable/auth boundary.
+ * nativeClaude is only for dedicated resolver/auth tests with owned child doubles.
+ * It preserves the actual implementation; it never resets resolver custody.
  *
  * Call at module scope. `owner` is only used to name the file in error
  * messages when an export is missing.
  */
-export function installSdkMock(factory: () => SdkMockModule, owner?: string): void {
+export function installSdkMock(factory: () => SdkMockModule, owner?: string, options: { nativeClaude?: boolean } = {}): void {
+  const scope = {}
   beforeAll(() => {
     active = factory()
+    activeScope = scope
     activeOwner = owner ?? "the current test file"
+    setSdkModelsBoundary(options.nativeClaude)
+  })
+  afterAll(() => {
+    if (activeScope === scope) {
+      active = null; activeOwner = "<none>"; activeScope = undefined
+      clearSdkModelsBoundary()
+    }
   })
 }
 
@@ -94,6 +111,7 @@ export function installSdkMock(factory: () => SdkMockModule, owner?: string): vo
  * `beforeAll` registered inside a running test.
  */
 export function setSdkMock(factory: () => SdkMockModule, owner?: string): void {
+  setSdkModelsBoundary()
   active = factory()
   activeOwner = owner ?? "the current test file"
 }

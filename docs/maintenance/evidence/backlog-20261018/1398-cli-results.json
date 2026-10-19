@@ -1,0 +1,155 @@
+{
+  "passed": true,
+  "platform": "darwin",
+  "arch": "arm64",
+  "node": "v22.22.3",
+  "results": [
+    {
+      "label": "baseline-bun-source",
+      "command": [
+        "/Users/rynfar/.bun/bin/bun",
+        "bin/cli.ts"
+      ],
+      "warningCount": 0,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-bun-source",
+      "command": [
+        "/Users/rynfar/.bun/bin/bun",
+        "bin/cli.ts"
+      ],
+      "warningCount": 1,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-bun-dist",
+      "command": [
+        "/Users/rynfar/.bun/bin/bun",
+        "dist/cli.js"
+      ],
+      "warningCount": 1,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-node-dist",
+      "command": [
+        "/Users/rynfar/.hermes/node/bin/node",
+        "dist/cli.js"
+      ],
+      "warningCount": 0,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-bun-silent",
+      "command": [
+        "/Users/rynfar/.bun/bin/bun",
+        "bin/cli.ts"
+      ],
+      "warningCount": 0,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": true,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "runtime": "/Users/rynfar/.bun/bin/bun",
+      "entry": "bin/cli.ts",
+      "option": "--version",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    },
+    {
+      "runtime": "/Users/rynfar/.bun/bin/bun",
+      "entry": "bin/cli.ts",
+      "option": "--help",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    },
+    {
+      "runtime": "/Users/rynfar/.hermes/node/bin/node",
+      "entry": "dist/cli.js",
+      "option": "--version",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    },
+    {
+      "runtime": "/Users/rynfar/.hermes/node/bin/node",
+      "entry": "dist/cli.js",
+      "option": "--help",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    }
+  ]
+}

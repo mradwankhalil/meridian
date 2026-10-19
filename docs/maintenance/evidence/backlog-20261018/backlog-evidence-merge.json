@@ -1,0 +1,25 @@
+{
+  "pull_request": "https://github.com/rynfar/meridian/pull/1412",
+  "state": "MERGED",
+  "merged_at": "2026-10-19T05:56:43Z",
+  "reviewed_head": "2c19499f87144ba4916b4f11868f3bb9a0dd2c90",
+  "reviewed_combined_base": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+  "landed_sha": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+  "expected_tree": "de90febdb8b8852cc7226bab05dc50f70f7f1cdb",
+  "actual_tree": "de90febdb8b8852cc7226bab05dc50f70f7f1cdb",
+  "parents": [
+    "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77"
+  ],
+  "author": {
+    "name": "Trevor Walker",
+    "email": "rynfar@gmail.com",
+    "date": "2026-10-19T05:56:43Z"
+  },
+  "signature": {
+    "verified": true,
+    "reason": "valid"
+  },
+  "copied_artifact_hashes_verified_on_main": 123,
+  "product_prs_merged": [],
+  "verified_at_utc": "2026-10-19T05:58:28.148670+00:00"
+}

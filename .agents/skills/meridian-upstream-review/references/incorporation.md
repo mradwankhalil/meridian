@@ -10,19 +10,19 @@ Use the sections for the current phase.
 
 ## Merge the contributor's own PR
 
-Follow [Contributor pull requests](../../../references/contributing.md#contributor-pull-requests). The contributor must end up as `Author` of the commit on `main`, with their PR shown as merged.
+Follow [Contributor pull requests](../../../references/contributing.md#contributor-pull-requests). The contributor must end up as `Author` on `main`, with the landing PR shown as merged. For an already-open forwarded contribution, use only the [qualified forwarded route](../../../references/contributing.md#forwarded-contributions), preserving and verifying all existing author commits.
 
 - Work on their PR, not a copy of it. `gh pr checkout <N>` in a fresh isolated worktree; do not switch or reset the user's checkout or disturb existing worktrees. Do not create a `codex/` or other maintainer branch holding their commits, and do not open a maintainer PR for their change.
 - Push maintainer corrections to their branch as separate signed commits, and resolve conflicts by merging `main` into it; do not wait on the contributor for either. Do not amend, squash, rebase or force-push their commits. Keep evidence, harnesses and handoff notes off their branch, in a separate maintainer PR, so the maintainer is co-author only of a change the maintainer actually altered.
-- Check `mergeStateStatus` rather than assuming signed-commit protection blocks a fork PR. `CLEAN` merges directly. When unsigned commits are the only block and every check on the exact head is green, merge with `--admin` as step 3 of the contributor rules allows.
+- Check `mergeStateStatus` rather than assuming signed-commit protection blocks a fork PR. `CLEAN` merges directly. For a normal squash only, when unsigned commits are the only block and every check on the exact head is green, use `--admin` as step 3 allows. A forwarded commit-preserving merge never uses this exception.
 - If their PR cannot carry the change, stop and ask the owner. Do not fall back to a maintainer integration PR.
 - Repository settings verified 2026-09-08: PR_TITLE / BLANK. Do not use `--admin` outside that unsigned-commit case, push directly to main, or change those settings.
 
 ## Merge only what was validated
 
 - Finish all local required gates on the contributor's head and wait for all relevant final-head CI checks. Any source change, rebase or changed base requires impact-appropriate revalidation; obsolete green runs do not validate a new head.
-- Immediately before merge, re-read PR head/base and merge state. Use `gh pr merge <their-PR> --squash --match-head-commit <verified-SHA>`; Release Please PRs use `--merge`. Confirm the merged tree corresponds to the validated tree.
-- Confirm authorship from git, not from intent: `git log -1 --format='%an <%ae>' <landed-SHA>` on `origin/main` must name the contributor. Record that output in the handoff. If it names the maintainer, report it to the owner as a defect.
+- Immediately before merge, re-read PR head/base and merge state. Use `gh pr merge <their-PR> --squash --match-head-commit <verified-SHA>` by default; qualified forwarded contributions use the documented `--merge` route, and Release Please PRs use `--merge`. Confirm the merged tree corresponds to the validated tree.
+- Confirm authorship from git, not from intent: a squash must name the contributor as Author; a forwarded merge must retain every recorded introduced author commit SHA unchanged and reachable on `origin/main`, with matching Author/AuthorDate, reviewed parents/tree and signed merge commit. Record that output in the handoff. If source work is attributed to the maintainer instead, report it to the owner as a defect; legitimate maintainer correction commits and the merge commit do not replace source-author evidence.
 - Close linked issues only when the evidence supports their resolution. Close a contributor PR only when its work is declined or superseded, never when it shipped.
 - GitHub comments, email, Slack or other messages need the owner's explicit authorization. Draft the explanation, and when authorization is missing leave the PR open with the draft in the handoff. Never close a contributor PR without a posted explanation, and never tell a contributor their authorship was preserved before the check above shows it.
 

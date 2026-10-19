@@ -1,0 +1,62 @@
+import { expect, mock, test } from 'bun:test'
+import { EventEmitter } from 'node:events'
+import * as cp from 'node:child_process'
+const repo = '/Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1'
+const events: Array<Record<string, unknown>> = []
+let mode: 'complete' | 'missing-stderr-close' = 'complete'
+let childNumber = 0
+let lateStderr: EventEmitter | undefined
+const trap = () => { throw new Error('Unexpected native command in fully synthetic custody fixture') }
+function fake(kind: string, done: (error: Error | null, stdout: string, stderr: string) => void) {
+  const childId = ++childNumber
+  const stdout = new EventEmitter()
+  const stderr = new EventEmitter()
+  const child = Object.assign(new EventEmitter(), { pid: 20000 + childId, stdout, stderr,
+    kill(signal: string) { events.push({ childId, event:'signal', signal }); return true },
+  })
+  const thisMode = mode
+  events.push({ childId, event:'created', kind, mode: thisMode })
+  queueMicrotask(() => {
+    done(null, kind === 'lookup' ? '/bin/sh\n' : '2.1.999 (Claude Code)', '')
+    events.push({ childId, event:'callback' })
+    child.emit('exit', 0, null); events.push({childId,event:'exit'})
+    stdout.emit('close'); events.push({childId,event:'stdout-close'})
+    if (thisMode === 'complete') { stderr.emit('close'); events.push({childId,event:'stderr-close'}) }
+    else lateStderr = stderr
+    child.emit('close', 0, null); events.push({childId,event:'close'})
+  })
+  return child
+}
+mock.module('child_process', () => ({ ...cp,
+  exec: (_command: string, _options: unknown, done: (error: Error | null, stdout: string, stderr: string) => void) => fake('lookup', done),
+  execFile: (_file: string, args: string[], _options: unknown, done: (error: Error | null, stdout: string, stderr: string) => void) => {
+    expect(args).toEqual(['--version'])
+    return fake('version', done)
+  },
+  execSync:trap, execFileSync:trap, spawn:trap, spawnSync:trap, fork:trap,
+}))
+mock.module(repo + '/src/settings.ts', () => ({ loadSettings: () => ({}) }))
+mock.module(repo + '/src/proxy/tokenRefresh.ts', () => ({ credentialsFilePathForProfile: () => '/tmp/synthetic-custody-no-credentials' }))
+mock.module(repo + '/src/logger.ts', () => ({ claudeLog: () => {} }))
+const models = await import(repo + '/src/proxy/models.ts')
+test('missing single pipe witness reproduces persistent resolver quarantine and late join recovery', async () => {
+  delete process.env.MERIDIAN_CLAUDE_PATH
+  models.resetCachedClaudePath()
+  expect(await models.resolveClaudeExecutableAsync()).toBe('/bin/sh')
+  expect(childNumber).toBe(2)
+  models.resetCachedClaudePath() // all synthetic positive-control actors already joined
+  mode = 'missing-stderr-close'
+  const started = performance.now()
+  await expect(models.resolveClaudeExecutableAsync()).rejects.toThrow('cleanup is unconfirmed')
+  const firstFailureMs = performance.now() - started
+  const countAfterFailure = childNumber
+  process.env.MERIDIAN_CLAUDE_PATH = '/bin/sh'
+  await expect(models.resolveClaudeExecutableAsync()).rejects.toThrow('cleanup is unconfirmed')
+  expect(childNumber).toBe(countAfterFailure)
+  expect(events.filter(e => e.event === 'signal')).toEqual([])
+  lateStderr!.emit('close')
+  await new Promise(resolve => setTimeout(resolve, 0))
+  expect(await models.resolveClaudeExecutableAsync()).toBe('/bin/sh')
+  expect(childNumber).toBe(countAfterFailure)
+  console.log(JSON.stringify({firstFailureMs:Math.round(firstFailureMs),countAfterFailure,events,actualNativeProcesses:0,actualAuthCalls:0,actualSdkCalls:0}))
+}, 10000)

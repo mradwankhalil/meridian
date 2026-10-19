@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "scope": "Real SDK/Zod offline catalog/heap proof; zero model calls",
+  "action": "catalogs",
+  "mode": "baseline",
+  "source": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "runtime": {
+    "node": "v22.22.3",
+    "platform": "darwin",
+    "arch": "arm64",
+    "heapLimitBytes": 587202560
+  },
+  "versions": {
+    "sdk": "0.2.141",
+    "zod": "4.4.3"
+  },
+  "fixture": {
+    "sha256": "df872b711b2cebae00326778b1649bb80e2e7271418f4878207caf629bb5e17f",
+    "bytes": 366598,
+    "tools": 230
+  },
+  "modelCalls": 0,
+  "samples": [],
+  "assertions": {
+    "allCatalogs230": true,
+    "cloneCatalogMatch": true,
+    "forkFreshCatalogMatch": true,
+    "forkCatalogIndependent": true,
+    "independentTransports": true,
+    "survivedOtherCloses": true,
+    "realMcpCallSucceeded": true,
+    "inputImmutable": true,
+    "cloneDefinitionsReused": false
+  },
+  "catalogs": [
+    {
+      "index": 0,
+      "count": 230,
+      "serializedSha256": "b7b58375a3d0128d5a9da64de51a7dc6a0b6d188abe5438b039fc894c7e56130"
+    },
+    {
+      "index": 1,
+      "count": 230,
+      "serializedSha256": "b7b58375a3d0128d5a9da64de51a7dc6a0b6d188abe5438b039fc894c7e56130"
+    },
+    {
+      "index": 2,
+      "count": 230,
+      "serializedSha256": "09a584df412ec54682ceb20991e7c619b2d865287c0d927b1fa05950765b6b2e"
+    },
+    {
+      "index": 3,
+      "count": 230,
+      "serializedSha256": "09a584df412ec54682ceb20991e7c619b2d865287c0d927b1fa05950765b6b2e"
+    }
+  ],
+  "limits": {
+    "fork": "Independent in-memory SDK MCP catalog; does not establish native session/fork history or E41 cache reuse"
+  }
+}

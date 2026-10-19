@@ -1,0 +1,99 @@
+{
+  "verified_at_utc": "2026-10-19T05:32:31.229815+00:00",
+  "pull_request": "https://github.com/rynfar/meridian/pull/1413",
+  "owner_approved_scope": "Existing forwarded PRs #1394\u2013#1401; all existing test/live/CI/signature gates retained",
+  "state": "MERGED",
+  "merged_at": "2026-10-19T05:31:34Z",
+  "reviewed_head": "15f35f173d70d11c111da92081855bc36082ab0c",
+  "reviewed_base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "landed_sha": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+  "expected_tree": "803a4222f50d4af36f885a47953b3b2f207c09dc",
+  "actual_tree": "803a4222f50d4af36f885a47953b3b2f207c09dc",
+  "actual_parents": [
+    "095b4869b5fe386e2f3a273cc5b60ec3853c8659"
+  ],
+  "author": {
+    "name": "Trevor Walker",
+    "email": "rynfar@gmail.com",
+    "date": "2026-10-19T05:31:34Z"
+  },
+  "signature": {
+    "verified": true,
+    "reason": "valid"
+  },
+  "merge_method": "ordinary exact-head squash for this maintainer-authored instruction PR; no admin bypass",
+  "checks": [
+    {
+      "name": "build (.#checks.x86_64-linux.home)",
+      "workflow": "Nix installable builds",
+      "status": "COMPLETED",
+      "conclusion": "CANCELLED",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204119856/job/117903122201"
+    },
+    {
+      "name": "authorship",
+      "workflow": "Attribution",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204121155/job/117903126790"
+    },
+    {
+      "name": "test",
+      "workflow": "CI",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124262/job/117903135109"
+    },
+    {
+      "name": "smoke",
+      "workflow": "Docker",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124270/job/117903135442"
+    },
+    {
+      "name": "build (.#checks.x86_64-linux.home)",
+      "workflow": "Nix installable builds",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124296/job/117903152087"
+    },
+    {
+      "name": "desktop-build (ubuntu-latest)",
+      "workflow": "desktop",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124293/job/117903135646"
+    },
+    {
+      "name": "desktop-build (macos-latest)",
+      "workflow": "desktop",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124293/job/117903135324"
+    },
+    {
+      "name": "windows-smoke",
+      "workflow": "CI",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124262/job/117903135732"
+    },
+    {
+      "name": "build-push",
+      "workflow": "Docker",
+      "status": "COMPLETED",
+      "conclusion": "SUCCESS",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124270/job/117903381469"
+    },
+    {
+      "name": "changelog-duplication",
+      "workflow": "CI",
+      "status": "COMPLETED",
+      "conclusion": "SKIPPED",
+      "url": "https://github.com/rynfar/meridian/actions/runs/39204124262/job/117903137047"
+    }
+  ],
+  "cancelled_duplicate_note": "An earlier Nix run was cancelled; the same final-head Nix check succeeded in its replacement run. All other applicable checks passed; changelog-duplication skipped.",
+  "forwarded_product_prs_merged": []
+}

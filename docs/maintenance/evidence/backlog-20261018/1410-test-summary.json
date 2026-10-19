@@ -1,0 +1,18 @@
+{
+  "command": "npm test",
+  "exitCode": 0,
+  "sourceHead": "423477f19812b08e15d332d4f7c9c91ebf4e8650",
+  "counts": {
+    "pass": 6948,
+    "skip": 36,
+    "fail": 0
+  },
+  "batches": 24,
+  "testsRunIncludingSkipped": 6984,
+  "fileInvocations": 406,
+  "mainBatch": [
+    "6515",
+    "383",
+    "558.52s"
+  ]
+}

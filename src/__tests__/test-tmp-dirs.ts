@@ -1,10 +1,12 @@
 /**
  * Per-process scratch directories the test preload creates, and their cleanup.
  *
- * Every `bun test` process gets its own settings and session directory under
- * the system temp dir, keyed by pid. `npm test` starts a series of such
- * processes, so without cleanup each run leaves a pair of directories per
- * invocation behind, indefinitely.
+ * Every `bun test` process gets its own settings, session and temp directory
+ * under the system temp dir, keyed by pid. The temp directory becomes the
+ * run's TMPDIR, so whatever a test makes with `tmpdir()` - and whatever a
+ * process it spawns with `process.env` makes there - lands inside it. `npm test` starts a series
+ * of such processes, so without cleanup each run leaves its directories
+ * behind, indefinitely.
  *
  * The owning process removes its own pair when its run finishes, which covers
  * passing, failing and timed-out runs alike. A process killed by a signal never gets to
@@ -16,13 +18,14 @@
 import { readdirSync, rmSync, type Dirent } from "node:fs"
 import { join } from "node:path"
 
-const TEST_DIR_PATTERN = /^meridian-test-(?:settings|sessions)-([1-9]\d*)$/
+const TEST_DIR_PATTERN = /^meridian-test-(?:settings|sessions|tmp)-([1-9]\d*)$/
 const MAX_PID = 0x7fffffff
 
 export function testDirsFor(root: string, pid: number) {
   return {
     configDir: join(root, `meridian-test-settings-${pid}`),
     sessionDir: join(root, `meridian-test-sessions-${pid}`),
+    tempDir: join(root, `meridian-test-tmp-${pid}`),
   }
 }
 

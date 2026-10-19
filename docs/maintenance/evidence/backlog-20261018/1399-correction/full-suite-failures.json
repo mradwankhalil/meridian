@@ -1,0 +1,447 @@
+[
+  {
+    "file": "src/__tests__/proxy-system-reminder-preservation.test.ts",
+    "case": "issue #368: <system-reminder> preservation by adapter > OpenCode: preserves bg_* task IDs from <system-reminder> in the SDK prompt",
+    "logLine": 81
+  },
+  {
+    "file": "src/__tests__/proxy-system-reminder-preservation.test.ts",
+    "case": "issue #368: <system-reminder> preservation by adapter > OpenCode: preserves <system-reminder> when content is an array of blocks",
+    "logLine": 96
+  },
+  {
+    "file": "src/__tests__/proxy-system-reminder-preservation.test.ts",
+    "case": "issue #368: <system-reminder> preservation by adapter > Droid: still strips <system-reminder> (CWD leakage)",
+    "logLine": 111
+  },
+  {
+    "file": "src/__tests__/proxy-stale-uuid-retry.test.ts",
+    "case": "Stale UUID retry > retries as fresh session when undo hits stale UUID (non-streaming)",
+    "logLine": 129
+  },
+  {
+    "file": "src/__tests__/proxy-stale-uuid-retry.test.ts",
+    "case": "Stale UUID retry > replays the full undo history without rollback options after project drift",
+    "logLine": 145
+  },
+  {
+    "file": "src/__tests__/proxy-stale-uuid-retry.test.ts",
+    "case": "Stale UUID retry > retries as fresh session when undo hits stale UUID (streaming)",
+    "logLine": 161
+  },
+  {
+    "file": "src/__tests__/proxy-stale-uuid-retry.test.ts",
+    "case": "Stale UUID retry > evicts stale session from cache after retry",
+    "logLine": 178
+  },
+  {
+    "file": "src/__tests__/proxy-stale-uuid-retry.test.ts",
+    "case": "Stale UUID retry > does not quarantine an immutable source when an isolated fork loses publication CAS",
+    "logLine": 193
+  },
+  {
+    "file": "src/__tests__/proxy-stale-uuid-retry.test.ts",
+    "case": "Stale UUID retry > propagates non-stale errors normally",
+    "logLine": 209
+  },
+  {
+    "file": "src/__tests__/proxy-retirement-admission.test.ts",
+    "case": "profile switch admission with bounded retirement > admits a fresh request after clearing old profile mappings (stream=%s)",
+    "logLine": 257
+  },
+  {
+    "file": "src/__tests__/proxy-retirement-admission.test.ts",
+    "case": "profile switch admission with bounded retirement > admits a fresh request after clearing old profile mappings (stream=%s)",
+    "logLine": 272
+  },
+  {
+    "file": "src/__tests__/proxy-retirement-admission.test.ts",
+    "case": "profile switch admission with bounded retirement > admits concurrent turns while the retirement backlog sits at its passive bound (stream=%s)",
+    "logLine": 287
+  },
+  {
+    "file": "src/__tests__/proxy-retirement-admission.test.ts",
+    "case": "profile switch admission with bounded retirement > admits concurrent turns while the retirement backlog sits at its passive bound (stream=%s)",
+    "logLine": 302
+  },
+  {
+    "file": "src/__tests__/proxy-passthrough-tool-use.test.ts",
+    "case": "Passthrough streaming: early termination on tool_use stop > repairs complete split JSON arguments independently for parallel streamed calls",
+    "logLine": 423
+  },
+  {
+    "file": "src/__tests__/proxy-passthrough-tool-use.test.ts",
+    "case": "Passthrough streaming: early termination on tool_use stop > stream ends with message_stop immediately after message_delta(stop_reason:tool_use)",
+    "logLine": 438
+  },
+  {
+    "file": "src/__tests__/proxy-passthrough-tool-use.test.ts",
+    "case": "Passthrough streaming: early termination on tool_use stop > stream ends with message_stop after multiple passthrough tool_use blocks",
+    "logLine": 453
+  },
+  {
+    "file": "src/__tests__/proxy-passthrough-tool-use.test.ts",
+    "case": "Passthrough streaming: early termination on tool_use stop > does NOT terminate early when stop_reason is end_turn (no tool_use)",
+    "logLine": 468
+  },
+  {
+    "file": "src/__tests__/proxy-passthrough-tool-use.test.ts",
+    "case": "Passthrough non-streaming: tool_use returned without HTTP 500 > returns 200 with tool_use stop_reason when model calls a passthrough tool",
+    "logLine": 483
+  },
+  {
+    "file": "src/__tests__/proxy-passthrough-tool-use.test.ts",
+    "case": "Passthrough non-streaming: tool_use returned without HTTP 500 > returns 200 with end_turn when model responds with text only",
+    "logLine": 498
+  },
+  {
+    "file": "src/__tests__/proxy-output-tokens-aggregation.test.ts",
+    "case": "non-stream output_tokens uses SDK `result` message (regression #449) > uses result.output_tokens when assistant.output_tokens is misreported as 1",
+    "logLine": 511
+  },
+  {
+    "file": "src/__tests__/proxy-output-tokens-aggregation.test.ts",
+    "case": "non-stream output_tokens uses SDK `result` message (regression #449) > preserves cache fields from result message",
+    "logLine": 522
+  },
+  {
+    "file": "src/__tests__/proxy-output-tokens-aggregation.test.ts",
+    "case": "non-stream output_tokens uses SDK `result` message (regression #449) > falls back to assistant.usage when no result message is emitted",
+    "logLine": 533
+  },
+  {
+    "file": "src/__tests__/proxy-output-tokens-aggregation.test.ts",
+    "case": "non-stream output_tokens uses SDK `result` message (regression #449) > ignores result messages with no usage field",
+    "logLine": 544
+  },
+  {
+    "file": "src/__tests__/proxy-output-tokens-aggregation.test.ts",
+    "case": "non-stream output_tokens uses SDK `result` message (regression #449) > uses result.output_tokens even when its iterations show the per-step values",
+    "logLine": 555
+  },
+  {
+    "file": "src/__tests__/proxy-undo-gap.test.ts",
+    "case": "undo gap delivery over HTTP (#817) > keeps ordinary rollback tail-only (stream=false)",
+    "logLine": 780
+  },
+  {
+    "file": "src/__tests__/proxy-undo-gap.test.ts",
+    "case": "undo gap delivery over HTTP (#817) > replays the edited intermediate turns (stream=false)",
+    "logLine": 796
+  },
+  {
+    "file": "src/__tests__/proxy-undo-gap.test.ts",
+    "case": "undo gap delivery over HTTP (#817) > keeps ordinary rollback tail-only (stream=true)",
+    "logLine": 811
+  },
+  {
+    "file": "src/__tests__/proxy-undo-gap.test.ts",
+    "case": "undo gap delivery over HTTP (#817) > replays the edited intermediate turns (stream=true)",
+    "logLine": 827
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Streaming - tool_use forwarding > should forward tool_use content blocks in streaming responses",
+    "logLine": 1080
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Streaming - tool_use forwarding > should forward mixed text + tool_use content blocks",
+    "logLine": 1095
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Streaming - tool_use forwarding > should preserve stop_reason from the original response",
+    "logLine": 1109
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Streaming - tool_use forwarding > should forward text-only responses unchanged",
+    "logLine": 1124
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Non-streaming - tool_use forwarding > should include tool_use blocks in non-streaming response",
+    "logLine": 1138
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Non-streaming - tool_use forwarding > should return tool_use-only responses without fallback text",
+    "logLine": 1149
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Non-streaming - tool_use forwarding > should set stop_reason to tool_use when response contains tool_use blocks",
+    "logLine": 1164
+  },
+  {
+    "file": "src/__tests__/proxy-tool-forwarding.test.ts",
+    "case": "Phase 1: Non-streaming - tool_use forwarding > should set stop_reason to end_turn for text-only responses",
+    "logLine": 1179
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > polytoken_waiter_resumes_latest_state",
+    "logLine": 1348
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > polytoken_stale_branch_rejected",
+    "logLine": 1359
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > polytoken_distinct_key_parallelism",
+    "logLine": 1370
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > isolates and resumes sibling conversations sharing one Polytoken session",
+    "logLine": 1381
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > keeps native title inference out of the working conversation and resumes the original checkpoint",
+    "logLine": 1392
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > still rejects stale requests sharing a conversation even across session headers",
+    "logLine": 1403
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > polytoken_cross_profile_lineage_isolated",
+    "logLine": 1415
+  },
+  {
+    "file": "src/__tests__/proxy-polytoken-concurrency.test.ts",
+    "case": "Polytoken native session concurrency > polytoken_legacy_header_isolation",
+    "logLine": 1426
+  },
+  {
+    "file": "src/__tests__/proxy-source-skip-cache.test.ts",
+    "case": "x-meridian-source: fingerprint cache skip for independent sessions > DOES write to the fingerprint cache when source=main",
+    "logLine": 1628
+  },
+  {
+    "file": "src/__tests__/proxy-source-skip-cache.test.ts",
+    "case": "x-meridian-source: fingerprint cache skip for independent sessions > DOES write to the fingerprint cache when no source header is set",
+    "logLine": 1642
+  },
+  {
+    "file": "src/__tests__/proxy-source-skip-cache.test.ts",
+    "case": "x-meridian-source: fingerprint cache skip for independent sessions > fork with matching fingerprint does NOT overwrite parent's cache entry",
+    "logLine": 1656
+  },
+  {
+    "file": "src/__tests__/proxy-idle-stall-ceiling.test.ts",
+    "case": "HTTP idle retry ceiling > rejects a repeated terminal request before invoking the SDK, stream=%s",
+    "logLine": 1687
+  },
+  {
+    "file": "src/__tests__/proxy-idle-stall-ceiling.test.ts",
+    "case": "HTTP idle retry ceiling > rejects a repeated terminal request before invoking the SDK, stream=%s",
+    "logLine": 1701
+  },
+  {
+    "file": "src/__tests__/proxy-idle-stall-ceiling.test.ts",
+    "case": "HTTP idle retry ceiling > allows a changed request and successful recovery, stream=%s",
+    "logLine": 1715
+  },
+  {
+    "file": "src/__tests__/proxy-idle-stall-ceiling.test.ts",
+    "case": "HTTP idle retry ceiling > allows a changed request and successful recovery, stream=%s",
+    "logLine": 1731
+  },
+  {
+    "file": "src/__tests__/proxy-idle-stall-ceiling.test.ts",
+    "case": "HTTP idle retry ceiling > does not combine unrelated client or unidentified requests",
+    "logLine": 1745
+  },
+  {
+    "file": "src/__tests__/proxy-idle-stall-ceiling.test.ts",
+    "case": "HTTP idle retry ceiling > allows a model change immediately",
+    "logLine": 1759
+  },
+  {
+    "file": "src/__tests__/error-telemetry-profile.test.ts",
+    "case": "error-path telemetry records the profile that failed > names the refusing profile on the failover refusal row",
+    "logLine": 1840
+  },
+  {
+    "file": "src/__tests__/error-telemetry-profile.test.ts",
+    "case": "error-path telemetry records the profile that failed > records the initially resolved model instead of a bare \"unknown\"",
+    "logLine": 1855
+  },
+  {
+    "file": "src/__tests__/error-telemetry-profile.test.ts",
+    "case": "error-path telemetry records the profile that failed > keeps a pinned failure attributed without failover, stream=%s",
+    "logLine": 1871
+  },
+  {
+    "file": "src/__tests__/error-telemetry-profile.test.ts",
+    "case": "error-path telemetry records the profile that failed > keeps a pinned failure attributed without failover, stream=%s",
+    "logLine": 1886
+  },
+  {
+    "file": "src/__tests__/error-telemetry-profile.test.ts",
+    "case": "error-path telemetry records the profile that failed > distinguishes both failed profiles under the same request id",
+    "logLine": 1901
+  },
+  {
+    "file": "src/__tests__/error-telemetry-profile.test.ts",
+    "case": "error-path telemetry records the profile that failed > does not mistake an SDK error assistant for committed user content",
+    "logLine": 1916
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: normal mode (non-passthrough) > blocks all builtin + claude-code-only tools in non-stream mode",
+    "logLine": 2000
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: normal mode (non-passthrough) > blocks all builtin + claude-code-only tools in stream mode",
+    "logLine": 2016
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "SDK cwd for a claude-code client (#744) > uses the client's directory as the SDK cwd when it exists here",
+    "logLine": 2031
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "SDK cwd for a claude-code client (#744) > falls back to a valid server path when the client directory does not exist (#381)",
+    "logLine": 2046
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: claude-code adapter (#735) > blocks the SDK's built-in tools for a claude-cli client (non-stream)",
+    "logLine": 2062
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: claude-code adapter (#735) > blocks the SDK's built-in tools for a claude-cli client (stream)",
+    "logLine": 2078
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: claude-code adapter (#735) > does not leave disallowedTools empty, which is the actual regression",
+    "logLine": 2093
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: passthrough mode > blocks all builtin + claude-code-only tools in non-stream mode",
+    "logLine": 2109
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: passthrough mode > blocks all builtin + claude-code-only tools in stream mode",
+    "logLine": 2125
+  },
+  {
+    "file": "src/__tests__/proxy-tool-blocking.test.ts",
+    "case": "Tool blocking: consistency across all paths > all 4 paths produce identical disallowedTools lists",
+    "logLine": 2136
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: detection via x-meridian-agent > detects x-meridian-agent: forgecode and selects forgecode adapter",
+    "logLine": 2164
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: detection via x-meridian-agent > returns valid response for ForgeCode requests",
+    "logLine": 2179
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: detection via x-meridian-agent > header override is case-insensitive",
+    "logLine": 2194
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: MCP server name > uses 'forgecode' MCP server in SDK options",
+    "logLine": 2205
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: MCP server name > allowed tools have mcp__forgecode__ prefix when no passthrough",
+    "logLine": 2216
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: MCP server name > OpenCode requests still use 'opencode' MCP server",
+    "logLine": 2227
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: no session header > handles ForgeCode request without session header \u2014 no crash",
+    "logLine": 2242
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: no session header > x-opencode-session header is ignored for ForgeCode requests",
+    "logLine": 2257
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: fingerprint session resume > second request with same first message fingerprints to continuation",
+    "logLine": 2269
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: fingerprint session resume > different first message creates a new session",
+    "logLine": 2281
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: no subagent routing > never passes SDK agents even when 'task' tool is in request",
+    "logLine": 2292
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: no subagent routing > no PreToolUse hooks for ForgeCode requests",
+    "logLine": 2303
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: response format > returns valid non-streaming response",
+    "logLine": 2318
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: response format > returns correct content from assistant message",
+    "logLine": 2329
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: streaming > streams correctly for ForgeCode requests",
+    "logLine": 2344
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "ForgeCode adapter: CWD extraction through proxy > extracts CWD from ForgeCode system prompt XML tag",
+    "logLine": 2355
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "Backward compatibility: OpenCode unaffected by ForgeCode adapter > OpenCode requests without UA still use opencode adapter",
+    "logLine": 2370
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "Backward compatibility: OpenCode unaffected by ForgeCode adapter > OpenCode session header still tracked when ForgeCode requests coexist",
+    "logLine": 2382
+  },
+  {
+    "file": "src/__tests__/proxy-forgecode-integration.test.ts",
+    "case": "Backward compatibility: OpenCode unaffected by ForgeCode adapter > plugins: [] passed for ForgeCode requests too",
+    "logLine": 2393
+  },
+  {
+    "file": "src/__tests__/proxy-cross-process-coordination.test.ts",
+    "case": "proxy coordination across OS processes > Pi keeps both branches valid across processes: main first, stream=false",
+    "logLine": 6223
+  }
+]

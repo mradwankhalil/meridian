@@ -1,0 +1,412 @@
+{
+  "result": "PASS",
+  "scope": "Actual OpenCode2.0.21 + exact correction built V2 plugin + real SDK/native Opus5.5; reporter client/model/platform unspecified",
+  "head": "423477f19812b08e15d332d4f7c9c91ebf4e8650",
+  "model": "claude-opus-5-5",
+  "root": "/private/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-1410-actual-live-33t8sk",
+  "platform": "darwin/arm64",
+  "node": "v22.22.3",
+  "paidExtraUsageDisabled": true,
+  "usageGuardTime": "2026-10-19T05:28:14.397Z",
+  "requests": [
+    {
+      "route": "/v1/messages",
+      "model": "claude-haiku-5-5",
+      "stream": true,
+      "session": null,
+      "agent": "title",
+      "mode": "subagent",
+      "source": "subagent-title",
+      "attested": false,
+      "toolCount": 0,
+      "hasMarker": false,
+      "resultIds": [],
+      "hasOwnedResult": false,
+      "localAuxiliaryBlocked": true
+    },
+    {
+      "route": "/v1/messages",
+      "model": "claude-opus-5-5",
+      "stream": true,
+      "session": "ses_ead5c08aaffeSxXCdOjjanIIpr",
+      "agent": "build",
+      "mode": "primary",
+      "source": null,
+      "attested": true,
+      "toolCount": 12,
+      "hasMarker": false,
+      "resultIds": [],
+      "hasOwnedResult": false,
+      "pluginLoadedBeforeForward": true,
+      "status": 200,
+      "responseModel": "claude-opus-5-5",
+      "messageStopped": true
+    },
+    {
+      "route": "/v1/messages",
+      "model": "claude-opus-5-5",
+      "stream": true,
+      "session": null,
+      "agent": "title",
+      "mode": "subagent",
+      "source": "subagent-title",
+      "attested": false,
+      "toolCount": 0,
+      "hasMarker": false,
+      "resultIds": [],
+      "hasOwnedResult": false,
+      "localAuxiliaryBlocked": true
+    },
+    {
+      "route": "/v1/messages",
+      "model": "claude-opus-5-5",
+      "stream": true,
+      "session": "ses_ead5c08aaffeSxXCdOjjanIIpr",
+      "agent": "build",
+      "mode": "primary",
+      "source": null,
+      "attested": true,
+      "toolCount": 12,
+      "hasMarker": true,
+      "resultIds": [
+        "toolu_01772EJYy42wFdechhBa29Ae"
+      ],
+      "hasOwnedResult": true,
+      "pluginLoadedBeforeForward": true,
+      "status": 200,
+      "responseModel": "claude-opus-5-5",
+      "messageStopped": true
+    },
+    {
+      "route": "/v1/messages",
+      "model": "claude-haiku-5-5",
+      "stream": true,
+      "session": null,
+      "agent": "title",
+      "mode": "subagent",
+      "source": "subagent-title",
+      "attested": false,
+      "toolCount": 0,
+      "hasMarker": false,
+      "resultIds": [],
+      "hasOwnedResult": false,
+      "localAuxiliaryBlocked": true
+    },
+    {
+      "route": "/v1/messages",
+      "model": "claude-opus-5-5",
+      "stream": true,
+      "session": "ses_ead5c08aaffeSxXCdOjjanIIpr",
+      "agent": "build",
+      "mode": "primary",
+      "source": null,
+      "attested": true,
+      "toolCount": 12,
+      "hasMarker": true,
+      "resultIds": [
+        "toolu_01772EJYy42wFdechhBa29Ae"
+      ],
+      "hasOwnedResult": true,
+      "pluginLoadedBeforeForward": true,
+      "status": 200,
+      "responseModel": "claude-opus-5-5",
+      "messageStopped": true
+    },
+    {
+      "route": "/v1/messages",
+      "model": "claude-opus-5-5",
+      "stream": true,
+      "session": null,
+      "agent": "title",
+      "mode": "subagent",
+      "source": "subagent-title",
+      "attested": false,
+      "toolCount": 0,
+      "hasMarker": false,
+      "resultIds": [],
+      "hasOwnedResult": false,
+      "localAuxiliaryBlocked": true
+    }
+  ],
+  "catalogRequests": [
+    {
+      "method": "GET",
+      "route": "/v1/models"
+    }
+  ],
+  "inferenceAdmissions": 3,
+  "auxiliaryBlocked": 4,
+  "version": {
+    "code": 0,
+    "signal": null
+  },
+  "client": "opencode v2.0.21",
+  "native-version": {
+    "code": 0,
+    "signal": null
+  },
+  "native": "2.1.302 (Claude Code)",
+  "executable": {
+    "path": "/private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli/bin/opencode.exe",
+    "sha256": "0b2b68c1efaf20a29aaf636c2ffccc1abb56243a82f48cce45e257d232e03442",
+    "nativePath": "/Users/rynfar/.local/lib/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+    "nativeSha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "sdk": "0.2.141",
+  "scrubPreflight": {
+    "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+    "packageName": "@rynfar/meridian-plugin-opencode-scrub",
+    "packageVersion": "0.2.3",
+    "sha256": "4ab89412e6a59fad812a3f6e5500c84f3bdfc41863320bc794f5274a251da656",
+    "runtimeVersion": "0.2.3",
+    "invocations": 0,
+    "errors": 0
+  },
+  "setup": {
+    "code": 0,
+    "signal": null
+  },
+  "plugin": {
+    "path": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian-v2",
+    "package": "@rynfar/meridian-opencode-v2-plugin",
+    "sha256": "d8fd970f561a05a1d2716f7a118ec7e59e44d1942b25a1edca263a00cc779b56",
+    "ownerVersion": "1.83.1",
+    "setupExit": 0,
+    "canonicalField": "plugins",
+    "entries": 1,
+    "providerBaseURL": "http://127.0.0.1:55980/v1",
+    "hardcodedModelWindow": false
+  },
+  "catalogAdoption": {
+    "id": "claude-opus-5-5",
+    "providerID": "anthropic",
+    "name": "Claude Opus 5.5",
+    "context": 1000000,
+    "variants": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "actualPluginGet": true,
+    "beforeInference": true
+  },
+  "firstOutcome": {
+    "route": "/v1/messages",
+    "status": 200,
+    "model": "claude-opus-5-5",
+    "agent": "build",
+    "attested": true,
+    "completed": true,
+    "error": null,
+    "diagnostic": null
+  },
+  "first-read": {
+    "code": 0,
+    "signal": null
+  },
+  "firstReadComplete": true,
+  "same-session-continuation": {
+    "code": 0,
+    "signal": null
+  },
+  "continuationComplete": true,
+  "telemetry": [
+    {
+      "model": "opus[1m]",
+      "isResume": true,
+      "lineageType": "continuation",
+      "cacheRead": 10332,
+      "cacheCreation": 68,
+      "sdkSessionId": "b4641600-1a88-4f3b-abc5-aee617e3cb44"
+    },
+    {
+      "model": "opus[1m]",
+      "isResume": true,
+      "lineageType": "continuation",
+      "cacheRead": 10103,
+      "cacheCreation": 229,
+      "sdkSessionId": "5d63b7a2-4f32-4c65-8f26-c2c717bb697f"
+    },
+    {
+      "model": "opus[1m]",
+      "isResume": false,
+      "lineageType": "new",
+      "cacheRead": 0,
+      "cacheCreation": 10103,
+      "sdkSessionId": "d1caf2e6-a591-4dd3-91c7-9cd96f6dad7d"
+    }
+  ],
+  "observedModels": [
+    "claude-opus-5-5"
+  ],
+  "scrubFinal": {
+    "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+    "packageName": "@rynfar/meridian-plugin-opencode-scrub",
+    "packageVersion": "0.2.3",
+    "sha256": "4ab89412e6a59fad812a3f6e5500c84f3bdfc41863320bc794f5274a251da656",
+    "runtimeVersion": "0.2.3",
+    "invocations": 3,
+    "errors": 0
+  },
+  "clientClosure": {
+    "exitSeen": true,
+    "closeSeen": true,
+    "stdoutClosed": true,
+    "stderrClosed": true,
+    "spawnFailed": false,
+    "exitCode": 130,
+    "exitSignal": null,
+    "joined": true,
+    "termSent": true,
+    "killSent": false,
+    "signalFailure": null
+  },
+  "children": [
+    {
+      "command": "/private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli/bin/opencode.exe",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/Users/rynfar/.local/lib/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/Users/rynfar/.hermes/node/bin/node",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli/bin/opencode.exe",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 130,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/Users/rynfar/.local/lib/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli/bin/opencode.exe",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/bin/sh",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/bin/sh",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/private/tmp/meridian-1410-opencode-2021/node_modules/@opencode/cli/bin/opencode.exe",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "command": "/bin/sh",
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    }
+  ],
+  "joined": true,
+  "endExecutableHash": "0b2b68c1efaf20a29aaf636c2ffccc1abb56243a82f48cce45e257d232e03442",
+  "endNativeHash": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37",
+  "identityUnchanged": true
+}

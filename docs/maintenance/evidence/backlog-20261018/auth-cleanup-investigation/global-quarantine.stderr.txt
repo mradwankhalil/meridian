@@ -1,0 +1,8 @@
+
+../../../../../private/tmp/meridian-auth-cleanup-probe/global-quarantine.test.ts:
+(pass) missing single pipe witness reproduces persistent resolver quarantine and late join recovery [5065.42ms]
+
+ 1 pass
+ 0 fail
+ 9 expect() calls
+Ran 1 test across 1 file. [5.19s]

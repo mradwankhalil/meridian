@@ -1,0 +1,168 @@
+{
+  "main_actual_bun": "1.3.11 (af24e281)",
+  "main_source_log_sha256": "9a088aacd508d67dea5eccd2a3c5b09d333e733f85369487f5b0c68b72f5cb3e",
+  "supplementary_stages": [
+    {
+      "stage": "npm-test-stage-02",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "651e9073efd6270d34bfaad7d30b8b4ea141a949c2d73c9b5307c111eaa2944b",
+      "source_log_bytes": 1071,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-03",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "20125134a7522f883eb10d57efc8b8412a3855f7b50241b5808c99f4497914d1",
+      "source_log_bytes": 2673,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-04",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "f4a10283a129dadf2a222dee1edec0b4f7e9ec467df320990b645bb9248c3f5c",
+      "source_log_bytes": 829,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-05",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "62884f558b5c78eb624e5b49e84175d5c115abcb877fabef929ab711aed6ff28",
+      "source_log_bytes": 1070,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-06",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "d341b7ac99fa0b513a4ed730ba8b81aeb04407948b92036c312c62bd25c94c29",
+      "source_log_bytes": 14374,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-07",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "0cbd365f74d9ceae60bfa28cd92251c16b92750e614fc4440d5dec1cf7345c49",
+      "source_log_bytes": 731,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-08",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "d684e6a0141c3115473aa639ff6e9d698255db7a4b11ed4ca90219aaae578026",
+      "source_log_bytes": 7946,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-09",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "943b83d941998e562cc948d517287d7a9c6f5e07778b7877cb9c0acf274628d0",
+      "source_log_bytes": 4585,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-10",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "68599154664576a83844d33ff555825777e4df4ee22138d3c5c99fa59cc4ca4b",
+      "source_log_bytes": 1562,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-11",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "03bec851d479b3ef313c231c8c2f26329b18262776f320e6b9324c8593428a21",
+      "source_log_bytes": 10272,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-12",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "4820dba24d676e25546e2e7c2bfc04aa1d5f17713bde1bc403fefe73fc945143",
+      "source_log_bytes": 10289,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-13",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "71c7416ef3889f09849143a7a7c5012c97a78a914a9e0a6816deef4d7f356cee",
+      "source_log_bytes": 1724,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-14",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "4d14e7eadcbf4a1d95228f8d8b087ba1ab7ae38135073f028c1746acb796c587",
+      "source_log_bytes": 1493,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-15",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "0b42c77b7eacb2805b0d7870301ee8e2f40d802b315aa53fff9b20640631dc12",
+      "source_log_bytes": 81525,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-16",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "8ae3d08cb2a726deb5f3a55bc8c28fd1494c52bcc915bb858a6153da96267ec7",
+      "source_log_bytes": 1475,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-17",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "2a5a52240d98cbdba2efbbd79f688354e14171d95800c881c1ac34c521176bac",
+      "source_log_bytes": 1529,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-18",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "25ef3a7cf6c0a1d829bc2bc3319b53825ff6e744fc47d6deb6fb9d4792244d2e",
+      "source_log_bytes": 1350,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-19",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "42dcf2ffaf3f92012c388377a8389f0ecc47a1534b2951d5974a591810f1238f",
+      "source_log_bytes": 3133,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-20",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "000a1ebaaab74207ebdd2ae0fb343e51553b23c123d555492a2273fe2e58e9fe",
+      "source_log_bytes": 4897,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-21",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "c5a8a9bf97d0a01826254f44968211aadc319969ead7a6184ee511faa6502baf",
+      "source_log_bytes": 2008,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-22",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "a8610c4413620e2ded180eec7c0547ab34b60419d2ab05ce69bfed91efb7129c",
+      "source_log_bytes": 572,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-23",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "2414f1f33e87fe70eb0645b833bfe795ec3e0776bd6b5087a25ee568326a6f9c",
+      "source_log_bytes": 707,
+      "banner_line": 2
+    },
+    {
+      "stage": "npm-test-stage-24",
+      "actual_bun_banner": "bun test v1.3.14 (0d9b296a)",
+      "source_log_sha256": "2c15431208f3c3e44d0701279ca6677abae567a2c45bddbb43fc5542e00227f5",
+      "source_log_bytes": 2208,
+      "banner_line": 2
+    }
+  ],
+  "scope": "Observed log banners; 464 supplementary passes used host 1.3.14, not pinned 1.3.11. Does not repair original red main stage."
+}

@@ -1,3 +1,4 @@
+import { installModelsMock } from "./modelsMock"
 /**
  * /readyz, /health and the override route, driven by real requests through
  * the mocked SDK.
@@ -26,8 +27,7 @@ process.env.MERIDIAN_CONFIG_DIR = ownedDir
 delete process.env.MERIDIAN_API_KEY
 let authLookup: () => Promise<realModels.ClaudeAuthStatus | null> = async () => null
 let executableAvailable = true
-mock.module("../proxy/models", () => ({
-  ...realModels,
+installModelsMock(() => ({
   getClaudeAuthStatusAsync: () => authLookup(),
   getResolvedClaudeExecutableInfo: () => null,
   resolveClaudeExecutableAsync: async () => {

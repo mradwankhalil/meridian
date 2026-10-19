@@ -1,0 +1,67 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/priority-routing-integration.test.ts:
+OFFLINE_FIXTURE_RUNTIME {"bun":"1.3.11","executable":"/private/tmp/meridian-1399-tooling/node_modules/bun/bin/bun.exe"}
+[PROXY] 93d972c7-34ea-48aa-9757-89c1df14ed2f adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=9ms msgCount=1 msgs=user[string]
+[PROXY] 93d972c7-34ea-48aa-9757-89c1df14ed2f usage: input=10 output=50 cache=0%
+[PROXY] 008552d8-b819-490c-bd22-57c4433576bc adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 008552d8-b819-490c-bd22-57c4433576bc rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 008552d8-b819-490c-bd22-57c4433576bc rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 008552d8-b819-490c-bd22-57c4433576bc adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 008552d8-b819-490c-bd22-57c4433576bc usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 64539393-c57e-46b7-b796-7b2f1de1e0f3 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=continuation session=bf531537 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=7ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] 64539393-c57e-46b7-b796-7b2f1de1e0f3 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 64539393-c57e-46b7-b796-7b2f1de1e0f3 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] df77ea1c-9187-47d4-83cf-3f7c169c0ae9 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=continuation session=bf531537 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] df77ea1c-9187-47d4-83cf-3f7c169c0ae9 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] df77ea1c-9187-47d4-83cf-3f7c169c0ae9 rate-limited on sonnet, retry 2/2 in 2000ms
+1245 |           const payload = await refused.json() as { error: { retry_after: number } }
+1246 |           expect(payload.error.retry_after).toBe(wait)
+1247 |         }
+1248 |         expect(capturedEnvs.length).toBeGreaterThan(0)
+1249 |         expect(capturedEnvs.every(dir => dir === "/tmp/meridian-test-prof-personal")).toBe(true)
+1250 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((personalReset - Date.now()) / 1000) - 2)
+                            ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10792
+Received: 600
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/priority-routing-integration.test.ts:1250:22)
+(fail) priority routing > keeps the retained account's longer exclusion after a shorter repeat (JSON) [10089.60ms]
+[PROXY] 65b3dd59-5454-492e-9b2a-e08852325488 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=13ms msgCount=1 msgs=user[string]
+[PROXY] 65b3dd59-5454-492e-9b2a-e08852325488 usage: input=10 output=50 cache=0%
+[PROXY] 7148da88-5388-4319-bff3-2d00a70b6eef adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 7148da88-5388-4319-bff3-2d00a70b6eef rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 7148da88-5388-4319-bff3-2d00a70b6eef rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 7148da88-5388-4319-bff3-2d00a70b6eef adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 7148da88-5388-4319-bff3-2d00a70b6eef usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 51908df6-e7ce-4a2c-9a41-35e8d199b82a adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=continuation session=a9824f50 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] 51908df6-e7ce-4a2c-9a41-35e8d199b82a rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 51908df6-e7ce-4a2c-9a41-35e8d199b82a rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] f91790f4-05e0-4072-ada1-c749112779e0 adapter=opencode profile=personal(priority) model=sonnet stream=true tools=0 lineage=continuation session=a9824f50 agent=primary sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=3 msgs=user[string] → assistant[text] → user[string]
+[PROXY] f91790f4-05e0-4072-ada1-c749112779e0 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] f91790f4-05e0-4072-ada1-c749112779e0 rate-limited on sonnet, retry 2/2 in 2000ms
+1245 |           const payload = await refused.json() as { error: { retry_after: number } }
+1246 |           expect(payload.error.retry_after).toBe(wait)
+1247 |         }
+1248 |         expect(capturedEnvs.length).toBeGreaterThan(0)
+1249 |         expect(capturedEnvs.every(dir => dir === "/tmp/meridian-test-prof-personal")).toBe(true)
+1250 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((personalReset - Date.now()) / 1000) - 2)
+                            ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10791
+Received: 600
+
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/priority-routing-integration.test.ts:1250:22)
+(fail) priority routing > keeps the retained account's longer exclusion after a shorter repeat (SSE) [10679.83ms]
+SDK_BOUNDARY_TRAP {"attempts":[],"actualNativeChildren":0,"actualNetworkCalls":0}
+
+ 0 pass
+ 89 filtered out
+ 2 fail
+ 23 expect() calls
+Ran 2 tests across 1 file. [22.11s]

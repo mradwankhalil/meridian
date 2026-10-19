@@ -4,6 +4,7 @@
  * or credential-store access is needed to exercise the header contract.
  * Isolated by package.json because Bun's model-module mock is process-global.
  */
+import { installModelsMock } from "./modelsMock"
 import { afterEach, beforeEach, describe, expect, it, mock } from "bun:test"
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs"
 import { hostname, tmpdir } from "node:os"
@@ -15,8 +16,7 @@ import { DEFAULT_PROXY_CONFIG } from "../proxy/types"
 import { getSetting, setSetting } from "../settings"
 
 let authLookup: () => Promise<realModels.ClaudeAuthStatus | null> = async () => null
-mock.module("../proxy/models", () => ({
-  ...realModels,
+installModelsMock(() => ({
   getClaudeAuthStatusAsync: () => authLookup(),
   resolveClaudeExecutableAsync: async () => "owned-claude-fixture",
 }))

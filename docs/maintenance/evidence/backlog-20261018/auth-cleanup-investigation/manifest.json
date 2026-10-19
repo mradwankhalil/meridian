@@ -1,0 +1,53 @@
+{
+  "kind": "Unchanged synthetic investigation records; .test.ts.txt archives require intentional scratch-copy adaptation, not default test discovery",
+  "files": [
+    {
+      "path": "RESULT.md",
+      "original_filename": "meridian-auth-cleanup-failure-investigation.md",
+      "sha256": "68a7619617847c80a28e212fb3fbc3da774617d4349fd8ef14423fa560448c31",
+      "bytes": 12912
+    },
+    {
+      "path": "production-analysis.md",
+      "original_filename": "meridian-auth-cleanup-production-analysis.md",
+      "sha256": "5086a06014d240de931d79b3872eea67820820b81656f69ccd949d02bb5115eb",
+      "bytes": 14287
+    },
+    {
+      "path": "global-quarantine.test.ts.txt",
+      "original_filename": "global-quarantine.test.ts",
+      "sha256": "2c22f20898ebb153d29babb5d02f69c7a0a1618f0f18bb850dc2558548a5379a",
+      "bytes": 3542
+    },
+    {
+      "path": "global-quarantine.stdout.txt",
+      "original_filename": "global-quarantine.stdout.txt",
+      "sha256": "717827b8d9af5dc8a14b38738c54a861f4fcdcfc2a5dc68a021c40936a634516",
+      "bytes": 822
+    },
+    {
+      "path": "global-quarantine.stderr.txt",
+      "original_filename": "global-quarantine.stderr.txt",
+      "sha256": "1bd5a9d6a4609bc2700dc378f18700602e29973afe98afbac478402953c12488",
+      "bytes": 264
+    },
+    {
+      "path": "leaf-fixture.test.ts.txt",
+      "original_filename": "meridian-auth-cleanup-leaf-fixture.test.ts",
+      "sha256": "425844197bae6fccb167640803c1d80fee9819d8db72250a6dbf86e72ca9c090",
+      "bytes": 6424
+    },
+    {
+      "path": "leaf-fixture.stdout.log",
+      "original_filename": "meridian-auth-cleanup-leaf-fixture.stdout.log",
+      "sha256": "9a22ba9acbc682833c1ff386b6688c92289cc5ddc40a0e789372d45e73b97d9c",
+      "bytes": 3697
+    },
+    {
+      "path": "leaf-fixture.stderr.log",
+      "original_filename": "meridian-auth-cleanup-leaf-fixture.stderr.log",
+      "sha256": "8639cb24762dd06932d3114244769d7a4df97850efebac1918fc1ecc5b16b0ac",
+      "bytes": 188
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "scope": "Unchanged selected follow-up receipts; source names may differ from publication names; no raw credential or customer payloads",
+  "files": [
+    {
+      "path": "focused-green.log",
+      "bytes": 4430,
+      "sha256": "d850ecfd6265d9c7672e249baca25fe6aa2950277a773efc49241cef048f351f"
+    },
+    {
+      "path": "inherited-auth-red.log",
+      "bytes": 1141,
+      "sha256": "4b71e88e762ba4c15acdec02a8ea38b094abb4edc7c74399ccbfa157af6257e5"
+    },
+    {
+      "path": "per-worker-config-rejected.log",
+      "bytes": 5978,
+      "sha256": "0678a4750785418098f8524b2bd204c071587080649f9c248c0abc3da04f2b5a"
+    },
+    {
+      "path": "previous-parent-gate.json",
+      "bytes": 855,
+      "sha256": "68a159335520331398e82762574c39824f4f8d3f04fd512925f21466c836682a"
+    },
+    {
+      "path": "shared-config-control.log",
+      "bytes": 2042,
+      "sha256": "f0e52dde6938ee2abdab8da2d47369c442e0753c2e2a4d7891a07b0480391a07"
+    },
+    {
+      "path": "startup-diagnostic-red.log",
+      "bytes": 1384,
+      "sha256": "c3b7f2888c0ba98b6e0f2dd9bd6c3eb043da79e8681a51187e8a056f16e31615"
+    }
+  ]
+}

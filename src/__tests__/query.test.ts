@@ -2,6 +2,12 @@
  * Tests for the SDK query options builder.
  */
 import { describe, it, expect } from "bun:test"
+import { installSdkMock } from "./sdkMock"
+installSdkMock(() => ({
+  query: () => { throw new Error("Options builder must not query a model") },
+  createSdkMcpServer: () => ({ type: "sdk", name: "passthrough", instance: {} }),
+  tool: () => ({}),
+}), "query.test.ts")
 import { buildQueryOptions, GIT_STATUS_PROVENANCE_NOTE, REPLAY_PROVENANCE_NOTE, SCRATCHPAD_COUNTER_INSTRUCTION, resolveQueryConfigDir, singleTurnCapLiftRaisesBudget, type QueryContext } from "../proxy/query"
 import { BLOCKED_BUILTIN_TOOLS, CLAUDE_CODE_ONLY_TOOLS, MCP_SERVER_NAME, ALLOWED_MCP_TOOLS } from "../proxy/tools"
 import { CHERRY_BLOCKED_BUILTIN_TOOLS, CHERRY_INCOMPATIBLE_TOOLS, CHERRY_WEB_TOOLS } from "../proxy/adapters/cherry"

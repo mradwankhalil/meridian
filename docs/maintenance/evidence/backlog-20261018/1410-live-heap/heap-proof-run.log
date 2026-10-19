@@ -1,0 +1,155 @@
+{"result":"PASS","action":"catalogs","mode":"baseline","output":"/private/tmp/meridian-1410-live-evidence/baseline-catalogs.json","maxSampleHeapMiB":0}
+{"result":"PASS","action":"heap","mode":"baseline","output":"/private/tmp/meridian-1410-live-evidence/baseline-heap.json","maxSampleHeapMiB":262.5201950073242}
+{"result":"PASS","action":"catalogs","mode":"current","output":"/private/tmp/meridian-1410-live-evidence/current-catalogs.json","maxSampleHeapMiB":0}
+{"result":"PASS","action":"heap","mode":"current","output":"/private/tmp/meridian-1410-live-evidence/current-heap.json","maxSampleHeapMiB":98.01171112060547}
+{
+  "result": "PASS",
+  "fixture": {
+    "sha256": "df872b711b2cebae00326778b1649bb80e2e7271418f4878207caf629bb5e17f",
+    "bytes": 366598,
+    "tools": 230
+  },
+  "rows": [
+    {
+      "label": "fixture-loaded",
+      "baselineHeapMiB": 13.767807006835938,
+      "currentHeapMiB": 13.774246215820312,
+      "baselineRssMiB": 80.0625,
+      "currentRssMiB": 80.453125
+    },
+    {
+      "label": "retained-1",
+      "baselineHeapMiB": 35.07366180419922,
+      "currentHeapMiB": 35.08312225341797,
+      "baselineRssMiB": 125.625,
+      "currentRssMiB": 126.71875,
+      "baselineUniqueSets": 1,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "retained-2",
+      "baselineHeapMiB": 55.80799102783203,
+      "currentHeapMiB": 35.94551086425781,
+      "baselineRssMiB": 144.6875,
+      "currentRssMiB": 127.3125,
+      "baselineUniqueSets": 2,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "retained-4",
+      "baselineHeapMiB": 97.2876968383789,
+      "currentHeapMiB": 37.666831970214844,
+      "baselineRssMiB": 189.96875,
+      "currentRssMiB": 128.625,
+      "baselineUniqueSets": 4,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "retained-8",
+      "baselineHeapMiB": 180.34642791748047,
+      "currentHeapMiB": 41.12653350830078,
+      "baselineRssMiB": 273.640625,
+      "currentRssMiB": 131.03125,
+      "baselineUniqueSets": 8,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "retained-12",
+      "baselineHeapMiB": 262.3744201660156,
+      "currentHeapMiB": 44.57996368408203,
+      "baselineRssMiB": 362.125,
+      "currentRssMiB": 137.59375,
+      "baselineUniqueSets": 12,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "identical-churn-1",
+      "baselineHeapMiB": 262.50682067871094,
+      "currentHeapMiB": 44.99653625488281,
+      "baselineRssMiB": 401.0625,
+      "currentRssMiB": 139.03125,
+      "baselineUniqueSets": 12,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "identical-churn-2",
+      "baselineHeapMiB": 262.5155563354492,
+      "currentHeapMiB": 44.99725341796875,
+      "baselineRssMiB": 401.234375,
+      "currentRssMiB": 139.828125,
+      "baselineUniqueSets": 12,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "identical-churn-3",
+      "baselineHeapMiB": 262.5201950073242,
+      "currentHeapMiB": 44.99768829345703,
+      "baselineRssMiB": 401.359375,
+      "currentRssMiB": 139.828125,
+      "baselineUniqueSets": 12,
+      "currentUniqueSets": 1
+    },
+    {
+      "label": "all-session-owners-released",
+      "baselineHeapMiB": 14.581169128417969,
+      "currentHeapMiB": 14.413337707519531,
+      "baselineRssMiB": 395.953125,
+      "currentRssMiB": 134.421875
+    },
+    {
+      "label": "distinct-churn-1",
+      "baselineHeapMiB": 97.36236572265625,
+      "currentHeapMiB": 97.90044403076172,
+      "baselineRssMiB": 398,
+      "currentRssMiB": 232.546875,
+      "baselineUniqueSets": 4,
+      "currentUniqueSets": 4
+    },
+    {
+      "label": "distinct-churn-2",
+      "baselineHeapMiB": 97.38021087646484,
+      "currentHeapMiB": 98.00132751464844,
+      "baselineRssMiB": 387.078125,
+      "currentRssMiB": 233.328125,
+      "baselineUniqueSets": 4,
+      "currentUniqueSets": 4
+    },
+    {
+      "label": "distinct-churn-3",
+      "baselineHeapMiB": 97.42869567871094,
+      "currentHeapMiB": 98.01171112060547,
+      "baselineRssMiB": 387.203125,
+      "currentRssMiB": 237.390625,
+      "baselineUniqueSets": 4,
+      "currentUniqueSets": 4
+    },
+    {
+      "label": "distinct-owners-released",
+      "baselineHeapMiB": 15.152267456054688,
+      "currentHeapMiB": 15.731025695800781,
+      "baselineRssMiB": 385.40625,
+      "currentRssMiB": 235.578125
+    }
+  ],
+  "measuredRetainedSessionCapacity": 12,
+  "sameInput": true,
+  "stockNode": "v22.22.3",
+  "limits": {
+    "retainedSessionCapacity": 12,
+    "totalIdenticalAdmissions": 48,
+    "distinctCapacity": 4,
+    "totalDistinctAdmissions": 36,
+    "gc": "Explicit GC across event-loop turns; no assertion depends on immediate WeakRef/finalizer timing",
+    "notTested": [
+      "1000 simultaneously retained baseline sessions",
+      "Reporter private 230-tool catalog",
+      "Native CLI/model inference",
+      "Whole proxy/process session/transcript memory",
+      "Global weak-index size or exact finalizer latency"
+    ]
+  },
+  "assertions": {
+    "retainedCurrentLower": true,
+    "identicalChurnCurrentLower": true
+  }
+}

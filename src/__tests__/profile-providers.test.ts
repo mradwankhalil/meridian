@@ -29,6 +29,7 @@ interface Providers {
   visibleIn(id: string, present: string[], hidden: string[]): boolean
   isHidden(id: string): boolean
   visible(id: string, present: string[]): boolean
+  fromLocation(): void
   setHidden(id: string, hide: boolean): void
   showAll(): void
   anyShown(present: string[]): boolean
@@ -46,8 +47,38 @@ class MemoryStorage {
   removeItem(key: string): void { this.data.delete(key) }
 }
 
-function loadProviders(storage?: unknown): Providers {
-  return new Function("localStorage", profileProvidersJs + "\nreturn meridianProviders;")(storage) as Providers
+function loadProviders(storage?: unknown, at?: Address): Providers {
+  return new Function("localStorage", "location", "history", profileProvidersJs + "\nreturn meridianProviders;")(storage, at?.location, at?.history) as Providers
+}
+
+/**
+ * A page address the scripts can read and rewrite: location follows the
+ * href, and history.replaceState moves it and records the new address.
+ */
+interface Address {
+  location: { href: string; hash: string; search: string; pathname: string; origin: string; port: string; hostname: string; host: string }
+  history: { state: unknown; replaceState(state: unknown, title: string, url: string): void }
+  replaced: string[]
+}
+
+function address(href: string): Address {
+  let url = new URL(href)
+  const replaced: string[] = []
+  const location = {
+    get href() { return url.toString() }, set href(v: string) { url = new URL(v, url) },
+    get hash() { return url.hash }, set hash(v: string) { url.hash = v },
+    get search() { return url.search },
+    get pathname() { return url.pathname },
+    get origin() { return url.origin },
+    get port() { return url.port },
+    get hostname() { return url.hostname },
+    get host() { return url.host },
+  }
+  const history = {
+    state: null as unknown,
+    replaceState(_state: unknown, _title: string, next: string) { url = new URL(next, url); replaced.push(url.toString()) },
+  }
+  return { location, history, replaced }
 }
 
 const claude = (id: string, extra: Record<string, unknown> = {}) => ({ id, type: "claude-max", loggedIn: true, ...extra })
@@ -300,14 +331,27 @@ interface Page {
   run<T>(expression: string): T
   element(id: string): Stub
   select(selector: string, elements: unknown[]): void
+  /** Runs the page's window listeners for an event, as the browser would. */
+  dispatch(type: string): void
+  clickChip(rootId: string, provider: string): void
+  at: Address
 }
 
-function loadPage(html: string, storage: MemoryStorage): Page {
+function loadPage(html: string, storage: MemoryStorage, href = "http://127.0.0.1:3459/"): Page {
+  const at = address(href)
+  const listeners = new Map<string, Array<() => void>>()
+  const clicks = new Map<string, Array<(event: { target: unknown }) => void>>()
   const script = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1] ?? "").join("\n")
   const elements = new Map<string, Stub>()
   const selections = new Map<string, unknown[]>()
   const element = (id: string) => {
-    if (!elements.has(id)) elements.set(id, stubElement())
+    if (!elements.has(id)) {
+      const el = stubElement()
+      el.addEventListener = (type: string, fn: (event: { target: unknown }) => void) => {
+        if (type === "click") clicks.set(id, [...(clicks.get(id) ?? []), fn])
+      }
+      elements.set(id, el)
+    }
     return elements.get(id)!
   }
   const document = {
@@ -328,14 +372,15 @@ function loadPage(html: string, storage: MemoryStorage): Page {
   }
   const sandbox: Record<string, unknown> = {
     document, localStorage: storage, URL, AbortController, console,
-    location: { pathname: "/", hash: "", href: "http://127.0.0.1:3459/", origin: "http://127.0.0.1:3459", port: "3459", hostname: "127.0.0.1", host: "127.0.0.1:3459" },
-    history: { state: null, replaceState() {} },
+    location: at.location,
+    history: at.history,
     navigator: { clipboard: { writeText() {} } },
     fetch: () => new Promise(() => {}),
     setInterval: () => 0, clearInterval() {}, setTimeout: () => 0, clearTimeout() {},
     requestAnimationFrame: () => 0, cancelAnimationFrame() {},
     MutationObserver: class { observe() {} disconnect() {} },
-    addEventListener() {}, alert() {}, innerHeight: 800, scrollY: 0, scrollTo() {},
+    addEventListener(type: string, fn: () => void) { listeners.set(type, [...(listeners.get(type) ?? []), fn]) },
+    alert() {}, innerHeight: 800, scrollY: 0, scrollTo() {},
   }
   sandbox.window = sandbox
   // One context for the page's life: Bun's runInNewContext makes a new one
@@ -346,6 +391,12 @@ function loadPage(html: string, storage: MemoryStorage): Page {
     run: <T>(expression: string) => runInContext(expression, context) as T,
     element,
     select: (selector, list) => { selections.set(selector, list) },
+    dispatch: type => { for (const fn of listeners.get(type) ?? []) fn() },
+    clickChip: (rootId, provider) => {
+      const target = { closest: () => ({ getAttribute: () => provider }) }
+      for (const fn of clicks.get(rootId) ?? []) fn({ target })
+    },
+    at,
   }
 }
 
@@ -500,3 +551,216 @@ describe("the profiles page draws the same groups", () => {
     expect(storage.getItem(HIDDEN_PROVIDERS_KEY)).toBe("[]")
   })
 })
+
+// ---------------------------------------------------------------------------
+// ?provider= in the address (profileFilterUrl.ts).
+// ---------------------------------------------------------------------------
+
+/** Storage that also notices any write, so "left alone" means no write at all. */
+class WatchedStorage extends MemoryStorage {
+  writes = 0
+  override setItem(key: string, value: string): void { this.writes++; super.setItem(key, value) }
+}
+
+const remembering = (hidden: string[]) => {
+  const storage = new WatchedStorage()
+  storage.setItem(HIDDEN_PROVIDERS_KEY, JSON.stringify(hidden))
+  storage.writes = 0
+  return storage
+}
+
+describe("?provider= names the chips that are on", () => {
+  const shownBy = (search: string, storage = remembering(["claude"])) => {
+    const p = loadProviders(storage, address(`http://127.0.0.1:3459/profiles${search}`))
+    return PROFILE_PROVIDERS.map(x => x.id).filter(id => !p.isHidden(id))
+  }
+
+  test("one id, a list, and the order and spacing a hand-typed link may have", () => {
+    expect(shownBy("?provider=chatgpt")).toEqual(["chatgpt"])
+    expect(shownBy("?provider=claude")).toEqual(["claude"])
+    expect(shownBy("?provider=chatgpt,claude")).toEqual(["claude", "chatgpt"])
+    expect(shownBy("?provider=chatgpt%2C%20claude")).toEqual(["claude", "chatgpt"])
+  })
+
+  test("unknown ids are dropped; with none known left the remembered choice stands", () => {
+    expect(shownBy("?provider=claude,antigravity,constructor")).toEqual(["claude"])
+    expect(shownBy("?provider=antigravity")).toEqual(["chatgpt"])
+    expect(shownBy("?provider=constructor,toString")).toEqual(["chatgpt"])
+    expect(shownBy("?provider=%20")).toEqual(["chatgpt"])
+    expect(shownBy("?provider=,")).toEqual(["chatgpt"])
+    expect(shownBy("?q=work")).toEqual(["chatgpt"])
+    expect(shownBy("")).toEqual(["chatgpt"])
+  })
+
+  test("an explicitly empty parameter selects no chips, even with a saved preference", () => {
+    expect(shownBy("?provider=")).toEqual([])
+    expect(shownBy("?provider")).toEqual([])
+    expect(shownBy("?provider=", remembering([]))).toEqual([])
+  })
+
+  test("opening a link never writes the remembered choice", () => {
+    const storage = remembering(["claude"])
+    loadProviders(storage, address("http://127.0.0.1:3459/profiles?provider=claude"))
+    expect(storage.writes).toBe(0)
+    expect(storage.getItem(HIDDEN_PROVIDERS_KEY)).toBe('["claude"]')
+  })
+
+  test("a click on a group the link named rewrites the address, not storage, and keeps the rest of it", () => {
+    const storage = remembering(["claude"])
+    const at = address("http://127.0.0.1:3459/profiles?q=work&provider=chatgpt#d-dh-c2")
+    const p = loadProviders(storage, at)
+    p.setHidden("claude", false)
+    expect(at.location.href).toBe("http://127.0.0.1:3459/profiles?q=work&provider=claude,chatgpt#d-dh-c2")
+    p.setHidden("chatgpt", true)
+    expect(at.location.href).toBe("http://127.0.0.1:3459/profiles?q=work&provider=claude#d-dh-c2")
+    p.showAll()
+    expect(at.location.href).toBe("http://127.0.0.1:3459/profiles?q=work&provider=claude,chatgpt#d-dh-c2")
+    expect(storage.writes).toBe(0)
+    expect(storage.getItem(HIDDEN_PROVIDERS_KEY)).toBe('["claude"]')
+    // The rewritten address is a link of its own: a reload shows the same chips.
+    expect(loadProviders(storage, address(at.location.href)).isHidden("claude")).toBe(false)
+  })
+
+  test("without the parameter a click saves as before and leaves the address alone", () => {
+    const storage = remembering([])
+    const at = address("http://127.0.0.1:3459/profiles#d-dh-c2")
+    const p = loadProviders(storage, at)
+    p.setHidden("chatgpt", true)
+    expect(storage.getItem(HIDDEN_PROVIDERS_KEY)).toBe('["chatgpt"]')
+    expect(at.replaced).toEqual([])
+  })
+
+  test("fromLocation follows the address back and forth", () => {
+    const storage = remembering(["claude"])
+    const at = address("http://127.0.0.1:3459/profiles?provider=claude")
+    const p = loadProviders(storage, at)
+    at.location.href = "http://127.0.0.1:3459/profiles"
+    p.fromLocation()
+    expect(p.isHidden("claude")).toBe(true)
+    at.location.href = "http://127.0.0.1:3459/profiles?provider=claude"
+    p.fromLocation()
+    expect(p.isHidden("claude")).toBe(false)
+    expect(p.isHidden("chatgpt")).toBe(true)
+    expect(storage.writes).toBe(0)
+  })
+})
+
+describe("?provider= on the landing page", () => {
+  const visibleOn = (search: string, storage: MemoryStorage) => {
+    const html = loadPage(landingHtml, storage, `http://127.0.0.1:3459/${search}`).run<{ html: string }>(
+      `profileSection(null, {}, ${JSON.stringify({ profiles: mixed(), routing: "active" })}, { auth: { loggedIn: true } })`,
+    ).html
+    return { html, ids: cardsOf(html).filter(c => !c.hidden).map(c => c.id) }
+  }
+
+  test("each link shows its provider's cards only, and the remembered choice is untouched", () => {
+    const storage = remembering(["claude"])
+    expect(visibleOn("?provider=claude", storage).ids).toEqual(["c1", "c2"])
+    expect(visibleOn("?provider=chatgpt", storage).ids).toEqual(["g1", "g2"])
+    const { html } = visibleOn("?provider=claude", storage)
+    expect(html).toContain('data-provider-chip="claude" aria-pressed="true"')
+    expect(html).toContain('data-provider-chip="chatgpt" aria-pressed="false"')
+    expect(visibleOn("", storage).ids).toEqual(["g1", "g2"])
+    expect(storage.writes).toBe(0)
+  })
+})
+
+describe("?provider= on the profiles page", () => {
+  const open = (href: string, storage: MemoryStorage) => {
+    const page = loadPage(profilePageHtml, storage, href)
+    page.run(`lastProfiles = ${JSON.stringify({ profiles: mixed() })}; render(lastProfiles, null)`)
+    const cards = [["c1", "claude"], ["c2", "claude"], ["g1", "chatgpt"], ["g2", "chatgpt"]].map(([id, group]) => {
+      const el = stubElement()
+      el.attrs.set("data-id", id!)
+      el.attrs.set("data-group", group!)
+      return el
+    })
+    page.select("#content .profile-card[data-id]", cards)
+    const shown = () => { page.run("applyProfileFilter()"); return cards.filter(c => !c.hidden).map(c => c.attrs.get("data-id")) }
+    return { page, shown }
+  }
+
+  test("the link shows its provider only; the chips say so", () => {
+    const storage = remembering([])
+    const { page, shown } = open("http://127.0.0.1:3459/profiles?provider=chatgpt", storage)
+    expect(shown()).toEqual(["g1", "g2"])
+    expect(page.element("profiles-provider-chips").innerHTML).toContain('data-provider-chip="claude" aria-pressed="false"')
+    expect(storage.writes).toBe(0)
+  })
+
+  test("a profile anchor rides along with the query; following it to a hidden provider rewrites the query, not storage", () => {
+    const storage = remembering([])
+    const { page, shown } = open("http://127.0.0.1:3459/profiles?provider=chatgpt#c1", storage)
+    expect(shown()).toEqual(["g1", "g2"])
+    const target = stubElement()
+    target.attrs.set("data-group", "claude")
+    page.element("profile-c1").getAttribute = target.getAttribute
+    page.run("jumpToProfileAnchor()")
+    expect(shown()).toEqual(["c1", "c2", "g1", "g2"])
+    expect(page.at.location.href).toBe("http://127.0.0.1:3459/profiles?provider=claude,chatgpt#c1")
+    expect(storage.writes).toBe(0)
+  })
+
+  test("back to an entry with another ?provider= redraws the chips from it", () => {
+    const storage = remembering(["chatgpt"])
+    const { page, shown } = open("http://127.0.0.1:3459/profiles?provider=chatgpt", storage)
+    expect(shown()).toEqual(["g1", "g2"])
+    page.at.location.href = "http://127.0.0.1:3459/profiles?provider=claude#c2"
+    page.dispatch("popstate")
+    expect(shown()).toEqual(["c1", "c2"])
+    page.at.location.href = "http://127.0.0.1:3459/profiles"
+    page.dispatch("popstate")
+    expect(shown()).toEqual(["c1", "c2"])
+    expect(page.run<boolean>("meridianProviders.isHidden('chatgpt')")).toBe(true)
+    expect(storage.writes).toBe(0)
+  })
+})
+
+for (const [name, html, path, rootId, selector, apply] of [
+  ["landing", landingHtml, "/", "content", "[data-group]", "applyProviderFilter()"],
+  ["profiles", profilePageHtml, "/profiles", "profiles-section", "#content .profile-card[data-id]", "applyProfileFilter()"],
+] as const) {
+  test(`${name}: last chip off survives reload, history and Show all without saving a preference`, () => {
+    const storage = remembering(["claude"])
+    const base = `http://127.0.0.1:3459${path}?fixture=roundtrip`
+    const open = (href: string) => {
+      const page = loadPage(html, storage, href)
+      if (name === "profiles") page.run(`lastProfiles = ${JSON.stringify({ profiles: mixed() })}; render(lastProfiles, null)`)
+      else page.run(`profileSection(null, {}, ${JSON.stringify({ profiles: mixed() })}, { auth: { loggedIn: true } })`)
+      const cards = [["c1", "claude"], ["g1", "chatgpt"]].map(([id, group]) => {
+        const el = stubElement()
+        el.attrs.set("data-id", id!)
+        el.attrs.set("data-group", group!)
+        return el
+      })
+      if (name === "landing") page.element("content").querySelectorAll = (s: string) => s === selector ? cards : []
+      else page.select(selector, cards)
+      page.run(apply)
+      return { page, shown: () => cards.filter(c => !c.hidden).map(c => c.attrs.get("data-id")) }
+    }
+    const first = open(`${base}&provider=chatgpt`)
+    expect(first.shown()).toEqual(["g1"])
+    first.page.clickChip(rootId, "chatgpt")
+    expect(first.shown()).toEqual([])
+    const emptyUrl = `${base}&provider=`
+    expect(first.page.at.location.href).toBe(emptyUrl)
+
+    const reloaded = open(emptyUrl)
+    expect(reloaded.shown()).toEqual([])
+    if (name === "profiles") expect(reloaded.page.element("profiles-provider-none").hidden).toBe(false)
+    reloaded.page.clickChip(rootId, "*")
+    expect(reloaded.shown()).toEqual(["c1", "g1"])
+    expect(reloaded.page.at.location.href).toBe(`${base}&provider=claude,chatgpt`)
+
+    // Back to an earlier all-hidden entry, then forward to a plain visit.
+    // Dispatch only popstate: the page listener must apply the new filter.
+    for (const [href, shown] of [[emptyUrl, []], [base, ["g1"]], [emptyUrl, []]] as const) {
+      reloaded.page.at.location.href = href
+      reloaded.page.dispatch("popstate")
+      expect(reloaded.shown()).toEqual([...shown])
+    }
+    expect(storage.writes).toBe(0)
+    expect(storage.getItem(HIDDEN_PROVIDERS_KEY)).toBe('["claude"]')
+    expect(open(base).shown()).toEqual(["g1"])
+  })
+}

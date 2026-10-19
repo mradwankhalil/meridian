@@ -1,0 +1,2910 @@
+{
+  "schemaVersion": 1,
+  "repository": "rynfar/meridian",
+  "scope": "Read-only one-commit #1400 credit addendum; historical58 and previous60 snapshots unchanged; no source mutation or merge",
+  "snapshotAtUtc": "2026-10-19T06:16:39.625151+00:00",
+  "freshMain": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+  "policyRoute": {
+    "approvedInPr": 1413,
+    "adoptedMainCommit": "f81d9d8dbc7ff0cd4faf2c48197b46f829921b77",
+    "ordinaryProductGatesUnchanged": true
+  },
+  "historical58Snapshot": {
+    "path": "/private/tmp/meridian-pr1409-20261018/docs/maintenance/evidence/backlog-20261018/forwarded-credit-manifest.json",
+    "sha256": "a12ec7becafc2a90f1e7ebca2d25277cac9af88684d6aa9d81c3460aa6f5938a",
+    "commitCount": 58,
+    "unchangedAfterThisAudit": true
+  },
+  "previous60Snapshot": {
+    "path": "/tmp/meridian-forwarded-credit-1399-addendum.json",
+    "sha256": "9efec62f4c7395b100d55c0e35e878c50d962affaff8e5f1f72b6f891f85801a",
+    "commitCount": 60,
+    "unchangedAfterThisAudit": true,
+    "ciInterpretationCorrection": "Its stored headRef.target rollup SUCCESS values are not proof of required target-repository CI/test completion. The old snapshot bytes and hash are preserved."
+  },
+  "summary": {
+    "currentIntroducedCommitCount": 61,
+    "previous60StillPresent": 60,
+    "historical58StillPresent": 58,
+    "missingPrevious60Commits": [],
+    "missingHistorical58Commits": [],
+    "addedSincePrevious60": [
+      "cf399a7db7db59aa6d8f4596c3eb30d610a60a74"
+    ],
+    "previous60IdentityParentOrSignatureChanges": [],
+    "historical58IdentityParentOrSignatureChanges": [],
+    "headChangesSincePrevious60": [
+      {
+        "number": 1400,
+        "old": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+        "new": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74"
+      }
+    ],
+    "authorCounts": {
+      "eamonster27": 14,
+      "passabilities": 42,
+      "rynfar": 5
+    },
+    "signerCounts": {
+      "passabilities": 56,
+      "rynfar": 5
+    },
+    "all61GitHubSignaturesValid": true,
+    "allEightGithubIntroducedSetsMatchCompletePrConnections": true,
+    "allOriginal1400ObjectsRetained": true,
+    "additive1400CorrectionOnly": true
+  },
+  "newCorrectionCommit": {
+    "sha": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+    "author": {
+      "name": "Trevor Walker",
+      "email": "rynfar@gmail.com",
+      "date": "2026-10-19T06:09:53Z",
+      "login": "rynfar"
+    },
+    "committer": {
+      "name": "Trevor Walker",
+      "email": "rynfar@gmail.com",
+      "date": "2026-10-19T06:09:53Z",
+      "login": "rynfar"
+    },
+    "parents": [
+      "9451a72aa48127ddd6106bedb48ecdb98e03f04d"
+    ],
+    "signature": {
+      "isValid": true,
+      "state": "VALID",
+      "wasSignedByGitHub": false,
+      "email": "rynfar@gmail.com",
+      "signer": {
+        "login": "rynfar"
+      }
+    },
+    "subject": "fix: derive pool retry waits from effective benches",
+    "localMetadata": {
+      "sha": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "dateWithOffset": "2026-10-19T00:09:53-06:00"
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "dateWithOffset": "2026-10-19T00:09:53-06:00"
+      },
+      "parents": [
+        "9451a72aa48127ddd6106bedb48ecdb98e03f04d"
+      ],
+      "subject": "fix: derive pool retry waits from effective benches",
+      "signatureHeaderPresent": true,
+      "signatureHeaderKind": "SSH"
+    },
+    "restVerification": {
+      "verified": true,
+      "reason": "valid",
+      "verified_at": "2026-10-19T06:10:10Z"
+    },
+    "localSignatureVerification": {
+      "signatureHeaderKind": "SSH",
+      "cryptographicallyGood": true,
+      "algorithm": "ED25519",
+      "keyFingerprint": "SHA256:MIQlVgbMwpydbVe4w7eML0WlJNdddjg/BCl2+2v4GSs",
+      "trustedPrincipalVerifiedLocally": false,
+      "limitation": "No gpg.ssh.allowedSignersFile configured. An empty allowed-signers file confirmed the good signature but no principal matched and exit status remained 1. GitHub independently reports VALID and signer rynfar."
+    }
+  },
+  "original1400PreservationProof": [
+    {
+      "sha": "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+        "author": {
+          "name": "=DEX",
+          "email": "eamonbachari@gmail.com",
+          "dateWithOffset": "2026-10-05T19:42:37-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:10-05:00"
+        },
+        "parents": [
+          "095b4869b5fe386e2f3a273cc5b60ec3853c8659"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    },
+    {
+      "sha": "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+        "author": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T12:00:55-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:11-05:00"
+        },
+        "parents": [
+          "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    },
+    {
+      "sha": "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+        "author": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T12:01:47-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:11-05:00"
+        },
+        "parents": [
+          "34e7e52136f8a3107ddc0c1eaaf158465008fc1f"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    },
+    {
+      "sha": "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+        "author": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T12:02:47-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:12-05:00"
+        },
+        "parents": [
+          "851d1592a3fb01164b2adea4f9f7e7bf146781a5"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    },
+    {
+      "sha": "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+        "author": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T13:28:11-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:12-05:00"
+        },
+        "parents": [
+          "4342d0b3d4094015bf252fee2fdf4f83803e77f6"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    },
+    {
+      "sha": "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+        "author": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T13:28:12-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:12-05:00"
+        },
+        "parents": [
+          "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    },
+    {
+      "sha": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+      "unchangedObjectReachable": true,
+      "localMetadata": {
+        "sha": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+        "author": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T13:28:12-05:00"
+        },
+        "committer": {
+          "name": "Noah Passalacqua",
+          "email": "noah@passabilities.dev",
+          "dateWithOffset": "2026-10-16T14:25:12-05:00"
+        },
+        "parents": [
+          "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0"
+        ]
+      },
+      "githubMetadataAndSignatureUnchangedFromPrevious60": true,
+      "githubMetadataAndSignatureUnchangedFromHistorical58": true
+    }
+  ],
+  "localAncestry": {
+    "worktree": "/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388",
+    "localOriginMain": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+    "remoteSnapshotMain": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+    "allPrAncestry": [
+      {
+        "number": 1394,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 128,
+        "complete": false,
+        "commitShas": [],
+        "matchesPrConnection": null,
+        "error": "fatal: bad object 8dad6d4a89a17c5d18b47ab00f1a65be039578d9"
+      },
+      {
+        "number": 1395,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 128,
+        "complete": false,
+        "commitShas": [],
+        "matchesPrConnection": null,
+        "error": "fatal: bad object 6cd3e6f292d060b620efd3f1417b544bbfe5fb6c"
+      },
+      {
+        "number": 1396,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 0,
+        "complete": true,
+        "commitShas": [
+          "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+          "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+          "b7a1504a1ef46109f14ec0617f64958f9043548e",
+          "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+          "d14f21332a195b61be8ce5a099c26a66d64523c6",
+          "709ac018b7390471fecd66e2d94e26da29b25b98",
+          "131cf72844fce1c80473ad79fcd433946878ed20",
+          "83d15d5357fc6d50c96cb44ad4355b865467929b",
+          "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+          "a40be1795a1b8dbcdeccfe8525b972c17609ff73"
+        ],
+        "matchesPrConnection": true,
+        "error": null
+      },
+      {
+        "number": 1397,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "5617da1f52d2c8c1c970b574d6302ccb648de160",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 128,
+        "complete": false,
+        "commitShas": [],
+        "matchesPrConnection": null,
+        "error": "fatal: bad object 5617da1f52d2c8c1c970b574d6302ccb648de160"
+      },
+      {
+        "number": 1398,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 0,
+        "complete": true,
+        "commitShas": [
+          "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+          "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+          "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+          "5ae67bd609828497e588823d510a72f1e78576ad",
+          "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32"
+        ],
+        "matchesPrConnection": true,
+        "error": null
+      },
+      {
+        "number": 1399,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 0,
+        "complete": true,
+        "commitShas": [
+          "2d577070bf528c5ab03fda2b1497103d7fba1543",
+          "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+          "238cc7963563f90b1218ef9522a03aad3e655911",
+          "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+          "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+          "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+          "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+          "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+          "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+        ],
+        "matchesPrConnection": true,
+        "error": null
+      },
+      {
+        "number": 1400,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 0,
+        "complete": true,
+        "commitShas": [
+          "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+          "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+          "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+          "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+          "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+          "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+          "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+          "cf399a7db7db59aa6d8f4596c3eb30d610a60a74"
+        ],
+        "matchesPrConnection": true,
+        "error": null
+      },
+      {
+        "number": 1401,
+        "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+        "head": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+        "command": [
+          "git",
+          "rev-list",
+          "--reverse",
+          "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+          "--not",
+          "da8187ab4553e4fd2120aa0098b2a81b197502dc"
+        ],
+        "exitCode": 128,
+        "complete": false,
+        "commitShas": [],
+        "matchesPrConnection": null,
+        "error": "fatal: bad object 356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec"
+      }
+    ],
+    "newCommitMetadata": {
+      "sha": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "dateWithOffset": "2026-10-19T00:09:53-06:00"
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "dateWithOffset": "2026-10-19T00:09:53-06:00"
+      },
+      "parents": [
+        "9451a72aa48127ddd6106bedb48ecdb98e03f04d"
+      ],
+      "subject": "fix: derive pool retry waits from effective benches",
+      "signatureHeaderPresent": true,
+      "signatureHeaderKind": "SSH"
+    },
+    "originalHeadAncestorExitCode": 0,
+    "newChain": [
+      "cf399a7db7db59aa6d8f4596c3eb30d610a60a74"
+    ]
+  },
+  "githubComparisonsToFreshMain": [
+    {
+      "number": 1394,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+      "status": "diverged",
+      "aheadBy": 6,
+      "behindBy": 7,
+      "totalCommits": 6,
+      "listedShas": [
+        "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+        "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+        "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+        "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+        "063af3f30428bdc192563a13c6429d67647bb81f",
+        "8dad6d4a89a17c5d18b47ab00f1a65be039578d9"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1395,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+      "status": "diverged",
+      "aheadBy": 5,
+      "behindBy": 7,
+      "totalCommits": 5,
+      "listedShas": [
+        "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+        "75356c496acf2af4f1a4d3f6386b919e48c06188",
+        "5619fd9f67ec86db1766d80b07f6c1638c045827",
+        "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+        "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1396,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+      "status": "diverged",
+      "aheadBy": 10,
+      "behindBy": 7,
+      "totalCommits": 10,
+      "listedShas": [
+        "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+        "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+        "b7a1504a1ef46109f14ec0617f64958f9043548e",
+        "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+        "d14f21332a195b61be8ce5a099c26a66d64523c6",
+        "709ac018b7390471fecd66e2d94e26da29b25b98",
+        "131cf72844fce1c80473ad79fcd433946878ed20",
+        "83d15d5357fc6d50c96cb44ad4355b865467929b",
+        "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+        "a40be1795a1b8dbcdeccfe8525b972c17609ff73"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1397,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+      "status": "diverged",
+      "aheadBy": 8,
+      "behindBy": 7,
+      "totalCommits": 8,
+      "listedShas": [
+        "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+        "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+        "b0d70e4291499c4f485e42e7a75cb88ece185672",
+        "b736addc389afbb694c4762c654545d555ac57b1",
+        "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+        "8145cebfec2ee52e779569859a21372cd8f75e9c",
+        "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+        "5617da1f52d2c8c1c970b574d6302ccb648de160"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1398,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+      "status": "diverged",
+      "aheadBy": 5,
+      "behindBy": 7,
+      "totalCommits": 5,
+      "listedShas": [
+        "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+        "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+        "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+        "5ae67bd609828497e588823d510a72f1e78576ad",
+        "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1399,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "status": "diverged",
+      "aheadBy": 9,
+      "behindBy": 7,
+      "totalCommits": 9,
+      "listedShas": [
+        "2d577070bf528c5ab03fda2b1497103d7fba1543",
+        "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+        "238cc7963563f90b1218ef9522a03aad3e655911",
+        "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+        "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+        "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+        "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+        "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+        "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1400,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+      "status": "diverged",
+      "aheadBy": 8,
+      "behindBy": 2,
+      "totalCommits": 8,
+      "listedShas": [
+        "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+        "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+        "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+        "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+        "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+        "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+        "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+        "cf399a7db7db59aa6d8f4596c3eb30d610a60a74"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    },
+    {
+      "number": 1401,
+      "main": "da8187ab4553e4fd2120aa0098b2a81b197502dc",
+      "head": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+      "status": "diverged",
+      "aheadBy": 10,
+      "behindBy": 7,
+      "totalCommits": 10,
+      "listedShas": [
+        "8c096b592879660548bb71e02f43c339f36982e1",
+        "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+        "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+        "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+        "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+        "7c3295817737d50529e825f80973768a5077f54b",
+        "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+        "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+        "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+        "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec"
+      ],
+      "allCommitPagesFetched": true,
+      "matchesPrConnection": true
+    }
+  ],
+  "current61ShaInventory": [
+    "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+    "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+    "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+    "063af3f30428bdc192563a13c6429d67647bb81f",
+    "131cf72844fce1c80473ad79fcd433946878ed20",
+    "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+    "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+    "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+    "238cc7963563f90b1218ef9522a03aad3e655911",
+    "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+    "2d577070bf528c5ab03fda2b1497103d7fba1543",
+    "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+    "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+    "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+    "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+    "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+    "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+    "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+    "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+    "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+    "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+    "5617da1f52d2c8c1c970b574d6302ccb648de160",
+    "5619fd9f67ec86db1766d80b07f6c1638c045827",
+    "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+    "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+    "5ae67bd609828497e588823d510a72f1e78576ad",
+    "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+    "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+    "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+    "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+    "709ac018b7390471fecd66e2d94e26da29b25b98",
+    "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+    "75356c496acf2af4f1a4d3f6386b919e48c06188",
+    "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+    "7c3295817737d50529e825f80973768a5077f54b",
+    "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+    "8145cebfec2ee52e779569859a21372cd8f75e9c",
+    "83d15d5357fc6d50c96cb44ad4355b865467929b",
+    "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+    "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+    "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+    "8c096b592879660548bb71e02f43c339f36982e1",
+    "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+    "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+    "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+    "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+    "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+    "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+    "b0d70e4291499c4f485e42e7a75cb88ece185672",
+    "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+    "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+    "b736addc389afbb694c4762c654545d555ac57b1",
+    "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+    "b7a1504a1ef46109f14ec0617f64958f9043548e",
+    "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+    "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+    "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+    "d14f21332a195b61be8ce5a099c26a66d64523c6",
+    "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+    "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+    "edd24f6a36f60539873396a3e64bb68a2ade02c1"
+  ],
+  "currentPullRequests": [
+    {
+      "number": 1394,
+      "url": "https://github.com/rynfar/meridian/pull/1394",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/sdk-probe-async",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 6,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 6,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "Ng"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+        "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+        "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+        "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+        "063af3f30428bdc192563a13c6429d67647bb81f",
+        "8dad6d4a89a17c5d18b47ab00f1a65be039578d9"
+      ],
+      "commits": [
+        {
+          "sha": "496ef5f4fe23bb67be0ca81b32d055bad067245c",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T22:18:34Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:09Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "3973d3a57760f3f77ee72fcaba145fc9911228b0",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:31:43Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:09Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "496ef5f4fe23bb67be0ca81b32d055bad067245c"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "70aa323130ea6158e434e00152a5cbcb39eeeecf",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:42Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:09Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "3973d3a57760f3f77ee72fcaba145fc9911228b0"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "bb4ea765011fe123704a29ca4f176bf43cd04e93",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:55:19Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "70aa323130ea6158e434e00152a5cbcb39eeeecf"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "063af3f30428bdc192563a13c6429d67647bb81f",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:56:57Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "bb4ea765011fe123704a29ca4f176bf43cd04e93"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "8dad6d4a89a17c5d18b47ab00f1a65be039578d9",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:57:23Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "063af3f30428bdc192563a13c6429d67647bb81f"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/38955239235/job/117156332133"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1395,
+      "url": "https://github.com/rynfar/meridian/pull/1395",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/client-working-directory",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 5,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 5,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "NQ"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+        "75356c496acf2af4f1a4d3f6386b919e48c06188",
+        "5619fd9f67ec86db1766d80b07f6c1638c045827",
+        "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+        "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c"
+      ],
+      "commits": [
+        {
+          "sha": "57dbfb73e1bfc9f6796137921c0969f4c38e583b",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T03:59:05Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "75356c496acf2af4f1a4d3f6386b919e48c06188",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:31:48Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "57dbfb73e1bfc9f6796137921c0969f4c38e583b"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "5619fd9f67ec86db1766d80b07f6c1638c045827",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:31:49Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "75356c496acf2af4f1a4d3f6386b919e48c06188"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "68396216ac0a5d11f27b05da89ed1377428a2ea5",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:53:45Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "5619fd9f67ec86db1766d80b07f6c1638c045827"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "6cd3e6f292d060b620efd3f1417b544bbfe5fb6c",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:10Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "68396216ac0a5d11f27b05da89ed1377428a2ea5"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/38955240350/job/117156336490"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1396,
+      "url": "https://github.com/rynfar/meridian/pull/1396",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/system-turn-lineage",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 10,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 10,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MTA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+        "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+        "b7a1504a1ef46109f14ec0617f64958f9043548e",
+        "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+        "d14f21332a195b61be8ce5a099c26a66d64523c6",
+        "709ac018b7390471fecd66e2d94e26da29b25b98",
+        "131cf72844fce1c80473ad79fcd433946878ed20",
+        "83d15d5357fc6d50c96cb44ad4355b865467929b",
+        "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+        "a40be1795a1b8dbcdeccfe8525b972c17609ff73"
+      ],
+      "commits": [
+        {
+          "sha": "7dcb2149c8b6d7cc8a5008440268e7e6afb74655",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-05T20:06:59Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "edd24f6a36f60539873396a3e64bb68a2ade02c1",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-05T20:45:15Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "7dcb2149c8b6d7cc8a5008440268e7e6afb74655"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "b7a1504a1ef46109f14ec0617f64958f9043548e",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-08T12:43:28Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "edd24f6a36f60539873396a3e64bb68a2ade02c1"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "034ed0a6719a661bcc372af65fbdaba1bb433e91",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:34:45Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "b7a1504a1ef46109f14ec0617f64958f9043548e"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "d14f21332a195b61be8ce5a099c26a66d64523c6",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T15:35:08Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "034ed0a6719a661bcc372af65fbdaba1bb433e91"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "709ac018b7390471fecd66e2d94e26da29b25b98",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:53:52Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:13Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "d14f21332a195b61be8ce5a099c26a66d64523c6"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "131cf72844fce1c80473ad79fcd433946878ed20",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:39Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:14Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "709ac018b7390471fecd66e2d94e26da29b25b98"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "83d15d5357fc6d50c96cb44ad4355b865467929b",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:55:21Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:14Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "131cf72844fce1c80473ad79fcd433946878ed20"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "db52bfd0187d9b61e3627f71059564f27e71b2cb",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar"
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar"
+          },
+          "parents": [
+            "83d15d5357fc6d50c96cb44ad4355b865467929b"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "rynfar@gmail.com",
+            "signer": {
+              "login": "rynfar"
+            }
+          }
+        },
+        {
+          "sha": "a40be1795a1b8dbcdeccfe8525b972c17609ff73",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar"
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T04:59:45Z",
+            "login": "rynfar"
+          },
+          "parents": [
+            "db52bfd0187d9b61e3627f71059564f27e71b2cb"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "rynfar@gmail.com",
+            "signer": {
+              "login": "rynfar"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/39203477349/job/117901193018"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1397,
+      "url": "https://github.com/rynfar/meridian/pull/1397",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/priority-cancel",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 8,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 8,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+        "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+        "b0d70e4291499c4f485e42e7a75cb88ece185672",
+        "b736addc389afbb694c4762c654545d555ac57b1",
+        "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+        "8145cebfec2ee52e779569859a21372cd8f75e9c",
+        "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+        "5617da1f52d2c8c1c970b574d6302ccb648de160"
+      ],
+      "commits": [
+        {
+          "sha": "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T09:43:55Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "b22ea383f9bce19bee13c690b32e7c08f93867f5",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T09:45:41Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "759cf0c298f41b40f69cfd3b03e6cf24f707bdb2"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "b0d70e4291499c4f485e42e7a75cb88ece185672",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:59:42Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "b22ea383f9bce19bee13c690b32e7c08f93867f5"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "b736addc389afbb694c4762c654545d555ac57b1",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:03:28Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:45Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "b0d70e4291499c4f485e42e7a75cb88ece185672"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "604cf7aa3332f82148e8124447f10ac1a3b20d96",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:04:17Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:46Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "b736addc389afbb694c4762c654545d555ac57b1"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "8145cebfec2ee52e779569859a21372cd8f75e9c",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:01Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:46Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "604cf7aa3332f82148e8124447f10ac1a3b20d96"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "83d46bb5fa3d5eae3777e39fd1369c96146512df",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:12:53Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:12:53Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "8145cebfec2ee52e779569859a21372cd8f75e9c"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "5617da1f52d2c8c1c970b574d6302ccb648de160",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:13:24Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:13:24Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "83d46bb5fa3d5eae3777e39fd1369c96146512df"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/38955240601/job/117156337167"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1398,
+      "url": "https://github.com/rynfar/meridian/pull/1398",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/bun-startup-warning",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 5,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 5,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "NQ"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+        "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+        "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+        "5ae67bd609828497e588823d510a72f1e78576ad",
+        "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32"
+      ],
+      "commits": [
+        {
+          "sha": "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T11:07:38Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:24:51Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:10Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "0341a48bed945f4a4671fcdec9fa18c84e7708d1"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:54:07Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "5ae67bd609828497e588823d510a72f1e78576ad",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:55:14Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "38ca32f56b5f350a72d771eb3f7bc410b6f3f610"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:57:00Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "5ae67bd609828497e588823d510a72f1e78576ad"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/38955238713/job/117156330508"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1399,
+      "url": "https://github.com/rynfar/meridian/pull/1399",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/session-cleanup-throughput",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 9,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 9,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OQ"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "2d577070bf528c5ab03fda2b1497103d7fba1543",
+        "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+        "238cc7963563f90b1218ef9522a03aad3e655911",
+        "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+        "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+        "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+        "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+        "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+        "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811"
+      ],
+      "commits": [
+        {
+          "sha": "2d577070bf528c5ab03fda2b1497103d7fba1543",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-10T06:15:38Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:48Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "cc56a1b387e2b1115a6ff97b185b715d8156181d",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:14Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:48Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "2d577070bf528c5ab03fda2b1497103d7fba1543"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "238cc7963563f90b1218ef9522a03aad3e655911",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:55Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:48Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "cc56a1b387e2b1115a6ff97b185b715d8156181d"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "5870b6c2e6bbdda973e078fbd25d28d0a728cced",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:14:38Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:14:38Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "238cc7963563f90b1218ef9522a03aad3e655911"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "b2d99c54aed8c3e948ba91127fe1d430d8a8a573",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:18:00Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:18:00Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "5870b6c2e6bbdda973e078fbd25d28d0a728cced"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "5442fef89e8a954fbdee78b6b0705dcfe2d941f8",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:53Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:53Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "b2d99c54aed8c3e948ba91127fe1d430d8a8a573"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:54Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:19:54Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "5442fef89e8a954fbdee78b6b0705dcfe2d941f8"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "4644524c4905f364e995210fbcc2bb3e6952dbd4",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T05:32:27Z",
+            "login": "rynfar"
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T05:32:27Z",
+            "login": "rynfar"
+          },
+          "parents": [
+            "a8fccdbdd9abe0f196168cf0a34a341caba1e1a5"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "rynfar@gmail.com",
+            "signer": {
+              "login": "rynfar"
+            }
+          }
+        },
+        {
+          "sha": "1372390cb8f36eb6ebc29d36e6a5ff0bd90b7811",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T05:32:27Z",
+            "login": "rynfar"
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T05:32:27Z",
+            "login": "rynfar"
+          },
+          "parents": [
+            "4644524c4905f364e995210fbcc2bb3e6952dbd4"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "rynfar@gmail.com",
+            "signer": {
+              "login": "rynfar"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/39205234731/job/117906523227"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1400,
+      "url": "https://github.com/rynfar/meridian/pull/1400",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/model-allowance-failover",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "UNSTABLE",
+      "commitsTotal": 8,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 8,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "OA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+        "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+        "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+        "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+        "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+        "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+        "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+        "cf399a7db7db59aa6d8f4596c3eb30d610a60a74"
+      ],
+      "commits": [
+        {
+          "sha": "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T00:42:37Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:10Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "095b4869b5fe386e2f3a273cc5b60ec3853c8659"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "34e7e52136f8a3107ddc0c1eaaf158465008fc1f",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:00:55Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "29fd486ff91ab8bc04f670d7ea19bd1ac5c8ca47"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "851d1592a3fb01164b2adea4f9f7e7bf146781a5",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:01:47Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:11Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "34e7e52136f8a3107ddc0c1eaaf158465008fc1f"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "4342d0b3d4094015bf252fee2fdf4f83803e77f6",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:02:47Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "851d1592a3fb01164b2adea4f9f7e7bf146781a5"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:28:11Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "4342d0b3d4094015bf252fee2fdf4f83803e77f6"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:28:12Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "21cec7b5cd1e6cc56dfa8ce478718c0926a92c72"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "9451a72aa48127ddd6106bedb48ecdb98e03f04d",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:28:12Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T19:25:12Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "a2ac4cd94b47c723d7e254ca4e162492ba99e3e0"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+          "author": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T06:09:53Z",
+            "login": "rynfar"
+          },
+          "committer": {
+            "name": "Trevor Walker",
+            "email": "rynfar@gmail.com",
+            "date": "2026-10-19T06:09:53Z",
+            "login": "rynfar"
+          },
+          "parents": [
+            "9451a72aa48127ddd6106bedb48ecdb98e03f04d"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "rynfar@gmail.com",
+            "signer": {
+              "login": "rynfar"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/39208359691/job/117916026263"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    },
+    {
+      "number": 1401,
+      "url": "https://github.com/rynfar/meridian/pull/1401",
+      "state": "OPEN",
+      "isDraft": false,
+      "head": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+      "baseRefOid": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+      "headBranch": "dex/stale-copy-guard",
+      "headRepository": "passabilities/meridian",
+      "mergeStateStatus": "CLEAN",
+      "commitsTotal": 10,
+      "commitPages": [
+        {
+          "first": 100,
+          "returned": 10,
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MTA"
+          }
+        }
+      ],
+      "allCommitPagesFetched": true,
+      "commitShas": [
+        "8c096b592879660548bb71e02f43c339f36982e1",
+        "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+        "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+        "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+        "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+        "7c3295817737d50529e825f80973768a5077f54b",
+        "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+        "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+        "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+        "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec"
+      ],
+      "commits": [
+        {
+          "sha": "8c096b592879660548bb71e02f43c339f36982e1",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T08:23:02Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:49Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "dfe264daf2bca18fcc426e4e1268987ea166c427"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "44a1343fcd41ff7724dee3c6591cf11fb93d2330",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T09:14:50Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:49Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "8c096b592879660548bb71e02f43c339f36982e1"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "14d5213633e5cc24a498a48bdb0cf94cd4734ee8",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T16:59:40Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "44a1343fcd41ff7724dee3c6591cf11fb93d2330"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "b75bf73b16e0ea6d994bc192701e0f84c0df6230",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T10:53:20Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "14d5213633e5cc24a498a48bdb0cf94cd4734ee8"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "8a53f0f8b787d7e343e159144b6d4ec54f1e928f",
+          "author": {
+            "name": "=DEX",
+            "email": "eamonbachari@gmail.com",
+            "date": "2026-10-06T11:04:46Z",
+            "login": "eamonster27"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "b75bf73b16e0ea6d994bc192701e0f84c0df6230"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "7c3295817737d50529e825f80973768a5077f54b",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:49Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:50Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "8a53f0f8b787d7e343e159144b6d4ec54f1e928f"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:05:49Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:51Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "7c3295817737d50529e825f80973768a5077f54b"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T17:07:28Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:10:51Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "8fb34e0fbae54c3c52a720891dd7a097ebcdcb10"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "69a20f664cf6203afdd0d824561a980a3ef9d4c7",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "3ab7e8e334a24dc3e53dfac10a9dc6230a23860b"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        },
+        {
+          "sha": "356eeb0b536d8e3859e8a6f5e5bd1a58d674f8ec",
+          "author": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities"
+          },
+          "committer": {
+            "name": "Noah Passalacqua",
+            "email": "noah@passabilities.dev",
+            "date": "2026-10-16T18:11:56Z",
+            "login": "passabilities"
+          },
+          "parents": [
+            "69a20f664cf6203afdd0d824561a980a3ef9d4c7"
+          ],
+          "signature": {
+            "isValid": true,
+            "state": "VALID",
+            "wasSignedByGitHub": false,
+            "email": "noah@passabilities.dev",
+            "signer": {
+              "login": "passabilities"
+            }
+          }
+        }
+      ],
+      "headRefTargetCheckRollup": {
+        "state": "SUCCESS",
+        "contexts": {
+          "nodes": [
+            {
+              "__typename": "CheckRun",
+              "name": "build (.#checks.x86_64-linux.home)",
+              "status": "COMPLETED",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/passabilities/meridian/actions/runs/38955240982/job/117156338315"
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false,
+            "endCursor": "MQ"
+          }
+        }
+      },
+      "checkRollupScope": "headRef.target can resolve checks in the fork repository; not a target-repository acceptance verdict"
+    }
+  ],
+  "targetRepository1400Checks": {
+    "atUtc": "2026-10-19T06:17:33.942226+00:00",
+    "command": [
+      "gh",
+      "pr",
+      "checks",
+      "1400",
+      "--repo",
+      "rynfar/meridian",
+      "--json",
+      "name,state,bucket,link,workflow"
+    ],
+    "exitCode": 0,
+    "checks": [
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367351/job/117916511889",
+        "name": "build-push",
+        "state": "SUCCESS",
+        "workflow": "Docker"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367459/job/117916047489",
+        "name": "desktop-build (macos-latest)",
+        "state": "SUCCESS",
+        "workflow": "desktop"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367351/job/117916047080",
+        "name": "smoke",
+        "state": "SUCCESS",
+        "workflow": "Docker"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367405/job/117916047639",
+        "name": "build (.#checks.x86_64-linux.home)",
+        "state": "SUCCESS",
+        "workflow": "Nix installable builds"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367459/job/117916047732",
+        "name": "desktop-build (ubuntu-latest)",
+        "state": "SUCCESS",
+        "workflow": "desktop"
+      },
+      {
+        "bucket": "pending",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367317/job/117916046906",
+        "name": "test",
+        "state": "IN_PROGRESS",
+        "workflow": "CI"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367317/job/117916047120",
+        "name": "windows-smoke",
+        "state": "SUCCESS",
+        "workflow": "CI"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208362507/job/117916034981",
+        "name": "authorship",
+        "state": "SUCCESS",
+        "workflow": "Attribution"
+      },
+      {
+        "bucket": "skipping",
+        "link": "https://github.com/rynfar/meridian/actions/runs/39208367317/job/117916047987",
+        "name": "changelog-duplication",
+        "state": "SKIPPED",
+        "workflow": "CI"
+      }
+    ]
+  },
+  "targetRepository1400CiRun": {
+    "id": 39208367317,
+    "name": "CI",
+    "head_sha": "cf399a7db7db59aa6d8f4596c3eb30d610a60a74",
+    "event": "pull_request",
+    "status": "in_progress",
+    "conclusion": null,
+    "html_url": "https://github.com/rynfar/meridian/actions/runs/39208367317",
+    "created_at": "2026-10-19T06:10:15Z",
+    "updated_at": "2026-10-19T06:10:19Z"
+  },
+  "gates": {
+    "creditAddendumOnly": true,
+    "fullLocal1400NpmTest": "PENDING according to correction handoff; not run by this audit",
+    "exactHead1400CiTest": {
+      "bucket": "pending",
+      "link": "https://github.com/rynfar/meridian/actions/runs/39208367317/job/117916046906",
+      "name": "test",
+      "state": "IN_PROGRESS",
+      "workflow": "CI"
+    },
+    "affectedFlowLive": "OPEN; no model/access calls in this audit",
+    "productAcceptanceEstablished": false,
+    "mergePerformed": false
+  },
+  "provenanceContinuity": {
+    "historicalSourceObjectAndPatchComparison": "Retained by reference to unchanged historical58 manifest; not broadly re-run",
+    "existingForwardedCopiesNotOriginalSourceShas": true,
+    "preservingCurrentObjectsDoesNotRestoreOriginalSourceShasParentsOrSignatures": true,
+    "sourceAuthorsRetained": "Actual per-commit Author/login metadata, not PR-opener email aggregate"
+  },
+  "limits": [
+    "One bounded GitHub main/head/commit snapshot; later head or main changes invalidate merge preflight.",
+    "All complete GitHub PR commit connections checked against complete compare(main...head) lists; no unfinished pages.",
+    "Local ancestry checked completely for #1396, #1398, #1399 and #1400; #1394, #1395, #1397 and #1401 objects are absent in this local object database. No fetch performed. Full fresh local all-eight cross-check remains required before eventual merge.",
+    "No branch-protection/settings refresh in this addendum; refresh protection, signatures, mergeability, actual target-PR check contexts and exact head, required test, and reviewed combined tree immediately before merge.",
+    "The headRef target check rollup for #1400 reports SUCCESS for only its fork Nix check. Target-repository CI independently remains in progress; it is not acceptance. This caveat also qualifies historical60 stored rollups without changing their bytes.",
+    "No tests, builds, model requests, access diagnostics, GitHub writes, source edits, checkout changes or merges run by this audit.",
+    "GraphQL messageHeadline can truncate long subjects. Identity comparisons use SHA, Author/AuthorDate, Committer, parents and signature identities; source provenance/full subjects remain in the historical manifest."
+  ]
+}

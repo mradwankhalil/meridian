@@ -1,0 +1,163 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/active-priority-integration.test.ts:
+OFFLINE_FIXTURE_RUNTIME {"bun":"1.3.11","executable":"/private/tmp/meridian-1399-tooling/node_modules/bun/bin/bun.exe"}
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 98656ade-2187-4f07-9311-17aca1e15017 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 98656ade-2187-4f07-9311-17aca1e15017 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 98656ade-2187-4f07-9311-17aca1e15017 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] a997962b-7350-4fb7-bb4e-39bf37a8e36b adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10797
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:732:11)
+(fail) an allowance spent for one model > effective pool retry waits (JSON) > keeps the longer model benches when a shorter repeat would hide the retried account's opening [1095.21ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 6c668e14-9026-42ee-ba75-c0d25a18975e adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 6c668e14-9026-42ee-ba75-c0d25a18975e adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 6c668e14-9026-42ee-ba75-c0d25a18975e adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] a65fe7bb-ffa9-482e-9607-daebcb40490e adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10798
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:732:11)
+(fail) an allowance spent for one model > effective pool retry waits (JSON) > keeps the longer model benches when a shorter repeat would hide a skipped account's opening [463.32ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] a8fd0d39-671f-40c1-8fae-ab9a3c0284d0 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] a8fd0d39-671f-40c1-8fae-ab9a3c0284d0 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] a8fd0d39-671f-40c1-8fae-ab9a3c0284d0 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 9b4b7049-7b85-4d61-bbbf-b322455789df rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] ffbcdd18-70b6-4b14-92cc-4c9bcc406a19 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10789
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:770:9)
+(fail) an allowance spent for one model > effective pool retry waits (JSON) > waits for both account and model exclusions before comparing accounts [9982.20ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] e040e0ed-c230-4371-8888-2950ec45eb9f adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] e040e0ed-c230-4371-8888-2950ec45eb9f adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] e040e0ed-c230-4371-8888-2950ec45eb9f adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d237cf47-d3fb-4839-94af-dbb809102597 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d237cf47-d3fb-4839-94af-dbb809102597 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (JSON) > keeps the ordinary ten-minute first-mark wait model-local [206.41ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 217aef77-d537-43b1-9159-ffbf85eb683b adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 217aef77-d537-43b1-9159-ffbf85eb683b adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 217aef77-d537-43b1-9159-ffbf85eb683b adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] baaab754-ab2f-46a1-b312-f79e6399a3a5 adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10798
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:732:11)
+(fail) an allowance spent for one model > effective pool retry waits (SSE) > keeps the longer model benches when a shorter repeat would hide the retried account's opening [667.70ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] f7d4f169-6518-4963-92dd-fdb5dd506954 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f7d4f169-6518-4963-92dd-fdb5dd506954 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f7d4f169-6518-4963-92dd-fdb5dd506954 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] aaa6270c-dbcb-4859-ab03-404a1a5fe06c adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10798
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:732:11)
+(fail) an allowance spent for one model > effective pool retry waits (SSE) > keeps the longer model benches when a shorter repeat would hide a skipped account's opening [525.14ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 977f4795-f84a-4a72-9b9b-c7617e4a5e21 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 977f4795-f84a-4a72-9b9b-c7617e4a5e21 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 977f4795-f84a-4a72-9b9b-c7617e4a5e21 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 01a5d335-7d11-46d0-9c9b-d32b667f7fc6 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] c1f711a0-6a2e-4fc4-8859-75596423e440 adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+695 |         expect(payload.error.type).toBe("rate_limit_error")
+696 |         return payload.error.retry_after
+697 |       }
+698 | 
+699 |       function expectWaitUntil(wait: number, reset: number): void {
+700 |         expect(wait).toBeGreaterThanOrEqual(Math.ceil((reset - Date.now()) / 1000) - 2)
+                           ^
+error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 10788
+Received: 600
+
+      at expectWaitUntil (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:700:22)
+      at <anonymous> (/Volumes/DevSSD/meridian/t3-worktrees/t3-fa1c2388/src/__tests__/active-priority-integration.test.ts:770:9)
+(fail) an allowance spent for one model > effective pool retry waits (SSE) > waits for both account and model exclusions before comparing accounts [10079.66ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 782552eb-231e-43cd-824b-eb227de5471a adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 782552eb-231e-43cd-824b-eb227de5471a adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 782552eb-231e-43cd-824b-eb227de5471a adapter=opencode profile=spare(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 41ff4b64-83b0-4b19-9541-bbabdeefb634 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 41ff4b64-83b0-4b19-9541-bbabdeefb634 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (SSE) > keeps the ordinary ten-minute first-mark wait model-local [290.39ms]
+SDK_BOUNDARY_TRAP {"attempts":[],"actualNativeChildren":0,"actualNetworkCalls":0}
+
+ 2 pass
+ 42 filtered out
+ 6 fail
+ 73 expect() calls
+Ran 8 tests across 1 file. [24.88s]

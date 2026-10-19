@@ -28,11 +28,26 @@
  * exposed case.
  */
 import { describe, it, expect, beforeEach } from "bun:test"
-import { installSdkMock, setSdkMock } from "./sdkMock"
+import { installSdkMock } from "./sdkMock"
 import { installLoggerMock, setLoggerMock } from "./loggerMock"
 import { installMcpToolsMock, setMcpToolsMock } from "./mcpToolsMock"
 import { resolveMockSdkSessionId } from "./helpers"
 import { notePluginlessOpenCodeRequest, clearPluginlessWarnings, isPluginlessOpenCodeRequest } from "../proxy/setup"
+
+installSdkMock(() => ({
+  query: (params: any) => (async function* () {
+    yield {
+      type: "assistant",
+      uuid: "u1",
+      session_id: resolveMockSdkSessionId(params.options, "test-session"),
+      message: { id: "m1", type: "message", role: "assistant", model: "m",
+        content: [{ type: "text", text: "ok" }], stop_reason: "end_turn",
+        usage: { input_tokens: 1, output_tokens: 1 } },
+    }
+  })(),
+  createSdkMcpServer: () => ({ type: "sdk", name: "t", instance: { tool: () => {}, registerTool: () => ({}) } }),
+  tool: () => ({}),
+}), "pluginless-opencode-warning.test.ts")
 
 const OPENCODE_UA = "opencode/1.18.11 ai-sdk/provider-utils/4.0.27 runtime/bun/1.3.14"
 
@@ -149,20 +164,7 @@ describe("notePluginlessOpenCodeRequest", () => {
 describe("plugin-less warning through the HTTP path", () => {
   it("records a diagnostic for a plugin-less OpenCode request, and not for a plugin-ful one", async () => {
     const { mock } = await import("bun:test")
-    setSdkMock(() => ({
-      query: (params: any) => (async function* () {
-        yield {
-          type: "assistant",
-          uuid: "u1",
-          session_id: resolveMockSdkSessionId(params.options, "test-session"),
-          message: { id: "m1", type: "message", role: "assistant", model: "m",
-            content: [{ type: "text", text: "ok" }], stop_reason: "end_turn",
-            usage: { input_tokens: 1, output_tokens: 1 } },
-        }
-      })(),
-      createSdkMcpServer: () => ({ type: "sdk", name: "t", instance: { tool: () => {}, registerTool: () => ({}) } }),
-      tool: () => ({}),
-    }), "pluginless-opencode-warning.test.ts")
+
     setLoggerMock(() => ({ claudeLog: () => {}, withClaudeLogContext: (_c: unknown, f: () => unknown) => f() }))
     setMcpToolsMock(() => ({
       createOpencodeMcpServer: () => ({ type: "sdk", name: "opencode", instance: { tool: () => {}, registerTool: () => ({}) } }),

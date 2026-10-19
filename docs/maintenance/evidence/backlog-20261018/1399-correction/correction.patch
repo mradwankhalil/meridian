@@ -1,0 +1,246 @@
+diff --git a/src/__tests__/proxy-session-gc-capacity.test.ts b/src/__tests__/proxy-session-gc-capacity.test.ts
+index 39846a3c6..95e845cda 100644
+--- a/src/__tests__/proxy-session-gc-capacity.test.ts
++++ b/src/__tests__/proxy-session-gc-capacity.test.ts
+@@ -37,6 +37,28 @@ const GC_SETTINGS = [
+ let root: string
+ const savedEnv: Record<string, string | undefined> = {}
+ 
++function gate() {
++  let release = () => {}
++  const promise = new Promise<void>(resolve => { release = resolve })
++  return { promise, release }
++}
++
++function resourceStates(): string[] {
++  const sidecar = JSON.parse(readFileSync(join(root, "sessions", "session-gc.json"), "utf8")) as {
++    resources: Record<string, { state: string }>
++  }
++  return Object.values(sidecar.resources).map(resource => resource.state)
++}
++
++async function seedRetiredTranscripts(count: number): Promise<void> {
++  for (let i = 0; i < count; i++) {
++    await registerLiveTranscript({ sessionId: crypto.randomUUID(), configDir: join(root, "profile") })
++  }
++  // The proxy's clock sees these retirements as eligible without sleeping out
++  // its production grace. All claims and settlements still use the real store.
++  await lifecycle.reconcile([], { now: () => 0, retiredGraceMs: 0 })
++}
++
+ beforeEach(() => {
+   root = realpathSync(mkdtempSync(join(tmpdir(), "meridian-gc-capacity-")))
+   for (const key of GC_SETTINGS) savedEnv[key] = process.env[key]
+@@ -58,6 +80,84 @@ afterEach(() => {
+ })
+ 
+ describe("session GC capacity", () => {
++  for (const [label, draining, configuredCap, expected] of [
++    ["ordinary throughput", false, undefined, 64],
++    ["draining throughput", true, undefined, 16],
++    ["lower configured drain cap", true, "8", 8],
++  ] as const) {
++    it(`preserves ${label} through joined deletion transactions`, async () => {
++      if (configuredCap) process.env.MERIDIAN_SESSION_GC_MAX_DELETES = configuredCap
++      await seedRetiredTranscripts(70)
++      const runGc = lifecycle.runGc
++      let deletions = 0
++      const spy = spyOn(lifecycle, "runGc").mockImplementation((pins, options) => runGc(pins, {
++        ...options,
++        deleter: async () => { deletions++ },
++      }))
++      try {
++        const proxy = createProxyServer({ port: 0, host: "127.0.0.1" })
++        if (draining) proxy.beginDrain?.()
++        const sweep = proxy.sweepSessionGc?.()
++        expect(proxy.sweepSessionGc?.()).toBe(sweep)
++        await sweep
++        expect(deletions).toBe(expected)
++        expect(resourceStates().filter(state => state === "deleted")).toHaveLength(expected)
++        expect(resourceStates()).not.toContain("deleting")
++      } finally {
++        spy.mockRestore()
++      }
++    }, 60_000)
++  }
++
++  for (const pauseAt of [1, 25]) {
++    it(`lowers the remaining allowance when idle close joins deletion ${pauseAt}`, async () => {
++      process.env.MERIDIAN_SESSION_GC_INTERVAL_MS = "0"
++      await seedRetiredTranscripts(70)
++      const started = gate()
++      const release = gate()
++      const runGc = lifecycle.runGc
++      let deletions = 0
++      let sweeps = 0
++      let closeSettled = false
++      const spy = spyOn(lifecycle, "runGc").mockImplementation((pins, options) => {
++        sweeps++
++        return runGc(pins, {
++          ...options,
++          deleter: async () => {
++            if (++deletions === pauseAt) {
++              started.release()
++              await release.promise
++            }
++          },
++        })
++      })
++      let instance: Awaited<ReturnType<typeof startProxyServer>> | undefined
++      try {
++        instance = await startProxyServer({ port: 0, host: "127.0.0.1", silent: true })
++        await started.promise
++        expect(resourceStates().filter(state => state === "deleting")).toHaveLength(1)
++        const closing = instance.close().then(() => { closeSettled = true })
++        // close must await the active deletion, even with no HTTP requests.
++        await new Promise(resolve => setTimeout(resolve, 20))
++        expect(closeSettled).toBe(false)
++        expect(deletions).toBe(pauseAt)
++        expect(resourceStates().filter(state => state === "deleting")).toHaveLength(1)
++        release.release()
++        await closing
++        expect(sweeps).toBe(1)
++        // The active deletion counts toward the 16 remaining at shutdown;
++        // completed pre-drain deletions do not consume the drain allowance.
++        expect(deletions).toBe(pauseAt - 1 + 16)
++        expect(resourceStates().filter(state => state === "deleted")).toHaveLength(deletions)
++        expect(resourceStates()).not.toContain("deleting")
++      } finally {
++        release.release()
++        await instance?.close()
++        spy.mockRestore()
++      }
++    }, 60_000)
++  }
++
+   it("retires every orphaned transcript in one sweep, past the 256 the backlog used to hold", async () => {
+     const configDir = join(root, "profile")
+     for (let i = 0; i < 300; i++) {
+diff --git a/src/__tests__/session-lifecycle.test.ts b/src/__tests__/session-lifecycle.test.ts
+index 388c9dde2..2ffbf9100 100644
+--- a/src/__tests__/session-lifecycle.test.ts
++++ b/src/__tests__/session-lifecycle.test.ts
+@@ -603,6 +603,46 @@ describe("session transcript lifecycle", () => {
+     expect(resources.filter((resource) => resource.state === "deleted")).toHaveLength(2)
+   })
+ 
++  it("never replenishes a lowered remaining attempt allowance, including failed attempts", async () => {
++    for (let i = 0; i < 6; i++) {
++      const fork = locator(`remaining-budget-${i}`)
++      await prepareFork(fork, options)
++      await abandonFork(fork, options)
++    }
++    let allowance = 64
++    let calls = 0
++    const result = await runGc([], {
++      ...options,
++      maxDeletesPerRun: 64,
++      maxRemainingDeletes: () => allowance,
++      deleter: async () => {
++        calls++
++        if (calls === 1) {
++          allowance = 3
++          throw new Error("retry this deletion later")
++        }
++        allowance = 64
++      },
++    })
++    expect(calls).toBe(3)
++    expect(result).toEqual({ deleted: 2, notFound: 0, failed: 1, deferred: 4 })
++    expect(Object.values(readSidecar(storeDir).resources).some(resource => resource.state === "deleting")).toBe(false)
++  })
++
++  it("can lower the remaining allowance to zero before claiming a deletion", async () => {
++    const fork = locator("zero-remaining-budget")
++    await prepareFork(fork, options)
++    await abandonFork(fork, options)
++    let calls = 0
++    expect(await runGc([], {
++      ...options,
++      maxRemainingDeletes: () => 0,
++      deleter: async () => { calls++ },
++    })).toEqual({ deleted: 0, notFound: 0, failed: 0, deferred: 1 })
++    expect(calls).toBe(0)
++    expect(readSidecar(storeDir).resources[getTranscriptResourceKey(fork)]?.state).toBe("retired")
++  })
++
+   it("treats not-found as idempotent success and tombstones the resource", async () => {
+     const fork = locator("already-gone")
+     await prepareFork(fork, options)
+diff --git a/src/proxy/server.ts b/src/proxy/server.ts
+index 8de54841b..b071e4aa4 100644
+--- a/src/proxy/server.ts
++++ b/src/proxy/server.ts
+@@ -820,6 +820,11 @@ function createProxyServerWithAuthOwner(config: Partial<ProxyConfig>, authOwner:
+   const sessionGcOptions: SessionLifecycleOptions = {
+     maxPending: sessionGcLimits.maxPending,
+     maxDeletesPerRun: sessionGcLimits.maxDeletesPerRun,
++    // Also reaches a sweep already running when beginDrain flips the state.
++    // The lifecycle lowers remaining work only between joined transactions.
++    maxRemainingDeletes: () => draining
++      ? sessionGcLimits.shutdownMaxDeletesPerRun
++      : sessionGcLimits.maxDeletesPerRun,
+     // A prepared fork is an active write lease. Never age it out before the
+     // request watchdog plus a drain margin, even if an unsafe lower value is configured.
+     preparedGraceMs: Math.max(
+@@ -903,9 +908,9 @@ function createProxyServerWithAuthOwner(config: Partial<ProxyConfig>, authOwner:
+     if (sessionGcRunning) return sessionGcRunning
+     sessionGcRunning = (async () => {
+       if (profileCopyPruningEnabled) await pruneSupersededProfileCopies()
+-      // A draining proxy's sweeps, close()'s final one among them, delete no
+-      // more than they did before the per-sweep default rose, so stopping the
+-      // proxy stays short. The next process deletes what they leave.
++      // New draining sweeps start at the shutdown cap; maxRemainingDeletes
++      // also lowers an existing sweep that close() joins. No deletion is
++      // abandoned. The next process deletes what the bounded sweep leaves.
+       const runOptions = draining
+         ? { ...sessionGcOptions, maxDeletesPerRun: sessionGcLimits.shutdownMaxDeletesPerRun }
+         : sessionGcOptions
+diff --git a/src/proxy/sessionLifecycle.ts b/src/proxy/sessionLifecycle.ts
+index f59bee38c..5544f2e14 100644
+--- a/src/proxy/sessionLifecycle.ts
++++ b/src/proxy/sessionLifecycle.ts
+@@ -146,6 +146,10 @@ export interface SessionLifecycleOptions {
+   maxOwned?: number
+   maxTombstones?: number
+   maxDeletesPerRun?: number
++  /** Lower the remaining attempt allowance cooperatively, never replenish it.
++   * Checked before claims and after settlement; an active deletion completes
++   * and counts toward a lowered allowance before another claim can start. */
++  maxRemainingDeletes?: () => number
+   lockWaitMs?: number
+   lockRetryMs?: number
+   lockStaleMs?: number
+@@ -823,13 +827,19 @@ export async function runGc(
+   await retryDeferredLeaseReleases(options)
+   await reconcile(pins, options)
+   let currentPins = indexPins(pins)
+-  const limit = option(options.maxDeletesPerRun, DEFAULT_MAX_DELETES, "maxDeletesPerRun")
++  let remaining = option(options.maxDeletesPerRun, DEFAULT_MAX_DELETES, "maxDeletesPerRun")
++  const lowerRemaining = () => {
++    remaining = Math.min(remaining, nonNegativeOption(
++      options.maxRemainingDeletes?.(), remaining, "maxRemainingDeletes",
++    ))
++  }
+   const result: GcResult = { deleted: 0, notFound: 0, failed: 0, deferred: 0 }
+   const runTimeoutMs = option(options.runTimeoutMs, DEFAULT_DELETE_TIMEOUT_MS, "runTimeoutMs")
+   const deadline = Date.now() + runTimeoutMs
+ 
+-  for (let index = 0; index < limit; index++) {
+-    if (Date.now() >= deadline) break
++  for (; remaining > 0; remaining--) {
++    lowerRemaining()
++    if (remaining === 0 || Date.now() >= deadline) break
+     const refreshedPins = options.pinProvider?.()
+     if (refreshedPins) {
+       currentPins = indexPins(refreshedPins)
+@@ -880,6 +890,9 @@ export async function runGc(
+     if (failure) result.failed++
+     else if (notFound) result.notFound++
+     else result.deleted++
++    // Shutdown may have begun during the joined deletion or its settlement.
++    // Include that attempt in the newly reduced allowance, then decrement it.
++    lowerRemaining()
+   }
+ 
+   result.deferred += await countDeferred(currentPins, options)

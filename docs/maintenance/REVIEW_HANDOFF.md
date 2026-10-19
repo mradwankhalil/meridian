@@ -23,6 +23,73 @@ the contributor's PR is what merges:
 Corrections to past PRs (reopening, comment edits, release notes, any rewrite of
 `main`) are the owner's decisions in #1363. Do not start them from this note.
 
+## Backlog review and corrections (2026-10-18 MDT / 2026-10-19 UTC)
+
+Refreshed `origin/main` `095b4869b` and the paginated live queues: 29 Meridian
+PRs plus two scrub release PRs across six managed repositories. All five scrub
+repos have zero open issues/contributor PRs. The original dirty desktop checkout
+was preserved. [Detailed queue, exact heads and review findings](evidence/backlog-20261018/README.md).
+
+- Signed corrections pushed on existing contributor PRs: #1411 `bd08c43d`
+  all-hidden provider URL reload, #1410 `423477f1` schema-order-sensitive shared
+  tool definitions, and #1396 `db52bfd0`/`a40be179` durable system-instruction
+  lineage safety plus a discriminating client gate. No maintainer integration PRs.
+  #1410 full local 6,948 pass and #1396 full local 6,961 pass; both final-head
+  CI rollups are green. Their actual-client/model/heap gates remain.
+  #1411 passes 50 focused/browser/type/build checks and corrected-head CI,
+  but full local has 90 unresolved failures and must not merge.
+- #1409's cleanup change passes independent safety review, 21 focused tests,
+  typecheck/build and a discriminating unchanged-main/candidate leak probe.
+  Full local suite exits red on Bun 1.3.14 (4 failures) and pinned 1.3.11
+  (1 failure); unchanged main is red too (1 failure). Isolated passing controls
+  are not treated as a repaired full gate.
+- #1398 warning passes actual Bun/Node startup/transport controls; its full
+  local suite has four unresolved failures. Eight forwarded PRs #1394–#1401
+  carry another verified contributor's source commits. The owner requires true
+  Author credit. The owner explicitly approved the commit-preserving route for
+  #1394–#1401 on 2026-10-18 MDT / 2026-10-19 UTC, with all normal tests, live,
+  CI and signature gates retained. The independently reviewed workflow change
+  [#1413](https://github.com/rynfar/meridian/pull/1413) passed final-head CI at
+  `15f35f17` and merged as signed `f81d9d8db`; its landed tree exactly matches
+  the reviewed tree. [Merge proof](evidence/backlog-20261018/policy-merge.json).
+  The bounded route is adopted. Refresh the per-commit manifest before each
+  product merge; approval does not waive acceptance gates. No forwarded product
+  PR has merged.
+- Isolated live follow-ups completed; [sanitized proof and open gates](evidence/backlog-20261018/live-verification.md).
+  #1410's bounded 230-tool/12-owner heap falls 262.37→44.58 MiB and catalogs
+  match; actual plugin-qualified OpenCode 2.0.21 read/continuation passes.
+  Its E41 model qualification failed on mixed 5.5/4.8 SDK annotations; remaining
+  E41/extended V2 gates were not run. #1396 witnesses actual native reminder
+  disappearances and preserved continuations versus baseline replay, but mixed
+  Fable/4.8 identities, failed cache floors and missing controls retain acceptance.
+  No further inference was used to explain these failures or obtain green runs.
+  #1399's active-sweep correction is pushed as signed `4644524c`/`1372390c`.
+  Red/green regressions, focused/adjacent/type/build and final CI pass; local
+  main stage remains 6,396 pass/36 skip/89 fail on Bun 1.3.11. The supplementary
+  464 passes used host Bun 1.3.14 and do not repair that gate. Native macOS load
+  acceptance is open. [Current shutdown/credit/resolver follow-up](evidence/backlog-20261018/shutdown-and-resolver-followup.md).
+  Independent credit audit now records 60 introduced commits, all original 58
+  intact plus two correctly authored/signed corrections. Refresh before merge.
+- Evidence #1412 merged signed `da8187ab4`; combined tree and all 123 selected
+  artifact hashes match. No product PR merged. A synthetic no-model investigation
+  localizes the common resolver quarantine cascade across #1399/#1411 while
+  retaining the unknown initiating witness. Separate tasks are fixing the
+  mocked-SDK test boundary; no live gate waived. #1400 now has signed `cf399a7d`
+  on its original branch, preserving all seven earlier commits. Effective wait,
+  retained-scope and expiry controls pass 418 focused cases on Bun 1.3.11;
+  type/build and all eight final-head target CI checks pass. Full local/live
+  gates remain pending.
+  [Retry-After correction record](evidence/backlog-20261018/retry-after-correction.md).
+  Fresh credit audit now records 61 introduced objects, retaining all earlier
+  60 unchanged. Commit-object rollup SUCCESS can be fork-only; it is not proof
+  of required target PR CI. Refresh actual contexts/test before any merge.
+- #1407/#1403 source review is favorable but actual affected-client/model proof
+  remains open. #1406 needs truthful settings documentation and resumed-session
+  isolation proof. #1399/#1400 corrections retain their local/live gates. Older
+  storage/lifecycle/draft/owner/no-review holds are preserved.
+- No release or external comment is authorized. Release-only OpenCode scrub #20
+  and Pi scrub #15 also have no exact-head checks. No queue-clear claim.
+
 ## Contributor merges under the new process (2026-10-13)
 
 Each landed as the contributor's own PR. Author is the output of

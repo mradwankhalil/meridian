@@ -1306,6 +1306,12 @@ function jumpToProfileAnchor() {
     anchorPending = true;
     if (lastProfiles) afterRender();
   });
+  // A chip click rewrites only the current history entry, so going back to
+  // an earlier one can bring a different ?provider= with it.
+  window.addEventListener('popstate', function () {
+    meridianProviders.fromLocation();
+    applyProfileFilter();
+  });
   // The chips and "Show all" act on cards that are already drawn, so a toggle
   // never re-renders and never interrupts a rename, a login or a drag.
   document.getElementById('profiles-section').addEventListener('click', function (e) {

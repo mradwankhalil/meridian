@@ -1,0 +1,42 @@
+[
+  {
+    "file": "E42-PREPARATION.md",
+    "sha256": "feadc81fcf15dd1cbadbb3367ebc6c6d91a382f76d5bc7e75372a7f2250e6577",
+    "bytes": 8987
+  },
+  {
+    "file": "LICENSE-opencode-2.0.21.txt",
+    "sha256": "625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b",
+    "bytes": 1065
+  },
+  {
+    "file": "extended-stable-flow.mjs",
+    "sha256": "2492043e6ea37c9040c542bae8d8f9c746c8abd205e77603b1f8756af30d6d4c",
+    "bytes": 12540
+  },
+  {
+    "file": "preparation-checks.json",
+    "sha256": "739544a538a6432a623798d53e0a5a61176f02330e812a0c3edf1854afbcf76e",
+    "bytes": 340
+  },
+  {
+    "file": "stable-api.ts",
+    "sha256": "b1ae04bbfbc750aea032b31f8c92acc70505a8642ea9766e1fc971ef2a6b5aba",
+    "bytes": 589
+  },
+  {
+    "file": "stable-session-api-group.ts",
+    "sha256": "c0874712262ff0f0052f0dcd49aee3b3b3f137c815601dc2aa639395ec9111c8",
+    "bytes": 36296
+  },
+  {
+    "file": "stable-session-handler.ts",
+    "sha256": "040daca9c8059b785f87a3701350ad745c2d0de177f15950b1e11f9b9514ee8c",
+    "bytes": 27026
+  },
+  {
+    "file": "stable-session-revert-schema.ts",
+    "sha256": "ba0dc365e7bd78b155a0a02b0329321c1b70e8d773ab57e695fb7c8c7062a6ea",
+    "bytes": 3004
+  }
+]

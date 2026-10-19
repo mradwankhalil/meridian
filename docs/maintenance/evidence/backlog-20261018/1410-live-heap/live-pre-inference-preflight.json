@@ -1,0 +1,37 @@
+{
+  "plugin": {
+    "path": "/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian-v2",
+    "package": "@rynfar/meridian-opencode-v2-plugin",
+    "sha256": "d8fd970f561a05a1d2716f7a118ec7e59e44d1942b25a1edca263a00cc779b56",
+    "ownerVersion": "1.83.1",
+    "setupExit": 0,
+    "canonicalField": "plugins",
+    "entries": 1,
+    "providerBaseURL": "http://127.0.0.1:55980/v1",
+    "hardcodedModelWindow": false
+  },
+  "catalog": {
+    "id": "claude-opus-5-5",
+    "providerID": "anthropic",
+    "name": "Claude Opus 5.5",
+    "context": 1000000,
+    "variants": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "actualPluginGet": true,
+    "beforeInference": true
+  },
+  "scrub": {
+    "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+    "packageName": "@rynfar/meridian-plugin-opencode-scrub",
+    "packageVersion": "0.2.3",
+    "sha256": "4ab89412e6a59fad812a3f6e5500c84f3bdfc41863320bc794f5274a251da656",
+    "runtimeVersion": "0.2.3",
+    "invocations": 0,
+    "errors": 0
+  }
+}

@@ -56,12 +56,16 @@ if (process.argv[2] !== "worker") {
   const { setLoggerMock } = await import("./loggerMock")
   setLoggerMock(() => ({ claudeLog: () => {}, withClaudeLogContext: (_context: unknown, fn: () => unknown) => fn() }))
   let sdkCalls = 0
-  const { setSdkMock } = await import("./sdkMock")
-  setSdkMock(() => ({
-    query: () => { sdkCalls++; throw new Error("Unexpected SDK query") },
+  // This isolated exchange worker tests a real, owned file-store write. It
+  // never runs HTTP/SDK setup, so keep only an identity-checked SDK refusal.
+  const refuseSdkQuery = () => { sdkCalls++; throw new Error("Unexpected SDK query") }
+  mock.module("@anthropic-ai/claude-agent-sdk", () => ({
+    query: refuseSdkQuery,
     createSdkMcpServer: () => ({}),
     tool: () => ({}),
-  }), "login-deadline-gate")
+  }))
+  const sdk = await import("@anthropic-ai/claude-agent-sdk")
+  assert.equal(sdk.query, refuseSdkQuery)
   const { exchangeAuthorizationCodeForCredentials } = await import("../proxy/profileCli")
   const originalFetch = globalThis.fetch
   globalThis.fetch = Object.assign(

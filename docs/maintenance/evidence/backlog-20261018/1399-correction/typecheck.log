@@ -1,0 +1,5 @@
+{"argv": ["npm", "run", "typecheck"], "cwd": "/Volumes/DevSSD/meridian/t3-worktrees/t3-b7f6ebd1"}
+
+> @rynfar/meridian@1.83.0 typecheck
+> tsc --noEmit
+

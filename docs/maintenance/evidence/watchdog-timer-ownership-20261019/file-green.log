@@ -1,0 +1,57 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-concurrency-coordination.test.ts:
+(pass) SDK and Session concurrency coordination > holds the SDK permit for the complete streaming lifecycle [411.27ms]
+(pass) SDK and Session concurrency coordination > shares the SDK permit across ProxyServer instances [130.39ms]
+(pass) SDK and Session concurrency coordination > uses the latest resume state for a continuation that waited [280.58ms]
+[PROXY] Session not resumable (key=conflict…): reason=replayed-request, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > returns an Anthropic-compatible invalid request for a stale repeated branch [58.66ms]
+[PROXY] Undo detected (key=omp-sess…): prefix overlap 2/3, rollback UUID: none (legacy session).
+(pass) SDK and Session concurrency coordination > answers, instead of refusing, the loser of a race an adapter declares (#870) [100.90ms]
+[PROXY] Session not resumable (key=pluginle…): reason=replayed-request, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > answers, instead of refusing, a plugin-less OpenCode client's concurrent turn (#1024) [216.89ms]
+[PROXY] Session not resumable (key=plugged…): reason=replayed-request, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > still refuses the loser when the OpenCode plugin's signal is present [90.05ms]
+[PROXY] Session not resumable (key=spoofed…): reason=replayed-request, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > refuses a client that spoofs the synthesized-session marker [110.58ms]
+[PROXY] Session not resumable (key=claude-c…): reason=unrelated-history, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > answers, instead of refusing, a headless Claude Code client's concurrent turn (#1043) [146.77ms]
+(pass) SDK and Session concurrency coordination > keeps a Claude Code conversation resumable across an auto-mode classifier request [349.53ms]
+(pass) SDK and Session concurrency coordination > keeps a Claude Code conversation resumable across a session-state classifier request [403.79ms]
+(pass) SDK and Session concurrency coordination > never queues a classifier request behind the conversation's running turn [97.87ms]
+(pass) SDK and Session concurrency coordination > preserves a subagent's working mapping across a streaming progress summary [289.53ms]
+(pass) SDK and Session concurrency coordination > resumes the subagent session after a caption sent as its own user message [335.42ms]
+(pass) SDK and Session concurrency coordination > isolates the interactive session-title side call from the conversation mapping and lease, while keeping ordinary streamed tool-less turns on the session [500.98ms]
+(pass) SDK and Session concurrency coordination > resumes the subagent session after a first-turn caption whose context attachments trail as a system message [259.11ms]
+(pass) SDK and Session concurrency coordination > resumes the subagent session after a caption appended after tool results and text [420.00ms]
+(pass) SDK and Session concurrency coordination > gives a progress caption its own tool server beside the working turn [391.81ms]
+(pass) SDK and Session concurrency coordination > replays a progress caption as one cacheable SDK input and leaves working turns unchanged [96.77ms]
+(pass) SDK and Session concurrency coordination > adds no replay breakpoint when setting files are loaded [29.55ms]
+(pass) SDK and Session concurrency coordination > adds no replay breakpoint when DISABLE_PROMPT_CACHING turns caching off [137.28ms]
+(pass) SDK and Session concurrency coordination > does not queue a progress summary behind its subagent's running turn [277.62ms]
+(pass) SDK and Session concurrency coordination > treats a declared non-auxiliary request class as a normal turn [61.06ms]
+(pass) SDK and Session concurrency coordination > never queues a Claude Code subagent turn behind its parent's running turn [217.06ms]
+(pass) SDK and Session concurrency coordination > resumes a Claude Code parent and its subagent each on their own session [304.26ms]
+(pass) SDK and Session concurrency coordination > runs two parallel subagents of one conversation without serializing them [284.81ms]
+(pass) SDK and Session concurrency coordination > isolates a subagent's classifier call as auxiliary [55.63ms]
+(pass) SDK and Session concurrency coordination > keeps the shared key when the agent id is malformed [28.58ms]
+[PROXY] Undo detected (key=omp-undo…): prefix overlap 2/3, rollback UUID: winner-uuid-2.
+(pass) SDK and Session concurrency coordination > replays a declared-flow loser instead of rewinding the turn it lost to (#870) [108.94ms]
+[PROXY] Undo detected (key=omp-fork…): prefix overlap 2/3, rollback UUID: winner-uuid-2.
+(pass) SDK and Session concurrency coordination > keeps a per-request fork signal's undo when it loses the same race (#870) [94.50ms]
+[PROXY] Undo detected (key=tool-loo…): prefix overlap 2/3, rollback UUID: winner-uuid-2.
+(pass) SDK and Session concurrency coordination > replays a synthesized-key loser instead of rewinding the session it lost to [51.46ms]
+(pass) SDK and Session concurrency coordination > does not refuse a turn because a DIFFERENT profile advanced the same session id [310.09ms]
+[PROXY] Session not resumable (key=hot:hot-…): reason=unrelated-history, prefix overlap 0/2, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > rejects a stale turn when a hot priority profile appears after the arrival snapshot [3156.40ms]
+[PROXY] Session not resumable (key=declared…): reason=replayed-request, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > lets a declared concurrent flow replay instead of refusing it [149.42ms]
+[PROXY] Session not resumable (key=declared…): reason=replayed-request, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+(pass) SDK and Session concurrency coordination > lets an OpenCode subagent mode replay instead of refusing it [119.47ms]
+(pass) SDK and Session concurrency coordination > aborts a wedged turn without releasing its fencing lease early [2131.83ms]
+(pass) SDK and Session concurrency coordination > clears the session-turn watchdog timer when a queued waiter cancels before acquiring the lease (#1380) [63.19ms]
+
+ 37 pass
+ 0 fail
+ 196 expect() calls
+Ran 37 tests across 1 file. [13.09s]

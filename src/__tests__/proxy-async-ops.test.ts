@@ -1,3 +1,5 @@
+import { installModelsMock, syntheticClaudeBoundary } from "./modelsMock"
+installModelsMock(() => syntheticClaudeBoundary)
 import { describe, expect, it } from "bun:test"
 
 const { createProxyServer, startProxyServer } = await import("../proxy/server")

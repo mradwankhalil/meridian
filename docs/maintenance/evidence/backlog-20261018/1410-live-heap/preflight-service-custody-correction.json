@@ -1,0 +1,12 @@
+{
+  "scope": "Initial credentialless V2 preflight cleanup correction",
+  "initialDirectChildrenJoined": true,
+  "escapedServicePid": 85920,
+  "matchedBinary": true,
+  "matchedFixtureHomeCwd": true,
+  "supportedStopCommand": "opencode service stop with exact isolated HOME/XDG/config environment",
+  "stopExit": 0,
+  "pidAbsentAfterStop": true,
+  "scriptCorrection": "Removed debug config invocation which spawned the persistent service",
+  "modelCalls": 0
+}

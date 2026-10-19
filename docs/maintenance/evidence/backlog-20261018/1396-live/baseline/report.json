@@ -1,0 +1,1256 @@
+{
+  "source": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "tree": "aff2161455f8c49b4422ea63740c32b3da45738f",
+  "base": "095b4869b5fe386e2f3a273cc5b60ec3853c8659",
+  "model": "claude-fable-5-1",
+  "platform": "darwin/arm64",
+  "osRelease": "25.6.0",
+  "node": "v24.3.0",
+  "bun": "1.3.11",
+  "sdk": "0.2.141",
+  "clientPackage": "2.1.296",
+  "nativeClientIntegration": "documented native Claude Code adapter; owner clarified plugins apply to supported OpenCode/Pi integrations",
+  "live": true,
+  "result": "INCOMPLETE_LIVE_ASSERTIONS",
+  "requests": [
+    {
+      "seq": 1,
+      "id": "native-fable-1",
+      "agent": "main",
+      "model": "claude-fable-5-1",
+      "stream": true,
+      "nativeAgentHeader": false,
+      "status": 200,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "exactReminderBlocks": 0,
+      "skeleton": [
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "c0ae4ef65323e1c4abb7b53b6ec48069f26da0ec4ac811026aa3cd9ff6b3dc65"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "c022d3b94261f5c250ece930067dfffba44676b22cfaf75fa265d5945c873d95"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "id": "native-fable-2",
+      "agent": "88157b0dc43ec51cf4a8381ddcbc69604f8c218aef1b203cdc68c1f82f79f57d",
+      "model": "claude-fable-5-1",
+      "stream": true,
+      "nativeAgentHeader": true,
+      "status": 200,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "exactReminderBlocks": 0,
+      "skeleton": [
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "d39d31e6769b788081e144eb7d75725b1edd1b888e20075dfe0970c4ef9f0353"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "afa5c653f6aca3820a23cf9a188b3e8d7a6f3ca2b9e9a620c03d171e51b60a7f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "id": "native-fable-3",
+      "agent": "88157b0dc43ec51cf4a8381ddcbc69604f8c218aef1b203cdc68c1f82f79f57d",
+      "model": "claude-fable-5-1",
+      "stream": true,
+      "nativeAgentHeader": true,
+      "status": 200,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "exactReminderBlocks": 1,
+      "skeleton": [
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "d39d31e6769b788081e144eb7d75725b1edd1b888e20075dfe0970c4ef9f0353"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "afa5c653f6aca3820a23cf9a188b3e8d7a6f3ca2b9e9a620c03d171e51b60a7f"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "b8221e6a8596915882200164987fd9a82f773062da3e5df0144f6db400ed170b"
+            },
+            {
+              "type": "tool_use",
+              "digest": "66122894243c860491285161409d2280620eac64206522445c7597349e183c95",
+              "toolId": "769322f999e2bff3e0e97250dd6a2d2cd16c73697d96a1eb01677aef40c84d42",
+              "name": "Read"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "2b864dd3051f9b6742c5cf6f9aa2fa558b0893247169a43c26c1e6df813e7a78",
+              "toolId": "769322f999e2bff3e0e97250dd6a2d2cd16c73697d96a1eb01677aef40c84d42"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "5d14602f8bb56812c185465882effde84373199cbd0e4f59c7c996ebf68d4467"
+            },
+            {
+              "type": "text",
+              "digest": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "id": "native-fable-4",
+      "agent": "88157b0dc43ec51cf4a8381ddcbc69604f8c218aef1b203cdc68c1f82f79f57d",
+      "model": "claude-fable-5-1",
+      "stream": true,
+      "nativeAgentHeader": true,
+      "status": 200,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "exactReminderBlocks": 1,
+      "skeleton": [
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "d39d31e6769b788081e144eb7d75725b1edd1b888e20075dfe0970c4ef9f0353"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "afa5c653f6aca3820a23cf9a188b3e8d7a6f3ca2b9e9a620c03d171e51b60a7f"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "b8221e6a8596915882200164987fd9a82f773062da3e5df0144f6db400ed170b"
+            },
+            {
+              "type": "tool_use",
+              "digest": "66122894243c860491285161409d2280620eac64206522445c7597349e183c95",
+              "toolId": "769322f999e2bff3e0e97250dd6a2d2cd16c73697d96a1eb01677aef40c84d42",
+              "name": "Read"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "2b864dd3051f9b6742c5cf6f9aa2fa558b0893247169a43c26c1e6df813e7a78",
+              "toolId": "769322f999e2bff3e0e97250dd6a2d2cd16c73697d96a1eb01677aef40c84d42"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "5d14602f8bb56812c185465882effde84373199cbd0e4f59c7c996ebf68d4467"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "thinking",
+              "digest": "adb8e2f4263cb2ac5b6fb552f21f2965b111bd062622bac40555be0f46a2a758"
+            },
+            {
+              "type": "text",
+              "digest": "b8b134a4db2acb4bcf5c272bd6f7696d7a2f51610ac674017149f126e17ddb3f"
+            },
+            {
+              "type": "tool_use",
+              "digest": "e4f80e23ef8b0b7c4dad43f6da85d01cc6be71624ab6e9dd0cf93ae192ff698f",
+              "toolId": "37d2ff983ed7d710a5dc11ec509e204c5e07f34a39ce3b94272739cb5ef4e4f3",
+              "name": "Read"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "8c22b005902b396a96ff291704c35428aa8969a4000ff49b141208f3d40a38ab",
+              "toolId": "37d2ff983ed7d710a5dc11ec509e204c5e07f34a39ce3b94272739cb5ef4e4f3"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "89561a25a4f22da011ef509fb2440173b3b6f354d62999822c76d634956e61e2"
+            },
+            {
+              "type": "text",
+              "digest": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "id": "native-fable-5",
+      "agent": "88157b0dc43ec51cf4a8381ddcbc69604f8c218aef1b203cdc68c1f82f79f57d",
+      "model": "claude-fable-5-1",
+      "stream": true,
+      "nativeAgentHeader": true,
+      "status": 200,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "exactReminderBlocks": 1,
+      "skeleton": [
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "d39d31e6769b788081e144eb7d75725b1edd1b888e20075dfe0970c4ef9f0353"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "afa5c653f6aca3820a23cf9a188b3e8d7a6f3ca2b9e9a620c03d171e51b60a7f"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "b8221e6a8596915882200164987fd9a82f773062da3e5df0144f6db400ed170b"
+            },
+            {
+              "type": "tool_use",
+              "digest": "66122894243c860491285161409d2280620eac64206522445c7597349e183c95",
+              "toolId": "769322f999e2bff3e0e97250dd6a2d2cd16c73697d96a1eb01677aef40c84d42",
+              "name": "Read"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "2b864dd3051f9b6742c5cf6f9aa2fa558b0893247169a43c26c1e6df813e7a78",
+              "toolId": "769322f999e2bff3e0e97250dd6a2d2cd16c73697d96a1eb01677aef40c84d42"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "5d14602f8bb56812c185465882effde84373199cbd0e4f59c7c996ebf68d4467"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "thinking",
+              "digest": "adb8e2f4263cb2ac5b6fb552f21f2965b111bd062622bac40555be0f46a2a758"
+            },
+            {
+              "type": "text",
+              "digest": "b8b134a4db2acb4bcf5c272bd6f7696d7a2f51610ac674017149f126e17ddb3f"
+            },
+            {
+              "type": "tool_use",
+              "digest": "e4f80e23ef8b0b7c4dad43f6da85d01cc6be71624ab6e9dd0cf93ae192ff698f",
+              "toolId": "37d2ff983ed7d710a5dc11ec509e204c5e07f34a39ce3b94272739cb5ef4e4f3",
+              "name": "Read"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "8c22b005902b396a96ff291704c35428aa8969a4000ff49b141208f3d40a38ab",
+              "toolId": "37d2ff983ed7d710a5dc11ec509e204c5e07f34a39ce3b94272739cb5ef4e4f3"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "89561a25a4f22da011ef509fb2440173b3b6f354d62999822c76d634956e61e2"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "thinking",
+              "digest": "b58d07268b9656947e3b461e736060cd39e5cd864eed4567febcc540ab0296a3"
+            },
+            {
+              "type": "text",
+              "digest": "587d2f8191bff21cf39a5faa561fb8bf24e6e5385aae85ba36089aa7a0139a48"
+            },
+            {
+              "type": "tool_use",
+              "digest": "4ce5764940920eac5cfa4b6a4537772d37ccd6f0766439f9d55ce0cc42514310",
+              "toolId": "e2e33d0c190f98da0e2dcb8e1c851d642521957dec013831b595c981785b8b95",
+              "name": "Read"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "47808e411c4c5cb7fed559fd926809631accea2f2d4f3e88cf4f13fd595c8341",
+              "toolId": "e2e33d0c190f98da0e2dcb8e1c851d642521957dec013831b595c981785b8b95"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "519f756388a712725805c871ed229604f24e9a48331623013421b8fdc94f5848"
+            },
+            {
+              "type": "text",
+              "digest": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "id": "native-fable-6",
+      "agent": "main",
+      "model": "claude-fable-5-1",
+      "stream": true,
+      "nativeAgentHeader": false,
+      "status": 200,
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "exactReminderBlocks": 1,
+      "skeleton": [
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "c0ae4ef65323e1c4abb7b53b6ec48069f26da0ec4ac811026aa3cd9ff6b3dc65"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "c022d3b94261f5c250ece930067dfffba44676b22cfaf75fa265d5945c873d95"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "blocks": [
+            {
+              "type": "thinking",
+              "digest": "229405ee3542db76ae8de6119abcf3f871670fc5f6e54e9d7c840b697a9471f9"
+            },
+            {
+              "type": "text",
+              "digest": "de82031d3c435f030bbd06ce085cca73cf52b5057515056ff40a2faa6ec5efdc"
+            },
+            {
+              "type": "tool_use",
+              "digest": "f1633e59f5e53a1153a2200094b77a8816de08fe3dcb6d418731dc9b082fc344",
+              "toolId": "c900899ca9c1c6eb06d8da614a442297749c56de78f5be7eba70895bfbdb50bd",
+              "name": "Agent"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "blocks": [
+            {
+              "type": "tool_result",
+              "digest": "671e94de0c8d350334d1615749f1413bfc5d848bdc48e66f17092c9e9068abc1",
+              "toolId": "c900899ca9c1c6eb06d8da614a442297749c56de78f5be7eba70895bfbdb50bd"
+            }
+          ]
+        },
+        {
+          "role": "system",
+          "blocks": [
+            {
+              "type": "text",
+              "digest": "d37cae3447aaa1fb90168f4cb58cab156e25f53250bcd0c992cda941c834d2ae"
+            },
+            {
+              "type": "text",
+              "digest": "28b2d4bbb5c7e1a7ee346c3d1860ddb5a60b4dd4dd7156a66775002a0df39dc8"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "index": 1,
+      "model": "fable[1m]",
+      "target": "f8cce0f8724ce6afacad46b2907b5b31a6de740d001bfb92a24b722bee07f7bd",
+      "resumeDigest": null,
+      "checkpoint": null,
+      "fork": false,
+      "tools": true,
+      "grantMatched": true,
+      "configOwned": true,
+      "cwdOwned": true,
+      "replay": false,
+      "inputReminder": false,
+      "servedModels": [
+        "claude-opus-4-8"
+      ],
+      "iteratorSettled": true,
+      "closeCalled": true,
+      "cliVersion": "2.1.302",
+      "initModel": "claude-fable-5-1",
+      "terminal": {
+        "subtype": "error_max_turns",
+        "isError": true,
+        "sessionMatched": true,
+        "usage": {
+          "input_tokens": 41,
+          "cache_creation_input_tokens": 17102,
+          "cache_read_input_tokens": 5098,
+          "output_tokens": 444,
+          "output_tokens_details": {
+            "thinking_tokens": 76
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 17102,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {
+          "claude-fable-5-1": {
+            "inputTokens": 78,
+            "outputTokens": 0,
+            "cacheReadInputTokens": 5094,
+            "cacheCreationInputTokens": 17103,
+            "webSearchRequests": 0,
+            "costUSD": 0.34411349999999996,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 0,
+            "canonicalModel": "claude-fable-5-1",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-4-8": {
+            "inputTokens": 2,
+            "outputTokens": 444,
+            "cacheReadInputTokens": 2551,
+            "cacheCreationInputTokens": 8584,
+            "webSearchRequests": 0,
+            "costUSD": 0.0982255,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 76,
+            "canonicalModel": "claude-opus-4-8",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "assistantUuids": [
+        "4010599f28c0aad185e1373da565d22d99eca46f4e967ea424afa9509fab019b",
+        "c31b792e99240ce7f48378f6b95c6b67039f3fdc24550595f60372a22a7e71cc",
+        "61c9cbf2f366b6f143f0775c9112938cfec18b1b07779e5d44161d49258e9a03"
+      ]
+    },
+    {
+      "index": 2,
+      "model": "fable[1m]",
+      "target": "095527f6e86c2a6c9a4b0d97b2c5597b3c36bf0935c60facdc664bebc82a683f",
+      "resumeDigest": null,
+      "checkpoint": null,
+      "fork": false,
+      "tools": true,
+      "grantMatched": true,
+      "configOwned": true,
+      "cwdOwned": true,
+      "replay": false,
+      "inputReminder": false,
+      "servedModels": [
+        "claude-opus-4-8"
+      ],
+      "iteratorSettled": true,
+      "closeCalled": true,
+      "cliVersion": "2.1.302",
+      "initModel": "claude-fable-5-1",
+      "terminal": {
+        "subtype": "error_max_turns",
+        "isError": true,
+        "sessionMatched": true,
+        "usage": {
+          "input_tokens": 41,
+          "cache_creation_input_tokens": 9480,
+          "cache_read_input_tokens": 2724,
+          "output_tokens": 132,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 9480,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {
+          "claude-fable-5-1": {
+            "inputTokens": 78,
+            "outputTokens": 0,
+            "cacheReadInputTokens": 2720,
+            "cacheCreationInputTokens": 9481,
+            "webSearchRequests": 0,
+            "costUSD": 0.19107999999999997,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 0,
+            "canonicalModel": "claude-fable-5-1",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-4-8": {
+            "inputTokens": 2,
+            "outputTokens": 132,
+            "cacheReadInputTokens": 1364,
+            "cacheCreationInputTokens": 4773,
+            "webSearchRequests": 0,
+            "costUSD": 0.051722000000000004,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 0,
+            "canonicalModel": "claude-opus-4-8",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "assistantUuids": [
+        "a1be5e1ff91e6b03ef1216e43856fc0bb9c39312c140cc391e21ccbcebeaefc0",
+        "f207f99c5faea4539c29bd19683ce9b5c637fe126829037d151f24506526fa8e"
+      ]
+    },
+    {
+      "index": 3,
+      "model": "fable[1m]",
+      "target": "717aafaf7c9fc68e0afa8f36ca7b07de9faae3ed114e1aa279f332d9e77fd669",
+      "resumeDigest": "095527f6e86c2a6c9a4b0d97b2c5597b3c36bf0935c60facdc664bebc82a683f",
+      "checkpoint": "f207f99c5faea4539c29bd19683ce9b5c637fe126829037d151f24506526fa8e",
+      "fork": true,
+      "tools": true,
+      "grantMatched": true,
+      "configOwned": true,
+      "cwdOwned": true,
+      "replay": false,
+      "inputReminder": true,
+      "servedModels": [
+        "claude-opus-4-8"
+      ],
+      "iteratorSettled": true,
+      "closeCalled": true,
+      "cliVersion": "2.1.302",
+      "initModel": "claude-fable-5-1",
+      "terminal": {
+        "subtype": "error_max_turns",
+        "isError": true,
+        "sessionMatched": true,
+        "usage": {
+          "input_tokens": 36,
+          "cache_creation_input_tokens": 5349,
+          "cache_read_input_tokens": 7497,
+          "output_tokens": 140,
+          "output_tokens_details": {
+            "thinking_tokens": 19
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 5349,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {
+          "claude-fable-5-1": {
+            "inputTokens": 116,
+            "outputTokens": 0,
+            "thinkingTokens": 0,
+            "cacheReadInputTokens": 5440,
+            "cacheCreationInputTokens": 19604,
+            "webSearchRequests": 0,
+            "costUSD": 0.39459999999999995,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-fable-5-1",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-4-8": {
+            "inputTokens": 4,
+            "outputTokens": 272,
+            "thinkingTokens": 19,
+            "cacheReadInputTokens": 7501,
+            "cacheCreationInputTokens": 5094,
+            "webSearchRequests": 0,
+            "costUSD": 0.0615105,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-opus-4-8",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "assistantUuids": [
+        "3b8ddd438a883430ea6d2bbf9e35015b7c530f69afb081284f948c0bb44a2079",
+        "3addf009f010e3c65506c47b77c432f0253cce3d03403a77510745b79be02d90",
+        "73c3993f92df62ce4823018fc081def5d04432dd0f0b4bed4c4deec8a72d6691"
+      ]
+    },
+    {
+      "index": 4,
+      "model": "fable[1m]",
+      "target": "8cb59fcdab7fa9b7c040055ce60ea4e0750bc562fab846ff2340d6c61518a05a",
+      "resumeDigest": null,
+      "checkpoint": null,
+      "fork": false,
+      "tools": true,
+      "grantMatched": true,
+      "configOwned": true,
+      "cwdOwned": true,
+      "replay": true,
+      "inputReminder": true,
+      "servedModels": [
+        "claude-opus-4-8"
+      ],
+      "iteratorSettled": true,
+      "closeCalled": true,
+      "cliVersion": "2.1.302",
+      "initModel": "claude-fable-5-1",
+      "terminal": {
+        "subtype": "error_max_turns",
+        "isError": true,
+        "sessionMatched": true,
+        "usage": {
+          "input_tokens": 41,
+          "cache_creation_input_tokens": 7301,
+          "cache_read_input_tokens": 6533,
+          "output_tokens": 160,
+          "output_tokens_details": {
+            "thinking_tokens": 37
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 7301,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {
+          "claude-fable-5-1": {
+            "inputTokens": 78,
+            "outputTokens": 0,
+            "cacheReadInputTokens": 2720,
+            "cacheCreationInputTokens": 11111,
+            "webSearchRequests": 0,
+            "costUSD": 0.22368,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 0,
+            "canonicalModel": "claude-fable-5-1",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-4-8": {
+            "inputTokens": 2,
+            "outputTokens": 160,
+            "cacheReadInputTokens": 5173,
+            "cacheCreationInputTokens": 1779,
+            "webSearchRequests": 0,
+            "costUSD": 0.0243865,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 37,
+            "canonicalModel": "claude-opus-4-8",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "assistantUuids": [
+        "037892c6eac13b0502aabf096cb4321c6a7fe831df44b42ad4ded545d92a960f",
+        "1bddabae4aa222492947dbff0ade662de89abf07bee652722c2a2f2bb4201da6",
+        "3235216fe80c84a7188958df0df7e1d946fb0b522b919fa25575cfea6dc453c3"
+      ]
+    },
+    {
+      "index": 5,
+      "model": "fable[1m]",
+      "target": "2955bdadb0ad02406635522f7db138a4295e0376f70944808dc81a5cd350d67a",
+      "resumeDigest": null,
+      "checkpoint": null,
+      "fork": false,
+      "tools": true,
+      "grantMatched": true,
+      "configOwned": true,
+      "cwdOwned": true,
+      "replay": true,
+      "inputReminder": true,
+      "servedModels": [
+        "claude-fable-5-1"
+      ],
+      "iteratorSettled": true,
+      "closeCalled": true,
+      "cliVersion": "2.1.302",
+      "initModel": "claude-fable-5-1",
+      "terminal": {
+        "subtype": "success",
+        "isError": false,
+        "sessionMatched": true,
+        "usage": {
+          "input_tokens": 2,
+          "cache_creation_input_tokens": 5831,
+          "cache_read_input_tokens": 1360,
+          "output_tokens": 334,
+          "output_tokens_details": {
+            "thinking_tokens": 37
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 5831,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {
+          "claude-fable-5-1": {
+            "inputTokens": 2,
+            "outputTokens": 334,
+            "cacheReadInputTokens": 1360,
+            "cacheCreationInputTokens": 5831,
+            "webSearchRequests": 0,
+            "costUSD": 0.13368,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "thinkingTokens": 37,
+            "canonicalModel": "claude-fable-5-1",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "assistantUuids": [
+        "aa4b84c9abb8bab0c024cbad991fd249e181ecaa6f235ef14c856142351d61ac",
+        "6e41668c1f01bcdc015a3974c5f7fe5145b103f3fcfa3bf459bf2357f62f5c1c"
+      ]
+    },
+    {
+      "index": 6,
+      "model": "fable[1m]",
+      "target": "4cbe6a6e33e3e4125747d4b51f1ef12956dfedc8a311b36e4193763276990f51",
+      "resumeDigest": "f8cce0f8724ce6afacad46b2907b5b31a6de740d001bfb92a24b722bee07f7bd",
+      "checkpoint": "61c9cbf2f366b6f143f0775c9112938cfec18b1b07779e5d44161d49258e9a03",
+      "fork": true,
+      "tools": true,
+      "grantMatched": true,
+      "configOwned": true,
+      "cwdOwned": true,
+      "replay": false,
+      "inputReminder": true,
+      "servedModels": [
+        "claude-fable-5-1"
+      ],
+      "iteratorSettled": true,
+      "closeCalled": true,
+      "cliVersion": "2.1.302",
+      "initModel": "claude-fable-5-1",
+      "terminal": {
+        "subtype": "success",
+        "isError": false,
+        "sessionMatched": true,
+        "usage": {
+          "input_tokens": 38,
+          "cache_creation_input_tokens": 19251,
+          "cache_read_input_tokens": 5094,
+          "output_tokens": 373,
+          "output_tokens_details": {
+            "thinking_tokens": 27
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 19251,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {
+          "claude-fable-5-1": {
+            "inputTokens": 116,
+            "outputTokens": 373,
+            "thinkingTokens": 27,
+            "cacheReadInputTokens": 10188,
+            "cacheCreationInputTokens": 36354,
+            "webSearchRequests": 0,
+            "costUSD": 0.7494369999999999,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000,
+            "canonicalModel": "claude-fable-5-1",
+            "provider": "firstParty",
+            "costBasis": "list"
+          },
+          "claude-opus-4-8": {
+            "inputTokens": 2,
+            "outputTokens": 444,
+            "thinkingTokens": 76,
+            "cacheReadInputTokens": 2551,
+            "cacheCreationInputTokens": 8584,
+            "webSearchRequests": 0,
+            "costUSD": 0.0982255,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 64000
+          }
+        }
+      },
+      "assistantUuids": [
+        "02b69b152ae9ca29207f117b304ff072539866d2f13aed22f279ba89c280827a",
+        "16ad70e6a552bf04f0290e0ccbb597447d4bc863a6f40f8a9cdd3fd136c47607"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "actual client exits successfully",
+      "ok": true
+    },
+    {
+      "name": "actual native subagent header observed",
+      "ok": true
+    },
+    {
+      "name": "owned final receipt is delivered",
+      "ok": true
+    },
+    {
+      "name": "subagent completes three tool rounds",
+      "ok": true
+    },
+    {
+      "name": "every native subagent request uses exact model",
+      "ok": true
+    },
+    {
+      "name": "actual exact reminder disappears with durable tail unchanged",
+      "ok": true
+    },
+    {
+      "name": "actual served model is exact Fable",
+      "ok": false
+    },
+    {
+      "name": "every SDK query uses owned config and access-only selected grant",
+      "ok": true
+    },
+    {
+      "name": "actual telemetry confirms native Claude Code route",
+      "ok": true
+    },
+    {
+      "name": "all observed responses parse within the request bound",
+      "ok": true
+    },
+    {
+      "name": "each resumed SDK query matches an observed source session and assistant checkpoint",
+      "ok": false
+    }
+  ],
+  "processes": [
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    }
+  ],
+  "errors": [],
+  "harnessSha256": "75412d0351c242801ba23299c3408bd6b9758f647ad0edc35889a91f624814dd",
+  "distSha256": "083a96112848885597b4d6e18ed7bdd917ba14eb3e4e8b4a2cbff5fcc215636e",
+  "lockSha256": "88afa150de1c9a1cd04919825cb42ea149fc511df1ec52499466c904d4122bab",
+  "readiness": {
+    "storedAccessPresent": true,
+    "accessExpired": false,
+    "refreshUsed": false,
+    "grantWritten": false
+  },
+  "clientVersion": "2.1.296 (Claude Code)",
+  "route": {
+    "proxy": "owned loopback port",
+    "adapterExpected": "claude-code",
+    "nativeHeaders": "observed from actual client; no manufactured session/agent headers",
+    "pluginApplicable": false
+  },
+  "command": {
+    "executable": "/private/tmp/meridian-1396-live-baseline/node_modules/.bin/claude",
+    "args": [
+      "-p",
+      "Use the Agent tool once to launch fable-probe in the foreground. Have it Read <OWNED_FIXTURE>/step-43702c04-1318-4c30-9cf9-00f3e53fbd69.txt, follow each Next path with a separate Read, and return the final receipt. Wait for it and report its result. Do not read the files yourself.",
+      "--model",
+      "claude-fable-5-1",
+      "--agents",
+      "{\"fable-probe\":{\"description\":\"Required isolated Fable file-chain test worker\",\"prompt\":\"Use Read only. Follow exactly three linked fixture files, each in its own dependent Read round. Report the final receipt. Do not spawn agents or use background work.\",\"model\":\"claude-fable-5-1\",\"tools\":[\"Read\"]}}",
+      "--tools",
+      "Agent,Read",
+      "--allowedTools",
+      "Agent",
+      "Read",
+      "--permission-mode",
+      "default",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--setting-sources",
+      "",
+      "--output-format",
+      "stream-json",
+      "--verbose",
+      "--max-turns",
+      "8"
+    ],
+    "timeoutMs": 240000,
+    "maxRequests": 12,
+    "toolRounds": 3,
+    "fallbackModel": false
+  },
+  "clientExit": 0,
+  "clientReceiptObserved": true,
+  "clientErrors": "",
+  "providerRefusal": false,
+  "telemetry": [
+    {
+      "requestId": "native-fable-6",
+      "adapter": "claude-code",
+      "status": 200,
+      "lineageType": "continuation",
+      "isResume": true,
+      "model": "fable[1m]",
+      "requestModel": "claude-fable-5-1",
+      "cacheRead": 5094,
+      "cacheCreation": 19251
+    },
+    {
+      "requestId": "native-fable-5",
+      "adapter": "claude-code",
+      "status": 200,
+      "lineageType": "new",
+      "isResume": false,
+      "model": "fable[1m]",
+      "requestModel": "claude-fable-5-1",
+      "cacheRead": 1360,
+      "cacheCreation": 5831
+    },
+    {
+      "requestId": "native-fable-4",
+      "adapter": "claude-code",
+      "status": 200,
+      "lineageType": "new",
+      "isResume": false,
+      "model": "fable[1m]",
+      "requestModel": "claude-fable-5-1",
+      "cacheRead": 6533,
+      "cacheCreation": 7301
+    },
+    {
+      "requestId": "native-fable-3",
+      "adapter": "claude-code",
+      "status": 200,
+      "lineageType": "continuation",
+      "isResume": true,
+      "model": "fable[1m]",
+      "requestModel": "claude-fable-5-1",
+      "cacheRead": 7497,
+      "cacheCreation": 5349
+    },
+    {
+      "requestId": "native-fable-2",
+      "adapter": "claude-code",
+      "status": 200,
+      "lineageType": "new",
+      "isResume": false,
+      "model": "fable[1m]",
+      "requestModel": "claude-fable-5-1",
+      "cacheRead": 2724,
+      "cacheCreation": 9480
+    },
+    {
+      "requestId": "native-fable-1",
+      "adapter": "claude-code",
+      "status": 200,
+      "lineageType": "new",
+      "isResume": false,
+      "model": "fable[1m]",
+      "requestModel": "claude-fable-5-1",
+      "cacheRead": 5098,
+      "cacheCreation": 17102
+    }
+  ],
+  "reminderTransitions": 2,
+  "reminderOnlyTransitions": 0,
+  "routeWitnesses": [],
+  "allObservedChildrenJoined": true,
+  "relayHandlersSettled": true
+}

@@ -5,9 +5,9 @@
  *
  * The executables are shell scripts that answer `--version` and `auth status`
  * like Claude Code, and the "system" one is put first on PATH, so nothing here
- * runs a real Claude Code. Isolated by package.json, like
- * header-settings-routes.test.ts: other files mock ../proxy/models
- * process-wide, and this one needs the real resolver.
+ * runs a real Claude Code. Isolated by package.json for its PATH/settings
+ * mutations. The SDK fixture explicitly preserves the actual resolver/auth
+ * implementation while keeping the host credential store synthetic.
  */
 import { afterEach, beforeEach, describe, expect, it } from "bun:test"
 import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs"
@@ -28,7 +28,7 @@ installSdkMock(() => ({
   })(),
   createSdkMcpServer: () => ({ type: "sdk", name: "test", instance: {} }),
   tool: () => ({}),
-}), "claude-executable-settings.test.ts")
+}), "claude-executable-settings.test.ts", { nativeClaude: true })
 installLoggerMock(() => ({ claudeLog: () => {}, withClaudeLogContext: (_context: unknown, fn: () => unknown) => fn() }))
 installMcpToolsMock(() => ({ createOpencodeMcpServer: () => ({ type: "sdk", name: "opencode", instance: {} }) }))
 

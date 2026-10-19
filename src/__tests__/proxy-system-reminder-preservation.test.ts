@@ -13,7 +13,7 @@
  */
 
 import { describe, it, expect, mock, beforeEach, afterEach } from "bun:test"
-import { installSdkMock } from "./sdkMock"
+import { installSdkMock, MOCK_CLAUDE_EXECUTABLE } from "./sdkMock"
 import { installLoggerMock } from "./loggerMock"
 import { installMcpToolsMock } from "./mcpToolsMock"
 import { assistantMessage, withMockSdkSessionId } from "./helpers"
@@ -105,8 +105,11 @@ describe("issue #368: <system-reminder> preservation by adapter", () => {
       messages: [{ role: "user", content: OMO_SYSTEM_REMINDER }],
     }
 
-    await (await post(app, body)).json()
+    const response = await post(app, body)
+    expect(response.status).toBe(200)
+    await response.json()
 
+    expect(capturedQueryParams?.options?.pathToClaudeCodeExecutable).toBe(MOCK_CLAUDE_EXECUTABLE)
     const prompt = getPromptText()
     expect(prompt).toContain("bg_0aaa50b0")
     expect(prompt).toContain("bg_8ff9ed0f")
@@ -129,8 +132,11 @@ describe("issue #368: <system-reminder> preservation by adapter", () => {
       ],
     }
 
-    await (await post(app, body)).json()
+    const response = await post(app, body)
+    expect(response.status).toBe(200)
+    await response.json()
 
+    expect(capturedQueryParams?.options?.pathToClaudeCodeExecutable).toBe(MOCK_CLAUDE_EXECUTABLE)
     const prompt = getPromptText()
     expect(prompt).toContain("bg_0aaa50b0")
     expect(prompt).toContain("bg_8ff9ed0f")
@@ -160,8 +166,11 @@ describe("issue #368: <system-reminder> preservation by adapter", () => {
       ],
     }
 
-    await (await post(app, body, { "User-Agent": DROID_UA })).json()
+    const response = await post(app, body, { "User-Agent": DROID_UA })
+    expect(response.status).toBe(200)
+    await response.json()
 
+    expect(capturedQueryParams?.options?.pathToClaudeCodeExecutable).toBe(MOCK_CLAUDE_EXECUTABLE)
     const prompt = getPromptText()
     expect(prompt).not.toContain("% pwd")
     expect(prompt).not.toContain("/Users/dev/project")

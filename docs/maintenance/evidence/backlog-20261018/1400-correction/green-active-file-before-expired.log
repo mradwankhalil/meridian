@@ -1,0 +1,350 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/active-priority-integration.test.ts:
+OFFLINE_FIXTURE_RUNTIME {"bun":"1.3.11","executable":"/private/tmp/meridian-1399-tooling/node_modules/bun/bin/bun.exe"}
+[PROXY] Active profile switched to: spare (from unset, ua: unknown)
+[PROXY] 7c915272-da33-40e0-b197-6aaa56ee1baa adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 7c915272-da33-40e0-b197-6aaa56ee1baa usage: input=10 output=50 cache=0%
+(pass) active+priority routing > sends unpinned requests to the ACTIVE profile, not the head of the pool order [125.09ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 50502abc-1fe4-41dd-b265-fed190350463 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=8ms msgCount=1 msgs=user[string]
+[PROXY] 50502abc-1fe4-41dd-b265-fed190350463 usage: input=10 output=50 cache=0%
+[PROXY] Active profile switched to: personal (from work, ua: unknown)
+[PROXY] 7792a238-9613-40b4-b989-22203338dab3 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 7792a238-9613-40b4-b989-22203338dab3 usage: input=10 output=50 cache=0%
+(pass) active+priority routing > moves a conversation already under way when the active profile is switched [236.17ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 918b594b-60ea-422d-b9c3-c95a651ad20d adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 918b594b-60ea-422d-b9c3-c95a651ad20d adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 918b594b-60ea-422d-b9c3-c95a651ad20d usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) active+priority routing > re-proxies to the next account in the pool order when the active one is refused [184.70ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 37617993-12aa-4000-a7af-dcde2763d08e adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=14ms msgCount=1 msgs=user[string]
+[PROXY] 37617993-12aa-4000-a7af-dcde2763d08e adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 37617993-12aa-4000-a7af-dcde2763d08e adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 37617993-12aa-4000-a7af-dcde2763d08e usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover personal -> spare (rate_limit_error)
+[PROXY] Session not resumable (key=spare:s2…): reason=unrelated-history, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+[PROXY] 9c214f54-909a-4373-bbb1-a9ced356c4cf adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=unrelated-history sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=1 msgs=user[string]
+[PROXY] 9c214f54-909a-4373-bbb1-a9ced356c4cf SESSION RECOVERY: previous conversation available. Run: claude --resume 87307595-e232-4624-86b7-043dbcbae131
+[PROXY] 9c214f54-909a-4373-bbb1-a9ced356c4cf usage: input=10 output=50 cache=0%
+(pass) active+priority routing > keeps a conversation on the fallback it already used while the active profile is still refusing [279.51ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 2a699459-6011-4efc-8fd6-d82101f3f476 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=7ms msgCount=1 msgs=user[string]
+[PROXY] 2a699459-6011-4efc-8fd6-d82101f3f476 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 2a699459-6011-4efc-8fd6-d82101f3f476 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) active+priority routing > returns to the active profile as soon as it stops refusing [119.84ms]
+[PROXY] 1bdb3ee9-776e-464f-b87a-c3f84106d514 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1bdb3ee9-776e-464f-b87a-c3f84106d514 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1bdb3ee9-776e-464f-b87a-c3f84106d514 adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) active+priority routing > surfaces the error only when every account refuses [324.79ms]
+[PROXY] c2cb5012-34d9-4734-adca-d67ead0e9132 adapter=opencode profile=work model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) active+priority routing > lets an explicit x-meridian-profile header bypass the pool entirely [121.25ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] fdd7a33f-6df3-43f0-8966-19ffd5e824f3 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] fdd7a33f-6df3-43f0-8966-19ffd5e824f3 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] fdd7a33f-6df3-43f0-8966-19ffd5e824f3 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > serves a Fable request from the next account when the active one has no Fable allowance left [166.97ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 58c47469-9ad7-4d13-9858-8786c09b71e7 adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 58c47469-9ad7-4d13-9858-8786c09b71e7 adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 58c47469-9ad7-4d13-9858-8786c09b71e7 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > moves a streamed Fable request before the client has seen anything of the refusal [146.61ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 63bb2cc4-e165-49e2-b986-6631e9d76a51 adapter=opencode profile=work(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 63bb2cc4-e165-49e2-b986-6631e9d76a51 adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 63bb2cc4-e165-49e2-b986-6631e9d76a51 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 11045368-e6c8-4c43-867f-49d391dca7ac adapter=opencode profile=work(priority) model=sonnet stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 11045368-e6c8-4c43-867f-49d391dca7ac usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > benches only Fable when the streamed refusal arrives behind a keepalive ping [177.40ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] b634d837-81ff-4b9a-8c47-754d6788d734 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] b634d837-81ff-4b9a-8c47-754d6788d734 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b634d837-81ff-4b9a-8c47-754d6788d734 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] d6a42e4f-e98d-4a5b-92c3-acade0354416 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+[PROXY] d6a42e4f-e98d-4a5b-92c3-acade0354416 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > keeps every other model on the account that refused Fable [168.66ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 60af1284-322a-4a85-b805-f9c204132dc3 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 60af1284-322a-4a85-b805-f9c204132dc3 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 60af1284-322a-4a85-b805-f9c204132dc3 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] a97b0d8d-bebf-4a96-9a7f-bde40745e622 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=4ms msgCount=1 msgs=user[string]
+[PROXY] a97b0d8d-bebf-4a96-9a7f-bde40745e622 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > sends the next Fable request straight to the fallback [124.91ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 46191728-2a46-45a1-b8eb-c68be226784f adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 46191728-2a46-45a1-b8eb-c68be226784f adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 46191728-2a46-45a1-b8eb-c68be226784f usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > reports the account as serving, and names the model it is out for [171.80ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 1c2b9dd3-c810-49e9-8d7f-37e01f93f901 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1c2b9dd3-c810-49e9-8d7f-37e01f93f901 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1c2b9dd3-c810-49e9-8d7f-37e01f93f901 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > keeps Fable off the account until the reset the SDK reported for that allowance [91.39ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] cb219f94-73dd-431c-a53c-bdeb1694cc20 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb219f94-73dd-431c-a53c-bdeb1694cc20 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb219f94-73dd-431c-a53c-bdeb1694cc20 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > looks again after ten minutes when nothing says when the allowance returns [130.30ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] d5ffb915-a323-46e0-88a0-6868a08d7a75 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d5ffb915-a323-46e0-88a0-6868a08d7a75 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d5ffb915-a323-46e0-88a0-6868a08d7a75 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > extends the bench to the window's own reset once a fresh usage read shows it spent [147.55ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] f2613426-7a4e-4798-b2cc-6d0fb56bcc58 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f2613426-7a4e-4798-b2cc-6d0fb56bcc58 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f2613426-7a4e-4798-b2cc-6d0fb56bcc58 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > leaves the ten-minute bench standing when the fresh read does not show that window spent [165.35ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 716d4543-3e52-4ba7-a688-dcb88dcfb6fc adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 716d4543-3e52-4ba7-a688-dcb88dcfb6fc adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 716d4543-3e52-4ba7-a688-dcb88dcfb6fc usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > does not take a reset from a usage snapshot in which that window is not spent [123.48ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 3cd2beef-262a-4ba5-8d1d-82e09c98b5be adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 3cd2beef-262a-4ba5-8d1d-82e09c98b5be adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 3cd2beef-262a-4ba5-8d1d-82e09c98b5be usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > takes it from a snapshot that shows the window spent [150.62ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 5b3da9dc-4e9f-44e1-a69d-e76b5074d1e9 adapter=opencode profile=work model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb112ecd-166a-402f-b6c5-c1f4358b2964 adapter=opencode profile=work(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb112ecd-166a-402f-b6c5-c1f4358b2964 rate-limited on [1m], retrying with fable
+[PROXY] cb112ecd-166a-402f-b6c5-c1f4358b2964 rate-limited on fable, retry 1/2 in 1000ms
+[PROXY] cb112ecd-166a-402f-b6c5-c1f4358b2964 rate-limited on fable, retry 2/2 in 2000ms
+[PROXY] cb112ecd-166a-402f-b6c5-c1f4358b2964 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cb112ecd-166a-402f-b6c5-c1f4358b2964 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > benches the account as before when the SDK's word on that allowance is from an earlier request [3276.34ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 8e6b721d-ce8f-4838-a8b4-cf2bd3e57abb adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 8e6b721d-ce8f-4838-a8b4-cf2bd3e57abb adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 8e6b721d-ce8f-4838-a8b4-cf2bd3e57abb usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > benches the account as before when the refusal on record is older than the attempt [145.82ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 5be39ad8-4d48-49c0-9385-fe5b887ad45d adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 5be39ad8-4d48-49c0-9385-fe5b887ad45d rate-limited on fable, retry 1/2 in 1000ms
+[PROXY] 5be39ad8-4d48-49c0-9385-fe5b887ad45d rate-limited on fable, retry 2/2 in 2000ms
+[PROXY] 5be39ad8-4d48-49c0-9385-fe5b887ad45d adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 5be39ad8-4d48-49c0-9385-fe5b887ad45d usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) an allowance spent for one model > does not keep Fable off an account that serves it on usage credits because one request was throttled [3265.98ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 86a0a90d-11d5-4603-addd-5807bdafa395 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=1 msgs=user[string]
+[PROXY] 86a0a90d-11d5-4603-addd-5807bdafa395 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 86a0a90d-11d5-4603-addd-5807bdafa395 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 975b50ac-fa1f-457b-97f0-1e9099684ade adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=5ms msgCount=1 msgs=user[string]
+[PROXY] 975b50ac-fa1f-457b-97f0-1e9099684ade usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > keeps only Fable off an account that is out of usage credits [341.03ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 406aabf6-f127-40e9-9b4d-2a3d97c1e6ce adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 406aabf6-f127-40e9-9b4d-2a3d97c1e6ce adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 406aabf6-f127-40e9-9b4d-2a3d97c1e6ce usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] 68a64d95-ec96-4852-83a2-5d95da8614bb adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+[PROXY] 68a64d95-ec96-4852-83a2-5d95da8614bb usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > goes by the tier a request is run as when it names no model the proxy knows [140.96ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 1be4608f-17b9-4d21-8178-99b33b2df4e3 adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1be4608f-17b9-4d21-8178-99b33b2df4e3 adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1be4608f-17b9-4d21-8178-99b33b2df4e3 adapter=opencode profile=spare(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 831dae3d-ada4-4335-b50a-4a02315fa43b adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > gives a streaming client the same wait, in the frame it gets instead of a header [165.96ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 34528d28-e2f3-48c5-8eb8-e435b259d3e6 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 34528d28-e2f3-48c5-8eb8-e435b259d3e6 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 34528d28-e2f3-48c5-8eb8-e435b259d3e6 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 34528d28-e2f3-48c5-8eb8-e435b259d3e6 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover personal -> spare (rate_limit_error)
+(pass) an allowance spent for one model > steps around an account that is out altogether on the way to one with Fable left [302.01ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] ec0c801e-1fff-4506-80b1-2ddf23c6437e adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] ec0c801e-1fff-4506-80b1-2ddf23c6437e adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] ec0c801e-1fff-4506-80b1-2ddf23c6437e adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 029e7719-789b-4b99-8dbe-e7d877edf8be adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > tells the client to wait for the first account that gets Fable back, not the one tried last [227.55ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 37493681-f374-4803-b1f6-b122b358cd38 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 37493681-f374-4803-b1f6-b122b358cd38 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 37493681-f374-4803-b1f6-b122b358cd38 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] cdf123e8-ca7e-4a8a-91cc-e7386144ecdc adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 84084545-6688-4c25-8c37-5fa0ee167153 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 84084545-6688-4c25-8c37-5fa0ee167153 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (JSON) > keeps the longer model benches when a shorter repeat would hide the retried account's opening [471.96ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] c76d4e87-a0d6-4a15-896b-d6ca2fcc73b3 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] c76d4e87-a0d6-4a15-896b-d6ca2fcc73b3 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] c76d4e87-a0d6-4a15-896b-d6ca2fcc73b3 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b54b7ceb-64f0-4ba0-9927-aa24ecdaefa9 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d61ed889-5a8e-451a-b4b0-0a19352dc881 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d61ed889-5a8e-451a-b4b0-0a19352dc881 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (JSON) > keeps the longer model benches when a shorter repeat would hide a skipped account's opening [364.17ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 06381761-9d95-4d14-95c5-d5d2f6433e2a adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 06381761-9d95-4d14-95c5-d5d2f6433e2a adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 06381761-9d95-4d14-95c5-d5d2f6433e2a adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] b928cd6f-186c-4d72-98c5-591ef51ea0b0 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 4f16b420-e665-49a5-a2da-18d84f10f75a adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > effective pool retry waits (JSON) > waits for both account and model exclusions before comparing accounts [9991.71ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] f902fa9a-17c4-48ab-9af9-e8d91a77cccc adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f902fa9a-17c4-48ab-9af9-e8d91a77cccc adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f902fa9a-17c4-48ab-9af9-e8d91a77cccc adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > effective pool retry waits (JSON) > uses a bench extended while later accounts are still being tried [171.10ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] a581d5e9-3708-493b-aabd-9680aff9e855 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] a581d5e9-3708-493b-aabd-9680aff9e855 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] a581d5e9-3708-493b-aabd-9680aff9e855 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d972c1ef-86ef-4f0c-84c1-73239736bf44 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d972c1ef-86ef-4f0c-84c1-73239736bf44 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (JSON) > keeps the ordinary ten-minute first-mark wait model-local [190.93ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] fd0fa630-1752-4a2d-8f72-10193eade742 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] fd0fa630-1752-4a2d-8f72-10193eade742 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] fd0fa630-1752-4a2d-8f72-10193eade742 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 9cdc4576-e7b5-4e4d-99d6-7cce1ccf6f16 adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 7505302f-d401-4a0a-930c-7a9de6849aa7 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 7505302f-d401-4a0a-930c-7a9de6849aa7 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (SSE) > keeps the longer model benches when a shorter repeat would hide the retried account's opening [325.70ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 77f65d18-e3c1-470e-b3f2-f4ae03985bc7 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 77f65d18-e3c1-470e-b3f2-f4ae03985bc7 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 77f65d18-e3c1-470e-b3f2-f4ae03985bc7 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] b9b128cb-6700-4f61-80c8-286b8856b5d9 adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] c6ac97d5-aefe-4b89-bcba-f252d4f1e823 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] c6ac97d5-aefe-4b89-bcba-f252d4f1e823 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (SSE) > keeps the longer model benches when a shorter repeat would hide a skipped account's opening [263.32ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] effc7101-b65a-45a7-af56-358783ac676d adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] effc7101-b65a-45a7-af56-358783ac676d adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] effc7101-b65a-45a7-af56-358783ac676d adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 80cef9a2-73eb-413c-a9ad-4f490b86bbfe rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 23ec22a3-7646-472d-adbd-494fe7defbdd adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > effective pool retry waits (SSE) > waits for both account and model exclusions before comparing accounts [9987.51ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] ccabd7ec-02c5-4e9e-a7b5-8f3faac33ebd adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] ccabd7ec-02c5-4e9e-a7b5-8f3faac33ebd adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] ccabd7ec-02c5-4e9e-a7b5-8f3faac33ebd adapter=opencode profile=spare(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > effective pool retry waits (SSE) > uses a bench extended while later accounts are still being tried [248.03ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 1b9207a8-27c0-427b-a2c1-d2e52e57cc21 adapter=opencode profile=work(priority) model=fable stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1b9207a8-27c0-427b-a2c1-d2e52e57cc21 adapter=opencode profile=personal(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 1b9207a8-27c0-427b-a2c1-d2e52e57cc21 adapter=opencode profile=spare(priority) model=fable[1m] stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 0de0fb72-7561-4165-bf25-e0da409fd668 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 0de0fb72-7561-4165-bf25-e0da409fd668 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > effective pool retry waits (SSE) > keeps the ordinary ten-minute first-mark wait model-local [190.23ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 8e348955-459a-4380-a7ad-7c52dbed0088 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 8e348955-459a-4380-a7ad-7c52dbed0088 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 8e348955-459a-4380-a7ad-7c52dbed0088 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 8e348955-459a-4380-a7ad-7c52dbed0088 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover personal -> spare (rate_limit_error)
+[PROXY] 46301390-82bb-4102-88a2-f50a9d2b8747 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) an allowance spent for one model > counts the active account toward the wait once it is skipped as benched [344.68ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 0c6bb44d-e195-4c68-8d9e-8085f6eb57b7 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 0c6bb44d-e195-4c68-8d9e-8085f6eb57b7 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 0c6bb44d-e195-4c68-8d9e-8085f6eb57b7 adapter=opencode profile=spare(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f8cc0ed8-64ce-48d4-9ed9-35b0821ce437 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f8cc0ed8-64ce-48d4-9ed9-35b0821ce437 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > answers 429 when no account has Fable allowance left, and still serves the other models [253.59ms]
+[PROXY] 7313417a-e554-42e0-9feb-a9e860ba8cc7 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=1 msgs=user[string]
+[PROXY] 7313417a-e554-42e0-9feb-a9e860ba8cc7 usage: input=10 output=50 cache=0%
+[PROXY] 71d0edd1-5884-41c0-8aea-70f715481827 adapter=opencode profile=work(priority) model=fable stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=75ms msgCount=1 msgs=user[string]
+[PROXY] 71d0edd1-5884-41c0-8aea-70f715481827 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 71d0edd1-5884-41c0-8aea-70f715481827 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+[PROXY] Session not resumable (key=work:mai…): reason=unrelated-history, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+[PROXY] 27373932-5cf9-4b8e-ac8a-e797bc0b72f8 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=unrelated-history sdkActive=0/10 sdkQueued=0 sessionWait=8ms msgCount=1 msgs=user[string]
+[PROXY] 27373932-5cf9-4b8e-ac8a-e797bc0b72f8 SESSION RECOVERY: previous conversation available. Run: claude --resume 2021fbe2-f6c1-4fd4-a039-065814f29649
+[PROXY] 27373932-5cf9-4b8e-ac8a-e797bc0b72f8 usage: input=10 output=50 cache=0%
+[PROXY] c1b4e638-6862-468e-8728-bf43582c5262 adapter=opencode profile=personal(priority) model=fable[1m] stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=6ms msgCount=1 msgs=user[string]
+[PROXY] c1b4e638-6862-468e-8728-bf43582c5262 usage: input=10 output=50 cache=0%
+[PROXY] Session not resumable (key=personal…): reason=unrelated-history, prefix overlap 0/1, incoming 1 msgs. Starting fresh replay.
+[PROXY] f6e8d5a3-237a-4f93-b3b7-4b6f9fd9dbc0 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=unrelated-history sdkActive=0/10 sdkQueued=0 sessionWait=12ms msgCount=1 msgs=user[string]
+[PROXY] f6e8d5a3-237a-4f93-b3b7-4b6f9fd9dbc0 SESSION RECOVERY: previous conversation available. Run: claude --resume cbf5756e-7dbb-408c-a313-dbe7acce4c12
+[PROXY] f6e8d5a3-237a-4f93-b3b7-4b6f9fd9dbc0 usage: input=10 output=50 cache=0%
+(pass) an allowance spent for one model > holds in plain priority routing, where a conversation goes with its own request [685.46ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] ca288135-77cb-4a39-8ddd-3681a4fc2ff9 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] ca288135-77cb-4a39-8ddd-3681a4fc2ff9 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] ca288135-77cb-4a39-8ddd-3681a4fc2ff9 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) refusal reporting > records WHICH allowance was refused, from the wording Anthropic used [151.72ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 5fa7fc13-e390-4042-a551-d13e82977047 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 5fa7fc13-e390-4042-a551-d13e82977047 rate-limited on sonnet, retry 1/2 in 1000ms
+[PROXY] 5fa7fc13-e390-4042-a551-d13e82977047 rate-limited on sonnet, retry 2/2 in 2000ms
+[PROXY] 5fa7fc13-e390-4042-a551-d13e82977047 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 5fa7fc13-e390-4042-a551-d13e82977047 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) refusal reporting > guesses the bucket from cached windows when the wording names none, and says it is a guess [3200.86ms]
+[PROXY] 0c8e9e82-fd6f-45c5-8313-a3db2cc4f87a adapter=opencode profile=work model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) refusal reporting > reports a refusal in plain ACTIVE mode, where nothing fails over [59.93ms]
+[PROXY] dc6e83fc-3dbc-4e1b-bf10-86cbc11f12c7 adapter=opencode profile=work model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) refusal reporting > names the refused allowance on the /telemetry row, in a mode that never fails over [91.52ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] f7983fdf-bd43-4337-8973-1d60e2b7a438 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f7983fdf-bd43-4337-8973-1d60e2b7a438 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] f7983fdf-bd43-4337-8973-1d60e2b7a438 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) GET /profiles/health > reports which accounts are refusing and which are benched [72.03ms]
+(pass) GET /profiles/health > is empty and harmless before anything has gone wrong [2.96ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 032293a5-ffab-49bc-8f89-3faf72f605b8 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 032293a5-ffab-49bc-8f89-3faf72f605b8 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 032293a5-ffab-49bc-8f89-3faf72f605b8 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) GET /profiles/events > reports the refusal and the failover that hid it from the client [72.15ms]
+[PROXY] 83bfc97d-72e7-4a97-8c1e-88e10077fec6 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 83bfc97d-72e7-4a97-8c1e-88e10077fec6 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 83bfc97d-72e7-4a97-8c1e-88e10077fec6 adapter=opencode profile=spare(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) GET /profiles/events > reports pool_exhausted when there was nowhere left to send the request [92.11ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 583b53ff-85ff-4011-859e-38f714a888c8 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 583b53ff-85ff-4011-859e-38f714a888c8 adapter=opencode profile=personal(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 583b53ff-85ff-4011-859e-38f714a888c8 usage: input=10 output=50 cache=0%
+[PROXY] PRIORITY failover work -> personal (rate_limit_error)
+(pass) GET /profiles/events > advances a since cursor without skipping anything [134.68ms]
+(pass) GET /profiles/events > is empty and harmless before anything has gone wrong [3.61ms]
+[PROXY] Routing settings updated: routing=active+priority order=(config order)
+(pass) routing settings > accepts the new mode over PUT /settings/api/routing and offers it in the mode list [5.49ms]
+(pass) routing settings > still rejects a mode it does not know [6.77ms]
+SDK_BOUNDARY_TRAP {"attempts":[],"actualNativeChildren":0,"actualNetworkCalls":0}
+
+ 52 pass
+ 0 fail
+ 365 expect() calls
+Ran 52 tests across 1 file. [38.67s]

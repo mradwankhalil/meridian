@@ -8,10 +8,11 @@
  * return to the preferred profile), exhaustion skip, and that the mode OFF
  * is byte-identical to today's behavior.
  */
-import { describe, it, expect, mock, beforeEach, afterEach } from "bun:test"
+import { describe, it, expect, mock, spyOn, beforeEach, afterEach } from "bun:test"
 import { createAdaptorServer } from "@hono/node-server"
 import type { AddressInfo } from "node:net"
 import { installSdkMock } from "./sdkMock"
+import { createOwnedCredentialStore } from "./modelsMock"
 import { installLoggerMock } from "./loggerMock"
 import { installMcpToolsMock } from "./mcpToolsMock"
 import { assistantMessage, messageStart, textBlockStart, textDelta, blockStop, messageDelta, messageStop, resolveMockSdkSessionId, streamEvent } from "./helpers"
@@ -2598,6 +2599,7 @@ describe("keyless priority affinity", () => {
 })
 
 describe("re-authenticated profile unbenching (#1385)", () => {
+  let storeOverride: { mockRestore(): void }
   let tempDir = ""
   let originalFetch: typeof globalThis.fetch
 
@@ -2614,7 +2616,7 @@ describe("re-authenticated profile unbenching (#1385)", () => {
   }
 
   function stubOAuthEndpoints(status = 200) {
-    globalThis.fetch = Object.assign(
+    const syntheticFetch = Object.assign(
       async (input: Parameters<typeof fetch>[0]) => {
         const url = String(input)
         if (url === "https://api.anthropic.com/api/oauth/profile") {
@@ -2639,6 +2641,8 @@ describe("re-authenticated profile unbenching (#1385)", () => {
       },
       { preconnect: originalFetch.preconnect },
     )
+    globalThis.fetch = syntheticFetch
+    expect(globalThis.fetch).toBe(syntheticFetch)
   }
 
   function createReauthTestApp(): { app: TestApp; workDir: string; personalDir: string } {
@@ -2669,8 +2673,17 @@ describe("re-authenticated profile unbenching (#1385)", () => {
     const { resetInflightRefresh, setCredentialStorePlatformForTests, stopBackgroundRefresh } = await import("../proxy/tokenRefresh")
 
     originalFetch = globalThis.fetch
+    // Proactive refresh can run on the first mocked HTTP turn, before the
+    // explicit login/refresh request below. Refuse all other network paths.
+    stubOAuthEndpoints(200)
     tempDir = mkdtempSync(join(tmpdir(), "meridian-reauth-1385-"))
     setCredentialStorePlatformForTests("linux")
+    // These four controls intentionally persist synthetic OAuth tokens in their
+    // newly owned directories. Keep the real file backend behind a path guard;
+    // all other SDK-mocked tests retain the empty default store.
+    const tokens = await import("../proxy/tokenRefresh")
+    storeOverride = spyOn(tokens, "createPlatformCredentialStore").mockImplementation(options =>
+      createOwnedCredentialStore(tempDir, options?.claudeConfigDir))
     resetPendingLogins()
     resetInflightRefresh()
     stopBackgroundRefresh()
@@ -2700,6 +2713,7 @@ describe("re-authenticated profile unbenching (#1385)", () => {
     const { resetInflightRefresh, setCredentialStorePlatformForTests, stopBackgroundRefresh } = await import("../proxy/tokenRefresh")
 
     globalThis.fetch = originalFetch
+    storeOverride.mockRestore()
     setCredentialStorePlatformForTests(null)
     resetPendingLogins()
     resetInflightRefresh()

@@ -1,0 +1,16 @@
+# PR1410 reproduction commands; these are NOT an instruction to rerun the failed live gate.
+# Candidate exact HEAD:423477f19812b08e15d332d4f7c9c91ebf4e8650.
+# Stop after any provider refusal or unexplained failure. No model diagnostics or retries.
+npm install --prefix /tmp/meridian-1410-opencode-2021 --no-audit --no-fund @opencode/cli@2.0.21
+npm install --prefix /tmp/meridian-1410-scrub-consumer --ignore-scripts --no-audit --no-fund @rynfar/meridian-plugin-opencode-scrub@0.2.3
+node /tmp/meridian-1410-live-evidence/credentialless-v2-preflight.mjs
+bun /tmp/meridian-1410-live-evidence/read-only-usage-guard.mjs
+E2E_ALLOW_LIVE_MODEL=1 bun /tmp/meridian-1410-live-evidence/create-access-only-grant.mjs
+E2E_ALLOW_LIVE_MODEL=1 E2E_MERIDIAN_ROOT=/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe E2E_OPENCODE_BIN=/tmp/meridian-1410-opencode-2021/node_modules/.bin/opencode E2E_NATIVE_BIN=/Users/rynfar/.local/bin/claude node /tmp/meridian-1410-live-evidence/guarded-actual-v2-live.mjs
+
+# The only live E41 arm attempted after fixing its pre-inference API-auth setup:
+env E2E_ALLOW_LIVE_MODEL=1 E2E_LIVE_PROFILE_FILE=/tmp/meridian-1410-private-live/grant.json E2E_PLUGIN_PATH=/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js E2E_SCRUB_VERSION=0.2.3 E2E_CLIENT_PLUGIN_PATH=/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe/dist/meridian/index.js E2E_CLIENT_VERSION=1.83.1 E2E_MERIDIAN_ROOT=/Volumes/DevSSD/meridian/t3-worktrees/t3-8a106dbe MERIDIAN_CLAUDE_PATH=/Users/rynfar/.local/bin/claude MERIDIAN_CREDENTIALS_READONLY=1 MERIDIAN_NO_UPDATE_CHECK=1 PROBE_MODEL=claude-opus-5-5 PROBE_PORT=35581 bun /tmp/meridian-1410-live-evidence/qualified-e41-signed.mjs
+# This arm FAILS exact served-model history qualification in preserved evidence.
+# Do not continue the remaining3 modes until that failure is explained.
+# Temporary access-only grant and owned attestation keys were deleted at handoff.
+

@@ -1,3 +1,5 @@
+import { installModelsMock, syntheticClaudeBoundary } from "./modelsMock"
+installModelsMock(() => syntheticClaudeBoundary)
 import { describe, expect, it, beforeEach, afterEach } from "bun:test"
 
 describe("API key authentication", () => {
