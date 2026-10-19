@@ -9,6 +9,7 @@ import {
   translateOpenAiToAnthropic,
   translateAnthropicToOpenAi,
   translateAnthropicSseEvent,
+  translateAnthropicSseError,
   createSseTranslator,
   buildModelList,
 } from "../proxy/openai"
@@ -1663,5 +1664,41 @@ describe("buildModelList", () => {
   it("uses provided timestamp", () => {
     const ts = 9999999
     buildModelList(true, ts).forEach(m => expect(m.created).toBe(ts))
+  })
+})
+
+// ---------------------------------------------------------------------------
+// translateAnthropicSseError
+// ---------------------------------------------------------------------------
+
+describe("translateAnthropicSseError", () => {
+  it("returns null for non-error events", () => {
+    expect(translateAnthropicSseError({ type: "message_delta" })).toBeNull()
+    expect(translateAnthropicSseError({ type: "ping" })).toBeNull()
+  })
+
+  it("maps an Anthropic error event to an OpenAI in-band error", () => {
+    expect(translateAnthropicSseError({
+      type: "error",
+      error: { type: "overloaded_error", message: "Overloaded" },
+    })).toEqual({ error: { type: "overloaded_error", code: "overloaded_error", message: "Overloaded" } })
+  })
+
+  it("preserves extra upstream fields such as retry hints", () => {
+    expect(translateAnthropicSseError({
+      type: "error",
+      error: { type: "rate_limit_error", message: "Slow down", retry_after: 12 },
+    })).toEqual({
+      error: { type: "rate_limit_error", code: "rate_limit_error", message: "Slow down", retry_after: 12 },
+    })
+  })
+
+  it("fills defaults when the upstream error is missing or malformed", () => {
+    expect(translateAnthropicSseError({ type: "error" })).toEqual({
+      error: { type: "api_error", code: "api_error", message: "Upstream stream error" },
+    })
+    expect(translateAnthropicSseError({ type: "error", error: "boom" })).toEqual({
+      error: { type: "api_error", code: "api_error", message: "Upstream stream error" },
+    })
   })
 })

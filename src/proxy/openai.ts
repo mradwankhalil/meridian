@@ -1061,6 +1061,46 @@ export function translateAnthropicSseEvent(
   return null
 }
 
+/** OpenAI's in-band stream error frame: `data: {"error": {...}}`. */
+export interface OpenAiStreamErrorChunk {
+  error: {
+    message: string
+    type: string
+    code: string
+    [key: string]: unknown
+  }
+}
+
+/**
+ * Translate an Anthropic SSE `error` event into OpenAI's in-band stream error.
+ *
+ * A turn that fails after `message_start` is closed with
+ * `stop_reason: "max_tokens"` followed by an `error` event, so Anthropic
+ * clients can see both the partial content and the failure. The chat
+ * completions translator has no error shape, so without this the error was
+ * dropped and OpenAI clients saw only `finish_reason: "length"`: an upstream
+ * refusal (for example a safeguard rejection) looked like truncation, and
+ * clients that continue truncated turns re-sent the request that had just
+ * been refused.
+ *
+ * `code` mirrors the Anthropic error type so clients can classify the failure
+ * (rate limit, overload, auth) the same way they would an HTTP error body.
+ * Extra fields such as retry-after hints are preserved.
+ */
+export function translateAnthropicSseError(
+  event: { type?: unknown; error?: unknown },
+): OpenAiStreamErrorChunk | null {
+  if (event.type !== "error") return null
+  const upstream = event.error && typeof event.error === "object"
+    ? event.error as Record<string, unknown>
+    : {}
+  const type = typeof upstream.type === "string" && upstream.type ? upstream.type : "api_error"
+  const message = typeof upstream.message === "string" && upstream.message
+    ? upstream.message
+    : "Upstream stream error"
+  return { error: { ...upstream, message, type, code: type } }
+}
+
 // ---------------------------------------------------------------------------
 // Model list
 // ---------------------------------------------------------------------------
