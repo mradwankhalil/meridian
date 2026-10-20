@@ -58,6 +58,26 @@ session; do not treat successful resumed tool filtering as proof of clean
 instructions. The owned resumed-session probe in the maintenance evidence
 records this limitation separately from the fresh-session gate.
 
+The actual OpenCode check is `node scripts/e2e-opencode-host-isolation.mjs`.
+Build first. Set absolute `E2E_OPENCODE_BIN` (2.0.31 by default),
+`E2E_NATIVE_BIN`, installed server scrub `E2E_PLUGIN_PATH`, and an owned
+`E2E_EVIDENCE_DIR`; `E2E_MERIDIAN_ROOT` selects the built source or installed
+package. It installs that package's matching V2 client plugin and verifies the
+server scrub before and after the run. Client and proxy projects are distinct.
+The proxy's disposable full instruction sources contain a CLAUDE.md marker,
+SessionStart hook and HTTP MCP server. The client's actual file-read/result
+round must succeed while all three host sources are absent from its native
+model request. `--expect-baseline` requires all three leaks on unchanged main.
+The default upstream is scripted and spends no model requests.
+
+For actual model acceptance, add `--live`, `E2E_ALLOW_LIVE_MODEL=1`, private
+access-only `E2E_LIVE_PROFILE_FILE`, and a fresh read-only
+`E2E_USAGE_GUARD_FILE` establishing included capacity and disabled Extra Usage.
+This gate pins Haiku 5.5, rejects refusal/model changes before another request,
+bounds generations, joins original child/pipe handles, and correlates provider,
+native and public-SDK stored message IDs. It does not inspect private SDK
+transcripts. Run all four E41 modes and affected E42 hosts separately.
+
 ## Overlapping passthrough queries
 
 ```sh
