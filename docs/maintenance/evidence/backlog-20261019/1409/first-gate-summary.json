@@ -1,0 +1,20 @@
+{
+  "head": "f722adf513c9d0f60be0cc2e2176b7f91a5526d9",
+  "base": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+  "gate": "npm test",
+  "exit": 0,
+  "invocations": 24,
+  "bun_revision": "1.3.11+af24e281e",
+  "node": "v22.22.3",
+  "platform": "Darwin arm64",
+  "counts": {
+    "pass": 6973,
+    "skip": 36,
+    "fail": 0
+  },
+  "test_log_sha256": "045daa33fd4ef45bd62e3ca628c76d0192b2db0cfeb52be3a22027148cf9043b",
+  "test_log_bytes": 1380914,
+  "typecheck": "pass",
+  "build": "pass",
+  "ci_test": "FAILURE: watchdog holder crossed 150ms while filesystem work remained; CI run 39217928847. Not merge-ready."
+}

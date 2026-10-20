@@ -1,0 +1,132 @@
+{
+  "clientPlugin": {
+    "path": "/private/tmp/meridian-pr1410-correction-20261018/dist/meridian/index.js",
+    "packageName": "@rynfar/meridian",
+    "packageVersion": "1.83.1",
+    "sha256": "c640cc02817d9ad05d5b61f6bd906fdccdb4ef71be42d11981aecaeb84bc434e",
+    "invocations": 2,
+    "errors": 0,
+    "preflight": true
+  },
+  "scope": "Real SDK/model E41 with installed client hook and server scrub; protocol host, not OpenCode executable",
+  "model": "claude-opus-5-5",
+  "stream": false,
+  "root": "/private/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-probe-proxy-2YUEaY",
+  "result": "FAIL",
+  "setup": {
+    "exit": 0,
+    "generation": "v1",
+    "field": "plugin",
+    "entries": 1,
+    "path": "/private/tmp/meridian-pr1410-correction-20261018/dist/meridian"
+  },
+  "runtimeRequests": [
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-84860",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": []
+    },
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-84860",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": [
+        "toolu_01DKCAYvporkaLXAEZiMuPBA"
+      ]
+    }
+  ],
+  "phase": "model requests",
+  "serverPreflightHTTP": {
+    "status": 200,
+    "body": {
+      "plugins": [
+        {
+          "name": "opencode-scrub",
+          "description": "Strip opencode-identifying fingerprints from the system prompt before it reaches Claude",
+          "version": "0.2.3",
+          "adapters": [
+            "opencode",
+            "passthrough"
+          ],
+          "hooks": [
+            "onRequest"
+          ],
+          "status": "active",
+          "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+          "stats": {
+            "hooks": {}
+          }
+        }
+      ]
+    }
+  },
+  "scrubPreflight": {
+    "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+    "packageName": "@rynfar/meridian-plugin-opencode-scrub",
+    "packageVersion": "0.2.3",
+    "sha256": "4ab89412e6a59fad812a3f6e5500c84f3bdfc41863320bc794f5274a251da656",
+    "runtimeVersion": "0.2.3",
+    "invocations": 0,
+    "errors": 0
+  },
+  "cacheMisses": [],
+  "observedModels": [
+    "claude-opus-5-5"
+  ],
+  "modelOk": true,
+  "providerRefusal": {
+    "status": 500,
+    "type": "api_error",
+    "diagnostic": "Model diagnostic already stopped: Unexpected native result model: claude-opus-5-5[1m]"
+  },
+  "failure": "E41 HTTP error; stop before another model request\n\n500 !== 200\n",
+  "failureCode": "ERR_ASSERTION",
+  "children": [
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": null,
+      "exitSignal": "SIGTERM",
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    }
+  ],
+  "modelWitness": "/tmp/meridian-overnight-20261019/model-boundary/model-witness.json",
+  "joined": true
+}

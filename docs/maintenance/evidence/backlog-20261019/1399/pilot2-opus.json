@@ -1,0 +1,360 @@
+{
+  "head": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "scope": "Actual parallel native clients and real provider model; public-SDK fork fixtures create owned large-store pressure",
+  "durationSeconds": 60,
+  "seedCount": 0,
+  "maxGenerations": 100,
+  "concurrency": 4,
+  "minimumWorkerCycleMs": 12000,
+  "model": {
+    "expected": "claude-opus-5-5",
+    "observed": [
+      "claude-opus-5-5"
+    ],
+    "queries": 63,
+    "generations": 63,
+    "stopped": null
+  },
+  "context": "200k for Opus; explicit alias opus",
+  "native": {
+    "version": "2.1.302 (Claude Code)",
+    "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "sdk": "0.2.141",
+  "bun": "1.3.11",
+  "platform": "darwin",
+  "arch": "arm64",
+  "periodicGcDisabled": true,
+  "publicationGcUnchanged": true,
+  "cycles": 21,
+  "clientRequests": 63,
+  "capacityRefusal": null,
+  "failure": null,
+  "passed": true,
+  "beforeLoad": {
+    "at": 1792403513741,
+    "resources": 3,
+    "counts": {
+      "retired": 1,
+      "live": 2
+    }
+  },
+  "queriesBeforeLoad": 3,
+  "elapsedSeconds": 60.331,
+  "sdkQueriesPerMinute": 59.670815998408784,
+  "beforeClose": {
+    "at": 1792403574072,
+    "resources": 63,
+    "counts": {
+      "retired": 21,
+      "live": 42
+    }
+  },
+  "closeMs": 4,
+  "afterClose": {
+    "at": 1792403574076,
+    "resources": 63,
+    "counts": {
+      "retired": 21,
+      "live": 42
+    }
+  },
+  "deletedAfterCloseStarted": 0,
+  "sdkChildren": {
+    "started": 63,
+    "closed": 63
+  },
+  "clientChildren": {
+    "started": 42,
+    "joined": 42
+  },
+  "quotaChildren": {
+    "started": 2,
+    "joined": 2
+  },
+  "joined": true,
+  "latency": {
+    "requestPreSdkAdmissionMs": {
+      "p50": 19,
+      "p95": 45,
+      "p99": 46
+    },
+    "lifecycleLocalQueueWaitMs": {
+      "p50": 0.01316699999733828,
+      "p95": 5.574540999998135,
+      "p99": 10.585790999997698
+    },
+    "externalAcquireAndTransactionMs": {
+      "p50": 1.5788749999992433,
+      "p95": 12.90887499999917,
+      "p99": 16.56695899999613
+    }
+  },
+  "supportedModelSnapshots": [
+    {
+      "query": 56,
+      "sessionId": "b537813a-2751-43d3-b36a-562ab6d205b8",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4nSX3hyxJFs1f9pj",
+          "uuid": "737037f7-d4cd-49f5-bfe7-ea27453bdefa",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_018NzAYCiFtvF76ycRuhacs8",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeEEDWzKB7EpsLmuai",
+          "uuid": "b5dc6e18-28ef-48da-8d6e-743c81ca341c",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 57,
+      "sessionId": "acaee4b4-0cb4-472b-a011-830a7363ca8b",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4qR74HrvkPZpynjE",
+          "uuid": "f3f3b663-0542-460b-906a-ac705bf7fcfd",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01LaGkYRg2GBMvpRVVPMduxS",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeFd4C84oBqY9PNxq8",
+          "uuid": "27f46524-8f61-4ca4-9bd1-758a31e482a0",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 58,
+      "sessionId": "d2463b66-aca9-40ea-ae1b-2e704d68c576",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4jwwnrJojWPofJN8",
+          "uuid": "fd464bff-214a-4755-9811-daaecd114879",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01D4Aas4kG39kH5ydcXpqAAs",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeGA3G18zng45PHU9f",
+          "uuid": "0b8ae23e-f9a4-4e58-9319-c74eb9192f35",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 59,
+      "sessionId": "cbcc8301-85b4-4588-87a3-235c1248b464",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4jwwnrJojWPofJN8",
+          "uuid": "fd464bff-214a-4755-9811-daaecd114879",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01D4Aas4kG39kH5ydcXpqAAs",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeGA3G18zng45PHU9f",
+          "uuid": "0b8ae23e-f9a4-4e58-9319-c74eb9192f35",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeR3LWxLnTeGafPu5t",
+          "uuid": "4d952594-3fcc-4188-b2a2-5860918c621e",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 60,
+      "sessionId": "fc7ec780-c749-4a40-a4c4-799a4c81c2c0",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4nSX3hyxJFs1f9pj",
+          "uuid": "737037f7-d4cd-49f5-bfe7-ea27453bdefa",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_018NzAYCiFtvF76ycRuhacs8",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeEEDWzKB7EpsLmuai",
+          "uuid": "b5dc6e18-28ef-48da-8d6e-743c81ca341c",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeRd4b6yQdWUsRCh6n",
+          "uuid": "da80a4ae-2af6-4a54-afdf-69d95fb2bdf2",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 61,
+      "sessionId": "fcd67560-e7d6-4145-8ad3-82942e09e490",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4qR74HrvkPZpynjE",
+          "uuid": "f3f3b663-0542-460b-906a-ac705bf7fcfd",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01LaGkYRg2GBMvpRVVPMduxS",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeFd4C84oBqY9PNxq8",
+          "uuid": "27f46524-8f61-4ca4-9bd1-758a31e482a0",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeTEYxBJ6pFQuxHSAP",
+          "uuid": "37057b0b-9565-42b8-84a5-0c91b92c028b",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 62,
+      "sessionId": "57edea9f-e1d3-4359-80dc-35159a3ecac9",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4oRFKsZEcSf9NVwG",
+          "uuid": "8e5f1853-18b6-4691-9b9f-6b31cdc9d11e",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_016cyyZuZJ1Hio2UjsuysFPF",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeUNkcNwA3DPVfGxxi",
+          "uuid": "e518ffc6-9c49-4c65-a1c0-fd848f5d51f7",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 63,
+      "sessionId": "b8ecefd2-59be-4262-b40e-9893856fed84",
+      "rows": [
+        {
+          "id": "msg_011CgBPe4oRFKsZEcSf9NVwG",
+          "uuid": "8e5f1853-18b6-4691-9b9f-6b31cdc9d11e",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_016cyyZuZJ1Hio2UjsuysFPF",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPeUNkcNwA3DPVfGxxi",
+          "uuid": "e518ffc6-9c49-4c65-a1c0-fd848f5d51f7",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBPefFcCGSGa2XseKd8Y",
+          "uuid": "d7ad8f76-7fae-4fa3-976f-b1295a6406de",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ownedCredentialAndClientConfigRemoved": true
+}

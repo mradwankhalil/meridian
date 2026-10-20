@@ -1,0 +1,93 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/session-copy-held.test.ts:
+(pass) messagesHeld > counts what a continuation resumes from and the reply it wrote to it [1.11ms]
+(pass) messagesHeld > counts nothing of a diverged session [0.03ms]
+(pass) copyElsewhereHoldingMore > finds the copy that went on elsewhere, used since this account's [72.31ms]
+(pass) copyElsewhereHoldingMore > ignores a copy elsewhere not used since this account's [4.05ms]
+(pass) copyElsewhereHoldingMore > ignores a copy elsewhere that holds no more than this account's [3.25ms]
+(pass) copyElsewhereHoldingMore > counts a copy published from a plugin-rewritten execution by its raw client lineage [3.92ms]
+(pass) copyElsewhereHoldingMore > does not count a legacy copy elsewhere that proves no lineage [1.95ms]
+79 |     const read = spyOn(sessionStore, "lookupSharedSessionResult").mockReturnValue({
+80 |       status: "error", error: new Error("owned other-profile read failure"),
+81 |     })
+82 |     try {
+83 |       expect(() => copyElsewhereHoldingMore(others, history, { lastUsedAt: 0, held: 2 }))
+84 |         .toThrow("owned other-profile read failure")
+              ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "owned other-profile read failure"
+
+Received function did not throw
+Received value: undefined
+
+      at <anonymous> (/private/tmp/meridian-pr1401-r2-20261019/src/__tests__/session-copy-held.test.ts:84:10)
+(fail) copyElsewhereHoldingMore > rejects an unreadable other mapping instead of treating the copy as absent [2.05ms]
+92 |       key === "unreadable:conversation"
+93 |         ? { status: "error", error: new Error("owned later-profile read failure") }
+94 |         : realRead(key))
+95 |     try {
+96 |       expect(() => copyElsewhereHoldingMore([...others, { profileId: "unreadable", key: "unreadable:conversation" }],
+97 |         history, { lastUsedAt: 0, held: 2 })).toThrow("owned later-profile read failure")
+                                                   ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "owned later-profile read failure"
+
+Received function did not throw
+Received value: {
+  profileId: "backup",
+  key: "backup:conversation",
+  session: {
+    claudeSessionId: "sdk-backup",
+    revision: 1,
+    generationId: "973ec291-5307-4e23-b391-cb046d8dfeb0",
+    createdAt: 1792428370815,
+    lastUsedAt: 1792428370815,
+    messageCount: 3,
+    lineageHash: "9e3e609fc6187160d0ae8bfdc435cfb8",
+    clientLineageHash: undefined,
+    messageHashes: [ "4a718026af87228c6b4ce917beba8eca", "f0adec594ef1ef2ce54b33147e6f39ef",
+      "47f6196e3b497bb1bc883537dc3f21fe"
+    ],
+    messageBlockHashes: [
+      [ "edf63ffa17e9b30a5595bfaff4c5aed5" ], [ "067a9f20f23dc70078031d6d0df2bb2d" ], [ "eb9edcf50aa514c55ddc6f1e4193dc4a" ]
+    ],
+    sdkMessageUuids: undefined,
+    passthroughToolCallAssistantUuid: undefined,
+    passthroughToolCallIds: undefined,
+    contextUsage: undefined,
+  },
+  lineage: {
+    type: "continuation",
+    session: {
+      claudeSessionId: "sdk-backup",
+      lastAccess: 1792428370816,
+      messageCount: 3,
+      lineageHash: "9e3e609fc6187160d0ae8bfdc435cfb8",
+      clientLineageHash: undefined,
+      messageHashes: [ "4a718026af87228c6b4ce917beba8eca", "f0adec594ef1ef2ce54b33147e6f39ef",
+        "47f6196e3b497bb1bc883537dc3f21fe"
+      ],
+      messageBlockHashes: [
+        [ "edf63ffa17e9b30a5595bfaff4c5aed5" ], [ "067a9f20f23dc70078031d6d0df2bb2d" ], [ "eb9edcf50aa514c55ddc6f1e4193dc4a" ]
+      ],
+      sdkMessageUuids: undefined,
+      passthroughToolCallAssistantUuid: undefined,
+      passthroughToolCallIds: undefined,
+      contextUsage: undefined,
+      currentTranscript: undefined,
+      previousTranscript: undefined,
+    },
+    resumeFrom: 3,
+  },
+}
+
+      at <anonymous> (/private/tmp/meridian-pr1401-r2-20261019/src/__tests__/session-copy-held.test.ts:97:47)
+(fail) copyElsewhereHoldingMore > rejects a later read error even after finding a newer readable copy [3.20ms]
+
+ 7 pass
+ 2 fail
+ 16 expect() calls
+Ran 9 tests across 1 file. [1275.00ms]

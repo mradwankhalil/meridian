@@ -1,0 +1,25 @@
+{
+  "pr": 1425,
+  "head": "b3ebc945d3b0d749e072df96ad76b74953cfebe4",
+  "base": "d0326e28255d84a8df70e6d2629fb1e2478c79ae",
+  "merge": "3feb772479d5e04f1f28e5c452ef359b09d1c65b",
+  "tree": "216ac887634e8958151a8025514dd517de78c94c",
+  "treeMatches": true,
+  "verified": true,
+  "author": {
+    "name": "Trevor Walker",
+    "email": "rynfar@gmail.com",
+    "date": "2026-10-19T17:27:41Z"
+  },
+  "local": {
+    "invocations": 25,
+    "pass": 6996,
+    "skip": 36,
+    "fail": 0,
+    "typecheck": "pass",
+    "build": "pass"
+  },
+  "ciRun": 39292953122,
+  "supersededNixRun": 39292908694,
+  "successfulNixRun": 39292953220
+}

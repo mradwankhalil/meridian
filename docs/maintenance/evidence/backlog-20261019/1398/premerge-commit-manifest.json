@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "repository": "rynfar/meridian",
+  "pr": 1398,
+  "head": "3ebbc740b2deac17347af55b0236e5f33429495e",
+  "base": "355f9b34cc38e6a4bf8b53c535e9878b9feb6a5d",
+  "authorization": "Owner explicitly approved the commit-preserving route for forwarded PRs #1394\u2013#1401; policy adopted in #1413. All normal review, local, live, CI and signature gates still apply.",
+  "introducedCommitCount": 8,
+  "githubPaginationMatchedLocalAncestry": true,
+  "commits": [
+    {
+      "sha": "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+      "author": {
+        "name": "=DEX",
+        "email": "eamonbachari@gmail.com",
+        "date": "2026-10-06T06:07:38-05:00",
+        "github_login": "eamonster27"
+      },
+      "committer": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T13:10:10-05:00"
+      },
+      "parents": [
+        "dfe264daf2bca18fcc426e4e1268987ea166c427"
+      ],
+      "subject": "fix: say at startup that a proxy under Bun cannot stop a cancelled request",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-16T19:28:59Z"
+      }
+    },
+    {
+      "sha": "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+      "author": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T11:24:51-05:00",
+        "github_login": "passabilities"
+      },
+      "committer": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T13:10:10-05:00"
+      },
+      "parents": [
+        "0341a48bed945f4a4671fcdec9fa18c84e7708d1"
+      ],
+      "subject": "docs(proxy): drop the unmeasured timing claim from the Bun warning note",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-16T19:28:59Z"
+      }
+    },
+    {
+      "sha": "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+      "author": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T11:54:07-05:00",
+        "github_login": "passabilities"
+      },
+      "committer": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T13:10:11-05:00"
+      },
+      "parents": [
+        "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f"
+      ],
+      "subject": "style(proxy): drop the task label and reflow the Bun warning comments",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-16T19:28:59Z"
+      }
+    },
+    {
+      "sha": "5ae67bd609828497e588823d510a72f1e78576ad",
+      "author": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T11:55:14-05:00",
+        "github_login": "passabilities"
+      },
+      "committer": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T13:10:11-05:00"
+      },
+      "parents": [
+        "38ca32f56b5f350a72d771eb3f7bc410b6f3f610"
+      ],
+      "subject": "fix(proxy): scope the Bun warning to probed releases and name both remedies",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-16T19:28:59Z"
+      }
+    },
+    {
+      "sha": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+      "author": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T11:57:00-05:00",
+        "github_login": "passabilities"
+      },
+      "committer": {
+        "name": "Noah Passalacqua",
+        "email": "noah@passabilities.dev",
+        "date": "2026-10-16T13:10:11-05:00"
+      },
+      "parents": [
+        "5ae67bd609828497e588823d510a72f1e78576ad"
+      ],
+      "subject": "docs(e2e): record the offline startup and node:http checks for the Bun warning",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-16T19:28:59Z"
+      }
+    },
+    {
+      "sha": "71a7fdcf6110c7baa7554a408ee6fd5f4d78b178",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T01:44:47-06:00",
+        "github_login": "rynfar"
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T01:44:47-06:00"
+      },
+      "parents": [
+        "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+        "58d9dd8c002cc9f63e966a92770c66bd908f27b5"
+      ],
+      "subject": "Merge remote-tracking branch 'origin/main' into dex/bun-startup-warning",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-19T08:35:03Z"
+      }
+    },
+    {
+      "sha": "80175e85f30efcc8ce2da64d293d3abf2123b89b",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T02:23:16-06:00",
+        "github_login": "rynfar"
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T02:23:16-06:00"
+      },
+      "parents": [
+        "71a7fdcf6110c7baa7554a408ee6fd5f4d78b178",
+        "f01ba1ae362d4123506e8c26d41eba5f52411f57"
+      ],
+      "subject": "Merge remote-tracking branch 'origin/main' into dex/bun-startup-warning",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-19T08:35:03Z"
+      }
+    },
+    {
+      "sha": "3ebbc740b2deac17347af55b0236e5f33429495e",
+      "author": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T02:35:01-06:00",
+        "github_login": "rynfar"
+      },
+      "committer": {
+        "name": "Trevor Walker",
+        "email": "rynfar@gmail.com",
+        "date": "2026-10-19T02:35:01-06:00"
+      },
+      "parents": [
+        "80175e85f30efcc8ce2da64d293d3abf2123b89b",
+        "355f9b34cc38e6a4bf8b53c535e9878b9feb6a5d"
+      ],
+      "subject": "Merge remote-tracking branch 'origin/main' into dex/bun-startup-warning",
+      "signature": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at": "2026-10-19T08:35:03Z"
+      }
+    }
+  ],
+  "sourceProvenance": {
+    "source": "38d43c0d6a836006a7090378b28bc44a25582b19",
+    "forwardedCopy": "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+    "authorAndDateMatch": true,
+    "editLineComparison": {
+      "ARCHITECTURE.md": true,
+      "src/proxy/server.ts": true,
+      "src/proxy/runtimeCancelWarning.ts": true,
+      "src/__tests__/runtime-cancel-warning.test.ts": true,
+      "E2E.md": false
+    },
+    "limitation": "The forwarded object was copied and signed by its committer; this merge preserves that existing object and Author/AuthorDate, not the earlier source SHA or an original-source signature. E2E text was adapted during forwarding."
+  },
+  "mergeMethod": "merge commit with explicit neutral subject/body, no admin and no history rewrite"
+}

@@ -1,0 +1,23 @@
+{
+  "firstStage": {
+    "sourceHead": "f3279411ba9610086439c50ac28c5d14e9848cec",
+    "source": "Original contributor implementation merged with current main; only regression tests were added before these runs",
+    "logs": [
+      "red-input.log",
+      "red-publication.log",
+      "red-cache.log"
+    ],
+    "failures": 5,
+    "passingNegativeControls": 2,
+    "typecheck": "pass before execution"
+  },
+  "secondStage": {
+    "source": "Adapted a58e98714/6ca536294 safety corrections in the same worktree before the new local input snapshots were added; this was an uncommitted intermediate tree, not a claimed original-head run",
+    "log": "red-local-input.log",
+    "failures": 2,
+    "finding": "Durable input ownership alone does not own local-fallback UUID/locator references"
+  },
+  "finalSource": "b1fffe4ac8118f52fec9d74555cae45f31332fb7",
+  "finalAffectedFilePasses": 29,
+  "reproduction": "Final regression tests live on the original contributor PR branch. The five first-stage cases can be run on f3279411 after copying only the final regression tests. For the separate intermediate local-fallback mutation, remove only the five snapshot assignments at the start of storeSession; do not remove durable-store or epoch guards."
+}

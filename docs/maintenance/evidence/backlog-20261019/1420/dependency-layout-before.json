@@ -1,0 +1,8 @@
+{
+  "dependency_symlink": true,
+  "target": "/private/tmp/meridian-pr1398-20261018/node_modules",
+  "zod_is_file": true,
+  "zod_is_directory": false,
+  "zod_realpath": "/private/tmp/meridian-pr1398-20261018/node_modules/zod/index.js",
+  "zod_sha256": "c733a1897d6b4b30dad6998597f6896b265b094a65534359ada34b08ecf8932c"
+}

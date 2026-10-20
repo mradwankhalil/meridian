@@ -1,0 +1,548 @@
+{
+  "scope": "Actual AgentLink production transport/parser in Node; not VS Code UI or safeguard-classifier reproduction",
+  "claims": {
+    "typedFailure": "baseline produces length completion; candidate raises api_error with partial content and no successful model_stop; actual AgentLink default transport sends one request",
+    "normal": "healthy candidate succeeds without error frame",
+    "outputCapNegative": "Both roots observe genuine provider max_tokens, native recovery and successful end_turn with no new error frame. Baseline made 2 provider generations, candidate 3. This does not demonstrate terminal client max_tokens; translator unit tests cover that mapping.",
+    "retainedFailures": "Initial cap=16 omitted enforcement opt-in; cap=1024 first hit the owned one-generation budget; allowing native recovery exposed the incorrect terminal-max_tokens expectation. Provider/native stop witnesses explain the correction."
+  },
+  "runs": [
+    {
+      "baseline": "70b5af12a7ab72840d023206e310f931afd5635a",
+      "candidate": "a347cb288f833161155f40ce346b6e0f3802b588",
+      "agentlinkHead": "ab98566573e893fc4667971a86573fb56beec677",
+      "agentlinkVersion": "1.44.5",
+      "sdk": "0.2.141",
+      "model": "claude-opus-5-5",
+      "context": "200k (MERIDIAN_OPUS_MODEL=opus)",
+      "platform": "darwin",
+      "arch": "arm64",
+      "bun": "1.3.11",
+      "passed": false,
+      "failure": "AssertionError [ERR_ASSERTION]: Real output cap must retain truncation semantics",
+      "native": {
+        "version": "2.1.302 (Claude Code)",
+        "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+      },
+      "rawReportSha256": "fd8b3d140ec2c130ad162d22923ce0365b80abdbd03735f8ab1c1092643c1f15",
+      "cases": [
+        {
+          "label": "candidate-healthy",
+          "client": {
+            "node": "v22.22.3",
+            "model": "claude-opus-5-5",
+            "mode": "healthy",
+            "requests": 1,
+            "httpStatus": 200,
+            "outcome": "completed"
+          },
+          "wireSha256": "5f2e325a848dd404ef8ea3deb4fa3d772c44b33bde8a8b18a64f1c6df1b6b50b",
+          "wireErrorFrames": [],
+          "modelStops": [
+            {
+              "type": "model_stop",
+              "reason": "end_turn"
+            }
+          ],
+          "partialTextDeltas": 3,
+          "native": {
+            "mode": "healthy",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "pid": 23913,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "promptSummaries": [],
+            "textDeltas": 3,
+            "upstreamGenerations": 1,
+            "retryRefusals": 0,
+            "faultInjected": false,
+            "closed": true
+          }
+        },
+        {
+          "label": "baseline-fault",
+          "client": {
+            "node": "v22.22.3",
+            "model": "claude-opus-5-5",
+            "mode": "fault",
+            "requests": 1,
+            "httpStatus": 200,
+            "outcome": "completed"
+          },
+          "wireSha256": "905481c49bcace1b867da35d31089ce3c0bed4c72ca5d1a80c807330f7d9e761",
+          "wireErrorFrames": [],
+          "modelStops": [
+            {
+              "type": "model_stop",
+              "reason": "max_tokens"
+            }
+          ],
+          "partialTextDeltas": 10,
+          "native": {
+            "mode": "fault",
+            "sourceRoot": "/private/tmp/meridian-overnight-baseline-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "pid": 23947,
+                "closed": true,
+                "code": 1,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "promptSummaries": [],
+            "textDeltas": 10,
+            "upstreamGenerations": 1,
+            "retryRefusals": 2,
+            "faultInjected": true,
+            "closed": true
+          }
+        },
+        {
+          "label": "candidate-fault",
+          "client": {
+            "node": "v22.22.3",
+            "model": "claude-opus-5-5",
+            "mode": "fault",
+            "requests": 1,
+            "httpStatus": 200,
+            "outcome": "error",
+            "error": {
+              "name": "OpenAiCompatibleRequestError",
+              "message": "Claude Code returned an error result: API Error: 400 Owned transport E2E: retry refused after the single real generation was interrupted.",
+              "providerCode": "api_error",
+              "providerType": "api_error"
+            }
+          },
+          "wireSha256": "bce48547688b37626333748d1e82cb9010dcab97b5d3bec56637c92bdbbefbfa",
+          "wireErrorFrames": [
+            {
+              "error": {
+                "type": "api_error",
+                "message": "Claude Code returned an error result: API Error: 400 Owned transport E2E: retry refused after the single real generation was interrupted.",
+                "code": "api_error"
+              }
+            }
+          ],
+          "modelStops": [],
+          "partialTextDeltas": 2,
+          "native": {
+            "mode": "fault",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "pid": 23985,
+                "closed": true,
+                "code": 1,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "promptSummaries": [],
+            "textDeltas": 2,
+            "upstreamGenerations": 1,
+            "retryRefusals": 2,
+            "faultInjected": true,
+            "closed": true
+          }
+        }
+      ],
+      "qualification": "First three cases passed their assertions; overall run failed on the fourth control, whose output-cap expectation was incorrect. This is not a fully green run."
+    },
+    {
+      "baseline": "70b5af12a7ab72840d023206e310f931afd5635a",
+      "candidate": "a347cb288f833161155f40ce346b6e0f3802b588",
+      "agentlinkHead": "ab98566573e893fc4667971a86573fb56beec677",
+      "agentlinkVersion": "1.44.5",
+      "sdk": "0.2.141",
+      "model": "claude-opus-5-5",
+      "context": "200k (MERIDIAN_OPUS_MODEL=opus)",
+      "platform": "darwin",
+      "arch": "arm64",
+      "bun": "1.3.11",
+      "passed": true,
+      "native": {
+        "version": "2.1.302 (Claude Code)",
+        "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+      },
+      "rawReportSha256": "4513530b72641dff49c578a441278acf4a314f434ff950999c83d03815bc2034",
+      "cases": [
+        {
+          "label": "baseline-output-cap",
+          "client": {
+            "node": "v22.22.3",
+            "model": "claude-opus-5-5",
+            "mode": "truncated",
+            "requests": 1,
+            "httpStatus": 200,
+            "outcome": "completed"
+          },
+          "wireSha256": "3c1d765d7ad9d92c794aea21b244744d992a60152d829a7330e91b06c61f3318",
+          "wireErrorFrames": [],
+          "modelStops": [
+            {
+              "type": "model_stop",
+              "reason": "end_turn"
+            }
+          ],
+          "partialTextDeltas": 202,
+          "native": {
+            "mode": "truncated",
+            "sourceRoot": "/private/tmp/meridian-overnight-baseline-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "outputTokenCap": "1024",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "pid": 43628,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "promptSummaries": [],
+            "providerRequests": [
+              {
+                "model": "claude-opus-5-5",
+                "maxTokens": 1024,
+                "thinking": "adaptive"
+              },
+              {
+                "model": "claude-opus-5-5",
+                "maxTokens": 1024,
+                "thinking": "adaptive"
+              }
+            ],
+            "providerStops": [
+              {
+                "generation": 1,
+                "stopReason": "max_tokens"
+              },
+              {
+                "generation": 2,
+                "stopReason": "end_turn"
+              }
+            ],
+            "nativeAssistants": [
+              {
+                "id": "msg_011CgBKs83nDGWPQawvhWK4K",
+                "uuid": "5883bff3-c306-4b15-9edc-6045831c1580",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKs83nDGWPQawvhWK4K",
+                "uuid": "c4ca22f4-16db-432a-a761-855ebea944ac",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKsjNZMbbVHcifizrm5",
+                "uuid": "25f995b1-0283-4714-b6ac-efc35a5db2ac",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKsjNZMbbVHcifizrm5",
+                "uuid": "3702dc7f-4751-4052-8fc7-fb90e7ad60c1",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              }
+            ],
+            "nativeResults": [
+              {
+                "subtype": "success",
+                "isError": false
+              }
+            ],
+            "textDeltas": 202,
+            "upstreamGenerations": 2,
+            "retryRefusals": 0,
+            "faultInjected": false,
+            "closed": true
+          }
+        },
+        {
+          "label": "candidate-output-cap",
+          "client": {
+            "node": "v22.22.3",
+            "model": "claude-opus-5-5",
+            "mode": "truncated",
+            "requests": 1,
+            "httpStatus": 200,
+            "outcome": "completed"
+          },
+          "wireSha256": "9145190ee4dbfac5216699dd5d0096646d32d6ec1f88bf2d8a46143dcbf2b038",
+          "wireErrorFrames": [],
+          "modelStops": [
+            {
+              "type": "model_stop",
+              "reason": "end_turn"
+            }
+          ],
+          "partialTextDeltas": 329,
+          "native": {
+            "mode": "truncated",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "outputTokenCap": "1024",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+                "pid": 47659,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "promptSummaries": [],
+            "providerRequests": [
+              {
+                "model": "claude-opus-5-5",
+                "maxTokens": 1024,
+                "thinking": "adaptive"
+              },
+              {
+                "model": "claude-opus-5-5",
+                "maxTokens": 1024,
+                "thinking": "adaptive"
+              },
+              {
+                "model": "claude-opus-5-5",
+                "maxTokens": 1024,
+                "thinking": "adaptive"
+              }
+            ],
+            "providerStops": [
+              {
+                "generation": 1,
+                "stopReason": "max_tokens"
+              },
+              {
+                "generation": 2,
+                "stopReason": "max_tokens"
+              },
+              {
+                "generation": 3,
+                "stopReason": "end_turn"
+              }
+            ],
+            "nativeAssistants": [
+              {
+                "id": "msg_011CgBKtKsxvkhjnxqFAmt1H",
+                "uuid": "1b503e72-8704-45bc-9914-06a163fad413",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKtKsxvkhjnxqFAmt1H",
+                "uuid": "821795d3-bcd4-46db-85cb-73ae2401f51e",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKu4o8akyyTRFLBECvY",
+                "uuid": "f40b56cd-3dfe-4f97-986f-f8706bc11d53",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKu4o8akyyTRFLBECvY",
+                "uuid": "6471bd30-7d16-45b7-894d-8de0c2235c43",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKuwoy4N62HeHv9JJoE",
+                "uuid": "014c4f15-e3f3-48d6-8ec1-1486a4c349c3",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              },
+              {
+                "id": "msg_011CgBKuwoy4N62HeHv9JJoE",
+                "uuid": "b7f6bb8e-a85f-488f-8915-32d39055850c",
+                "model": "claude-opus-5-5",
+                "stopReason": null
+              }
+            ],
+            "nativeResults": [
+              {
+                "subtype": "success",
+                "isError": false
+              }
+            ],
+            "textDeltas": 329,
+            "upstreamGenerations": 3,
+            "retryRefusals": 0,
+            "faultInjected": false,
+            "closed": true
+          }
+        }
+      ]
+    }
+  ]
+}

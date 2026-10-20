@@ -1,0 +1,127 @@
+{
+  "scope": "Actual native client against owned fixture provider; no paid model or Meridian acceptance",
+  "native": {
+    "version": "2.1.302 (Claude Code)",
+    "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "platform": "darwin",
+  "arch": "arm64",
+  "bun": "1.3.11",
+  "requests": [
+    {
+      "model": "claude-haiku-5-5",
+      "thinking": {
+        "type": "adaptive",
+        "display": "omitted"
+      },
+      "outputConfig": {
+        "effort": "medium"
+      },
+      "roles": [
+        "user",
+        "system"
+      ],
+      "tools": [
+        "Read"
+      ],
+      "toolResults": [],
+      "userAgent": "claude-cli/2.1.302 (external, sdk-cli)",
+      "metadataKeys": [
+        "user_id"
+      ]
+    },
+    {
+      "model": "claude-haiku-5-5",
+      "thinking": {
+        "type": "adaptive",
+        "display": "omitted"
+      },
+      "outputConfig": {
+        "effort": "medium"
+      },
+      "roles": [
+        "user",
+        "system",
+        "assistant",
+        "user",
+        "system"
+      ],
+      "tools": [
+        "Read"
+      ],
+      "toolResults": [
+        {
+          "id": "toolu_owned_gc_preflight",
+          "hasReceipt": true
+        }
+      ],
+      "userAgent": "claude-cli/2.1.302 (external, sdk-cli)",
+      "metadataKeys": [
+        "user_id"
+      ]
+    },
+    {
+      "model": "claude-haiku-5-5",
+      "thinking": {
+        "type": "adaptive",
+        "display": "omitted"
+      },
+      "outputConfig": {
+        "effort": "medium"
+      },
+      "roles": [
+        "user",
+        "system",
+        "assistant",
+        "user",
+        "system",
+        "assistant",
+        "user",
+        "system"
+      ],
+      "tools": [
+        "Read"
+      ],
+      "toolResults": [
+        {
+          "id": "toolu_owned_gc_preflight",
+          "hasReceipt": true
+        }
+      ],
+      "userAgent": "claude-cli/2.1.302 (external, sdk-cli)",
+      "metadataKeys": [
+        "user_id"
+      ]
+    }
+  ],
+  "children": [
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    }
+  ],
+  "passed": true,
+  "joined": true
+}

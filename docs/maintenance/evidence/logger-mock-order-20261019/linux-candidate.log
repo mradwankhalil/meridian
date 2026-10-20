@@ -1,0 +1,31 @@
+bun test v1.3.11 (af24e281)
+
+scripts/fixtures/logger-mock-load-order.test.mjs:
+(pass) telemetry settings routes > reports saved, wanted and effective separately [12.00ms]
+[PROXY] Telemetry settings updated: persist=true retention=7d size=1000 logSize=500 (applies on restart)
+(pass) telemetry settings routes > names the key that needs a restart, and does not touch the running store [4.00ms]
+[PROXY] Telemetry settings updated: persist=false retention=30d size=1000 logSize=500 (applies on restart)
+(pass) telemetry settings routes > says a restart is required in the PUT response itself [3.00ms]
+[PROXY] Telemetry settings updated: persist=true retention=90d size=1000 logSize=500 (applies on restart)
+(pass) telemetry settings routes > reports only the backend flip when the backend itself is pending [2.00ms]
+[PROXY] Telemetry settings updated: persist=false retention=7d size=7777 logSize=500 (applies on restart)
+(pass) telemetry settings routes > flags a ring size that no longer matches the running store [3.00ms]
+[PROXY] Telemetry settings updated: persist=false retention=90d size=1000 logSize=500 (applies on restart)
+[PROXY] Telemetry settings updated: persist=false retention=7d size=1000 logSize=500 (applies on restart)
+(pass) telemetry settings routes > clears a setting when sent null, returning to the default [3.00ms]
+(pass) telemetry settings routes > rejects values outside the advertised limits, with the limits in the message [1.00ms]
+(pass) telemetry settings routes > rejects a non-integer size rather than silently truncating it [2.00ms]
+(pass) telemetry settings routes > rejects a non-boolean persist flag [2.00ms]
+(pass) telemetry settings routes > rejects malformed JSON [2.00ms]
+(pass) telemetry settings routes > advertises the same limits the validator enforces [1.00ms]
+(pass) telemetry settings routes > marks a setting an env var outranks, so the form can say the value is inert [2.00ms]
+[PROXY] recovery-failed-observer-c9d4e255-8835-44b6-93ee-a2f8371e74dd OpenCode request without the Meridian plugin's agent headers (session es-recovery-…). OpenCode runs its internal title/summary agents under your session id, so Meridian cannot tell them apart from your conversation: concurrent turns are admitted rather than refused, but the one that loses the race replays against a cold prompt cache — slower and billed as uncached input. Fix: meridian setup (or update the plugin).
+[PROXY] recovery-failed-observer-c9d4e255-8835-44b6-93ee-a2f8371e74dd adapter=opencode model=sonnet stream=true tools=1 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=7ms msgCount=1 msgs=user[string]
+(pass) Integration: passthrough early stop > stream: naturally closes failed recovery even when its failure observers throw [141.00ms]
+[PROXY] session GC postponed: ENOENT: no such file or directory, chmod '/tmp/meridian-test-tmp-1/meridian-early-stop-Subq6r'
+
+ 13 pass
+ 166 filtered out
+ 0 fail
+ 47 expect() calls
+Ran 13 tests across 1 file. [404.00ms]

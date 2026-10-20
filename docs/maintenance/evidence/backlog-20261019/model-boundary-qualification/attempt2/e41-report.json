@@ -1,0 +1,228 @@
+{
+  "clientPlugin": {
+    "path": "/private/tmp/meridian-pr1410-correction-20261018/dist/meridian/index.js",
+    "packageName": "@rynfar/meridian",
+    "packageVersion": "1.83.1",
+    "sha256": "c640cc02817d9ad05d5b61f6bd906fdccdb4ef71be42d11981aecaeb84bc434e",
+    "invocations": 5,
+    "errors": 0,
+    "preflight": true
+  },
+  "scope": "Real SDK/model E41 with installed client hook and server scrub; protocol host, not OpenCode executable",
+  "model": "claude-opus-5-5",
+  "stream": false,
+  "root": "/private/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-probe-proxy-nYwLg0",
+  "result": "PASS",
+  "setup": {
+    "exit": 0,
+    "generation": "v1",
+    "field": "plugin",
+    "entries": 1,
+    "path": "/private/tmp/meridian-pr1410-correction-20261018/dist/meridian"
+  },
+  "runtimeRequests": [
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-96655",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": []
+    },
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-96655",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": [
+        "toolu_01Uo9nnyj84MEJBZRMQzu98i"
+      ]
+    },
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-96655",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": [
+        "toolu_01Uo9nnyj84MEJBZRMQzu98i",
+        "toolu_01KJ8NreJ91fgcED3NRtv68V"
+      ]
+    },
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-96655",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": [
+        "toolu_01Uo9nnyj84MEJBZRMQzu98i",
+        "toolu_01KJ8NreJ91fgcED3NRtv68V",
+        "toolu_01UVuaVBscfgY22KY3foHhus"
+      ]
+    },
+    {
+      "route": "/v1/messages",
+      "session": "probe-turns-nonstream-96655",
+      "agent": "build",
+      "mode": "primary",
+      "attested": true,
+      "resultIds": [
+        "toolu_01Uo9nnyj84MEJBZRMQzu98i",
+        "toolu_01KJ8NreJ91fgcED3NRtv68V",
+        "toolu_01UVuaVBscfgY22KY3foHhus"
+      ]
+    }
+  ],
+  "phase": "model requests",
+  "serverPreflightHTTP": {
+    "status": 200,
+    "body": {
+      "plugins": [
+        {
+          "name": "opencode-scrub",
+          "description": "Strip opencode-identifying fingerprints from the system prompt before it reaches Claude",
+          "version": "0.2.3",
+          "adapters": [
+            "opencode",
+            "passthrough"
+          ],
+          "hooks": [
+            "onRequest"
+          ],
+          "status": "active",
+          "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+          "stats": {
+            "hooks": {}
+          }
+        }
+      ]
+    }
+  },
+  "scrubPreflight": {
+    "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+    "packageName": "@rynfar/meridian-plugin-opencode-scrub",
+    "packageVersion": "0.2.3",
+    "sha256": "4ab89412e6a59fad812a3f6e5500c84f3bdfc41863320bc794f5274a251da656",
+    "runtimeVersion": "0.2.3",
+    "invocations": 0,
+    "errors": 0
+  },
+  "cacheMisses": [],
+  "observedModels": [
+    "claude-opus-5-5"
+  ],
+  "modelOk": true,
+  "scrubFinal": {
+    "path": "/private/tmp/meridian-1410-scrub-consumer/node_modules/@rynfar/meridian-plugin-opencode-scrub/dist/index.js",
+    "packageName": "@rynfar/meridian-plugin-opencode-scrub",
+    "packageVersion": "0.2.3",
+    "sha256": "4ab89412e6a59fad812a3f6e5500c84f3bdfc41863320bc794f5274a251da656",
+    "runtimeVersion": "0.2.3",
+    "invocations": 5,
+    "errors": 0
+  },
+  "sourceSnapshots": 4,
+  "continuationPrefixes": [
+    "21591dd6",
+    "01705d27",
+    "32ee9626",
+    "1a55ab63"
+  ],
+  "activeSessionId": "2b173e94-da63-43f8-859f-7d3813458f1a",
+  "parallel": false,
+  "toolCallBatchSizes": [
+    1,
+    1,
+    1
+  ],
+  "delivered": 3,
+  "sourceHistoryOk": true,
+  "followUpOk": true,
+  "activeAnswerProblems": [],
+  "forkShapeOk": true,
+  "toolShapeOk": true,
+  "children": [
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 1,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    },
+    {
+      "exitSeen": true,
+      "closeSeen": true,
+      "stdoutClosed": true,
+      "stderrClosed": true,
+      "spawnFailed": false,
+      "exitCode": 0,
+      "exitSignal": null,
+      "joined": true,
+      "termSent": false,
+      "killSent": false,
+      "signalFailure": null
+    }
+  ],
+  "modelWitness": "/tmp/meridian-overnight-20261019/model-boundary/attempt2/model-witness.json",
+  "joined": true
+}

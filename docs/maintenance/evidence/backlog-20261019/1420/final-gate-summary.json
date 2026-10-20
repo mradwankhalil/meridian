@@ -1,0 +1,22 @@
+{
+  "head": "ee77d3c1a3f0ba10fcfda22900b79b6bf4533869",
+  "base": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+  "gate": "npm test",
+  "exit": 0,
+  "invocations": 24,
+  "bun_revision": "1.3.11+af24e281e",
+  "node": "v22.22.3",
+  "platform": "Darwin arm64",
+  "counts": {
+    "pass": 6972,
+    "skip": 36,
+    "fail": 0
+  },
+  "test_log_sha256": "0075b65f1a6752e94886fcda5baf436766aba059cc94a48a4a9aeefe1af34116",
+  "test_log_bytes": 1372872,
+  "invocation_audit_sha256": "a6beda064f6bc6e9a7129f4ed6faceda167ea2a57519878b91ef0b93fe9632a8",
+  "dependency_layout": "owned frozen install, unchanged lockfile and same Zod entrypoint SHA256",
+  "build": "pass",
+  "typecheck": "pass",
+  "earlier_gate": "6495 pass /36 skip /1 EISDIR failure in bundled-observer test with dependency symlink; cause unresolved, retained"
+}

@@ -1,0 +1,28 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/store-mutation-loop-lag.test.ts:
+[loop-lag-sample] {"label":"baseline-0","lagMs":21.31479200000001,"workMs":21.335250000000002,"processCpuMs":21.256}
+[loop-lag-sample] {"label":"baseline-1","lagMs":21.908540999999985,"workMs":21.914582999999965,"processCpuMs":15.624}
+[loop-lag-sample] {"label":"baseline-2","lagMs":19.98820900000004,"workMs":19.99525,"processCpuMs":16.582}
+[loop-lag-sample] {"label":"warm-1","lagMs":1.9365420000000313,"workMs":10.470167000000004,"processCpuMs":6.927}
+[loop-lag-sample] {"label":"warm-2","lagMs":1.5394590000000221,"workMs":10.30604199999999,"processCpuMs":5.374}
+[loop-lag-sample] {"label":"warm-3","lagMs":1.3194169999999872,"workMs":8.942833000000007,"processCpuMs":4.019}
+[loop-lag-sample] {"label":"warm-4","lagMs":1.6575839999999857,"workMs":8.755165999999974,"processCpuMs":5.549}
+[loop-lag-sample] {"label":"warm-5","lagMs":1.265874999999994,"workMs":9.275624999999991,"processCpuMs":4.606}
+[loop-lag-sample] {"label":"warm-locator","lagMs":1.7530840000000012,"workMs":10.824124999999981,"processCpuMs":5.304}
+[loop-lag] 6.6 MB store: warm mutation median 1.7 ms, max 1.9 ms; full-document baseline median 21.3 ms
+(pass) session store mutation cost on a large store > keeps a warm mutation's loop lag well below the full-document parse, serialize and write it replaced [229.35ms]
+(pass) session store mutation cost on a large store > never re-parses the store or re-serializes unchanged entries on a warm mutation [5.61ms]
+(pass) copy-on-write store mutations > writes exactly the document a full serialization would produce [3.69ms]
+(pass) copy-on-write store mutations > owns caller history before an asynchronous mutation yields [4.01ms]
+(pass) copy-on-write store mutations > owns nested caller data before memoizing serialized entries [2.66ms]
+(pass) copy-on-write store mutations > prevents nested lookup edits from diverging from memoized disk bytes [1.52ms]
+(pass) copy-on-write store mutations > protects nested history parsed from a foreign writer before exposing it [1.95ms]
+(pass) copy-on-write store mutations > hands out frozen entries and leaves earlier reads untouched by later mutations [2.75ms]
+(pass) copy-on-write store mutations > discards a mutator's partial changes when it throws [1.94ms]
+(pass) copy-on-write store mutations > builds a mutation on a foreign writer's document, not on the stale cache [2.51ms]
+
+ 10 pass
+ 0 fail
+ 30 expect() calls
+Ran 10 tests across 1 file. [444.00ms]

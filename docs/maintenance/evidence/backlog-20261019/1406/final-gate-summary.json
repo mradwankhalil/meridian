@@ -1,0 +1,20 @@
+{
+  "head": "c8bab07d034464e8903754e53795fe1ce25832d9",
+  "base": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "gate": "npm test",
+  "exit": 0,
+  "invocations": 24,
+  "bun_revision": "1.3.11+af24e281e",
+  "counts": {
+    "pass": 6984,
+    "skip": 36,
+    "fail": 0
+  },
+  "typecheck": "pass",
+  "build": "pass",
+  "test_log_sha256": "d2319cfca3d64cb2312325717d098988e7ca6732bc3a28b1274e243140f47b31",
+  "test_log_bytes": 1375063,
+  "invocation_audit_sha256": "a6beda064f6bc6e9a7129f4ed6faceda167ea2a57519878b91ef0b93fe9632a8",
+  "earlier_failure": "earlier-benchmark-failure.json",
+  "acceptance": "held: actual affected client/model and matrix evidence remains"
+}

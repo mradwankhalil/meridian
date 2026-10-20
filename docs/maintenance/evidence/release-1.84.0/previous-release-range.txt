@@ -1,0 +1,18 @@
+d7d9ad02720adffc1c8e42e2d229c0b45cbed6f3 docs: record overnight backlog validation and merge proof (#1421)
+6c241a897bdc7ffe4c233d32270a17402b3528a0 fix: forward mid-stream errors on OpenAI chat completions streams (#1407)
+70b5af12a7ab72840d023206e310f931afd5635a Merge pull request #1398 from passabilities/dex/bun-startup-warning
+3ebbc740b2deac17347af55b0236e5f33429495e Merge remote-tracking branch 'origin/main' into dex/bun-startup-warning
+355f9b34cc38e6a4bf8b53c535e9878b9feb6a5d test: point the suite's TMPDIR at a per-process directory removed at exit (#1409)
+80175e85f30efcc8ce2da64d293d3abf2123b89b Merge remote-tracking branch 'origin/main' into dex/bun-startup-warning
+f01ba1ae362d4123506e8c26d41eba5f52411f57 test: assert watchdog cleanup by timer ownership (#1420)
+71a7fdcf6110c7baa7554a408ee6fd5f4d78b178 Merge remote-tracking branch 'origin/main' into dex/bun-startup-warning
+58d9dd8c002cc9f63e966a92770c66bd908f27b5 feat(profiles): ?provider= links open / and /profiles on given provider chips (#1411)
+658a3b5c5259babd8ffda0d663b2906057e81ca3 test: isolate SDK fixtures and retain worker failure diagnostics (#1415)
+ed5c5d43eaa931cf16cf68d3500102f9dfdf2856 docs: preserve backlog correction proofs and credit audits (#1414)
+da8187ab4553e4fd2120aa0098b2a81b197502dc docs: record the October 18 pull request backlog review (#1412)
+f81d9d8dbc7ff0cd4faf2c48197b46f829921b77 docs: preserve every author in forwarded contributor pull requests (#1413)
+e87a79446cc8d8fe170fdc71ffefdd32c7a24c32 docs(e2e): record the offline startup and node:http checks for the Bun warning
+5ae67bd609828497e588823d510a72f1e78576ad fix(proxy): scope the Bun warning to probed releases and name both remedies
+38ca32f56b5f350a72d771eb3f7bc410b6f3f610 style(proxy): drop the task label and reflow the Bun warning comments
+02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f docs(proxy): drop the unmeasured timing claim from the Bun warning note
+0341a48bed945f4a4671fcdec9fa18c84e7708d1 fix: say at startup that a proxy under Bun cannot stop a cancelled request

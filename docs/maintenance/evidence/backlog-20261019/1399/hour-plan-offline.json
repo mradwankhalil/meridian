@@ -1,0 +1,22 @@
+{
+  "scope": "Offline invalid-hour argument controls; no grant/native SDK/model construction is reached",
+  "controls": [
+    {
+      "clients": 2,
+      "seed": 0,
+      "duration": 3600,
+      "exit": 1,
+      "guard": "Full-hour pressure requires four clients",
+      "ownedOutputCreated": false
+    },
+    {
+      "clients": 4,
+      "seed": 0,
+      "duration": 3600,
+      "exit": 1,
+      "guard": "Full-hour large-store gate requires the full owned fixture seed",
+      "ownedOutputCreated": false
+    }
+  ],
+  "passed": true
+}

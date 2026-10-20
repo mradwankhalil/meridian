@@ -1,0 +1,40 @@
+test	Run npm test	2026-10-19T16:45:40.3971621Z 2575 |       const response = await post(app, {
+test	Run npm test	2026-10-19T16:45:40.3973196Z 2576 |         model: "claude-sonnet-4-5", max_tokens: 400, stream: true, tools: [READ_TOOL],
+test	Run npm test	2026-10-19T16:45:40.3974623Z 2577 |         messages: [{ role: "user", content: "read x during mapping conflict and observer failure" }],
+test	Run npm test	2026-10-19T16:45:40.3975857Z 2578 |       }, sessionHeader, { "x-request-id": requestId })
+test	Run npm test	2026-10-19T16:45:40.3976898Z 2579 |       const events = parseSSE(await readNaturallyClosedStream(response))
+test	Run npm test	2026-10-19T16:45:40.3977703Z 2580 |       expect([logFailures, diagnosticFailures, telemetryFailures]).toEqual([1, 1, 1])
+test	Run npm test	2026-10-19T16:45:40.3978679Z                                                                           ^
+test	Run npm test	2026-10-19T16:45:40.3979460Z error: expect(received).toEqual(expected)
+test	Run npm test	2026-10-19T16:45:40.3979679Z 
+test	Run npm test	2026-10-19T16:45:40.3979784Z   [
+test	Run npm test	2026-10-19T16:45:40.3979972Z -   1,
+test	Run npm test	2026-10-19T16:45:40.3980306Z +   0,
+test	Run npm test	2026-10-19T16:45:40.3980664Z     1,
+test	Run npm test	2026-10-19T16:45:40.3980988Z     1,
+test	Run npm test	2026-10-19T16:45:40.3981320Z   ]
+test	Run npm test	2026-10-19T16:45:40.3981510Z 
+test	Run npm test	2026-10-19T16:45:40.3981692Z - Expected  - 1
+test	Run npm test	2026-10-19T16:45:40.3982250Z + Received  + 1
+test	Run npm test	2026-10-19T16:45:40.3982707Z 
+test	Run npm test	2026-10-19T16:45:40.3983623Z       at <anonymous> (/home/runner/work/meridian/meridian/src/__tests__/passthrough-early-stop-integration.test.ts:2580:68)
+test	Run npm test	2026-10-19T16:45:40.3984291Z 
+test	Run npm test	2026-10-19T16:45:40.4017033Z ##[error]  [
+test	Run npm test	-   1,
+test	Run npm test	+   0,
+test	Run npm test	    1,
+test	Run npm test	    1,
+test	Run npm test	  ]
+test	Run npm test	
+test	Run npm test	- Expected  - 1
+test	Run npm test	+ Received  + 1
+test	Run npm test	
+test	Run npm test	      at <anonymous> (/home/runner/work/meridian/meridian/src/__tests__/passthrough-early-stop-integration.test.ts:2580:68)
+test	Run npm test	2026-10-19T16:45:40.4029296Z (fail) Integration: passthrough early stop > stream: naturally closes failed recovery even when its failure observers throw [43.00ms]
+
+test	Run npm test	2026-10-19T16:43:02.8391581Z (pass) classifyError > busy session (bg agent) detection — #630 > ignores unrelated exit-1 failures
+test	Run npm test	2026-10-19T16:46:51.2573680Z  6540 pass
+test	Run npm test	2026-10-19T16:46:51.2574001Z  1 skip
+test	Run npm test	2026-10-19T16:46:51.2574309Z  1 fail
+test	Run npm test	2026-10-19T16:46:51.2575147Z Ran 6542 tests across 384 files. [274.85s]
+test	Run npm test	2026-10-19T16:46:51.3041549Z ##[error]Process completed with exit code 1.

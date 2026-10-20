@@ -1,0 +1,53 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/store-mutation-loop-lag.test.ts:
+208 |       undefined, undefined, blocks, undefined, undefined, locator)
+209 |     hashes[0] = "changed"
+210 |     blocks[0]![0] = "changed-block"
+211 |     locator.configDir = "invalid-relative-path"
+212 |     await write
+213 |     expect(lookupSharedSession("captured")).toMatchObject({
+                                                  ^
+error: expect(received).toMatchObject(expected)
+
+  {
++   "claudeSessionId": "claude-captured",
++   "clientLineageHash": undefined,
++   "contextUsage": undefined,
++   "createdAt": 1792405460310,
+    "currentTranscript": {
+-     "configDir": "/tmp/original",
++     "configDir": "invalid-relative-path",
++     "sessionId": "claude-captured",
+    },
++   "generationId": "7ce08477-cd52-4569-b871-37a711acbd10",
++   "lastUsedAt": 1792405460310,
++   "lineageHash": "h",
+    "messageBlockHashes": [
+      [
+-       "original-block",
++       "changed-block",
+      ],
+    ],
++   "messageCount": 1,
+    "messageHashes": [
+-     "original",
++     "changed",
+    ],
++   "passthroughToolCallAssistantUuid": undefined,
++   "passthroughToolCallIds": undefined,
++   "revision": 1,
++   "sdkMessageUuids": undefined,
+  }
+
+- Expected  - 3
++ Received  + 16
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/store-mutation-loop-lag.test.ts:213:45)
+(fail) copy-on-write store mutations > owns caller history before an asynchronous mutation yields [45.52ms]
+
+ 0 pass
+ 9 filtered out
+ 1 fail
+ 1 expect() calls
+Ran 1 test across 1 file. [438.00ms]

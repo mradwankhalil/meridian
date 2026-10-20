@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "command": "node --test docs/maintenance/evidence/backlog-20261019/1399/load-guards.test.mjs",
+  "scope": "Offline refusal latch, exact-model/budget/context controls, canonical owned-file aliases, unlisted/missing/outside/symlink escape/wrong-tool denial and diagnostic redaction",
+  "modelCalls": 0,
+  "productionChange": false,
+  "limitations": "No new paid-model run was made after the real refusal. These controls validate the manual harness only."
+}

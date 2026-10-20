@@ -1,0 +1,65 @@
+{
+  "pr": 1398,
+  "method": "merge",
+  "head": "3ebbc740b2deac17347af55b0236e5f33429495e",
+  "merge": "70b5af12a7ab72840d023206e310f931afd5635a",
+  "mergedAt": "2026-10-19T08:52:10Z",
+  "parents": [
+    "355f9b34cc38e6a4bf8b53c535e9878b9feb6a5d",
+    "3ebbc740b2deac17347af55b0236e5f33429495e"
+  ],
+  "tree": "c1221eaf0eda2b35ba3267f294e5deba82eac1b4",
+  "reviewed_tree": "c1221eaf0eda2b35ba3267f294e5deba82eac1b4",
+  "signature": true,
+  "subject": "Merge pull request #1398 from passabilities/dex/bun-startup-warning",
+  "retained": [
+    {
+      "sha": "0341a48bed945f4a4671fcdec9fa18c84e7708d1",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "02f5d45d38ce0e8c8d6dff3b9850a23e8835e13f",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "38ca32f56b5f350a72d771eb3f7bc410b6f3f610",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "5ae67bd609828497e588823d510a72f1e78576ad",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "e87a79446cc8d8fe170fdc71ffefdd32c7a24c32",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "71a7fdcf6110c7baa7554a408ee6fd5f4d78b178",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "80175e85f30efcc8ce2da64d293d3abf2123b89b",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    },
+    {
+      "sha": "3ebbc740b2deac17347af55b0236e5f33429495e",
+      "unchangedAuthor": true,
+      "unchangedAuthorDate": true,
+      "reachableOnMain": true
+    }
+  ]
+}

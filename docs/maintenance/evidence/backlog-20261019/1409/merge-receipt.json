@@ -1,0 +1,19 @@
+{
+  "pr": 1409,
+  "head": "b9127448fb9c88fc1e44b06020935987c8677f79",
+  "merge": "355f9b34cc38e6a4bf8b53c535e9878b9feb6a5d",
+  "mergedAt": "2026-10-19T08:33:50Z",
+  "tree": "179431d234303b5e3defafdefec1d875a2006e8b",
+  "reviewed_tree": "179431d234303b5e3defafdefec1d875a2006e8b",
+  "parents": [
+    "f01ba1ae362d4123506e8c26d41eba5f52411f57"
+  ],
+  "author": {
+    "name": "Damian Nowak",
+    "email": "spam@nowaker.net",
+    "date": "2026-10-19T08:33:49Z"
+  },
+  "author_login": "Nowaker",
+  "verified": true,
+  "message": "test: point the suite's TMPDIR at a per-process directory removed at exit (#1409)"
+}

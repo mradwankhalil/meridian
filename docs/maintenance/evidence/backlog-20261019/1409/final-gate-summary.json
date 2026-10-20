@@ -1,0 +1,21 @@
+{
+  "head": "b9127448fb9c88fc1e44b06020935987c8677f79",
+  "base": "f01ba1ae362d4123506e8c26d41eba5f52411f57",
+  "gate": "npm test",
+  "exit": 0,
+  "invocations": 24,
+  "bun_revision": "1.3.11+af24e281e",
+  "node": "v22.22.3",
+  "platform": "Darwin arm64",
+  "counts": {
+    "pass": 6973,
+    "skip": 36,
+    "fail": 0
+  },
+  "test_log_sha256": "e833022082351a90d9ee1536b19f82d06692b12b88cdbc5c4a0d1863557fc474",
+  "test_log_bytes": 1373692,
+  "invocation_audit_sha256": "a6beda064f6bc6e9a7129f4ed6faceda167ea2a57519878b91ef0b93fe9632a8",
+  "typecheck": "pass",
+  "build": "pass",
+  "prior_gate": "f722adf51 local full pass 6973/36; CI failed the 150ms watchdog fixture. Corrected in main by #1420; retained."
+}

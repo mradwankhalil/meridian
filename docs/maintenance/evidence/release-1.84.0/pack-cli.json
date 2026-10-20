@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "platform": "darwin",
+  "arch": "arm64",
+  "node": "v22.22.3",
+  "results": [
+    {
+      "label": "baseline-bun-dist",
+      "cwd": "/tmp/meridian-release-20261019/baseline-install/node_modules/@rynfar/meridian",
+      "command": [
+        "/tmp/meridian-1399-tooling/node_modules/.bin/bun",
+        "dist/cli.js"
+      ],
+      "warningCount": 0,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-bun-dist",
+      "cwd": "/tmp/meridian-release-20261019/pack-install/node_modules/@rynfar/meridian",
+      "command": [
+        "/tmp/meridian-1399-tooling/node_modules/.bin/bun",
+        "dist/cli.js"
+      ],
+      "warningCount": 1,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-node-dist",
+      "cwd": "/tmp/meridian-release-20261019/pack-install/node_modules/@rynfar/meridian",
+      "command": [
+        "/Users/rynfar/.hermes/node/bin/node",
+        "dist/cli.js"
+      ],
+      "warningCount": 0,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": false,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "label": "candidate-bun-silent",
+      "cwd": "/tmp/meridian-release-20261019/pack-install/node_modules/@rynfar/meridian",
+      "command": [
+        "/tmp/meridian-1399-tooling/node_modules/.bin/bun",
+        "dist/cli.js"
+      ],
+      "warningCount": 0,
+      "warningOnlyOnStderr": true,
+      "livez": {
+        "status": 200,
+        "body": "ok\n"
+      },
+      "inflight": {
+        "status": 200,
+        "total": 0,
+        "scope": "client-http"
+      },
+      "silent": true,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "runtime": "/tmp/meridian-1399-tooling/node_modules/.bin/bun",
+      "entry": "dist/cli.js",
+      "option": "--version",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    },
+    {
+      "runtime": "/tmp/meridian-1399-tooling/node_modules/.bin/bun",
+      "entry": "dist/cli.js",
+      "option": "--help",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    },
+    {
+      "runtime": "/Users/rynfar/.hermes/node/bin/node",
+      "entry": "dist/cli.js",
+      "option": "--version",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    },
+    {
+      "runtime": "/Users/rynfar/.hermes/node/bin/node",
+      "entry": "dist/cli.js",
+      "option": "--help",
+      "exit": 0,
+      "stdoutValid": true,
+      "stderrEmpty": true
+    }
+  ]
+}

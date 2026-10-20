@@ -1,0 +1,8 @@
+[PROXY] CREDENTIALS READ-ONLY MODE (MERIDIAN_CREDENTIALS_READONLY): this instance will not refresh or write OAuth credentials. Token rotation is another instance's job; credentials are re-read from disk.
+  explicit isolated profile: owned-1410
+
+=== turn 1 (stream=false) http 200 ===
+  calls: read(a.txt)#EZiMuPBA
+  lineage: lineage=new session=new
+  usage: cache_read=0 cache_create=2967 input=2 (0% of 2969 input read from cache)
+{"root":"/private/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-probe-proxy-2YUEaY","result":"FAIL","joined":true,"failure":"E41 HTTP error; stop before another model request\n\n500 !== 200\n"}

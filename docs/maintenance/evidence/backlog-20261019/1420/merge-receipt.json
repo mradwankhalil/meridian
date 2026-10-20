@@ -1,0 +1,18 @@
+{
+  "pr": 1420,
+  "head": "ee77d3c1a3f0ba10fcfda22900b79b6bf4533869",
+  "merge": "f01ba1ae362d4123506e8c26d41eba5f52411f57",
+  "mergedAt": "2026-10-19T08:21:25Z",
+  "tree": "528d79c7b1f8d0646dae60e9188c83e486f668f9",
+  "reviewed_tree": "528d79c7b1f8d0646dae60e9188c83e486f668f9",
+  "parents": [
+    "58d9dd8c002cc9f63e966a92770c66bd908f27b5"
+  ],
+  "author": {
+    "name": "Trevor Walker",
+    "email": "rynfar@gmail.com",
+    "date": "2026-10-19T08:21:25Z"
+  },
+  "verified": true,
+  "message": "test: assert watchdog cleanup by timer ownership (#1420)"
+}

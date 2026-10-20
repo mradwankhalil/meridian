@@ -1,0 +1,42 @@
+{
+  "scope": "actual SDK/native CLI model-facing request; loopback model responder, not paid-model/native-OpenCode acceptance",
+  "baseline": true,
+  "outcome": "failed",
+  "model": "claude-opus-5-5",
+  "requests": [
+    {
+      "tools": [
+        "mcp__oc__context-mode_ctx_execute",
+        "mcp__plugin_context-mode_context-mode__ctx_execute"
+      ],
+      "foreignGuidance": true,
+      "leakedExcerpt": "FOREIGN_SESSIONSTART: Run shell commands with mcp__plugin_context-mode_context-mode__ctx_execute(language, code).",
+      "clientContextPresent": true
+    }
+  ],
+  "cleanup": {
+    "childrenJoined": true,
+    "iteratorsJoined": true,
+    "listenerClosed": true,
+    "processes": [
+      {
+        "pid": 20166,
+        "closed": true,
+        "exitCode": 0,
+        "signal": null,
+        "spawnError": null,
+        "stderrBytes": 0,
+        "signals": []
+      }
+    ]
+  },
+  "sdkSettingSources": [
+    "user",
+    "project"
+  ],
+  "strictMcpConfig": false,
+  "spawnCommand": "/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+  "error": "model-facing isolation regression\n+ actual - expected\n\n+ [\n+   'foreign SessionStart guidance reached the model',\n+   'foreign MCP declaration reached the model',\n+   'model catalog differs from client-owned catalog'\n+ ]\n- []\n",
+  "querySourceSha256": "277380f6da1bd21432d823d7cd6cec3ed9e5f42157b6e023d4a99ac4f88a5298",
+  "sdkVersion": "0.2.141"
+}

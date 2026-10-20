@@ -1,0 +1,149 @@
+{
+  "head": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "scope": "Actual parallel native clients and real provider model; public-SDK fork fixtures create owned large-store pressure",
+  "durationSeconds": 60,
+  "seedCount": 8,
+  "maxGenerations": 100,
+  "concurrency": 4,
+  "minimumWorkerCycleMs": 25000,
+  "model": {
+    "expected": "claude-opus-5-5",
+    "observed": [
+      "claude-opus-5-5",
+      "claude-opus-4-8",
+      "<synthetic>"
+    ],
+    "queries": 2,
+    "generations": 4,
+    "stopped": "Unexpected provider-request model: claude-opus-4-8"
+  },
+  "context": "200k for Opus; explicit alias opus",
+  "native": {
+    "version": "2.1.302 (Claude Code)",
+    "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "sdk": "0.2.141",
+  "bun": "1.3.11",
+  "platform": "darwin",
+  "arch": "arm64",
+  "periodicGcDisabled": true,
+  "publicationGcUnchanged": true,
+  "cycles": 0,
+  "clientRequests": 2,
+  "capacityRefusal": null,
+  "failure": "Error: Native client exit 143",
+  "passed": false,
+  "beforeClose": {
+    "at": 1792404268692,
+    "resources": 2,
+    "counts": {
+      "live": 1,
+      "retired": 1
+    }
+  },
+  "closeMs": 4,
+  "afterClose": {
+    "at": 1792404268696,
+    "resources": 2,
+    "counts": {
+      "live": 1,
+      "retired": 1
+    }
+  },
+  "deletedAfterCloseStarted": 0,
+  "allSpawnedProcesses": {
+    "started": 5,
+    "joined": 5
+  },
+  "sdkChildren": {
+    "started": 2,
+    "closed": 2
+  },
+  "clientChildren": {
+    "started": 1,
+    "joined": 1
+  },
+  "quotaChildren": {
+    "started": 1,
+    "joined": 1
+  },
+  "joined": true,
+  "latency": {
+    "requestPreSdkAdmissionMs": {
+      "p50": 181,
+      "p95": 181,
+      "p99": 181
+    },
+    "lifecycleLocalQueueWaitMs": {
+      "p50": 0.017208000000209722,
+      "p95": 0.06066600000485778,
+      "p99": 0.21154200000000856
+    },
+    "externalAcquireAndTransactionMs": {
+      "p50": 1.4361659999995027,
+      "p95": 4.4849580000009155,
+      "p99": 12.941540999999916
+    }
+  },
+  "supportedModelSnapshots": [
+    {
+      "query": 1,
+      "sessionId": "fb9030d0-fdaa-4c9a-9aea-1156b90597f6",
+      "rows": [
+        {
+          "id": "msg_011CgBQLRppuJPtu7VnqGJSb",
+          "uuid": "2bd34de7-3a92-42f9-abd1-191949f7fc2f",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01G8sqCfMwDdif55gqBW5ThH",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "sessionId": "45270a63-6331-4c57-81f0-05e217d5f425",
+      "rows": [
+        {
+          "id": "msg_011CgBQLRppuJPtu7VnqGJSb",
+          "uuid": "2bd34de7-3a92-42f9-abd1-191949f7fc2f",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01G8sqCfMwDdif55gqBW5ThH",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "msg_011CgBQLieMwdwVr4Sq8pNCr",
+          "uuid": "9736592b-39e2-41ec-8c4f-9ac421e2de9b",
+          "model": "claude-opus-5-5",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Pskq7tkqWLRPzTnG32oVfb",
+              "name": "mcp__oc__Read"
+            }
+          ]
+        },
+        {
+          "id": "09f103c7-8090-47db-ac45-4acb91e9e981",
+          "uuid": "f6523ab1-c3e7-4f5f-bebd-a3f6ff2382ea",
+          "model": "<synthetic>",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ownedCredentialAndClientConfigRemoved": true
+}

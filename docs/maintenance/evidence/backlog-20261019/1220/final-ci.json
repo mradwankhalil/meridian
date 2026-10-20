@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-10-19T10:40:19.433889+00:00",
+  "headRefOid": "b1fffe4ac8118f52fec9d74555cae45f31332fb7",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:29:18Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237770477/job/118010936256",
+      "name": "authorship",
+      "startedAt": "2026-10-19T10:29:05Z",
+      "status": "COMPLETED",
+      "workflowName": "Attribution"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:38:21Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774571/job/118010943758",
+      "name": "test",
+      "startedAt": "2026-10-19T10:29:07Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:30:44Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774730/job/118010944216",
+      "name": "smoke",
+      "startedAt": "2026-10-19T10:29:07Z",
+      "status": "COMPLETED",
+      "workflowName": "Docker"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:29:29Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774623/job/118010943966",
+      "name": "build (.#checks.x86_64-linux.home)",
+      "startedAt": "2026-10-19T10:29:06Z",
+      "status": "COMPLETED",
+      "workflowName": "Nix installable builds"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:29:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774453/job/118010943692",
+      "name": "desktop-build (ubuntu-latest)",
+      "startedAt": "2026-10-19T10:29:06Z",
+      "status": "COMPLETED",
+      "workflowName": "desktop"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:30:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774453/job/118010943086",
+      "name": "desktop-build (macos-latest)",
+      "startedAt": "2026-10-19T10:29:13Z",
+      "status": "COMPLETED",
+      "workflowName": "desktop"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:31:00Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774571/job/118010943496",
+      "name": "windows-smoke",
+      "startedAt": "2026-10-19T10:29:07Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:33:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774730/job/118011602241",
+      "name": "build-push",
+      "startedAt": "2026-10-19T10:30:46Z",
+      "status": "COMPLETED",
+      "workflowName": "Docker"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-19T10:29:03Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/rynfar/meridian/actions/runs/39237774571/job/118010945055",
+      "name": "changelog-duplication",
+      "startedAt": "2026-10-19T10:29:04Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "qualification": "Attempt4 is real network interruption after real model output, not a safeguard reproduction. Attempts1-3 failed harness qualifications and are retained. Updated default-retry, output-cap and pinned-native controls still pending.",
+  "attempts": [
+    {
+      "baseline": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+      "candidate": "284d5dca79f3a5edd7e1482a9822c9d5644fe843",
+      "agentlinkHead": "ab98566573e893fc4667971a86573fb56beec677",
+      "agentlinkVersion": "1.44.5",
+      "sdk": "0.2.141",
+      "model": "claude-opus-5-5",
+      "platform": "darwin",
+      "arch": "arm64",
+      "bun": "1.3.11",
+      "passed": false,
+      "failure": "AssertionError [ERR_ASSERTION]: Native model identities differ from exact requested model: [{\"where\":\"native-init\",\"value\":\"claude-opus-5-5[1m]\"},{\"where\":\"native-message-start\",\"value\":\"claude-opus-5-5\"},{\"where\":\"native-result-usage\",\"value\":\"claude-opus-5-5[1m]\"}]",
+      "attempt": 1,
+      "cases": [
+        {
+          "label": "candidate-healthy",
+          "native": {
+            "mode": "healthy",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus[1m]",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 36839,
+                "killRequested": false,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5[1m]"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5[1m]"
+              }
+            ],
+            "textDeltas": 3,
+            "killRequested": false,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "end_turn"
+          ],
+          "textEvents": 3
+        }
+      ]
+    },
+    {
+      "baseline": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+      "candidate": "284d5dca79f3a5edd7e1482a9822c9d5644fe843",
+      "agentlinkHead": "ab98566573e893fc4667971a86573fb56beec677",
+      "agentlinkVersion": "1.44.5",
+      "sdk": "0.2.141",
+      "model": "claude-opus-5-5",
+      "context": "200k (MERIDIAN_OPUS_MODEL=opus)",
+      "platform": "darwin",
+      "arch": "arm64",
+      "bun": "1.3.11",
+      "passed": false,
+      "failure": "AssertionError [ERR_ASSERTION]: Need actual failure envelope",
+      "attempt": 2,
+      "cases": [
+        {
+          "label": "candidate-healthy",
+          "native": {
+            "mode": "healthy",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 89207,
+                "killRequested": false,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 3,
+            "killRequested": false,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "end_turn"
+          ],
+          "textEvents": 3
+        },
+        {
+          "label": "baseline-fault",
+          "native": {
+            "mode": "fault",
+            "sourceRoot": "/private/tmp/meridian-overnight-evidence-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 90409,
+                "killRequested": true,
+                "closed": true,
+                "code": 143,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 1,
+            "killRequested": true,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "end_turn"
+          ],
+          "textEvents": 1
+        }
+      ]
+    },
+    {
+      "baseline": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+      "candidate": "284d5dca79f3a5edd7e1482a9822c9d5644fe843",
+      "agentlinkHead": "ab98566573e893fc4667971a86573fb56beec677",
+      "agentlinkVersion": "1.44.5",
+      "sdk": "0.2.141",
+      "model": "claude-opus-5-5",
+      "context": "200k (MERIDIAN_OPUS_MODEL=opus)",
+      "platform": "darwin",
+      "arch": "arm64",
+      "bun": "1.3.11",
+      "passed": false,
+      "failure": "AssertionError [ERR_ASSERTION]: Need actual failure envelope",
+      "attempt": 3,
+      "cases": [
+        {
+          "label": "candidate-healthy",
+          "native": {
+            "mode": "healthy",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 1842,
+                "killRequested": false,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 3,
+            "killRequested": false,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "end_turn"
+          ],
+          "textEvents": 3
+        },
+        {
+          "label": "baseline-fault",
+          "native": {
+            "mode": "fault",
+            "sourceRoot": "/private/tmp/meridian-overnight-evidence-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 2928,
+                "killRequested": true,
+                "closed": true,
+                "code": null,
+                "signal": "SIGKILL"
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 1,
+            "killRequested": true,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "end_turn"
+          ],
+          "textEvents": 1
+        }
+      ]
+    },
+    {
+      "baseline": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+      "candidate": "284d5dca79f3a5edd7e1482a9822c9d5644fe843",
+      "agentlinkHead": "ab98566573e893fc4667971a86573fb56beec677",
+      "agentlinkVersion": "1.44.5",
+      "sdk": "0.2.141",
+      "model": "claude-opus-5-5",
+      "context": "200k (MERIDIAN_OPUS_MODEL=opus)",
+      "platform": "darwin",
+      "arch": "arm64",
+      "bun": "1.3.11",
+      "passed": true,
+      "attempt": 4,
+      "cases": [
+        {
+          "label": "candidate-healthy",
+          "native": {
+            "mode": "healthy",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 60057,
+                "closed": true,
+                "code": 0,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 3,
+            "upstreamGenerations": 1,
+            "retryRefusals": 0,
+            "faultInjected": false,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "end_turn"
+          ],
+          "textEvents": 3
+        },
+        {
+          "label": "baseline-fault",
+          "native": {
+            "mode": "fault",
+            "sourceRoot": "/private/tmp/meridian-overnight-evidence-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 60374,
+                "closed": true,
+                "code": 1,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 2,
+            "upstreamGenerations": 1,
+            "retryRefusals": 2,
+            "faultInjected": true,
+            "closed": true
+          },
+          "clientOutcome": "completed",
+          "error": null,
+          "finishes": [
+            "max_tokens"
+          ],
+          "textEvents": 2
+        },
+        {
+          "label": "candidate-fault",
+          "native": {
+            "mode": "fault",
+            "sourceRoot": "/private/tmp/meridian-pr1407-20261019",
+            "processGateDisabled": false,
+            "queries": [
+              {
+                "model": "opus",
+                "executable": "/Users/rynfar/.local/bin/claude",
+                "partial": true,
+                "settingSources": [],
+                "spawnGate": true
+              }
+            ],
+            "children": [
+              {
+                "command": "/Users/rynfar/.local/bin/claude",
+                "pid": 61414,
+                "closed": true,
+                "code": 1,
+                "signal": null
+              }
+            ],
+            "models": [
+              {
+                "where": "native-init",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "provider-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-message-start",
+                "value": "claude-opus-5-5"
+              },
+              {
+                "where": "native-result-usage",
+                "value": "claude-opus-5-5"
+              }
+            ],
+            "textDeltas": 2,
+            "upstreamGenerations": 1,
+            "retryRefusals": 2,
+            "faultInjected": true,
+            "closed": true
+          },
+          "clientOutcome": "error",
+          "error": {
+            "name": "OpenAiCompatibleRequestError",
+            "message": "Claude Code returned an error result: API Error: 400 Owned transport E2E: retry refused after the single real generation was interrupted.",
+            "providerCode": "api_error",
+            "providerType": "api_error"
+          },
+          "finishes": [],
+          "textEvents": 2
+        }
+      ]
+    }
+  ]
+}

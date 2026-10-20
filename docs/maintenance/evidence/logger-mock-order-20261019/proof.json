@@ -1,0 +1,74 @@
+{
+  "baselineMain": "d0326e28255d84a8df70e6d2629fb1e2478c79ae",
+  "sourceCommit": "3747a05ce6ba07204dde324892cffa17c07db846",
+  "ciFailure": {
+    "run": 39287527796,
+    "head": "787619532139bb9b7f5a6bdb073b8acd076718f0",
+    "loggerDiagnosticTelemetryCounters": [
+      0,
+      1,
+      1
+    ]
+  },
+  "controlledImportOrder": [
+    "loggerMock",
+    "sdkMock",
+    "mcpToolsMock",
+    "telemetry-settings-routes.test",
+    "passthrough-early-stop-integration.test"
+  ],
+  "darwin": {
+    "baseline": {
+      "pass": 12,
+      "fail": 1
+    },
+    "candidate": {
+      "pass": 13,
+      "fail": 0
+    }
+  },
+  "linuxArm64": {
+    "baseline": {
+      "pass": 12,
+      "fail": 1
+    },
+    "candidate": {
+      "pass": 13,
+      "fail": 0
+    }
+  },
+  "restoredOldRegistration": {
+    "pass": 12,
+    "fail": 1
+  },
+  "originalSuiteUnchangedSha256": "df23c0867e8d3f811e7c8ef843677903a9d88ecd874137c9c41cdd6eb442aa31",
+  "npmTestInvocations": 25,
+  "productionFilesChanged": 0,
+  "liveModelCallsRequired": false,
+  "fullGate": "Final local counts and exact-head CI are recorded in the PR body.",
+  "drainFixture": {
+    "sourceCommit": "f3ce701cfe7b7af3b174584d1d49587850bd2c3d",
+    "beforeFullGate": {
+      "pass": 6505,
+      "skip": 36,
+      "fail": 1
+    },
+    "actualGcLockPublicationHeld": true,
+    "oldSleepMutation": {
+      "pass": 1,
+      "fail": 1,
+      "expected": "joined",
+      "received": "returned"
+    },
+    "darwinCandidate": {
+      "pass": 31,
+      "fail": 0
+    },
+    "originalSnapshotAndAbortAssertionsUnchanged": true,
+    "candidateFilesFiltered": false,
+    "linuxArm64Candidate": {
+      "pass": 31,
+      "fail": 0
+    }
+  }
+}

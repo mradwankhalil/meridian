@@ -1,0 +1,76 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/messages.test.ts:
+(pass) normalizeContent > returns string content as-is [0.04ms]
+(pass) normalizeContent > extracts text from text content blocks [0.09ms]
+(pass) normalizeContent > handles tool_use blocks [0.02ms]
+(pass) normalizeContent > handles tool_result blocks with string content
+(pass) normalizeContent > handles tool_result blocks with object content [0.03ms]
+(pass) normalizeContent > handles mixed content blocks
+(pass) normalizeContent > JSON stringifies unknown block types [0.01ms]
+(pass) normalizeContent > produces stable hashes when cache_control is added to text blocks [0.02ms]
+(pass) normalizeContent > produces stable hashes when cache_control is added to tool_result content blocks [0.02ms]
+(pass) normalizeContent > produces stable hashes when cache_control is added to unknown block types
+(pass) normalizeContent > converts non-string non-array to string
+(pass) getLastUserMessage > returns the last user message [0.08ms]
+(pass) getLastUserMessage > returns last message as fallback when no user messages
+(pass) getLastUserMessage > handles empty array
+(pass) getLastUserMessage > returns single user message from single-message array
+(pass) getLastUserMessage > keeps consecutive user messages in the current turn together [0.01ms]
+(pass) getLastUserMessage > merges a tool_result and a separate reminder into one user turn
+(pass) getLastUserMessage > preserves the last-user fallback for assistant-ending history [0.03ms]
+(pass) getLastUserMessage > preserves the existing assistant-ending fallback when earlier users are consecutive [0.02ms]
+(pass) extractAdvisorModel > extracts model from advisor tool definition [0.02ms]
+(pass) extractAdvisorModel > returns undefined when no advisor tool is present
+(pass) extractAdvisorModel > returns undefined for non-array input
+(pass) extractAdvisorModel > returns undefined when model is missing or empty
+(pass) extractAdvisorModel > matches any advisor_ type prefix
+(pass) stripAdvisorTools > removes advisor tool definitions from array
+(pass) stripAdvisorTools > returns all tools when no advisor tool is present
+(pass) stripAdvisorTools > handles empty array [0.05ms]
+(pass) stripNonStandardStreamFields (#525) > removes context_management from a message_delta event [0.03ms]
+(pass) stripNonStandardStreamFields (#525) > removes context_management nested inside delta
+(pass) stripNonStandardStreamFields (#525) > is a no-op on events without the field (content_block_delta)
+(pass) stripNonStandardStreamFields (#525) > returns non-object inputs unchanged
+(pass) stripNonStandardStreamFields (#525) > mutates and returns the same reference (for inline use)
+(pass) consolidateMultimodalOntoLastUser (#553) > moves an image from an earlier user turn onto the last user turn [0.08ms]
+(pass) consolidateMultimodalOntoLastUser (#553) > targets the last ARRAY-content user turn, not a flattened assistant string [0.02ms]
+(pass) consolidateMultimodalOntoLastUser (#553) > does not duplicate an image already present on the last user turn
+(pass) consolidateMultimodalOntoLastUser (#553) > preserves the order of multiple carried images [0.04ms]
+(pass) consolidateMultimodalOntoLastUser (#553) > is a no-op with fewer than two array-content user turns
+(pass) consolidateMultimodalOntoLastUser (#553) > does not mutate the input array or its messages [0.03ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > indexes every assistant tool_use by id with name and target [0.12ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > extracts common target keys and truncates long ones [0.03ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > describeToolCall renders a compact attribution label [0.02ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > attributes code-execution tools by the code they ran [0.05ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > keeps multi-line targets on one line [0.03ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > still truncates long targets to the 80-char budget after collapsing [0.02ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > summarises an edit under every spelling of the replacement field [0.05ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > summarises multiedit under the same spellings [0.01ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > ignores a whitespace-only target and falls through to the next key
+(pass) buildToolUseIndex / tool-result attribution (#552) > returns an empty index for non-array and toolless content
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > edit: summarizes newString
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > edit: accepts snake_case new_string and PascalCase tool names
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > write: summarizes content [0.01ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > multiedit: summarizes the first edit and notes the count
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > collapses whitespace and truncates long content [0.02ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > non-mutating tools get no summary (read/bash/grep) [0.01ms]
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > describeToolCall includes the summary when present
+(pass) buildToolUseIndex / tool-result attribution (#552) > content summaries for mutating tools > tolerates malformed inputs without crashing [0.03ms]
+(pass) frameReplayTurns (#619) > wraps replayed history in an envelope and separates the final user message [0.07ms]
+(pass) frameReplayTurns (#619) > leaves single-turn prompts bare — no envelope for fresh conversations
+(pass) frameReplayTurns (#619) > falls back to a plain join when the final turn is not a user turn [0.02ms]
+(pass) frameReplayTurns (#619) > skips empty turns and never emits Human: markers
+(pass) frameReplayTurns (#619) > keeps consecutive user messages as the live turn [0.02ms]
+(pass) frameReplayTurns (#619) > leaves every user message after the last assistant as the live turn [0.02ms]
+(pass) extractSystemText > passes a string system field through unchanged [0.01ms]
+(pass) extractSystemText > joins text blocks with newlines [0.04ms]
+(pass) extractSystemText > drops the billing header block Claude Code smuggles through system
+(pass) extractSystemText > keeps a client prompt that merely mentions a header in prose [0.01ms]
+(pass) extractSystemText > ignores non-text blocks and empty text
+(pass) extractSystemText > returns empty string for absent or malformed input
+
+ 68 pass
+ 0 fail
+ 138 expect() calls
+Ran 68 tests across 1 file. [51.00ms]

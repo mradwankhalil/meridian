@@ -1,0 +1,37 @@
+{
+  "candidate": "fae06f874116ed7ec2eafe58f89c6dc1813fe347",
+  "base": "d7d9ad02720adffc1c8e42e2d229c0b45cbed6f3",
+  "tree": "3f17587f2e68b192b408ae80b9b6469e72728e65",
+  "files": [
+    ".release-please-manifest.json",
+    "CHANGELOG.md",
+    "package-lock.json",
+    "package.json"
+  ],
+  "productTreeMatchesBase": true,
+  "dependencyVersionsUnchanged": true,
+  "notesCompleteNoDuplicates": true,
+  "heldPrHeadsExcluded": {
+    "1406": "c8bab07d034464e8903754e53795fe1ce25832d9",
+    "1419": "8ca5663985b9dcb1446f9797057db02e979627df",
+    "1399": "7379cd4652af910897480bae3469f6c6e65c3025",
+    "1220": "b1fffe4ac8118f52fec9d74555cae45f31332fb7",
+    "1400": "2f17bf73d0b0974af229a9d1c8d12479bedcf8ec"
+  },
+  "workingTreeClean": true,
+  "packIntegrity": "sha512-XZsDwibCgcFdVlSso/xVlOvjSLqryDpTwPvtf2t5wo6yD6oW6rXxzAYpRCjC57zv20cp1L3wkes8Q+BFfHCHzw==",
+  "adversarialFinding": "Release Please omitted the already-merged forwarded Bun startup advisory. Corrected once in candidate changelog and release PR body, without rewriting author history.",
+  "productFit": "Provider-filter links, truthful Bun startup advisory and typed partial-stream failure propagation. No held behavior branches included.",
+  "regressionReview": [
+    "Ordinary completion still completes; error events retain provider type/code and extra metadata. Genuine output-cap recovery evidence remains in the merged 1407 record.",
+    "URL-driven chip changes preserve localStorage, explicit empty selection and reload; original committed browser controls cover history and anchors.",
+    "Node startup and API responses omit Bun warnings; silent/help/version behavior preserved.",
+    "No dependency/public-interface/desktop product changes; candidate exact-head CI and independent tarball gates required."
+  ],
+  "remainingLimits": [
+    "Historical native refusal/fallback and E41 cache/model holds are not resolved by unrelated successful release probes.",
+    "No safeguard-classifier reproduction.",
+    "Browser data is a synthetic API fixture around installed production pages, not a provider account login test.",
+    "Release-specific actual AgentLink/model flow is Darwin arm64; cross-platform packaging smoke is CI proof, not identical live-model testing."
+  ]
+}

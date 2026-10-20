@@ -23,7 +23,220 @@ the contributor's PR is what merges:
 Corrections to past PRs (reopening, comment edits, release notes, any rewrite of
 `main`) are the owner's decisions in #1363. Do not start them from this note.
 
-## Backlog review and corrections (2026-10-18 MDT / 2026-10-19 UTC)
+## Continued backlog work (2026-10-20)
+
+The backlog goal remains active. Three existing contributor PRs have landed;
+these are removals from the original queue, with no replacement PR created:
+
+- [#1419](https://github.com/rynfar/meridian/pull/1419), reminder framing:
+  reviewed `b55d569615ad92b58195d39865b041a8d8c553fb`, signed squash
+  `a2c19dfa23d9d8586a1d9f286c5467a381052595`. Actual Author is
+  Suyeo2025; substantive maintainer correction has its coauthor trailer.
+  Published DSH/pi-ai and real Haiku 5.5, adjacent tool/reminder flow, four
+  live E41 modes, full local gates and final-head CI passed. The baseline
+  reproduced malformed framing but answered the nonce, so omitted-answer
+  reproduction is not claimed. Exact sanitized drivers and receipts are in
+  the PR body.
+- [#1403](https://github.com/rynfar/meridian/pull/1403), Responses PDF input:
+  reviewed `2886e0000d9bd08301889e80a4e51b8a04d31efd`, signed squash
+  `acb8d390e4d764e5d2e7a9b7c60fb17df47c25dd`. Actual Author is
+  jmuz / XInTheDark; substantive maintainer correction has its coauthor
+  trailer. Published OpenAI JS SDK 7.39.0 against real Meridian/Claude SDK,
+  native 2.1.302 and Haiku 5.5 proves JSON/SSE PDF and actual tool-result
+  document receipts. A real strict-client failure exposed empty terminal
+  tool arguments; the separate signed correction, red/green controls and
+  actual SDK parser proof are retained. All four E41 modes and final local/CI
+  gates passed. The earlier unrelated turn-lock owner-incarnation failure
+  remains unexplained and is not claimed fixed. Codex's credentialless
+  preflight sent resource JSON as text, so it is excluded from PDF acceptance.
+- [#1395](https://github.com/rynfar/meridian/pull/1395), native client cwd:
+  reviewed `ea4c6a6f494b5a8897f31f76033bd60a8ec343a6`, signed neutral merge
+  `30cc1d2d446a16de0add548fc108ace0932814ae`. All eight reviewed introduced
+  objects remain reachable unchanged. The owner-approved #1413 forwarded
+  route was used without admin. Actual native frontend/backend Sonnet 5.5
+  and the source's Haiku 4.5, with one client conversation surviving proxy
+  upgrade, prove client cwd, one locator replay and normal subsequent resume.
+  Two leading-reminder scanner controls caught a boundary bug; the signed
+  correction stops at non-text blocks. Four E41 modes, full local and CI
+  gates passed. The forwarded =DEX object preserves Author/AuthorDate and
+  substantive lines, but differs from earlier unsigned source `03f025a5` in
+  parent/committer/SHA and one blank-line placement. It does not restore that
+  original object. Full provenance, signatures and parent/tree receipts are
+  in the PR body.
+
+The aggregate attribution audit still has 137 legacy maintainer re-lands;
+no historical repair is claimed. For mixed-author forwarded #1395, the exact
+per-commit custody manifest is authoritative, not an inferred PR-opener email.
+Release Please [#1427](https://github.com/rynfar/meridian/pull/1427) was inspected
+only. Its current generated notes omit the original client-cwd feature while
+including its later boundary correction; reconcile complete ancestry/notes
+before a separately authorized release. No release or Mac notarization ran.
+
+Fresh paginated discovery after the three merges covers 165 visible repos and
+all six managed queues, without a coverage gap: Meridian has 26 open PRs and
+17 issues; the scrub queues contain only their two existing release PRs.
+Issue #1363 closed externally; that is not an attribution repair by this batch.
+The original 12 dirty checkout files remain untouched. [#1401](https://github.com/rynfar/meridian/pull/1401)
+retains its full-run performance failure and missing actual E85/E41 gates;
+there is no claim that a later green diagnostic clears that failure.
+
+[#1423](https://github.com/rynfar/meridian/pull/1423) now qualifies the reporter's
+actual OpenCode 2.0.31 distribution and native 2.1.301 on Debian Linux arm64,
+using real Haiku 5.5, matching installed V2 plugin and active server scrub.
+Its [reporter-version evidence](evidence/1404-opencode-agent-switch-20261019/reporter-2031/README.md)
+records current source/pack hashes, original failed recorders, provider/native/
+stored model correlations, all four E41 modes and V2 compatibility results.
+The earlier Opus refusal/cache task remains separate; this does not retry or
+clear it. Continue independent queue work after this PR's final gates.
+
+## Renewed issue goal (2026-10-19 MDT)
+
+The owner requested more issue work after release 1.84.0 and deferred Mac
+notarization. Fresh paginated discovery covered 165 visible repositories and
+six managed queues without a coverage gap: 26 Meridian PRs / 18 issues at batch
+start, with only the two existing scrub release PRs elsewhere. The original
+checkout's 12 file hashes remain unchanged. No release, external comment, owner
+credential write or issue closure was performed in this batch.
+
+- **CI repair [#1425](https://github.com/rynfar/meridian/pull/1425):** the remaining
+  telemetry logger registration can replace the shared dispatcher and produces
+  the fast failure-observer counters `[0, 1, 1]`. Baseline and old-registration
+  controls fail; the correction passes on Darwin and Debian Linux arm64 using
+  pinned Bun 1.3.11 with the original assertions. An explicit suite-load-order
+  fixture is the 25th `npm test` invocation. The next full gate exposed a
+  separate drain-fixture GC lifetime race: a real lock candidate appeared in
+  the complete abort-test snapshot while SDK/store-read counts remained zero.
+  Fixture teardown now joins accepted work, GC and backend shutdown before
+  removing/resetting the root. Holding real lock publication distinguishes the
+  old sleep from the corrected cleanup; all 31 drain tests pass on both
+  platforms. [Durable proof and original failures](evidence/logger-mock-order-20261019/README.md).
+  Issues 917 and 933 remain open; these two mechanisms do not explain every
+  historical failure. The complete 25-invocation local gate passes **6,996 / 36 skip / 0 fail**,
+  standalone typecheck/build and all active final-head CI pass. Normal exact-head
+  squash landed signed `3feb772479d5e04f1f28e5c452ef359b09d1c65b`; its tree
+  matches reviewed `b3ebc945d3`. The Nix push duplicate was superseded by the
+  successful same-head PR run under the documented workflow concurrency policy.
+- **Configuration reference [#1424](https://github.com/rynfar/meridian/pull/1424):**
+  removes literal conflict markers and contradictory duplicate configuration
+  rows. Both sides were reconciled against current query/recovery code,
+  including structured output, JSON-parse rejection, undeclared names and
+  opt-in limits. Content, table-shape, anchor and diff checks pass. Its first
+  CI run failed on the logger cause above; it now includes the mainline repair via a signed merge and requires
+  fresh final-head CI before normal squash.
+- **Account-copy guard [#1401](https://github.com/rynfar/meridian/pull/1401):**
+  signed correction `32483870992ce3f953322cf6c1bf9bbdaede2469` now rejects
+  unreadable other-profile mappings rather than treating them as absent. Two
+  red fault controls become green; 13 focused unit/mocked-HTTP cases and the
+  complete 24-invocation local gate (**6,995 pass / 36 skip / 0 fail**) plus
+  typecheck/build pass. The clean main merge and correction were added to the
+  source fork's existing branch; all ten original authored objects remain
+  unchanged. CI run 39289578058 failed with the same reproduced logger counts.
+  Signed main merge `1c2bd51dd940c082cdcfc85bdea31671edb650b0` now integrates
+  the repaired fixtures, retaining all ten original source objects unchanged.
+  Fresh full 25-invocation local and final-head CI results are recorded in the
+  source PR body; standalone typecheck/build pass.
+  Missing/evicted mappings and clock-based comparison remain limits. Actual E85
+  client/account/model proof, durable actual-client harness, all four E41 modes
+  and prior model/cache holds remain acceptance gates. No source work is
+  claimed as landed. [Correction custody, red/green logs and limits](evidence/issue-queue-r2-20261019/README.md).
+- **Agent switching [#1404](https://github.com/rynfar/meridian/issues/1404) /
+  draft [#1423](https://github.com/rynfar/meridian/pull/1423):** product head
+  `4e90948a22b6436ed1f4c2b7148f454984f04549` replays full client history on
+  explicit OpenCode primary-agent changes. Native probes establish ordinary
+  resume and forks retain the original prompt. The rejected broad system hash
+  and original dynamic-context regression controls are retained; the final
+  guard preserves those assertions. Local gate **6,992 pass / 36 skip / 0 fail**,
+  all 24 invocations, typecheck/build and 26 focused controls pass. A clean
+  independently installed artifact passes actual OpenCode 2.0.21, matching V2
+  plugin, scrub 0.2.3, SDK 0.2.141, native 2.1.301 and Haiku 5.5 on Debian
+  Linux arm64. Both baseline/candidate use five actual generations; canaries
+  change from all false to false/true/true/false, full history survives, and
+  only the unchanged reviewer resumes. All owned work joins and the private
+  access-only grant was removed. Final-head active CI passes at `b904ee7153`;
+  a superseded duplicate Nix context was cancelled while the same context also
+  passed. [Immutable receipts, failures and limits](https://github.com/rynfar/meridian/blob/b904ee7153cac195f6549d1f777be6d73d124cf4/docs/maintenance/evidence/1404-opencode-agent-switch-20261019/README.md).
+  Reporter OpenCode 2.0.31 qualification, all four live E41 modes and prior
+  unexplained Opus model/cache holds remain. Same-agent instruction edits retain
+  the native limitation. The Haiku task did not retry the refused Opus load task.
+
+The final paginated refresh still covers 165 visible repositories and six
+managed queues without gaps or new issues. At this documentation checkpoint
+Meridian has 28 open PRs (including this PR and draft 1423) and 18 issues; the
+scrub queues still contain only their two held release PRs.
+
+Other source-author, draft/no-review, public API/SQLite, native platform and
+naturally exhausted allowance gates below remain in force. Issue 1390 has draft source PR #1402, whose explicit do-not-review request
+remains in force. No code was copied into a maintainer PR; permission/classifier/
+client-denial qualification remains.
+Mac notarization is deferred; the two scrub release PRs remain held. Refresh live
+heads and this checkpoint before continuing; do not treat a green CI rollup as
+product acceptance.
+
+## Overnight goal checkpoint (2026-10-19 MDT)
+
+The six-PR product/test batch ends at `6c241a897bdc7ffe4c233d32270a17402b3528a0`;
+#1421 adds only documentation and manual evidence probes.
+This section supersedes the dated in-progress gates immediately below; the old
+records and failures remain historical evidence. The owner authorized the
+Centeva GPT-6.1-Sol overnight backlog goal. Work stayed in isolated worktrees;
+the user's dirty desktop checkout was preserved. No release, external comment
+or message was published. Full [results, runnable probes and receipts](evidence/backlog-20261019/README.md)
+are escrowed in [#1421](https://github.com/rynfar/meridian/pull/1421).
+
+- **Six landed PRs:** #1415 SDK fixture isolation (`658a3b5c5`), #1411 provider
+  filter URLs (`58d9dd8c0`), #1420 watchdog timer-ownership fixture (`f01ba1ae3`),
+  #1409 owned test temp cleanup (`355f9b34c`), #1398 Bun advisory (`70b5af12a`)
+  and #1407 typed OpenAI stream errors (`6c241a897`). Every exact head passed
+  the complete 24-invocation pinned Bun gate, type/build and required CI.
+  Reviewed/merged trees match. Actual relevant browser/transport/client proof
+  is linked in the results. Original failures are retained, not erased by reruns.
+- **Attribution:** contributor-owned squashes retain contributor Git Authors.
+  #1398 used the approved neutral commit-preserving merge; all eight introduced
+  objects remain unchanged/reachable. The post-batch audit adds no maintainer
+  re-land defect. The 137 legacy cases under #1363 remain owner decisions.
+- **More branches advanced:** #1406 `c8bab07d0` now has truthful settings UI,
+  native fresh/resumed contamination controls, desktop/mobile browser proof,
+  and 6,984 pass / 36 skip plus type/build/CI. Resumed old guidance remains;
+  actual OpenCode/model/E41/E42 acceptance and #1405 remain open. #1419
+  `8ca566398` includes the assistant-tail fallback correction and 6,988 pass /
+  36 skip plus type/build/CI; final-head live resume/cache acceptance is open.
+  Earlier real DeepSeek Harness/Haiku proof reproduced framing, not the reported
+  answer omission. #1399 `7379cd465` has 7,000 pass / 36 skip plus type/build/CI;
+  native large-store/hourly/admission/shutdown acceptance remains open.
+- **Additional independent corrections:** #1220 `b1fffe4ac` now has the known
+  queued-input/revocation/clear-epoch fixes, a newly reproduced local-fallback
+  ownership correction and seven awaited fixture resets. Seven distinct red
+  cases are retained by stage; 29 affected and 59 adjacent tests pass, with
+  6,997 full passes / 36 skips plus type/build/CI. The original residual E41
+  cache discrepancy and actual-client/model/platform gate remain. #1400
+  `2f17bf73d` preserves the earlier Retry-After fix with a clean main merge;
+  7,059 full passes / 36 skips plus type/build/CI now pass. Actual naturally
+  spent-allowance/whole-pool/late-refusal/native-subagent/Linux proof remains.
+- **Real refusal/fallback stop:** #1399 warm-up received Opus 5.5 refusals,
+  then native CLI attempted Opus 4.8 despite the requested model/null fallback.
+  The model guard blocked 4.8 before network; only three actual 5.5 generations
+  occurred. All five owned processes joined; grants/config were removed. No
+  seed/hour run or further paid-model call followed. The manual harness now
+  stops on HTTP-200 refusal and owns its path-guard error/attempt accounting;
+  offline controls pass. The native credentialless fixture demonstrates one
+  refusal request with no-fallback/no-refusal-retry controls, but does not prove
+  the real OAuth model pivot disabled. No speculative production default changed.
+  [Critical witness and limits](evidence/backlog-20261019/1399/README.md).
+- **Historical E41 hold persists:** a fresh bounded chain diagnostic passes
+  correlated provider/native/stored Opus 5.5 IDs and original history/cache
+  assertions. It cannot explain the old missing-boundary 4.8 tags. The newly
+  witnessed fallback mechanism is relevant evidence, not retroactive proof.
+  Remaining #1410/#1396/applicable matrix arms stay held. Do not retry refused
+  requests or change models to obtain a green gate.
+- **Queue/release:** 165 accessible repositories covered, six managed queues,
+  product-batch snapshot of 28 open Meridian PRs including the then-open
+  evidence PR and 18 issues after six
+  product/test merges; scrub queues contain only the two existing release PRs.
+  No issue closed on incomplete proof. Release Please #1418 omits #1398 from
+  its generated body; correct/explain before any separately authorized release.
+  Storage/public API, platform, draft, owner and no-review holds remain.
+
+## Backlog review and corrections (2026-10-18 MDT / 2026-10-19 UTC) — historical
 
 Refreshed `origin/main` `095b4869b` and the paginated live queues: 29 Meridian
 PRs plus two scrub release PRs across six managed repositories. All five scrub

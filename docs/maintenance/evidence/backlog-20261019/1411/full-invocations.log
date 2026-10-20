@@ -1,0 +1,24 @@
+PINNED_BUN_TEST 1.3.11+af24e281e test ./src/__tests__ --timeout 30000 --path-ignore-patterns **/*session-store* --path-ignore-patterns **/*store-mutation-loop-lag* --path-ignore-patterns **/*session-fingerprint-context* --path-ignore-patterns **/*priority-routing-integration* --path-ignore-patterns **/*proxy-async-ops* --path-ignore-patterns **/*models-auth-status* --path-ignore-patterns **/*proxy-context-usage-store* --path-ignore-patterns **/*proxy-passthrough-thinking* --path-ignore-patterns **/*proxy-thinking-setting* --path-ignore-patterns **/*session-recovery* --path-ignore-patterns **/*models.test* --path-ignore-patterns **/*replay-budget* --path-ignore-patterns **/*proxy-health-build* --path-ignore-patterns **/*follow-active-integration* --path-ignore-patterns **/*profile-credential-isolation* --path-ignore-patterns **/*header-settings-routes* --path-ignore-patterns **/*claude-executable-settings* --path-ignore-patterns **/*proxy-idle-guard-queue* --path-ignore-patterns **/*proxy-deny-hold-generating* --path-ignore-patterns **/*upstream-reachability-routes*
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-async-ops.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-session-store.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/session-store-pruning.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-session-store-locking.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/session-fingerprint-context.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-context-usage-store.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/models-auth-status.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-passthrough-thinking.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-session-recovery.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-thinking-setting.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/models.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/replay-budget.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-health-build.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/priority-routing-integration.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/follow-active-integration.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/store-mutation-loop-lag.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/profile-credential-isolation.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/header-settings-routes.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/priority-session-store.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/claude-executable-settings.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-idle-guard-queue.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/proxy-deny-hold-generating.test.ts
+PINNED_BUN_TEST 1.3.11+af24e281e test --timeout 30000 src/__tests__/upstream-reachability-routes.test.ts

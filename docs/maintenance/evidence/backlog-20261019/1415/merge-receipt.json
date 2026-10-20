@@ -1,0 +1,17 @@
+{
+  "pr": 1415,
+  "url": "https://github.com/rynfar/meridian/pull/1415",
+  "reviewed_head": "adcea94b21b61a37182611267bbd32d3131384aa",
+  "reviewed_base": "ed5c5d43eaa931cf16cf68d3500102f9dfdf2856",
+  "merged": "658a3b5c5259babd8ffda0d663b2906057e81ca3",
+  "merged_at": "2026-10-19T07:29:14Z",
+  "tree": "becb65f49166bf631c94595cdef3f5da3e32f428",
+  "signature_valid": true,
+  "author": {
+    "name": "Trevor Walker",
+    "email": "rynfar@gmail.com",
+    "date": "2026-10-19T07:29:14Z"
+  },
+  "full_local": "6959 pass / 36 skip / 0 fail; all24 pinned Bun1.3.11 stages",
+  "prior_failures_retained": true
+}

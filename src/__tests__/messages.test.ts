@@ -111,6 +111,49 @@ describe("getLastUserMessage", () => {
     expect(result).toHaveLength(1)
     expect(result[0]!.content).toBe("only")
   })
+
+  it("keeps consecutive user messages in the current turn together", () => {
+    const messages = [
+      { role: "user", content: "AAA background notes" },
+      { role: "user", content: "BBB reply with PONG-42" },
+      { role: "user", content: "CCC current time 14:31" },
+    ]
+    const result = getLastUserMessage(messages)
+    expect(result).toHaveLength(1)
+    expect(result[0]!.content).toEqual([
+      { type: "text", text: "AAA background notes" },
+      { type: "text", text: "BBB reply with PONG-42" },
+      { type: "text", text: "CCC current time 14:31" },
+    ])
+  })
+
+  it("merges a tool_result and a separate reminder into one user turn", () => {
+    const messages = [
+      { role: "user", content: "call echo" },
+      { role: "assistant", content: [{ type: "tool_use", id: "tu_1", name: "echo", input: { text: "hello" } }] },
+      { role: "user", content: [{ type: "tool_result", tool_use_id: "tu_1", content: "hello" }] },
+      { role: "user", content: "<system-reminder>be concise</system-reminder>" },
+    ]
+    const result = getLastUserMessage(messages)
+    expect(result).toHaveLength(1)
+    expect(result[0]!.content).toEqual([
+      { type: "tool_result", tool_use_id: "tu_1", content: "hello" },
+      { type: "text", text: "<system-reminder>be concise</system-reminder>" },
+    ])
+  })
+
+  it("preserves the last-user fallback for assistant-ending history", () => {
+    const question = { role: "user", content: "continue the explanation" }
+    const prefill = { role: "assistant", content: "The next step is" }
+    expect(getLastUserMessage([question, prefill])).toEqual([question])
+  })
+
+  it("preserves the existing assistant-ending fallback when earlier users are consecutive", () => {
+    const earlier = { role: "user", content: "background" }
+    const question = { role: "user", content: "current question" }
+    const prefill = { role: "assistant", content: "The answer is" }
+    expect(getLastUserMessage([earlier, question, prefill])).toEqual([question])
+  })
 })
 
 describe("extractAdvisorModel", () => {
@@ -542,6 +585,29 @@ describe("frameReplayTurns (#619)", () => {
     expect(out).not.toContain("Human:")
     expect(out).toEndWith("final question")
     expect(out).toContain("[your bash ls]:")
+  })
+
+  it("keeps consecutive user messages as the live turn", () => {
+    const out = frameReplayTurns([
+      t("user", "AAA background notes"),
+      t("user", "BBB reply with PONG-42"),
+      t("user", "CCC current time 14:31"),
+    ])
+    // No assistant turn: nothing is replayed history, everything is live.
+    expect(out).not.toContain("</conversation_history>")
+    expect(out).toBe("AAA background notes\n\nBBB reply with PONG-42\n\nCCC current time 14:31")
+  })
+
+  it("leaves every user message after the last assistant as the live turn", () => {
+    const out = frameReplayTurns([
+      t("user", "read the config file"),
+      t("assistant", "[Assistant: I read it]"),
+      t("user", "now update the port"),
+      t("user", "and the host"),
+    ])
+    expect(out).toStartWith("<conversation_history>\n")
+    expect(out.indexOf("</conversation_history>")).toBeLessThan(out.indexOf("now update the port"))
+    expect(out).toEndWith("now update the port\n\nand the host")
   })
 })
 

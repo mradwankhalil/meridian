@@ -1,0 +1,208 @@
+{
+  "version": "1.84.0",
+  "node": "v22.22.3",
+  "sdk": "0.2.141",
+  "native": "2.1.302 (Claude Code)",
+  "nativeSha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37",
+  "model": "claude-opus-5-5",
+  "client": "AgentLink 1.44.5",
+  "clientCommit": "ab98566573e893fc4667971a86573fb56beec677",
+  "passed": true,
+  "cases": [
+    {
+      "label": "candidate-healthy",
+      "outcome": "completed",
+      "requests": 1,
+      "error": null,
+      "textDeltas": 3,
+      "modelStop": true,
+      "httpStatus": 200,
+      "host": {
+        "mode": "healthy",
+        "version": "1.84.0",
+        "node": "v22.22.3",
+        "platform": "darwin",
+        "arch": "arm64",
+        "provider": [
+          {
+            "where": "request",
+            "model": "claude-opus-5-5"
+          },
+          {
+            "where": "response",
+            "model": "claude-opus-5-5",
+            "id": "msg_011CgBmPZh8ZmtSqHLWUaDHX"
+          },
+          {
+            "where": "stop",
+            "reason": "end_turn"
+          }
+        ],
+        "native": [
+          {
+            "type": "message_start",
+            "model": "claude-opus-5-5",
+            "id": "msg_011CgBmPZh8ZmtSqHLWUaDHX"
+          },
+          {
+            "type": "assistant",
+            "id": "msg_011CgBmPZh8ZmtSqHLWUaDHX",
+            "model": "claude-opus-5-5",
+            "stop": null
+          },
+          {
+            "type": "result",
+            "subtype": "success",
+            "isError": false
+          }
+        ],
+        "children": [
+          {
+            "pid": 22567,
+            "closed": true,
+            "stdoutClosed": true,
+            "stderrClosed": true,
+            "code": 0,
+            "signal": null
+          }
+        ],
+        "attempts": 1,
+        "admitted": 1,
+        "blocked": 0,
+        "refusal": false,
+        "faultInjected": false,
+        "closed": true,
+        "redirect": "Owned Node execve trampoline; same gate PID/stdio, exact pinned native binary"
+      }
+    },
+    {
+      "label": "published-baseline-fault",
+      "outcome": "completed",
+      "requests": 1,
+      "error": null,
+      "textDeltas": 1,
+      "modelStop": true,
+      "httpStatus": 200,
+      "host": {
+        "mode": "fault",
+        "version": "1.83.1",
+        "node": "v22.22.3",
+        "platform": "darwin",
+        "arch": "arm64",
+        "provider": [
+          {
+            "where": "request",
+            "model": "claude-opus-5-5"
+          },
+          {
+            "where": "response",
+            "model": "claude-opus-5-5",
+            "id": "msg_011CgBmPup733hmM442EfrGM"
+          }
+        ],
+        "native": [
+          {
+            "type": "message_start",
+            "model": "claude-opus-5-5",
+            "id": "msg_011CgBmPup733hmM442EfrGM"
+          },
+          {
+            "type": "assistant",
+            "id": "4869564b-0225-4d95-b44f-7a1b67c3bdd4",
+            "model": "<synthetic>",
+            "stop": "stop_sequence"
+          },
+          {
+            "type": "result",
+            "subtype": "success",
+            "isError": true
+          }
+        ],
+        "children": [
+          {
+            "pid": 25934,
+            "closed": true,
+            "stdoutClosed": true,
+            "stderrClosed": true,
+            "code": 1,
+            "signal": null
+          }
+        ],
+        "attempts": 3,
+        "admitted": 1,
+        "blocked": 2,
+        "refusal": false,
+        "faultInjected": true,
+        "closed": true,
+        "redirect": "Owned Node execve trampoline; same gate PID/stdio, exact pinned native binary"
+      }
+    },
+    {
+      "label": "candidate-fault",
+      "outcome": "error",
+      "requests": 1,
+      "error": {
+        "name": "OpenAiCompatibleRequestError",
+        "message": "Claude Code returned an error result: API Error: 400 Owned release probe: generation/model boundary reached",
+        "providerCode": "api_error",
+        "providerType": "api_error"
+      },
+      "textDeltas": 1,
+      "modelStop": false,
+      "httpStatus": 200,
+      "host": {
+        "mode": "fault",
+        "version": "1.84.0",
+        "node": "v22.22.3",
+        "platform": "darwin",
+        "arch": "arm64",
+        "provider": [
+          {
+            "where": "request",
+            "model": "claude-opus-5-5"
+          },
+          {
+            "where": "response",
+            "model": "claude-opus-5-5",
+            "id": "msg_011CgBmQ9JUByfB5X7gPj9B7"
+          }
+        ],
+        "native": [
+          {
+            "type": "message_start",
+            "model": "claude-opus-5-5",
+            "id": "msg_011CgBmQ9JUByfB5X7gPj9B7"
+          },
+          {
+            "type": "assistant",
+            "id": "64ac1e5b-75ef-41e7-a292-196883675652",
+            "model": "<synthetic>",
+            "stop": "stop_sequence"
+          },
+          {
+            "type": "result",
+            "subtype": "success",
+            "isError": true
+          }
+        ],
+        "children": [
+          {
+            "pid": 28135,
+            "closed": true,
+            "stdoutClosed": true,
+            "stderrClosed": true,
+            "code": 1,
+            "signal": null
+          }
+        ],
+        "attempts": 3,
+        "admitted": 1,
+        "blocked": 2,
+        "refusal": false,
+        "faultInjected": true,
+        "closed": true,
+        "redirect": "Owned Node execve trampoline; same gate PID/stdio, exact pinned native binary"
+      }
+    }
+  ]
+}

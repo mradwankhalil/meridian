@@ -1,0 +1,172 @@
+{
+  "baseline": "f01ba1ae362d4123506e8c26d41eba5f52411f57",
+  "candidate": "7fab448a14fd21b3bceee4875e2467beefd5c2fa",
+  "model": "claude-haiku-5-5",
+  "native": {
+    "path": "/private/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+    "version": "2.1.302 (Claude Code)",
+    "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "node": "v22.22.3",
+  "passed": true,
+  "baselineReceiptSeen": true,
+  "qualification": "Actual published DSH adapter/serializer/parser/assembler; no desktop UI. Baseline model also returned receipt; framing defect, not answer omission, reproduced.",
+  "cases": [
+    {
+      "label": "candidate-fresh",
+      "models": [
+        {
+          "where": "native-init",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-message-start",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-result-usage",
+          "value": "claude-haiku-5-5"
+        }
+      ],
+      "promptSummaries": [
+        {
+          "chars": 127,
+          "sha256": "04bce28bdbbac66465cfeb94d642116d11a8617a9644cce707e58bafe61fd793",
+          "historyClose": -1,
+          "receiptOffsets": [
+            44
+          ],
+          "hasAAA": true,
+          "hasCCC": true
+        }
+      ],
+      "joined": true,
+      "queryCount": 1,
+      "wireRoles": [
+        [
+          "user",
+          "user",
+          "user"
+        ]
+      ],
+      "finishes": [
+        {
+          "kind": "stop"
+        }
+      ]
+    },
+    {
+      "label": "baseline-fresh",
+      "models": [
+        {
+          "where": "native-init",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-message-start",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-result-usage",
+          "value": "claude-haiku-5-5"
+        }
+      ],
+      "promptSummaries": [
+        {
+          "chars": 530,
+          "sha256": "c1dc54f33950c8710f19c95196964bc41354cad0d6e7bdb7df9c7c827583d7fb",
+          "historyClose": 109,
+          "receiptOffsets": [
+            67
+          ],
+          "hasAAA": true,
+          "hasCCC": true
+        }
+      ],
+      "joined": true,
+      "queryCount": 1,
+      "wireRoles": [
+        [
+          "user",
+          "user",
+          "user"
+        ]
+      ],
+      "finishes": [
+        {
+          "kind": "stop"
+        }
+      ]
+    },
+    {
+      "label": "candidate-tools",
+      "models": [
+        {
+          "where": "native-init",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-message-start",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-result-usage",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-init",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-message-start",
+          "value": "claude-haiku-5-5"
+        },
+        {
+          "where": "native-result-usage",
+          "value": "claude-haiku-5-5"
+        }
+      ],
+      "promptSummaries": [
+        {
+          "chars": 92,
+          "sha256": "58fe3c16cc0a709a266e11b209fd1cfd75ef57714f8dd95288de33f86e7cc8e7",
+          "historyClose": -1,
+          "receiptOffsets": [],
+          "hasAAA": false,
+          "hasCCC": false
+        },
+        {
+          "chars": 274,
+          "sha256": "21fcc1691063905711cd23f19dd03a9aec38b3553c1f6a5b31fd331c873acf35",
+          "historyClose": -1,
+          "receiptOffsets": [
+            81
+          ],
+          "hasAAA": false,
+          "hasCCC": false
+        }
+      ],
+      "joined": true,
+      "queryCount": 2,
+      "wireRoles": [
+        [
+          "user"
+        ],
+        [
+          "user",
+          "assistant",
+          "user",
+          "user"
+        ]
+      ],
+      "finishes": [
+        {
+          "kind": "tool-calls"
+        },
+        {
+          "kind": "stop"
+        }
+      ]
+    }
+  ]
+}

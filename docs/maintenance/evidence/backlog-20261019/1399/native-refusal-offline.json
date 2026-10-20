@@ -1,0 +1,216 @@
+{
+  "scope": "Actual pinned native CLI with owned loopback SSE refusal fixtures; no paid model or production-change acceptance",
+  "native": {
+    "version": "2.1.302 (Claude Code)",
+    "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "platform": "darwin",
+  "variants": [
+    {
+      "name": "default",
+      "flags": {},
+      "requests": [
+        {
+          "model": "claude-opus-5-5"
+        },
+        {
+          "model": "claude-opus-5-5"
+        }
+      ],
+      "events": [
+        {
+          "type": "system",
+          "subtype": "init",
+          "model": "claude-opus-5-5"
+        },
+        {
+          "type": "system",
+          "subtype": "status"
+        },
+        {
+          "type": "assistant",
+          "model": "claude-opus-5-5",
+          "stopReason": null
+        },
+        {
+          "type": "system",
+          "subtype": "informational"
+        },
+        {
+          "type": "system",
+          "subtype": "status"
+        },
+        {
+          "type": "assistant",
+          "model": "claude-opus-5-5",
+          "stopReason": null
+        },
+        {
+          "type": "system",
+          "subtype": "model_refusal_no_fallback"
+        },
+        {
+          "type": "assistant",
+          "model": "<synthetic>",
+          "stopReason": "refusal"
+        }
+      ],
+      "joined": true,
+      "result": {
+        "subtype": "success",
+        "isError": true,
+        "models": [
+          "claude-opus-5-5"
+        ]
+      },
+      "exitCode": 1,
+      "cleanup": {
+        "exitSeen": true,
+        "closeSeen": true,
+        "stdoutClosed": true,
+        "stderrClosed": true,
+        "spawnFailed": false,
+        "exitCode": 1,
+        "exitSignal": null,
+        "joined": true,
+        "termSent": false,
+        "killSent": false,
+        "signalFailure": null
+      }
+    },
+    {
+      "name": "no-model-fallback",
+      "flags": {
+        "CLAUDE_CODE_NO_MODEL_FALLBACK": "1"
+      },
+      "requests": [
+        {
+          "model": "claude-opus-5-5"
+        },
+        {
+          "model": "claude-opus-5-5"
+        }
+      ],
+      "events": [
+        {
+          "type": "system",
+          "subtype": "init",
+          "model": "claude-opus-5-5"
+        },
+        {
+          "type": "system",
+          "subtype": "status"
+        },
+        {
+          "type": "assistant",
+          "model": "claude-opus-5-5",
+          "stopReason": null
+        },
+        {
+          "type": "system",
+          "subtype": "informational"
+        },
+        {
+          "type": "system",
+          "subtype": "status"
+        },
+        {
+          "type": "assistant",
+          "model": "claude-opus-5-5",
+          "stopReason": null
+        },
+        {
+          "type": "system",
+          "subtype": "model_refusal_no_fallback"
+        },
+        {
+          "type": "assistant",
+          "model": "<synthetic>",
+          "stopReason": "refusal"
+        }
+      ],
+      "joined": true,
+      "result": {
+        "subtype": "success",
+        "isError": true,
+        "models": [
+          "claude-opus-5-5"
+        ]
+      },
+      "exitCode": 1,
+      "cleanup": {
+        "exitSeen": true,
+        "closeSeen": true,
+        "stdoutClosed": true,
+        "stderrClosed": true,
+        "spawnFailed": false,
+        "exitCode": 1,
+        "exitSignal": null,
+        "joined": true,
+        "termSent": false,
+        "killSent": false,
+        "signalFailure": null
+      }
+    },
+    {
+      "name": "no-fallback-or-refusal-retry",
+      "flags": {
+        "CLAUDE_CODE_NO_MODEL_FALLBACK": "1",
+        "CLAUDE_CODE_DISABLE_REFUSAL_RETRY": "1"
+      },
+      "requests": [
+        {
+          "model": "claude-opus-5-5"
+        }
+      ],
+      "events": [
+        {
+          "type": "system",
+          "subtype": "init",
+          "model": "claude-opus-5-5"
+        },
+        {
+          "type": "system",
+          "subtype": "status"
+        },
+        {
+          "type": "assistant",
+          "model": "claude-opus-5-5",
+          "stopReason": null
+        },
+        {
+          "type": "system",
+          "subtype": "model_refusal_no_fallback"
+        },
+        {
+          "type": "assistant",
+          "model": "<synthetic>",
+          "stopReason": "refusal"
+        }
+      ],
+      "joined": true,
+      "result": {
+        "subtype": "success",
+        "isError": true,
+        "models": [
+          "claude-opus-5-5"
+        ]
+      },
+      "exitCode": 1,
+      "cleanup": {
+        "exitSeen": true,
+        "closeSeen": true,
+        "stdoutClosed": true,
+        "stderrClosed": true,
+        "spawnFailed": false,
+        "exitCode": 1,
+        "exitSignal": null,
+        "joined": true,
+        "termSent": false,
+        "killSent": false,
+        "signalFailure": null
+      }
+    }
+  ],
+  "passed": true
+}

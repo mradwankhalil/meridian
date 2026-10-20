@@ -1,0 +1,24 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/drain.test.ts:
+319 |       sweepMethod = spyOn(proxy, "sweepSessionGc").mockImplementation(() => {
+320 |         reachedCleanupSweep()
+321 |         return realSweep()
+322 |       })
+323 |       cleanup = finishDrainFixtures()
+324 |       expect(await Promise.race([joined.then(() => "joined"), cleanup.then(() => "returned")])).toBe("joined")
+                                                                                                      ^
+error: expect(received).toBe(expected)
+
+Expected: "joined"
+Received: "returned"
+
+      at <anonymous> (/private/tmp/meridian-logger-fixture-20261019/src/__tests__/drain.test.ts:324:97)
+(fail) POST /drain > joins a pending fixture GC sweep before a later test can switch store roots [236.16ms]
+(pass) POST /drain > raw socket abort removes a hold with zero SDK calls and store reads [56.50ms]
+
+ 1 pass
+ 29 filtered out
+ 1 fail
+ 8 expect() calls
+Ran 2 tests across 1 file. [2.01s]

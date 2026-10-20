@@ -1,0 +1,44 @@
+{
+  "uploadStatus": "not uploaded",
+  "reason": "T3 collaborative Brave and default browser profiles both opened GitHub successfully but were signed out. No new login or credential request was started. Agent-owned tabs were closed.",
+  "durableFunctionalProof": [
+    "1411/browser-control.json",
+    "1411/browser-control.js",
+    "1406/browser-receipt.json"
+  ],
+  "screenshots": [
+    {
+      "file": "landing-empty.png",
+      "localPath": "/tmp/meridian-overnight-20261019/1411/output/playwright/landing-empty.png",
+      "bytes": 883350,
+      "sha256": "b8484f67972c82e053693e730baec21196d85b4e2cdc22617084d1f307efd219",
+      "visuallyInspected": true,
+      "scope": "Owned demo profiles, provider empty/show-all state"
+    },
+    {
+      "file": "landing-show-all.png",
+      "localPath": "/tmp/meridian-overnight-20261019/1411/output/playwright/landing-show-all.png",
+      "bytes": 950810,
+      "sha256": "ec4a21de45a442055009099e137a935d59857d276b312e7cbd12e14821b63a78",
+      "visuallyInspected": true,
+      "scope": "Owned demo profiles, provider empty/show-all state"
+    },
+    {
+      "file": "profiles-empty.png",
+      "localPath": "/tmp/meridian-overnight-20261019/1411/output/playwright/profiles-empty.png",
+      "bytes": 1086004,
+      "sha256": "4ef720baec88bd18748b8b7c3b168f8f0b9a7a7bfe81db852fea569489eccbb8",
+      "visuallyInspected": true,
+      "scope": "Owned demo profiles, provider empty/show-all state"
+    },
+    {
+      "file": "profiles-show-all.png",
+      "localPath": "/tmp/meridian-overnight-20261019/1411/output/playwright/profiles-show-all.png",
+      "bytes": 971725,
+      "sha256": "d814f2a510d0a3877f1a15dcf2ac5b55b4ab976ebf9274852a6a5bc3e0a82f5f",
+      "visuallyInspected": true,
+      "scope": "Owned demo profiles, provider empty/show-all state"
+    }
+  ],
+  "gate": "Retain media upload as an explicit follow-up before accepting held #1406. #1411 functional/browser assertions and source driver are already durable; original media remains local."
+}

@@ -1,0 +1,76 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/session-copy-held.test.ts:
+(pass) messagesHeld > counts what a continuation resumes from and the reply it wrote to it [0.84ms]
+(pass) messagesHeld > counts nothing of a diverged session [0.16ms]
+(pass) copyElsewhereHoldingMore > finds the copy that went on elsewhere, used since this account's [86.26ms]
+(pass) copyElsewhereHoldingMore > ignores a copy elsewhere not used since this account's [18.20ms]
+(pass) copyElsewhereHoldingMore > ignores a copy elsewhere that holds no more than this account's [13.15ms]
+(pass) copyElsewhereHoldingMore > counts a copy published from a plugin-rewritten execution by its raw client lineage [6.43ms]
+(pass) copyElsewhereHoldingMore > does not count a legacy copy elsewhere that proves no lineage [2.50ms]
+(pass) copyElsewhereHoldingMore > rejects an unreadable other mapping instead of treating the copy as absent [1.35ms]
+(pass) copyElsewhereHoldingMore > rejects a later read error even after finding a newer readable copy [4.17ms]
+
+src/__tests__/account-return-trip.test.ts:
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 6b22bec7-7b5c-42f0-8c14-e22b209c154b adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=6ms msgCount=1 msgs=user[string]
+[PROXY] 6b22bec7-7b5c-42f0-8c14-e22b209c154b usage: input=10 output=50 cache=0%
+[PROXY] Active profile switched to: backup (from work, ua: unknown)
+[PROXY] 57a7c30a-ed01-496c-a613-632430998088 adapter=opencode profile=backup(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+[PROXY] 57a7c30a-ed01-496c-a613-632430998088 usage: input=10 output=50 cache=0%
+[PROXY] e5e25886-d8b7-49a4-8e15-50027c07bd72 adapter=opencode profile=backup(priority) model=sonnet stream=false tools=0 lineage=continuation session=af2807ad sdkActive=0/10 sdkQueued=0 sessionWait=33ms msgCount=5 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] e5e25886-d8b7-49a4-8e15-50027c07bd72 usage: input=10 output=50 cache=0%
+[PROXY] e5e25886-d8b7-49a4-8e15-50027c07bd72 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+[PROXY] Active profile switched to: work (from backup, ua: unknown)
+[PROXY] 5500b1ec-2aef-429a-9a9a-0c64c3858740 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=moved-on-elsewhere sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=7 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] 5500b1ec-2aef-429a-9a9a-0c64c3858740 SESSION RECOVERY: previous conversation available. Run: claude --resume cc7c3b12-aaa3-4708-a316-c29b1ea5ea99
+[PROXY] 5500b1ec-2aef-429a-9a9a-0c64c3858740 usage: input=10 output=50 cache=0%
+(pass) a conversation that moves to another account and comes back > is not resumed from the session it left there without the turns it took elsewhere [582.41ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] b12067e5-5c87-411e-874d-770ec661faf5 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=37ms msgCount=1 msgs=user[string]
+[PROXY] b12067e5-5c87-411e-874d-770ec661faf5 usage: input=10 output=50 cache=0%
+[PROXY] Active profile switched to: backup (from work, ua: unknown)
+[PROXY] e50d350a-053f-4235-b798-b089ddc2b828 adapter=opencode profile=backup(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+[PROXY] e50d350a-053f-4235-b798-b089ddc2b828 usage: input=10 output=50 cache=0%
+[PROXY] 1119df7f-7a02-4589-b872-4a910739183c adapter=opencode profile=backup(priority) model=sonnet stream=false tools=0 lineage=continuation session=7743769b sdkActive=0/10 sdkQueued=0 sessionWait=4ms msgCount=5 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] 1119df7f-7a02-4589-b872-4a910739183c usage: input=10 output=50 cache=0%
+[PROXY] 1119df7f-7a02-4589-b872-4a910739183c TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+[PROXY] Active profile switched to: work (from backup, ua: unknown)
+[PROXY] cd21117f-09e2-41be-a306-1e359913f1f2 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=continuation session=6f9fc6a0 sdkActive=0/10 sdkQueued=0 sessionWait=5ms msgCount=7 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] cd21117f-09e2-41be-a306-1e359913f1f2 usage: input=10 output=50 cache=0%
+[PROXY] cd21117f-09e2-41be-a306-1e359913f1f2 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+(pass) a conversation that moves to another account and comes back > resumes the stale copy it left there when no other account's copy is on record [519.16ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] 29b07782-068e-4e45-8ebb-2fa10515ea3a adapter=forgecode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] 29b07782-068e-4e45-8ebb-2fa10515ea3a usage: input=10 output=50 cache=0%
+[PROXY] Active profile switched to: backup (from work, ua: unknown)
+[PROXY] 2a897dab-9499-4013-9784-feb565649c63 adapter=forgecode profile=backup(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+[PROXY] 2a897dab-9499-4013-9784-feb565649c63 usage: input=10 output=50 cache=0%
+[PROXY] 3c34d620-b193-4bb1-8943-b356ae3a48f6 adapter=forgecode profile=backup(priority) model=sonnet stream=false tools=0 lineage=continuation session=7d4aa083 sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=5 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] 3c34d620-b193-4bb1-8943-b356ae3a48f6 usage: input=10 output=50 cache=0%
+[PROXY] 3c34d620-b193-4bb1-8943-b356ae3a48f6 TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+[PROXY] Active profile switched to: work (from backup, ua: unknown)
+[PROXY] 487dfa07-ae77-4c72-8463-ad3508bde9c3 adapter=forgecode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=moved-on-elsewhere sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=7 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] 487dfa07-ae77-4c72-8463-ad3508bde9c3 usage: input=10 output=50 cache=0%
+(pass) a conversation that moves to another account and comes back > is not resumed from the session it left there when it is keyed by its fingerprint [341.67ms]
+[PROXY] Active profile switched to: work (from unset, ua: unknown)
+[PROXY] e6e8a014-d4a6-45e4-8760-893f16ed7629 adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=6ms msgCount=1 msgs=user[string]
+[PROXY] e6e8a014-d4a6-45e4-8760-893f16ed7629 usage: input=10 output=50 cache=0%
+[PROXY] Active profile switched to: backup (from work, ua: unknown)
+[PROXY] e8d7bd3f-826b-4c6c-818e-3a927f2b4147 adapter=opencode profile=backup(priority) model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+[PROXY] e8d7bd3f-826b-4c6c-818e-3a927f2b4147 usage: input=10 output=50 cache=0%
+[PROXY] f539977f-c4e2-4997-bd58-a693f20348cb adapter=opencode profile=backup(priority) model=sonnet stream=false tools=0 lineage=continuation session=0e187de5 sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=5 msgs=user[string] → assistant[string] → user[string] → assistant[string] → user[string]
+[PROXY] f539977f-c4e2-4997-bd58-a693f20348cb usage: input=10 output=50 cache=0%
+[PROXY] f539977f-c4e2-4997-bd58-a693f20348cb TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+[PROXY] Active profile switched to: work (from backup, ua: unknown)
+[PROXY] eba2a448-00c5-4a58-b6cc-c8b28221f28c adapter=opencode profile=work(priority) model=sonnet stream=false tools=0 lineage=continuation session=45d988e8 sdkActive=0/10 sdkQueued=0 sessionWait=2ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+[PROXY] eba2a448-00c5-4a58-b6cc-c8b28221f28c usage: input=10 output=50 cache=0%
+[PROXY] eba2a448-00c5-4a58-b6cc-c8b28221f28c TOKEN WARN: Cache hit rate 0% on resume — normal after proxy restart, cache will re-prime on next turn.
+(pass) a conversation that moves to another account and comes back > resumes its own session when the user rewinds, after a move and back, to a point it holds [202.75ms]
+[PROXY] session GC postponed: ENOENT: no such file or directory, chmod '/var/folders/ks/xnz659y11jl44j80b_lfws6r0000gn/T/meridian-test-sessions-17855'
+[PROXY] eba2a448-00c5-4a58-b6cc-c8b28221f28c cross-process session lease release failed: Cross-process turn lease no longer owns its lock
+
+ 13 pass
+ 0 fail
+ 68 expect() calls
+Ran 13 tests across 2 files. [4.85s]

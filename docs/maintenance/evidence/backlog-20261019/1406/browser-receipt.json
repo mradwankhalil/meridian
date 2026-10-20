@@ -1,0 +1,38 @@
+{
+  "head": "c8bab07d034464e8903754e53795fe1ce25832d9",
+  "scope": "Actual source settings page and routes; owned config; no model requests",
+  "desktop": {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "description": "Load host instruction files for SDK-owned tool execution \u2014 Off: none, Project: ./CLAUDE.md, Full: user + project. Passthrough ignores this setting and uses client context.",
+    "intro": "Choose SDK features for each connected agent. In passthrough, tools and project instructions come from the client;\n    Meridian does not load proxy-host CLAUDE.md, hooks, or MCP integrations. SDK-owned tool execution can use the host\n    instruction sources selected below. Memory and dreaming remain separate opt-ins.\n    System prompts: For these features to work correctly, both the Claude Code prompt and your client prompt\n    should be enabled. When both are active, they are appended together \u2014 Claude Code's base instructions come first,\n    followed by your agent's specific instructions.",
+    "options": [
+      "off",
+      "project",
+      "full"
+    ],
+    "selectWidth": 75.5,
+    "horizontalOverflow": false
+  },
+  "mobile": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "description": "Load host instruction files for SDK-owned tool execution \u2014 Off: none, Project: ./CLAUDE.md, Full: user + project. Passthrough ignores this setting and uses client context.",
+    "selectWidth": 75.5,
+    "options": [
+      "off",
+      "project",
+      "full"
+    ],
+    "horizontalOverflow": false
+  },
+  "findings": [
+    "Initial page introduction still promised host CLAUDE.md on every client; corrected.",
+    "Long helper text allowed CLAUDE.md select to shrink to 39px; fixed shrink behavior; final control is 75.5px at both widths."
+  ],
+  "screenshotsVisuallyInspected": true
+}

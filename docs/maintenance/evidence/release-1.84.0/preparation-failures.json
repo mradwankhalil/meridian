@@ -1,0 +1,16 @@
+[
+  {
+    "stage": "Variable shadowing before proxy/model start",
+    "passed": false,
+    "failure": "ReferenceError: Cannot access 'native' before initialization",
+    "actualModelCalls": 0,
+    "reportSha256": "fb579b589a8b7dc90ce82e388c1e60385fb999b80b255b255510e0d0a95a4ab8"
+  },
+  {
+    "stage": "Healthy native result but missing relay witness",
+    "passed": false,
+    "failure": "AssertionError [ERR_ASSERTION]: Exactly one real provider generation\n\n0 !== 1\n",
+    "actualModelCalls": 1,
+    "reportSha256": "cb2f4b03ede8c187b1ef962431309a9be9b632ba1c791b354f363aa66732e0b1"
+  }
+]

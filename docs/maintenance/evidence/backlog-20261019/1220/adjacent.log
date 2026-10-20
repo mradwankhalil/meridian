@@ -1,0 +1,87 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/priority-session-store.test.ts:
+(pass) durable priority route publication > upgrades lazily and publishes route plus mapping in one document [27.48ms]
+(pass) durable priority route publication > blocks same-turn replay after exposure and clears only at exact terminal finalization [9.07ms]
+(pass) durable priority route publication > bounds unresolved attempt claims without evicting an active blocker [2.55ms]
+(pass) durable priority route publication > keeps claims and route authority coherent across crashes before and after publication [103.68ms]
+(pass) durable priority route publication > keeps cross-process readers coherent across route-refresh renames [67.14ms]
+(pass) durable priority route publication > makes a frozen v1 writer reject the claimed v3 store byte-identically [31.11ms]
+(pass) durable priority route publication > loses atomically when either exact generation is stale [3.34ms]
+(pass) durable priority route publication > keeps a v1 document byte-identical when either side of the first dual CAS is stale [3.08ms]
+(pass) durable priority route publication > restores both authorities after a canceled promotion [5.58ms]
+(pass) durable priority route publication > keeps the fallback route and exact mapping rollback-safe at session cap one [3.79ms]
+(pass) durable priority route publication > blocks every ordinary mutation of an exact rollback mapping [6.82ms]
+(pass) durable priority route publication > lets the same route publish back onto its exact rollback profile after owner loss [6.70ms]
+(pass) durable priority route publication > finalizes a cap-one promotion and prunes its rollback backlog exactly once [5.70ms]
+(pass) durable priority route publication > makes repeated rollback a one-shot safe CAS with no second mutation [7.37ms]
+(pass) durable priority route publication > preserves v3 routes during ordinary writes and clears them explicitly [7.33ms]
+(pass) durable priority route publication > does not publish an identical locator, but retains locked identity and generation checks [29.36ms]
+(pass) durable priority route publication > bounds route records separately without deleting their session mappings [4.76ms]
+(pass) durable priority route publication > prunes routes and mappings together and fences both absent-key ABA domains [9.08ms]
+(pass) durable priority route publication > allows exactly one real-process winner for identical dual generations [67.76ms]
+(pass) durable priority route publication > allows exactly one real-process finalize-or-rollback winner [80.82ms]
+[sessionStore] priority route read failed: session store priority rollback "strict-rollback" is invalid
+[sessionStore] priority route read failed: session store priority rollback "strict-rollback" has no retained mapping
+[sessionStore] priority route read failed: session store priority rollback "strict-rollback" aliases its current mapping
+[sessionStore] priority route read failed: session store priority rollback "strict-rollback" has a stale mapping generation
+(pass) durable priority route publication > fails closed on malformed or stale exact rollback markers [4.32ms]
+[sessionStore] priority route read failed: session store priority attempt "strict-attempt" has unknown or missing fields
+[sessionStore] priority route read failed: session store priority attempt "strict-attempt" has invalid state
+[sessionStore] priority route read failed: session store priority attempt "strict-attempt" has invalid state
+[sessionStore] priority route read failed: session store priority attempt "strict-attempt" has invalid state
+(pass) durable priority route publication > fails closed on malformed durable attempt claims without rewriting the file [3.13ms]
+[sessionStore] priority route read failed: session store priority route "strict-route" has unknown or missing fields
+[sessionStore] priority route read failed: session store v3 metadata has unknown or missing fields
+[sessionStore] priority route read failed: session store priority route "strict-route" has invalid mapping generation
+[sessionStore] priority route read failed: session store priority route "strict-route" has invalid generationId
+[sessionStore] priority route read failed: session store priority route "strict-route" has invalid updatedAt
+[sessionStore] priority route read failed: session store priority route "strict-route" has invalid human-turn issue time
+[sessionStore] priority route read failed: session store priority route "strict-route" has unknown or missing fields
+(pass) durable priority route publication > fails closed on a strict malformed-v3 route matrix without rewriting the file [8.84ms]
+
+src/__tests__/profile-copy-prune.test.ts:
+(pass) pruneSupersededProfileCopies > keeps the newest copy of a conversation and removes older copies past the grace window [2.14ms]
+(pass) pruneSupersededProfileCopies > keeps every copy touched within the grace window, and a zero grace keeps only the newest [1.65ms]
+(pass) pruneSupersededProfileCopies > by default keeps a copy for a day, past an account's 5-hour usage window [1.95ms]
+(pass) pruneSupersededProfileCopies > groups only configured profile prefixes, never unrelated keys that contain a colon [0.53ms]
+(pass) pruneSupersededProfileCopies > keeps every copy of a conversation that has a request in flight [2.10ms]
+(pass) pruneSupersededProfileCopies > never removes a mapping a priority route depends on [3.49ms]
+(pass) pruneSupersededProfileCopies > stops once the removed mappings would unpin more transcripts than the budget, oldest first [2.32ms]
+(pass) pruneSupersededProfileCopies > takes no lock and writes nothing when nothing is superseded [0.56ms]
+(pass) cross-process turn activity > reports a conversation active exactly while another coordinator holds its turn lock [1.94ms]
+(pass) mass prune through the transcript lifecycle > retains copies when a foreign turn acquires after an idle observation [51.36ms]
+(pass) mass prune through the transcript lifecycle > reserves half-budget capacity across competing sweeps before either GC reconciliation [28.32ms]
+(pass) mass prune through the transcript lifecycle > drains many superseded copies over successive sweeps while fresh admission keeps working [297.52ms]
+
+src/__tests__/proxy-session-store.test.ts:
+(pass) Shared session store > should store and retrieve a session [2.45ms]
+(pass) Shared session store > should return undefined for unknown session [1.15ms]
+(pass) Shared session store > should update lastUsedAt on store [12.49ms]
+(pass) Shared session store > should preserve createdAt on update [2.89ms]
+(pass) Shared session store > should handle multiple sessions [3.65ms]
+(pass) Shared session store > should clear all sessions [3.93ms]
+(pass) Shared session store > should serve consecutive reads from the identity cache [1.91ms]
+(pass) Shared session store > should reflect an in-process write after a cached read [2.62ms]
+(pass) Shared session store > should pick up a store replaced out of band by another process [2.07ms]
+(pass) Shared session store > should treat a deleted store as missing instead of serving the stale cache [1.85ms]
+(pass) Shared session store > never aliases a caller-owned locator into the cached document [2.77ms]
+(pass) Shared session store > should persist context usage and find it by Claude session ID [2.13ms]
+(pass) Shared session store > should persist and clear the passthrough assistant resume checkpoint [2.74ms]
+(pass) Shared session store > ignores legacy user-denial boundaries after upgrade [1.00ms]
+(pass) Shared session store > should return the freshest match when multiple keys share a Claude session ID [12.79ms]
+(pass) Shared session store > should handle concurrent writes safely [10.23ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "not"
+(pass) Shared session store > keeps tolerant lookups but rejects strict reads and mutations on corruption [2.27ms]
+(pass) Shared session store > reports the overridden session store directory [0.95ms]
+(pass) Shared session store > moves the exact transcript locator when the Claude session ID changes [5.29ms]
+(pass) Shared session store > uses a validated legacy source locator for the first managed fork [2.50ms]
+(pass) Shared session store > validates transcript locators before changing the stored mapping [2.83ms]
+(pass) Shared session store > uses a key-bound expected-generation CAS and increments durable revisions [3.21ms]
+(pass) Shared session store > snapshots key-bound absence for every configured profile scope [1.37ms]
+(pass) Shared session store > rejects replacement, delete/recreate, and absent-key ABA by exact generation [11.22ms]
+
+ 59 pass
+ 0 fail
+ 440 expect() calls
+Ran 59 tests across 3 files. [1058.00ms]

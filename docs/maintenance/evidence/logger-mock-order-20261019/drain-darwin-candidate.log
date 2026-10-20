@@ -1,0 +1,40 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/drain.test.ts:
+(pass) AdmissionHold > admits at once without a drain [0.64ms]
+(pass) AdmissionHold > holds new requests until the drain is cancelled, then admits every one [14.71ms]
+(pass) AdmissionHold > admits a held request once it has waited holdMs, while the drain stays active [30.54ms]
+(pass) AdmissionHold > ends by itself at its timeout and admits whoever is held [30.39ms]
+(pass) AdmissionHold > lets a client that went away go at once [6.68ms]
+(pass) AdmissionHold > keeps the first drain's terms when started again [0.17ms]
+(pass) AdmissionHold > bounds retained waiters and fails open without false cap counts [1.98ms]
+(pass) AdmissionHold > counts a cap only after the caller accepts its live reservation [20.35ms]
+(pass) AdmissionHold > old cancellation cannot release a successor hold and abort wins before cap [0.24ms]
+(pass) parseDrainOptions > defaults absent fields and bounds present ones [0.16ms]
+(pass) POST /drain > joins a pending fixture GC sweep before a later test can switch store roots [101.86ms]
+(pass) POST /drain > answers only loopback callers that are not browser pages [28.04ms]
+(pass) POST /drain > holds a new turn while the running one finishes, so /inflight reaches 0, then admits it on DELETE [119.13ms]
+(pass) POST /drain > admits a held turn normally at the hold cap, and the drain ends by itself at its timeout [10013.81ms]
+(pass) POST /drain > releases held requests into the shutdown answer when the process shuts down [34.23ms]
+[PROXY] CREDENTIALS READ-ONLY MODE (MERIDIAN_CREDENTIALS_READONLY): this instance will not refresh or write OAuth credentials. Token rotation is another instance's job; credentials are re-read from disk.
+(pass) POST /drain > reads the real socket peer when served over HTTP [36.70ms]
+(pass) POST /drain > honors both configured key forms while inflight remains keyless [9.47ms]
+(pass) POST /drain > keeps oldestStartedAt anchored to HTTP admission rather than held arrival [72.50ms]
+(pass) POST /drain > rejects every Origin and each forwarding header, including empty values [9.63ms]
+(pass) POST /drain > cancels already-arrived same-key and descendant holds without future cancellation or store effects [41.63ms]
+(pass) POST /drain > raw socket abort removes a hold with zero SDK calls and store reads [14.52ms]
+(pass) POST /drain > owns inactive admission before its first await and preserves accepted work during shutdown [38.31ms]
+(pass) POST /drain > owns a held original body parser through shutdown and never starts its generation [20.37ms]
+(pass) POST /drain > holds each public OpenAI translation once with its existing cancellable identity [16.36ms]
+(pass) POST /drain > transfers already-accepted OpenAI parsing ownership once across shutdown [96.98ms]
+(pass) POST /drain > does not let public admission-owner headers bypass a hold [15.63ms]
+(pass) POST /drain > keeps a held adapter's execution identity consistent if configured instances change [47.42ms]
+(pass) POST /drain > joins slow operator body cancellation and rejects late drain authority [27.04ms]
+(pass) POST /drain > holds combined generation only and preserves every admitted POST HTTP count [14.50ms]
+(pass) POST /drain > combined held abort and shutdown never reach the backend [24.26ms]
+(pass) POST /drain > combined private close ownership outlives response cancellation until its reader joins [16.64ms]
+
+ 31 pass
+ 0 fail
+ 187 expect() calls
+Ran 31 tests across 1 file. [11.50s]

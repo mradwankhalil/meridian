@@ -1,0 +1,25 @@
+{
+  "pr": 1411,
+  "head": "e9282856ecab90c564010fb963a98a102061b3c9",
+  "merge": "58d9dd8c002cc9f63e966a92770c66bd908f27b5",
+  "mergedAt": "2026-10-19T07:43:38Z",
+  "state": "MERGED",
+  "tree": "e7addba4897e8fd44d0a8f99da03b3e4778158c4",
+  "reviewed_tree": "e7addba4897e8fd44d0a8f99da03b3e4778158c4",
+  "parents": [
+    "658a3b5c5259babd8ffda0d663b2906057e81ca3"
+  ],
+  "author": {
+    "name": "Damian Nowak",
+    "email": "spam@nowaker.net",
+    "date": "2026-10-19T07:43:38Z"
+  },
+  "author_login": "Nowaker",
+  "verified": true,
+  "message": "feat(profiles): ?provider= links open / and /profiles on given provider chips (#1411)\n\nCo-authored-by: Trevor Walker <rynfar@gmail.com>",
+  "source_author": {
+    "name": "Nowaker",
+    "email": "spam@nowaker.net"
+  },
+  "credit_note": "GitHub squash uses the same source contributor account/email and its current display name Damian Nowak."
+}

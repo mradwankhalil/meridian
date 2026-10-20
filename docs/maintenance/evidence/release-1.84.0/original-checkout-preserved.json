@@ -1,0 +1,18 @@
+{
+  "files": 12,
+  "allHashesUnchanged": true,
+  "sha256": {
+    "DESIGN.md": "ec9f7b77cfb97a956ae851cbb10c3dc0211b141a133c9c1906e5ea9030551f73",
+    "E2E.md": "dcabe3e04245e32edf8fd4a3fe16e8e4a70d6359341c0ad0379471384f504337",
+    "apps/desktop/README.md": "1f4154aa2ffa7af37fd578b89ec2c7e638906c9bae7e695e440a28dba92b273d",
+    "apps/desktop/src/contracts.ts": "e1a5f99659f0eb4d6efc35a8bbca324f2e0e8893e5392469744478e031505437",
+    "apps/desktop/src/core.ts": "b5dd2c55569375e5c1ab3e8991e2ec55e71dc5307dd7c18bc6f8088aa3d20414",
+    "apps/desktop/src/main.ts": "ff689ed196a237b5d61082cef27aa3226bc1a642d82f79edf687de32a86096d3",
+    "apps/desktop/src/manager.ts": "cda4ace16225915652d781d15f1e759c1ea7aaf895f56e8f02b897a8893e3abe",
+    "apps/desktop/src/renderer.ts": "24b6e773ccfb7f43121b1255ef9e6b461571cf4e660fbec364672f46b4ac2742",
+    "apps/desktop/src/style.css": "3a1a7492bbe45b93d9e842fd1dd7a12611dc12c1f6d35a8542ff51f95b3a6f46",
+    "apps/desktop/src/tray.css": "5c9fdfc79e674d169dc9d0e4fcb6a027764270684cd474a76eb1f9193785f4ea",
+    "apps/desktop/src/trayRenderer.ts": "4ad63f843271356fc5ccf1e8ebc403644d413bd7836da883d0875a4d13a8e809",
+    "scripts/e2e-desktop-dock.cjs": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

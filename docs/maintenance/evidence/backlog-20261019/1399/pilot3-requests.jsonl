@@ -1,0 +1,2 @@
+{"at":1792404108878,"phase":"quota","allowed":true,"extraUsageEnabled":false}
+{"at":1792404113421,"request":1,"requestId":"95677439-0cd8-400a-b34c-3d6d94147183","status":200,"elapsedMs":4116.831166,"model":"claude-opus-5-5","roles":["user","system"],"toolCalls":1}

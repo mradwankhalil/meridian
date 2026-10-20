@@ -1,0 +1,68 @@
+[
+  {
+    "case": "/ url",
+    "url": "http://127.0.0.1:60216/?provider=chatgpt",
+    "visible": [
+      "g1"
+    ],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/ last off",
+    "url": "http://127.0.0.1:60216/?provider=",
+    "visible": [],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/ empty reload",
+    "url": "http://127.0.0.1:60216/?provider=",
+    "visible": [],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/ show all",
+    "url": "http://127.0.0.1:60216/?provider=claude,chatgpt",
+    "visible": [
+      "c1",
+      "g1"
+    ],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/profiles url",
+    "url": "http://127.0.0.1:60216/profiles?provider=chatgpt",
+    "visible": [
+      "g1"
+    ],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/profiles last off",
+    "url": "http://127.0.0.1:60216/profiles?provider=",
+    "visible": [],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/profiles empty reload",
+    "url": "http://127.0.0.1:60216/profiles?provider=",
+    "visible": [],
+    "saved": "[\"claude\"]",
+    "version": true
+  },
+  {
+    "case": "/profiles show all",
+    "url": "http://127.0.0.1:60216/profiles?provider=claude,chatgpt",
+    "visible": [
+      "c1",
+      "g1"
+    ],
+    "saved": "[\"claude\"]",
+    "version": true
+  }
+]

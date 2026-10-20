@@ -523,6 +523,31 @@ describe("createResponsesSseTranslator (stream)", () => {
     expect(fc.call_id).toBe("toolu_9")
   })
 
+  for (const fixture of [
+    { name: "a zero-argument tool with no JSON deltas", input: {}, partials: [], args: "{}" },
+    { name: "complete initial input with no JSON deltas", input: { path: "receipt.pdf" }, partials: [], args: '{"path":"receipt.pdf"}' },
+    { name: "JSON deltas instead of the initial placeholder", input: {}, partials: ['{"path":', '"receipt.pdf"}'], args: '{"path":"receipt.pdf"}' },
+    { name: "invalid nonempty JSON without replacing it with an empty object", input: {}, partials: ["{"], args: "{" },
+  ]) {
+    it(`finishes ${fixture.name}`, () => {
+      const out = run([
+        { type: "message_start", message: { id: "m1" } },
+        { type: "content_block_start", index: 0, content_block: { type: "tool_use", id: "toolu_pdf", name: "view_pdf", input: fixture.input } },
+        ...fixture.partials.map(partial_json => ({ type: "content_block_delta", index: 0, delta: { type: "input_json_delta", partial_json } })),
+        { type: "content_block_stop", index: 0 },
+        { type: "message_delta", delta: { stop_reason: "tool_use" } },
+        { type: "message_stop" },
+      ])
+      expect(out.find(event => event.event === "response.function_call_arguments.done")?.data.arguments).toBe(fixture.args)
+      expect(out.find(event => event.event === "response.output_item.done")?.data.item).toEqual(expect.objectContaining({
+        type: "function_call", call_id: "toolu_pdf", arguments: fixture.args,
+      }))
+      expect(out.find(event => event.event === "response.completed")?.data.response).toEqual(expect.objectContaining({
+        output: [expect.objectContaining({ type: "function_call", call_id: "toolu_pdf", arguments: fixture.args })],
+      }))
+    })
+  }
+
   it("skips thinking blocks without emitting items", () => {
     const out = run([
       { type: "message_start", message: { id: "m1", usage: { input_tokens: 1 } } },
@@ -735,5 +760,63 @@ describe("resolveCodexThreadIdentity", () => {
       turnMetadata({ thread_id: "t1", request_kind: "Memory Extract" }),
     )
     expect(identity).toEqual({ sessionKey: "t1:memory-extract", requestSource: "fork-codex-memory-extract" })
+  })
+})
+
+describe("translateResponsesToAnthropic — input_file PDFs", () => {
+  const pdf = "data:application/pdf;base64,JVBERi0xLjQK"
+  const documentBlock: AnthropicContentBlock = {
+    type: "document",
+    title: "report.pdf",
+    source: { type: "base64", media_type: "application/pdf", data: "JVBERi0xLjQK" },
+  }
+
+  it("maps a PDF message part to a document block", () => {
+    const r = translateResponsesToAnthropic({
+      model: "m",
+      input: [
+        {
+          type: "message",
+          role: "user",
+          content: [
+            { type: "input_text", text: "summarize" },
+            { type: "input_file", file_data: pdf, filename: "report.pdf" },
+          ],
+        },
+      ],
+    })!
+    expect(r.messages[0]!.content).toEqual([{ type: "text", text: "summarize" }, documentBlock])
+  })
+
+  it("maps a PDF in a function_call_output to a document in the tool_result", () => {
+    const r = translateResponsesToAnthropic({
+      model: "m",
+      input: [
+        { type: "function_call", name: "read_pdf", arguments: "{}", call_id: "c1" },
+        {
+          type: "function_call_output",
+          call_id: "c1",
+          output: [{ type: "input_file", file_data: pdf, filename: "report.pdf" }],
+        },
+      ],
+    })!
+    const toolResult = (r.messages[1]!.content as AnthropicContentBlock[])[0]
+    expect(toolResult).toEqual({ type: "tool_result", tool_use_id: "c1", content: [documentBlock] })
+  })
+
+  it("replaces a non-PDF file with an omission note", () => {
+    const r = translateResponsesToAnthropic({
+      model: "m",
+      input: [
+        {
+          type: "message",
+          role: "user",
+          content: [{ type: "input_file", file_data: "data:text/csv;base64,YSxi", filename: "a.csv" }],
+        },
+      ],
+    })!
+    expect(r.messages[0]!.content).toEqual([
+      { type: "text", text: "[Unsupported input_file omitted: only base64 PDF data URLs are currently supported]" },
+    ])
   })
 })

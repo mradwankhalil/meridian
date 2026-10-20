@@ -1,0 +1,55 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/messages.test.ts:
+143 |   })
+144 |
+145 |   it("preserves the last-user fallback for assistant-ending history", () => {
+146 |     const question = { role: "user", content: "continue the explanation" }
+147 |     const prefill = { role: "assistant", content: "The next step is" }
+148 |     expect(getLastUserMessage([question, prefill])).toEqual([question])
+                                                          ^
+error: expect(received).toEqual(expected)
+
+  [
+    {
+-     "content": "continue the explanation",
+-     "role": "user",
++     "content": "The next step is",
++     "role": "assistant",
+    },
+  ]
+
+- Expected  - 2
++ Received  + 2
+
+      at <anonymous> (/private/tmp/meridian-pr1419-20261019/src/__tests__/messages.test.ts:148:53)
+(fail) getLastUserMessage > preserves the last-user fallback for assistant-ending history [1.02ms]
+150 |
+151 |   it("preserves the existing assistant-ending fallback when earlier users are consecutive", () => {
+152 |     const earlier = { role: "user", content: "background" }
+153 |     const question = { role: "user", content: "current question" }
+154 |     const prefill = { role: "assistant", content: "The answer is" }
+155 |     expect(getLastUserMessage([earlier, question, prefill])).toEqual([question])
+                                                                   ^
+error: expect(received).toEqual(expected)
+
+  [
+    {
+-     "content": "current question",
+-     "role": "user",
++     "content": "The answer is",
++     "role": "assistant",
+    },
+  ]
+
+- Expected  - 2
++ Received  + 2
+
+      at <anonymous> (/private/tmp/meridian-pr1419-20261019/src/__tests__/messages.test.ts:155:62)
+(fail) getLastUserMessage > preserves the existing assistant-ending fallback when earlier users are consecutive [0.18ms]
+
+ 0 pass
+ 66 filtered out
+ 2 fail
+ 2 expect() calls
+Ran 2 tests across 1 file. [57.00ms]

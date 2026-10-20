@@ -12,6 +12,7 @@ import { createHash } from "node:crypto"
 import type { AddressInfo } from "node:net"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
+import * as fsPromises from "node:fs/promises"
 import { setSessionStoreDir } from "../proxy/sessionStore"
 import * as sessionStore from "../proxy/sessionStore"
 import { processSessionTree } from "../proxy/sessionTree"
@@ -77,7 +78,25 @@ installMcpToolsMock(() => ({
   createOpencodeMcpServer: () => ({ type: "sdk", name: "opencode", instance: {} }),
 }))
 
-const { createProxyServer, startProxyServer, clearSessionCache } = await import("../proxy/server")
+const { createProxyServer: createProxyServerBase, startProxyServer, clearSessionCache } = await import("../proxy/server")
+const ownedProxies: Array<ReturnType<typeof createProxyServerBase>> = []
+
+function createProxyServer(...args: Parameters<typeof createProxyServerBase>) {
+  const proxy = createProxyServerBase(...args)
+  ownedProxies.push(proxy)
+  return proxy
+}
+
+async function finishDrainFixtures(): Promise<void> {
+  const proxies = ownedProxies.splice(0)
+  for (const proxy of proxies) proxy.beginDrain?.()
+  for (const control of controls) control.release()
+  await waitFor(() => proxies.every(proxy => (proxy.getInFlightCount?.() ?? 0) === 0), "owned drain requests to finish")
+  for (const proxy of proxies) {
+    await proxy.sweepSessionGc?.()
+    await proxy.closeBackend?.()
+  }
+}
 
 const LOOPBACK = { incoming: { socket: { remoteAddress: "127.0.0.1" } } }
 const TEST_CONFIG = {
@@ -267,12 +286,57 @@ describe("POST /drain", () => {
   })
 
   afterEach(async () => {
-    for (const control of controls) control.release()
-    await Bun.sleep(25)
-    rmSync(sessionDir, { recursive: true, force: true })
-    delete process.env.MERIDIAN_CREDENTIALS_READONLY
-    delete process.env.MERIDIAN_API_KEY
-    delete process.env.MERIDIAN_ADAPTER_INSTANCES
+    try {
+      await finishDrainFixtures()
+      rmSync(sessionDir, { recursive: true, force: true })
+    } finally {
+      setSessionStoreDir(null)
+      delete process.env.MERIDIAN_CREDENTIALS_READONLY
+      delete process.env.MERIDIAN_API_KEY
+      delete process.env.MERIDIAN_ADAPTER_INSTANCES
+    }
+  })
+
+  it("joins a pending fixture GC sweep before a later test can switch store roots", async () => {
+    const proxy = createProxyServer(TEST_CONFIG)
+    const realLink = fsPromises.link
+    let reachedLink = () => {}
+    let releaseLink = () => {}
+    const staged = new Promise<void>(resolve => { reachedLink = resolve })
+    const gate = new Promise<void>(resolve => { releaseLink = resolve })
+    const link = spyOn(fsPromises, "link").mockImplementation(async (source, target) => {
+      if (String(target) === join(sessionDir, "session-gc.json.lock")) {
+        reachedLink()
+        await gate
+      }
+      return realLink(source, target)
+    })
+    const sweep = proxy.sweepSessionGc!()
+    let cleanup: Promise<void> | undefined
+    let sweepMethod: ReturnType<typeof spyOn> | undefined
+    try {
+      await Promise.race([staged, sweep.then(() => { throw new Error("GC did not reach its actual lock publication") })])
+      expect(readdirSync(sessionDir).some(name => name.startsWith("session-gc.json.lock.candidate-"))).toBe(true)
+      let reachedCleanupSweep = () => {}
+      const joined = new Promise<void>(resolve => { reachedCleanupSweep = resolve })
+      const realSweep = proxy.sweepSessionGc!
+      sweepMethod = spyOn(proxy, "sweepSessionGc").mockImplementation(() => {
+        reachedCleanupSweep()
+        return realSweep()
+      })
+      cleanup = finishDrainFixtures()
+      expect(await Promise.race([joined.then(() => "joined"), cleanup.then(() => "returned")])).toBe("joined")
+      releaseLink()
+      await cleanup
+      expect(readdirSync(sessionDir).some(name => name.startsWith("session-gc.json.lock.candidate-"))).toBe(false)
+    } finally {
+      releaseLink()
+      await sweep
+      await cleanup
+      sweepMethod?.mockRestore()
+      link.mockRestore()
+      await proxy.closeBackend?.()
+    }
   })
 
   it("answers only loopback callers that are not browser pages", async () => {

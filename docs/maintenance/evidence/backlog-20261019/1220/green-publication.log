@@ -1,0 +1,32 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-request-cancellation.test.ts:
+[PROXY] 4652daba-0fda-4e87-a4a9-a8c7b96300e7 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) request cancellation propagation > aborts a running non-stream SDK query when the HTTP request aborts [61.40ms]
+[PROXY] f060b265-3ea7-4535-947a-4ed2e4bdd8df adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) request cancellation propagation > cancels queued lifecycle admission without invoking the SDK [9.01ms]
+[PROXY] 4135b7e8-2ea1-4084-ba5b-b43414c5449e adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) request cancellation propagation > joins cleanup without the canceled admission signal after a durable lease was acquired [11.25ms]
+[PROXY] 25cae85e-9707-4106-b70d-02bd3c1b4854 adapter=opencode model=sonnet stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+(pass) request cancellation propagation > keeps a stream's turn until the eviction its client cancel started has landed [26.28ms]
+[PROXY] 25cd29e3-009b-4369-b7d7-66bcdeabf7cc adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+[PROXY] 25cd29e3-009b-4369-b7d7-66bcdeabf7cc usage: input=1 output=1 cache=0%
+[PROXY] b0b15955-92c0-41e4-a045-b2dc650b980e adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=3 msgs=user[string] → assistant[string] → user[string]
+[PROXY] b0b15955-92c0-41e4-a045-b2dc650b980e usage: input=1 output=1 cache=0%
+(pass) request cancellation propagation > lets a request see a store write this process started before it arrived [135.12ms]
+[PROXY] e5661e07-2b88-43a4-9d88-8b461a23b5c6 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+[PROXY] e5661e07-2b88-43a4-9d88-8b461a23b5c6 usage: input=1 output=1 cache=0%
+(pass) request cancellation propagation > never publishes a mapping revoked by request while its fsync waits [24.36ms]
+[PROXY] eacb3cec-5aa8-443d-aea0-9b042a82e8d0 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=3ms msgCount=1 msgs=user[string]
+[PROXY] eacb3cec-5aa8-443d-aea0-9b042a82e8d0 usage: input=1 output=1 cache=0%
+(pass) request cancellation propagation > never publishes a mapping revoked by shutdown while its fsync waits [25.09ms]
+[PROXY] b5c4815d-2cd8-4aee-8853-4556406c130f adapter=opencode model=sonnet stream=true tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+(pass) request cancellation propagation > aborts a streaming SDK query when the response body is cancelled [12.58ms]
+[PROXY] d8939c6c-e51c-47cd-9529-1e4c9705a4c3 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=0ms msgCount=1 msgs=user[string]
+[PROXY] d8939c6c-e51c-47cd-9529-1e4c9705a4c3 usage: input=1 output=1 cache=0%
+(pass) request cancellation propagation > detaches the request signal after a completed non-stream query [16.65ms]
+
+ 9 pass
+ 0 fail
+ 34 expect() calls
+Ran 9 tests across 1 file. [941.00ms]

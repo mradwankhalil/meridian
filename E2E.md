@@ -104,6 +104,59 @@ Windows uses a separate wrapper/cancellation contract; these POSIX fixtures
 explicitly skip it. See [durable proof, receipts, baseline reproduction and
 limits](docs/maintenance/evidence/sdk-process-close-join.md).
 
+## SDK wrapper process probe off the event loop (E84)
+
+**What it should prove:** a request that opens its SDK process gate captures
+the wrapper's process incarnation without holding every other request while
+the probe runs, and the probe waits up to 10 s instead of failing at 2 s.
+Whether that is enough at a load average near 40 has not been shown on this
+build.
+
+The SDK gate captures each request's wrapper process before the SDK command
+opens. On macOS and Windows that capture is a child process (`ps -o lstart=` or
+PowerShell). Run synchronously it held the event loop for every other streaming
+request, and under heavy load it outran its 2 s timeout, so the request failed
+before any Messages call with `cannot capture SDK writer process incarnation`.
+`createSdkProcessGate` now awaits `captureProcessIncarnationAsync`, which runs
+the same probe with `execFile` and a 10 s timeout and returns the same identity
+as the synchronous capture. Linux still reads `/proc` directly. A probe that
+ignores execFile's SIGTERM is force-killed at an outer deadline 2 s later, and
+the request fails with the same error instead of waiting on it indefinitely.
+Because the event loop runs during the probe, a wrapper that exits meanwhile
+could be reaped and its pid reused, so a capture that finishes after its
+wrapper exited is refused with the same error.
+
+**Unit coverage:** `process-incarnation.test.ts` drives the darwin `ps` and
+win32 PowerShell probes on any host, with `process.platform` and `execFile`
+stubbed: the probe is awaited while timers keep firing, `spawnSync` is never
+called, and success and failure answers parse as the synchronous capture does.
+It also checks that a probe ignoring its timeout is answered by the outer
+deadline and killed. `sdk-process-gate.test.ts` drives the gate's awaited
+darwin probe the same way, and refuses a capture that finished after its
+wrapper exited. On a Linux host the unstubbed "without `spawnSync`" checks
+pass either way, because Linux never spawns a probe.
+
+**Source evidence, not re-run against this build:** recorded on the
+contributor's fork on macOS with Claude CLI 2.1.284–2.1.294, through a parallel
+background-subagent gate that is not part of this change, on a scripted API
+with no model calls.
+
+- Before: 12 subagents at a load average near 40 on 10 cores, 12 runs. In 5,
+  one request failed before any Messages call with `cannot capture SDK writer
+  process incarnation`, the 2 s `ps` probe of a new SDK child timing out.
+- After: 4 subagents at a load average near 11: PASS, 28 of 28 requests
+  dispatched, no replay. Not repeated at a load near 40.
+
+**Owed for this build:**
+
+- macOS: Claude Code with parallel background subagents through the proxy, at
+  a moderate load and at a load average near 40.
+- macOS: a hung `ps` probe answered by the outer deadline.
+- Windows: any run of the PowerShell probe through the gate.
+
+A probe that outlasts 10 s still fails its request before any Messages call,
+and the client asks again.
+
 ## Shared header separator hover (#1262)
 
 Run `E2E_HEADER_PORT=42231 bun scripts/e2e-build-header-fixture.ts` and use the
@@ -1483,7 +1536,7 @@ curl -s -X PUT -H 'Content-Type: application/json' -d '{"checkForUpdates":false}
 | E39 | [OpenCode internal-agent session key (#845)](#e39-opencode-internal-agent-session-key-845) | **Manual**, real OpenCode: its `title` agent runs under the USER'S session id, so the user's first turn used to queue behind it and then get HTTP 400 `session_turn_conflict`. Asserts the first turn succeeds, waits ~0ms on the session lease, and every later request is `lineage=continuation`. **Run after any OpenCode upgrade and before releases touching session keys or the turn coordinator** | 2026-08-19 |
 | E40 | [Passthrough digest-turn cap](#e40-passthrough-digest-turn-cap) | **Automated**: `bun scripts/e2e-digest-turn-cap.mjs` — real SDK. Asserts the capped tool turn generates no digest text, costs materially less than uncapped on an identical prompt, still RESUMES at its captured checkpoint, leaves text-only turns returning `success`, and does not truncate parallel tool calls. **Run before any release touching the passthrough tool loop, `maxTurns`, or the early-stop checkpoint** | 2026-08-20 |
 | E41 | [Passthrough multi-turn: one call, one answer](#e41-passthrough-multi-turn-one-call-one-answer) | **Automated**: `bun scripts/e2e-passthrough-turns.mjs [--stream]` — real proxy + SDK + Claude Max. Chain and `PROBE_PARALLEL=1` modes assert exact tool-call batching, a distinct durable fork per result round, one real answer per delivered call in the active transcript, and full prompt-cache continuity. **Run all four chain/parallel × stream/non-stream combinations before releases touching passthrough resume or the deny hook** | 2026-08-26 |
-| E42 | [OpenCode V2 compatibility](#e42-opencode-v2-compatibility) | **Automated**, exact betas `18314`, `18866`, `19271` and releases `2.0.16`, `2.0.21`. Run the beta package gate with each pinned beta; run `e2e-opencode-v2-stable-live.mjs` with the released binary. The stable gate covers setup, real model requests, title/generate isolation, signed primary turns, resumed session, model-discovery effort variant, tool result, fork isolation, and compaction. Test source and packed npm artifacts. **Run after any V2 plugin/API change; another host version is not a pass** | 2026-09-24 |
+| E42 | [OpenCode V2 compatibility](#e42-opencode-v2-compatibility) | **Automated**, exact betas `18314`, `18866`, `19271` and releases `2.0.16`, `2.0.21`, `2.0.31`. Run the beta package gate with each pinned beta; run `e2e-opencode-v2-stable-live.mjs` with the released binary. The stable gate covers setup, real model requests, title/generate isolation, signed primary turns, resumed session, model-discovery effort variant, tool result, fork isolation, and compaction. Test source and packed npm artifacts. **Run after any V2 plugin/API change; another host version is not a pass** | 2026-09-24 |
 | E43 | [Passthrough tools in a namespaced client](#e43-passthrough-tools-in-a-namespaced-client) | **Automated**: `bun scripts/e2e-passthrough-namespaced-tools.mjs [--stream]` — real proxy + SDK. A client tool declared `mcp__oc__read` collides with the namespace Meridian nests client tools under; asserts the call is still dispatched and captured, delivered under the name the client declared, and answered from the client's real result, with an ordinary and a foreign-namespace control alongside. **Run before any release touching passthrough tool registration, the deny hook, or tool-name delivery** | 2026-09-08 |
 | E44 | [Tier refusal failover](#e44-tier-refusal-failover) | **Automated**: `bun scripts/e2e-tier-refusal-failover.mjs [--stream]` — local refusal fixture, **real Claude Max fallback**. Asserts the credits-era per-tier banner is recorded 429 on the refusing profile and that a healthy profile actually answers. Catches what unit tests cannot: the shape that arrives carries the upstream status. **Run before releases touching error classification or priority failover** | 2026-09-08 |
 | E45 | [Codex auto-defer](#e45-codex-auto-defer) | **Automated**: `bun scripts/e2e-codex-auto-defer.mjs` — real proxy + SDK, 40 Codex-shaped tools. Asserts a Codex request reports no deferral and that `exec_command` is loaded rather than found via ToolSearch. The codex transform inherited OpenCode's core tool names, which match nothing Codex sends, so every tool was deferred. **Run before releases touching the codex transform, auto-defer, or `computePassthroughMaxTurns`** | 2026-09-08 |
@@ -4950,6 +5003,34 @@ entry. Through the live proxy (E17 shape): output 306 → 144 and cache_read
 *"I attempted to read that file, but the tool call w…"* — content the client
 never sees and the account is billed for.
 
+## OpenCode agent instruction changes (#1404)
+
+`node scripts/e2e-opencode-agent-switch.mjs` runs an isolated real OpenCode
+2.0.21 server with the generation-matching Meridian plugin installed by actual
+`setup --v2`. Set absolute `E2E_MERIDIAN_ROOT`, `E2E_OPENCODE_BIN`,
+`E2E_NATIVE_BIN`, `E2E_PLUGIN_PATH` (installed server scrub) and
+`E2E_EVIDENCE_DIR`. The default uses an owned loopback model responder through
+the real SDK/native CLI; it proves model-facing instruction/history delivery,
+not real-model acceptance. `E2E_EXPECT=baseline` requires the old prompt to
+survive the switch; the candidate requires build → reviewer → unchanged reviewer
+→ build to deliver absent/present/present/absent system canaries while retaining
+the first user turn. Hidden title calls remain detached.
+Same-agent dynamic context must retain normal resume; the fingerprint-context
+suite and the agent-context HTTP controls protect that cache behavior. This
+gate covers an explicit primary-agent switch, rather than same-agent config edits.
+
+`--live` additionally requires `E2E_ALLOW_LIVE_MODEL=1` and a private
+`E2E_LIVE_PROFILE_FILE` containing one access-only OAuth profile, plus
+`E2E_USAGE_GUARD_FILE` pointing to the fresh read-only included-usage report.
+The relay pins Haiku 5.5, stops on refusal
+or an unexpected model, and never retries a failed acceptance run. Retain the
+setup, discovery, signed client-plugin, server-scrub and joined-child witnesses.
+The reported OpenCode 2.0.31/Linux/native 2.1.301 tuple remains a separate
+qualification gate until setup supports that exact client. Run all four live
+E41 modes for the affected session/resume behavior before acceptance.
+`--live --diagnose` keeps the same client/plugin preflight and denies generation
+before forwarding, for transport diagnostics without spending a model turn.
+
 ## OpenCode E41 plugin qualification
 
 `scripts/e2e-qualified-passthrough-turns.mjs` requires **both** installed plugins:
@@ -5054,7 +5135,7 @@ changing request bodies. It also proves that durable primary lineage survives
 real V2 tools, a Meridian restart, undo, fork, and parallel subagents.
 
 Validate all supported beta hosts, `0.0.0-beta-18314`, `0.0.0-beta-18866`,
-and `0.0.0-beta-19271`, plus the released 2.0.16 and 2.0.21 hosts below.
+and `0.0.0-beta-19271`, plus the released 2.0.16, 2.0.21 and 2.0.31 hosts below.
 The beta CLI can update itself, so the automated gate verifies its exact version
 before and after each run and disables automatic updates. Use isolated installs:
 
@@ -5077,7 +5158,7 @@ E2E_OPENCODE_BIN=/tmp/opencode-18866/node_modules/.bin/opencode2 bun scripts/e2e
 E2E_OPENCODE_BIN=/tmp/opencode-19271/node_modules/.bin/opencode2 bun scripts/e2e-opencode-v2-package.mjs --live --extended
 ```
 
-The released 2.0.16 and 2.0.21 hosts use the `@opencode/cli` binary and a different plugin
+The released 2.0.16, 2.0.21 and 2.0.31 hosts use the `@opencode/cli` binary and a different plugin
 domain API. Its committed headless gate launches an isolated OpenCode client,
 installs the bundled plugin through `meridian setup --v2`, and forwards its real
 Anthropic traffic to a real Meridian SDK/model through a local relay. It checks
@@ -5094,6 +5175,7 @@ npm run build
 E2E_OPENCODE_BIN=/tmp/opencode-2016/node_modules/.bin/opencode \
   bun scripts/e2e-opencode-v2-stable-live.mjs
 # Repeat with @opencode/cli@2.0.21 and E2E_OPENCODE_VERSION=2.0.21.
+# Repeat with @opencode/cli@2.0.31 and E2E_OPENCODE_VERSION=2.0.31.
 # With E2E_MERIDIAN_ROOT pointing at an independently installed npm pack
 # consumer, repeat the same command before merging. Repeat after publication
 # with a fresh registry install before closing a release gate.
@@ -6840,6 +6922,20 @@ Both response modes must preserve OpenCode-shaped Windows client paths, execute 
 `bun scripts/e2e-client-cwd.mjs --no-cwd-only` sends bare Pi requests without a system prompt in both response modes. It requires a real SDK/model response and checks the observed SDK prompt says the client directory and repository are unknown, without relabeling the proxy workdir as a client `<env>` directory. The model's prose is recorded, not asserted.
 
 Also run the E42 actual OpenCode gate with `--live --extended --separate-proxy-cwd` and the pinned `E2E_OPENCODE_BIN`. The harness isolates the client HOME/PWD as well as XDG state, while the proxy retains its normal Claude authentication. It asserts the client directory from actual request bodies and stable client system prompts before comparing cache reuse. The manually invoked hidden-summary probe runs in a disposable client fork: this checks stripped headers without switching the primary client agent or injecting its tool-catalog update into primary history. A marker assertion rejects any leak into primary requests. This keeps the client project and configured SDK workdir distinct through tool use, restart, undo, fork, compaction and concurrent children. Run all four E41 modes after CWD/session-identity changes.
+
+## Claude Code working directory sent among the messages
+
+**What it proves:** a Claude Code client that sends its `# Environment` block among the messages, not in the system prompt, has its SDK child run in the client's directory and its prompt name that directory. From 2.1.290 the client sends the block as a `system` turn after the first user message for models that take system turns (Opus, Sonnet, Fable), and for Haiku as a `<system-reminder>` block in the run of reminder blocks that opens the first user message. Only that leading run is read, so a reminder-looking block the user types after their own text is ignored.
+
+Offline gate: `bun test src/__tests__/claude-code-adapter.test.ts src/__tests__/claude-code-cwd-note.test.ts src/__tests__/proxy-tool-blocking.test.ts src/__tests__/claude-code-cwd-upgrade.test.ts`. The two `claude-code-request-2.1.290-*.json` fixtures are real requests of that client (`claude -p` against a scripted local endpoint), tools dropped and the temporary path renamed.
+
+Live gate, on the proxy host, with the client in a disposable directory that exists there and `MERIDIAN_WORKDIR` unset:
+
+1. Run the current Claude Code CLI through Meridian once with a model that takes system turns and once with Haiku. Ask it to report `pwd` with its Bash tool.
+2. Require, for both, the SDK child's `cwd` to be the client's directory in the proxy log or query observer, the prompt's `<env>` block to name it, and no "did not declare a working directory" note.
+3. Upgrade check: start a conversation on the previous Meridian build, then continue it on this one. On the first continued turn, require exactly one `session.transcript_locator_changed` log event whose `toProjectDir` is the client's directory, and no `session.resume_retry` events. On the turn after, require a plain resume: no `session.transcript_locator_changed` and no `session.resume_retry`.
+
+Evidence: the source runs were on macOS with Claude CLI 2.1.284–2.1.294 (fixtures captured from 2.1.290). They were not re-run against this build. The live gate above is owed on the current CLI before merge.
 
 ## Polytoken native client loop
 

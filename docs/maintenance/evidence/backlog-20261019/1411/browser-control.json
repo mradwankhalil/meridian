@@ -1,0 +1,162 @@
+{
+  "sourceHead": "e9282856ecab90c564010fb963a98a102061b3c9",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "platform": "MacIntel",
+    "viewport": {
+      "width": 1200,
+      "height": 1531
+    }
+  },
+  "fixture": "docs/maintenance/evidence/backlog-20261018/provider-filter-fixture.ts",
+  "scope": "Production page modules, synthetic profiles, isolated browser. No credentials or model calls.",
+  "receipts": [
+    {
+      "case": "landing-url",
+      "url": "http://127.0.0.1:42542/?provider=chatgpt",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-last-off",
+      "url": "http://127.0.0.1:42542/?provider=",
+      "visible": [],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-empty-reload",
+      "url": "http://127.0.0.1:42542/?provider=",
+      "visible": [],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-show-all",
+      "url": "http://127.0.0.1:42542/?provider=claude,chatgpt",
+      "visible": [
+        "c1",
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-claude",
+      "url": "http://127.0.0.1:42542/?provider=claude",
+      "visible": [
+        "c1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-history-back",
+      "url": "http://127.0.0.1:42542/?provider=claude",
+      "visible": [
+        "c1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-history-forward",
+      "url": "http://127.0.0.1:42542/?provider=chatgpt",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-unknown-fallback",
+      "url": "http://127.0.0.1:42542/?provider=unknown",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "landing-plain-fallback",
+      "url": "http://127.0.0.1:42542/",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-url",
+      "url": "http://127.0.0.1:42542/profiles?provider=chatgpt",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-last-off",
+      "url": "http://127.0.0.1:42542/profiles?provider=",
+      "visible": [],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-empty-reload",
+      "url": "http://127.0.0.1:42542/profiles?provider=",
+      "visible": [],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-show-all",
+      "url": "http://127.0.0.1:42542/profiles?provider=claude,chatgpt",
+      "visible": [
+        "c1",
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-claude",
+      "url": "http://127.0.0.1:42542/profiles?provider=claude",
+      "visible": [
+        "c1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-history-back",
+      "url": "http://127.0.0.1:42542/profiles?provider=claude",
+      "visible": [
+        "c1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-history-forward",
+      "url": "http://127.0.0.1:42542/profiles?provider=chatgpt",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-unknown-fallback",
+      "url": "http://127.0.0.1:42542/profiles?provider=unknown",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-plain-fallback",
+      "url": "http://127.0.0.1:42542/profiles",
+      "visible": [
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    },
+    {
+      "case": "profiles-hidden-anchor-reveal",
+      "url": "http://127.0.0.1:42542/profiles?provider=claude,chatgpt#c1",
+      "visible": [
+        "c1",
+        "g1"
+      ],
+      "saved": "[\"claude\"]"
+    }
+  ]
+}

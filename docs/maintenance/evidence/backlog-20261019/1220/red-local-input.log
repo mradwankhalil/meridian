@@ -1,0 +1,87 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/session-cache-coherence.test.ts:
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+36 |     // can replace the locally published state with the durable owned snapshot.
+37 |     writeFileSync(join(dir, "sessions.json"), "corrupt fixture")
+38 |     const found = lookupSession(sessionId, [...messages, { role: "user", content: "next" }], cwd)
+39 |     expect(found.type).toBe("continuation")
+40 |     if (found.type !== "continuation") throw new Error("expected continuation")
+41 |     expect(found.session).toMatchObject({
+                               ^
+error: expect(received).toMatchObject(expected)
+
+  {
++   "claudeSessionId": "owned-sdk",
+    "currentTranscript": {
+-     "configDir": "/tmp/owned-config",
++     "configDir": "invalid-relative-path",
++     "sessionId": "owned-sdk",
+    },
++   "lastAccess": 1792405602560,
++   "lineageHash": "555034c5b8f5df0e5fd09bcc8da59af3",
++   "messageBlockHashes": [
++     [
++       "a6c6a2888a5b0438134682f87b0b0d01",
++     ],
++   ],
++   "messageCount": 1,
++   "messageHashes": [
++     "ddbfc920bb42222a31577ac54dd35fab",
++   ],
+    "sdkMessageUuids": [
+-     "original-uuid",
++     "changed-uuid",
+    ],
+  }
+
+- Expected  - 2
++ Received  + 15
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/session-cache-coherence.test.ts:41:27)
+(fail) cross-process session cache coherence > owns queued local-fallback inputs as well as durable data (keyed=%s) [35.14ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+36 |     // can replace the locally published state with the durable owned snapshot.
+37 |     writeFileSync(join(dir, "sessions.json"), "corrupt fixture")
+38 |     const found = lookupSession(sessionId, [...messages, { role: "user", content: "next" }], cwd)
+39 |     expect(found.type).toBe("continuation")
+40 |     if (found.type !== "continuation") throw new Error("expected continuation")
+41 |     expect(found.session).toMatchObject({
+                               ^
+error: expect(received).toMatchObject(expected)
+
+  {
++   "claudeSessionId": "owned-sdk",
+    "currentTranscript": {
+-     "configDir": "/tmp/owned-config",
++     "configDir": "invalid-relative-path",
++     "sessionId": "owned-sdk",
+    },
++   "lastAccess": 1792405602565,
++   "lineageHash": "555034c5b8f5df0e5fd09bcc8da59af3",
++   "messageBlockHashes": [
++     [
++       "a6c6a2888a5b0438134682f87b0b0d01",
++     ],
++   ],
++   "messageCount": 1,
++   "messageHashes": [
++     "ddbfc920bb42222a31577ac54dd35fab",
++   ],
+    "sdkMessageUuids": [
+-     "original-uuid",
++     "changed-uuid",
+    ],
+  }
+
+- Expected  - 2
++ Received  + 15
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/session-cache-coherence.test.ts:41:27)
+(fail) cross-process session cache coherence > owns queued local-fallback inputs as well as durable data (keyed=%s) [3.79ms]
+
+ 0 pass
+ 8 filtered out
+ 2 fail
+ 4 expect() calls
+Ran 2 tests across 1 file. [107.00ms]

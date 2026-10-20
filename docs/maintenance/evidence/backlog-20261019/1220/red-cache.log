@@ -1,0 +1,87 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/session-cache-coherence.test.ts:
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+32 |     expect(lookupSharedSession(key)).toBeUndefined()
+33 |     // A genuine durable read error uses local fallback. No successful lookup
+34 |     // may first mask stale memory by observing authoritative absence.
+35 |     writeFileSync(join(dir, "sessions.json"), "corrupt fixture")
+36 |     expect(lookupSession(sessionId, [...messages, { role: "user", content: "next" }], cwd))
+37 |       .toEqual({ type: "diverged", reason: "not-found" })
+            ^
+error: expect(received).toEqual(expected)
+
+  {
+-   "reason": "not-found",
+-   "type": "diverged",
++   "resumeFrom": 1,
++   "session": {
++     "claudeSessionId": "before-cleanup",
++     "lastAccess": 1792405460635,
++     "lineageHash": "555034c5b8f5df0e5fd09bcc8da59af3",
++     "messageBlockHashes": [
++       [
++         "a6c6a2888a5b0438134682f87b0b0d01",
++       ],
++     ],
++     "messageCount": 1,
++     "messageHashes": [
++       "ddbfc920bb42222a31577ac54dd35fab",
++     ],
++     "sdkMessageUuids": undefined,
++   },
++   "type": "continuation",
+  }
+
+- Expected  - 2
++ Received  + 17
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/session-cache-coherence.test.ts:37:8)
+(fail) cross-process session cache coherence > awaited cleanup cannot revive an earlier queued write (keyed=%s) [33.31ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+32 |     expect(lookupSharedSession(key)).toBeUndefined()
+33 |     // A genuine durable read error uses local fallback. No successful lookup
+34 |     // may first mask stale memory by observing authoritative absence.
+35 |     writeFileSync(join(dir, "sessions.json"), "corrupt fixture")
+36 |     expect(lookupSession(sessionId, [...messages, { role: "user", content: "next" }], cwd))
+37 |       .toEqual({ type: "diverged", reason: "not-found" })
+            ^
+error: expect(received).toEqual(expected)
+
+  {
+-   "reason": "not-found",
+-   "type": "diverged",
++   "resumeFrom": 1,
++   "session": {
++     "claudeSessionId": "before-cleanup",
++     "lastAccess": 1792405460640,
++     "lineageHash": "555034c5b8f5df0e5fd09bcc8da59af3",
++     "messageBlockHashes": [
++       [
++         "a6c6a2888a5b0438134682f87b0b0d01",
++       ],
++     ],
++     "messageCount": 1,
++     "messageHashes": [
++       "ddbfc920bb42222a31577ac54dd35fab",
++     ],
++     "sdkMessageUuids": undefined,
++   },
++   "type": "continuation",
+  }
+
+- Expected  - 2
++ Received  + 17
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/session-cache-coherence.test.ts:37:8)
+(fail) cross-process session cache coherence > awaited cleanup cannot revive an earlier queued write (keyed=%s) [4.26ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > cleanup preserves a write started after it (keyed=%s) [6.91ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > cleanup preserves a write started after it (keyed=%s) [5.55ms]
+
+ 2 pass
+ 4 filtered out
+ 2 fail
+ 10 expect() calls
+Ran 4 tests across 1 file. [775.00ms]

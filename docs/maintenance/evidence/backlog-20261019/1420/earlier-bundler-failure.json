@@ -1,0 +1,11 @@
+{
+  "head": "ee77d3c1a3f0ba10fcfda22900b79b6bf4533869",
+  "counts": {
+    "pass": 6495,
+    "skip": 36,
+    "fail": 1
+  },
+  "firstGateInvocations": 1,
+  "excerpt": "tion [2.80ms]\n(pass) demand refresh respects minimum start cadence without idle scans [0.19ms]\n(pass) Bun source worker reports failure without blocking timers [38.14ms]\nerror: EISDIR reading file: \"/private/tmp/meridian-pr1398-20261018/node_modules/zod/index.js\"\n    at /private/tmp/meridian-pr1398-20261018/node_modules/zod/index.js\n(fail) Node bundled worker resolves alongside the bundled observer [1.53ms]\n\nsrc/__tests__/mcp-grep-tool.test.ts:\n(pass) mcpTools grep tool > finds matches in a directory [3.9",
+  "cause": "Unresolved. Isolated check passed; owned frozen-layout complete gate passed. No source fix claimed for EISDIR."
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": {
+    "json": 60,
+    "jsonl": 2,
+    "scripts": 23,
+    "markdown": 7
+  },
+  "originalCheckoutFilesUnchanged": 12,
+  "scope": "JSON/JSONL parse, JavaScript syntax, relative Markdown links, token-prefix scan; staged diff reviewed separately"
+}

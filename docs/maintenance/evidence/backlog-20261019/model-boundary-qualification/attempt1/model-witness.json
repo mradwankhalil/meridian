@@ -1,0 +1,127 @@
+{
+  "scope": "Real provider/native/public-SDK metadata only; synthetic owned E41 sessions",
+  "expectedModel": "claude-opus-5-5",
+  "queries": [
+    {
+      "query": 1,
+      "model": "opus[1m]",
+      "fallbackModel": null,
+      "env": {
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5-5",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-5-5"
+      },
+      "settingSources": [],
+      "executable": "/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+      "resume": null,
+      "forkSession": false
+    }
+  ],
+  "children": [
+    {
+      "query": 1,
+      "pid": 84908,
+      "closed": true,
+      "env": {
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5-5",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-5-5"
+      },
+      "code": 1,
+      "signal": null
+    }
+  ],
+  "provider": [
+    {
+      "generation": 1,
+      "query": 1,
+      "requestModel": "claude-opus-5-5",
+      "maxTokens": 128000,
+      "thinking": "adaptive",
+      "events": [
+        {
+          "type": "message_start",
+          "id": "msg_011CgBLS8j8eQ93jRq9TAZyr",
+          "model": "claude-opus-5-5"
+        },
+        {
+          "type": "message_delta",
+          "stopReason": "tool_use",
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 2967,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 111,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            }
+          }
+        }
+      ],
+      "status": 200
+    }
+  ],
+  "native": [
+    {
+      "query": 1,
+      "type": "init",
+      "model": "claude-opus-5-5[1m]",
+      "session": "14216ad4-b3ad-4d1e-a6dc-925e73d262c6"
+    },
+    {
+      "query": 1,
+      "type": "message_start",
+      "id": "msg_011CgBLS8j8eQ93jRq9TAZyr",
+      "model": "claude-opus-5-5"
+    },
+    {
+      "query": 1,
+      "type": "assistant",
+      "uuid": "8da627ff-477a-4f86-81ef-eb45dfdc4133",
+      "id": "msg_011CgBLS8j8eQ93jRq9TAZyr",
+      "model": "claude-opus-5-5",
+      "stopReason": null,
+      "error": null,
+      "blocks": [
+        {
+          "type": "tool_use",
+          "id": "toolu_01DKCAYvporkaLXAEZiMuPBA",
+          "name": "mcp__oc__read"
+        }
+      ]
+    },
+    {
+      "query": 1,
+      "type": "result",
+      "subtype": "error_max_turns",
+      "isError": true,
+      "models": [
+        "claude-opus-5-5[1m]"
+      ],
+      "session": "14216ad4-b3ad-4d1e-a6dc-925e73d262c6"
+    }
+  ],
+  "stored": [
+    {
+      "session": "14216ad4-b3ad-4d1e-a6dc-925e73d262c6",
+      "rows": [
+        {
+          "uuid": "8da627ff-477a-4f86-81ef-eb45dfdc4133",
+          "id": "msg_011CgBLS8j8eQ93jRq9TAZyr",
+          "model": "claude-opus-5-5",
+          "timestamp": "2026-10-19T09:10:41.749Z",
+          "blocks": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01DKCAYvporkaLXAEZiMuPBA",
+              "name": "mcp__oc__read"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generationCount": 1,
+  "stopped": "Unexpected native result model: claude-opus-5-5[1m]",
+  "closed": true
+}

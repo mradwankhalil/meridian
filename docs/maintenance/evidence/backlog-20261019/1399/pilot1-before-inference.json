@@ -1,0 +1,72 @@
+{
+  "head": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "scope": "Actual parallel native clients and real Haiku; public-SDK fork fixtures create owned large-store pressure",
+  "durationSeconds": 60,
+  "seedCount": 0,
+  "maxGenerations": 100,
+  "model": {
+    "expected": "claude-haiku-5-5",
+    "observed": [],
+    "queries": 0,
+    "generations": 0,
+    "stopped": null
+  },
+  "native": {
+    "version": "2.1.302 (Claude Code)",
+    "sha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+  },
+  "sdk": "0.2.141",
+  "bun": "1.3.11",
+  "platform": "darwin",
+  "arch": "arm64",
+  "periodicGcDisabled": true,
+  "publicationGcUnchanged": true,
+  "cycles": 0,
+  "clientRequests": 1,
+  "capacityRefusal": null,
+  "failure": "Error: Native client exit 1",
+  "passed": false,
+  "beforeClose": {
+    "at": 1792403080744,
+    "resources": 0,
+    "counts": {}
+  },
+  "closeMs": 3,
+  "afterClose": {
+    "at": 1792403080747,
+    "resources": 0,
+    "counts": {}
+  },
+  "sdkChildren": {
+    "started": 0,
+    "closed": 0
+  },
+  "clientChildren": {
+    "started": 1,
+    "joined": 1
+  },
+  "quotaChildren": {
+    "started": 1,
+    "joined": 1
+  },
+  "joined": true,
+  "latency": {
+    "requestPreSdkAdmissionMs": {
+      "p50": null,
+      "p95": null,
+      "p99": null
+    },
+    "lifecycleLocalQueueWaitMs": {
+      "p50": 0.015292000000044936,
+      "p95": 0.22049999999990177,
+      "p99": 0.22049999999990177
+    },
+    "externalAcquireAndTransactionMs": {
+      "p50": 0.8165830000000369,
+      "p95": 10.39562500000011,
+      "p99": 10.39562500000011
+    }
+  },
+  "ownedCredentialAndClientConfigRemoved": true,
+  "qualification": "No SDK query or provider generation occurred. The exact native request has adaptive thinking display omitted; the unchanged main Haiku compatibility guard rejects that control before inference. Original HTTP error body was not retained; the native construction and pure guard establish the incompatible setting. No guard or client payload is weakened."
+}

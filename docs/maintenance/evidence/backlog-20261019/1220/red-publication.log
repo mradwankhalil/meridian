@@ -1,0 +1,41 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/proxy-request-cancellation.test.ts:
+[PROXY] d583804f-680c-4c23-99df-9b4ae1b2caf3 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+[PROXY] d583804f-680c-4c23-99df-9b4ae1b2caf3 usage: input=1 output=1 cache=0%
+309 |       disk.release()
+310 |       expect((await response).status).toBe(499)
+311 |       expect(sessionStore.lookupSharedSession("cancel-during-store-fsync")).toBeUndefined()
+312 |       // Another proxy must never be able to resume the canceled target, even
+313 |       // briefly between a late publication and its compensating eviction.
+314 |       expect(publications).toBe(0)
+                                 ^
+error: expect(received).toBe(expected)
+
+Expected: 0
+Received: 2
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/proxy-request-cancellation.test.ts:314:28)
+(fail) request cancellation propagation > never publishes a mapping revoked by request while its fsync waits [61.38ms]
+[PROXY] 781873dc-8919-4e6a-9fd3-8fd5dc111090 adapter=opencode model=sonnet stream=false tools=0 lineage=new session=new diverged=not-found sdkActive=0/10 sdkQueued=0 sessionWait=1ms msgCount=1 msgs=user[string]
+[PROXY] 781873dc-8919-4e6a-9fd3-8fd5dc111090 usage: input=1 output=1 cache=0%
+309 |       disk.release()
+310 |       expect((await response).status).toBe(499)
+311 |       expect(sessionStore.lookupSharedSession("cancel-during-store-fsync")).toBeUndefined()
+312 |       // Another proxy must never be able to resume the canceled target, even
+313 |       // briefly between a late publication and its compensating eviction.
+314 |       expect(publications).toBe(0)
+                                 ^
+error: expect(received).toBe(expected)
+
+Expected: 0
+Received: 2
+
+      at <anonymous> (/private/tmp/meridian-pr1220-20261019/src/__tests__/proxy-request-cancellation.test.ts:314:28)
+(fail) request cancellation propagation > never publishes a mapping revoked by shutdown while its fsync waits [14.11ms]
+
+ 0 pass
+ 7 filtered out
+ 2 fail
+ 6 expect() calls
+Ran 2 tests across 1 file. [1199.00ms]

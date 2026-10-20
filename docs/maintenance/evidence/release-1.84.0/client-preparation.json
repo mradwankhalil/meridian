@@ -1,0 +1,8 @@
+{
+  "client": "AgentLink",
+  "version": "1.44.5",
+  "commit": "ab98566573e893fc4667971a86573fb56beec677",
+  "compiledSha256": "80683177501277a5f76fd9e27df22a6169c967de73977d717a70d44a9981e5af",
+  "bun": "1.3.11",
+  "modelCalls": 0
+}

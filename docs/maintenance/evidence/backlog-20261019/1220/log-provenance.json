@@ -1,0 +1,50 @@
+[
+  {
+    "file": "red-input.log",
+    "originalSha256": "70e58688cd597c0b1866cbad909cfc6bed420e262411291d99d4bf47f77adb7b",
+    "committedSha256": "70e58688cd597c0b1866cbad909cfc6bed420e262411291d99d4bf47f77adb7b",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "red-publication.log",
+    "originalSha256": "e873736ddf2b7c2a8b96d6f6732b08d15fd07380e15d993f018ddc25045916af",
+    "committedSha256": "e873736ddf2b7c2a8b96d6f6732b08d15fd07380e15d993f018ddc25045916af",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "red-cache.log",
+    "originalSha256": "b8d5958bfde4fef5f722f2e520328119208fff241533100363fba977da5a4153",
+    "committedSha256": "b8d5958bfde4fef5f722f2e520328119208fff241533100363fba977da5a4153",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "red-local-input.log",
+    "originalSha256": "7bd51405d89c5e2649fa4d2daa8e8c3d017f4ed333154279fbf23cd23f6106ce",
+    "committedSha256": "7bd51405d89c5e2649fa4d2daa8e8c3d017f4ed333154279fbf23cd23f6106ce",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "green-input.log",
+    "originalSha256": "cd7cc984f5eb82b6b414057873ba21c28922d6dc157e244f7c357da9defcc603",
+    "committedSha256": "cd7cc984f5eb82b6b414057873ba21c28922d6dc157e244f7c357da9defcc603",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "green-publication.log",
+    "originalSha256": "29b7d2bbf1e101c9b776e2ed3b19aadcebba2733056a18fdcee7289a12e202dc",
+    "committedSha256": "29b7d2bbf1e101c9b776e2ed3b19aadcebba2733056a18fdcee7289a12e202dc",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "green-cache-final.log",
+    "originalSha256": "88c93334679c969801b7c575b99be5eaeca081dd819027875502c33adeb58f46",
+    "committedSha256": "88c93334679c969801b7c575b99be5eaeca081dd819027875502c33adeb58f46",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  },
+  {
+    "file": "adjacent.log",
+    "originalSha256": "df2aabf50310af62dc06633430c54f6c818bea4384cae0951cdcb1c20d466774",
+    "committedSha256": "df2aabf50310af62dc06633430c54f6c818bea4384cae0951cdcb1c20d466774",
+    "normalization": "Trailing horizontal whitespace and terminal blank lines only; assertions and failure counts unchanged"
+  }
+]

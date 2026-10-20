@@ -1,0 +1,31 @@
+{
+  "sourceHead": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "nativeVersion": "2.1.302",
+  "nativeSha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37",
+  "sdk": "0.2.141",
+  "platform": "darwin-arm64",
+  "scope": "Real native-client warmup failure before any public fork seed or large-store/hour run",
+  "providerRequestsObserved": 4,
+  "actualUpstreamGenerations": 3,
+  "actualUpstreamModels": [
+    "claude-opus-5-5"
+  ],
+  "blockedBeforeNetwork": {
+    "attempt": 4,
+    "model": "claude-opus-4-8"
+  },
+  "providerStops": [
+    "tool_use",
+    "refusal",
+    "refusal"
+  ],
+  "harnessGap": "HTTP 200 stop_reason refusal did not latch a stop; a same-model retry reached the provider. The unexpected-model request was blocked before network. Harness corrected separately with offline controls.",
+  "toolGuard": "A returned tool block failed the owned-path assertion. Input was not retained, so the cause cannot be diagnosed from this receipt. No outside tool execution was permitted.",
+  "cleanup": "All five owned spawned processes joined, including both real SDK children; owned grants and profile/client config removed.",
+  "acceptance": "FAIL. No seed or hourly load gate established. Old mixed-model histories remain unexplained; this newly observed mechanism does not establish their cause.",
+  "artifacts": {
+    "report.json": "e0da8114f6cf4b6de15fef92e8156b06d263c18736e4478013d1821c5188edf4",
+    "model-metadata.jsonl": "98f348d69e722e8169adfd7886c0ece402a1c4aa8657eee0697c976ae0cf3e15",
+    "requests.jsonl": "69a9fe956ed7d5573017f07194c625442004967371c2faa86991d2eafba02eb3"
+  }
+}

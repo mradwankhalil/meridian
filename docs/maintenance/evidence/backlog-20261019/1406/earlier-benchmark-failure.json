@@ -1,0 +1,24 @@
+{
+  "head": "7783cd19be260d7a8f815a9ae1ac9a8dd020039d",
+  "exit": 1,
+  "completedInvocations": 17,
+  "counts": {
+    "pass": 6896,
+    "skip": 36,
+    "fail": 1
+  },
+  "failure": "Warm mutation median 13.24975ms exceeded the baseline-relative bound 13.13318775ms. Cause remains unknown.",
+  "testLogSha256": "6bca97362c8167aab34c36ffe72a26e35ff098950183210e8d0bef477d4d2468",
+  "logBytes": 1359161,
+  "concurrentActivity": "The independent #1419 full gate was running; a causal effect is not established.",
+  "files": {
+    "src/__tests__/store-mutation-loop-lag.test.ts": {
+      "sha256": "4eed8ab15a734ffc8526dcec810e2afedf2556983a3c93dfc3ef5e747ee76618",
+      "identicalToMain": true
+    },
+    "src/proxy/sessionStore.ts": {
+      "sha256": "41a0e61a957c5dc7cc73fa16aa71a04ad732e32a37dad2bea046125ae6b72837",
+      "identicalToMain": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "pass": 7017,
+  "skip": 1,
+  "fail": 0,
+  "invocations": 24,
+  "candidate": "fae06f874116ed7ec2eafe58f89c6dc1813fe347",
+  "workflow": "https://github.com/rynfar/meridian/actions/runs/39270056814",
+  "result": "PASS",
+  "fullTestStep": true
+}

@@ -1,0 +1,73 @@
+{
+  "summary": {
+    "repo": "rynfar/meridian",
+    "main": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+    "generatedAt": "2026-10-19T09:20:08.408Z",
+    "outsidePullRequests": 338,
+    "merged": 79,
+    "open": 20,
+    "relandedUnderMaintainer": 137,
+    "relandedWithoutTrailer": 0,
+    "closedForMaintainerPr": 19,
+    "closedForMaintainerPrWithoutTrailer": 18,
+    "landedAsAuthorPrClosed": 43,
+    "mergedButMaintainerAuthor": 0,
+    "closedNotLanded": 40,
+    "closedNotLandedByOwnerWithoutComment": 4,
+    "authorshipStatements": 51,
+    "unmappedForeignCommits": 1
+  },
+  "newMergedRows": [
+    {
+      "number": 1398,
+      "author": "passabilities",
+      "title": "fix: warn at startup when running under Bun",
+      "state": "MERGED",
+      "closedBy": "rynfar",
+      "forkGone": false,
+      "ownerComments": 0,
+      "class": "merged"
+    },
+    {
+      "number": 1407,
+      "author": "TristanSpeakEasy",
+      "title": "fix: forward mid-stream errors on OpenAI chat completions streams",
+      "state": "MERGED",
+      "closedBy": "rynfar",
+      "forkGone": false,
+      "ownerComments": 0,
+      "class": "merged"
+    },
+    {
+      "number": 1409,
+      "author": "Nowaker",
+      "title": "test: point the suite's TMPDIR at a per-process directory removed at exit",
+      "state": "MERGED",
+      "closedBy": "rynfar",
+      "forkGone": false,
+      "ownerComments": 0,
+      "class": "merged"
+    },
+    {
+      "number": 1411,
+      "author": "Nowaker",
+      "title": "feat(profiles): ?provider= links open / and /profiles on given provider chips",
+      "state": "MERGED",
+      "closedBy": "rynfar",
+      "forkGone": false,
+      "ownerComments": 0,
+      "class": "merged"
+    }
+  ],
+  "unmapped": [
+    {
+      "via": 1209,
+      "landed": "0f2a4a541b3b7b14022317ecd9ffe14c149b8f1d",
+      "commit": "5f488d8ee7950babf60eb7e299cb2999f6a5cdc1",
+      "name": "Nate Berkopec"
+    }
+  ],
+  "limitations": "Mixed forwarded author attribution is verified by the per-commit manifest, not aggregate opener attribution. Legacy 137 maintainer re-lands are unchanged; new batch adds none.",
+  "rawJsonSha256": "c5b72f308753fc81b941359a9c964c3a8596565ce13e44e1b379d1fe1380f9ce",
+  "rawMarkdownSha256": "6eaf437430467ae377511851ca41a8c30a8c77a463a86db9147900b3ff7d6c16"
+}

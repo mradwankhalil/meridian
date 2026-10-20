@@ -1,0 +1,19 @@
+{
+  "head": "adcea94b21b61a37182611267bbd32d3131384aa",
+  "gate": "npm test",
+  "exit": 0,
+  "invocations": 24,
+  "bun_revision": "1.3.11+af24e281e",
+  "node": "v22.22.3",
+  "platform": "Darwin arm64",
+  "counts": {
+    "pass": 6959,
+    "skip": 36,
+    "fail": 0
+  },
+  "test_log_sha256": "24277f0878dbc0327ac06d25e2d0cd0c5d8f9f470560ce76d7d71185b29c820d",
+  "test_log_bytes": 1379507,
+  "invocation_audit_sha256": "a6beda064f6bc6e9a7129f4ed6faceda167ea2a57519878b91ef0b93fe9632a8",
+  "typecheck": "pass",
+  "build": "pass"
+}

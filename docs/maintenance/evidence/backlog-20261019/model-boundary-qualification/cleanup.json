@@ -1,0 +1,10 @@
+{
+  "ownedGrantDeleted": true,
+  "ownedProfileAndClientConfigDeleted": true,
+  "ownerCredentialsWritten": false,
+  "ownerRefreshAttempted": false,
+  "inferenceModesRun": [
+    "chain-json only"
+  ],
+  "remainingModesHeld": true
+}

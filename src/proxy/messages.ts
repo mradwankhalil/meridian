@@ -138,13 +138,39 @@ export function stripAdvisorTools(tools: unknown[]): unknown[] {
 }
 
 /**
- * Extract only the last user message (for session resume — SDK already has history).
+ * Extract the current user turn (for session resume — SDK already has history).
  */
 export function getLastUserMessage(messages: Array<{ role: string; content: any }>): Array<{ role: string; content: any }> {
-  for (let i = messages.length - 1; i >= 0; i--) {
-    if (messages[i]?.role === "user") return [messages[i]!]
+  // Coalescing applies to an incoming user tail. Keep the existing last-user
+  // fallback when a history ends with an assistant/prefill instead; treating
+  // that assistant text as new user input changes an unrelated resume path.
+  if (messages[messages.length - 1]?.role !== "user") {
+    for (let i = messages.length - 1; i >= 0; i--) {
+      if (messages[i]?.role === "user") return [messages[i]!]
+    }
+    return messages.slice(-1)
   }
-  return messages.slice(-1)
+  // Everything after the last assistant turn is the current turn. A client may
+  // send several consecutive user messages (memory, question, runtime context);
+  // returning only the last one treated the rest as history and dropped their
+  // content. Merging the content blocks also keeps a tool_result that is
+  // followed by a reminder user message from being displaced by that reminder —
+  // the SDK sees one user turn with the result, so the model answers instead of
+  // re-requesting the same tool.
+  let start = 0
+  for (let i = messages.length - 1; i >= 0; i--) {
+    if (messages[i]?.role === "assistant") { start = i + 1; break }
+  }
+  const tail = messages.slice(start).filter((message) => message && message.role === "user")
+  if (tail.length === 0) return messages.slice(-1)
+  if (tail.length === 1) return tail
+  const content: any[] = []
+  for (const message of tail) {
+    if (typeof message.content === "string") content.push({ type: "text", text: message.content })
+    else if (Array.isArray(message.content)) content.push(...message.content)
+    else if (message.content != null) content.push(message.content)
+  }
+  return [{ role: "user", content }]
 }
 
 /**
@@ -174,10 +200,19 @@ export function frameReplayTurns(turns: Array<{ role: string; text: string }>): 
   const nonEmpty = turns.filter((t) => t.text)
   const joined = nonEmpty.map((t) => t.text).join("\n\n")
   if (nonEmpty.length < 2) return joined
-  const last = nonEmpty[nonEmpty.length - 1]!
-  if (last.role !== "user") return joined
-  const history = nonEmpty.slice(0, -1).map((t) => t.text).join("\n\n")
-  return REPLAY_CONTEXT_OPEN + history + REPLAY_CONTEXT_CLOSE + last.text
+  // The current turn is everything after the last assistant turn. Several
+  // consecutive user messages belong to it together; treating only the last one
+  // as live pushed the rest into history, so the model answered as if that
+  // content had never arrived.
+  let lastAssistant = -1
+  for (let i = nonEmpty.length - 1; i >= 0; i--) {
+    if (nonEmpty[i]!.role === "assistant") { lastAssistant = i; break }
+  }
+  const current = nonEmpty.slice(lastAssistant + 1)
+  if (current.length === 0) return joined
+  const history = nonEmpty.slice(0, lastAssistant + 1)
+  if (history.length === 0) return current.map((t) => t.text).join("\n\n")
+  return REPLAY_CONTEXT_OPEN + history.map((t) => t.text).join("\n\n") + REPLAY_CONTEXT_CLOSE + current.map((t) => t.text).join("\n\n")
 }
 
 /**

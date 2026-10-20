@@ -1,0 +1,12 @@
+{
+  "body": ":robot: I have created a release *beep* *boop*\n---\n\n\n## [1.84.0](https://github.com/rynfar/meridian/compare/meridian-v1.83.1...meridian-v1.84.0) (2026-10-19)\n\n\n### Features\n\n* **profiles:** ?provider= links open / and /profiles on given provider chips ([#1411](https://github.com/rynfar/meridian/issues/1411)) ([58d9dd8](https://github.com/rynfar/meridian/commit/58d9dd8c002cc9f63e966a92770c66bd908f27b5))\n\n\n### Bug Fixes\n\n* forward mid-stream errors on OpenAI chat completions streams ([#1407](https://github.com/rynfar/meridian/issues/1407)) ([6c241a8](https://github.com/rynfar/meridian/commit/6c241a897bdc7ffe4c233d32270a17402b3528a0))\n\n---\nThis PR was generated with [Release Please](https://github.com/googleapis/release-please). See [documentation](https://github.com/googleapis/release-please#release-please).",
+  "headRefOid": "0428420e126c8008e29e031c9c3baf3c00f4f5ba",
+  "updatedAt": "2026-10-19T09:07:22Z",
+  "checkedAfterMain": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "findings": [
+    "No duplicate entries in the generated body: one #1411 feature and one #1407 fix.",
+    "Startup advisory #1398 is absent despite two retained fix subjects. Release review must explain/correct omission before authorization; do not rewrite author history.",
+    "No unintended release directives were found in the introduced #1398 object manifest. Release remains unauthorized."
+  ],
+  "releaseAuthorized": false
+}

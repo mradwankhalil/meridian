@@ -1,0 +1,65 @@
+{
+  "scope": "actual SDK/native CLI model-facing request; loopback model responder, not paid-model/native-OpenCode acceptance",
+  "baseline": false,
+  "outcome": "probe-complete",
+  "model": "claude-opus-5-5",
+  "requests": [
+    {
+      "phase": "seed",
+      "tools": [
+        "mcp__oc__context-mode_ctx_execute",
+        "mcp__plugin_context-mode_context-mode__ctx_execute"
+      ],
+      "foreignGuidance": true,
+      "leakedExcerpt": "FOREIGN_SESSIONSTART: Run shell commands with mcp__plugin_context-mode_context-mode__ctx_execute(language, code).",
+      "clientContextPresent": true
+    },
+    {
+      "phase": "resume",
+      "tools": [
+        "mcp__oc__context-mode_ctx_execute"
+      ],
+      "foreignGuidance": true,
+      "leakedExcerpt": "FOREIGN_SESSIONSTART: Run shell commands with mcp__plugin_context-mode_context-mode__ctx_execute(language, code).",
+      "clientContextPresent": true
+    }
+  ],
+  "cleanup": {
+    "childrenJoined": true,
+    "iteratorsJoined": true,
+    "listenerClosed": true,
+    "processes": [
+      {
+        "pid": 90430,
+        "closed": true,
+        "exitCode": 0,
+        "signal": null,
+        "spawnError": null,
+        "stderrBytes": 0,
+        "signals": []
+      },
+      {
+        "pid": 90443,
+        "closed": true,
+        "exitCode": 0,
+        "signal": null,
+        "spawnError": null,
+        "stderrBytes": 0,
+        "signals": []
+      }
+    ]
+  },
+  "sdkSettingSources": [],
+  "strictMcpConfig": true,
+  "spawnCommand": "/tmp/meridian-overnight-20261019/native-pinned/claude-2.1.302",
+  "seed": {
+    "session": "69d4d9be-19b5-415e-b799-e27f863c4c08",
+    "contaminated": true,
+    "result": "success"
+  },
+  "resumedForeignGuidance": true,
+  "freshSessionRequired": true,
+  "querySourceSha256": "277380f6da1bd21432d823d7cd6cec3ed9e5f42157b6e023d4a99ac4f88a5298",
+  "sdkVersion": "0.2.141",
+  "nativeSha256": "5262ce9de86243fed0d21edc39b271555d56780d0112e2b194439fe1c6662d37"
+}

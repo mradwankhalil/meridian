@@ -1,0 +1,18 @@
+{
+  "pr": 1407,
+  "head": "a347cb288f833161155f40ce346b6e0f3802b588",
+  "merge": "6c241a897bdc7ffe4c233d32270a17402b3528a0",
+  "mergedAt": "2026-10-19T09:06:40Z",
+  "method": "signed squash, documented unsigned-only exception",
+  "author": {
+    "name": "Tristan Cartledge",
+    "email": "108070248+TristanSpeakEasy@users.noreply.github.com",
+    "date": "2026-10-19T09:06:39Z"
+  },
+  "githubAuthor": "TristanSpeakEasy",
+  "signature": true,
+  "tree": "938a8aa166e8ad8816eb6b10ee7f8011f240fa75",
+  "reviewed_tree": "938a8aa166e8ad8816eb6b10ee7f8011f240fa75",
+  "parent": "70b5af12a7ab72840d023206e310f931afd5635a",
+  "maintainerCoauthor": false
+}

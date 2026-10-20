@@ -1,0 +1,32 @@
+{
+  "refreshedAt": "2026-10-19T17:30:22.983792+00:00",
+  "visibleRepositoryCount": 165,
+  "coverageGaps": {},
+  "queues": {
+    "rynfar/meridian-plugin-hermes-scrub": {
+      "pullRequests": 0,
+      "issues": 0
+    },
+    "rynfar/hudscrub": {
+      "pullRequests": 0,
+      "issues": 0
+    },
+    "rynfar/meridian-plugin-openclaw-scrub": {
+      "pullRequests": 0,
+      "issues": 0
+    },
+    "rynfar/meridian-plugin-opencode-scrub": {
+      "pullRequests": 1,
+      "issues": 0
+    },
+    "rynfar/meridian-plugin-pi-scrub": {
+      "pullRequests": 1,
+      "issues": 0
+    },
+    "rynfar/meridian": {
+      "pullRequests": 28,
+      "issues": 18
+    }
+  },
+  "note": "Meridian count includes this open documentation PR and draft 1423. No new issues since initial discovery; CI repair 1425 is merged."
+}

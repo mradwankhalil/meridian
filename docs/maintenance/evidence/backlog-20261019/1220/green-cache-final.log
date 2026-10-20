@@ -1,0 +1,24 @@
+bun test v1.3.11 (af24e281)
+
+src/__tests__/session-cache-coherence.test.ts:
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > owns queued local-fallback inputs as well as durable data (keyed=%s) [29.07ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > owns queued local-fallback inputs as well as durable data (keyed=%s) [2.85ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > awaited cleanup cannot revive an earlier queued write (keyed=%s) [4.15ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > awaited cleanup cannot revive an earlier queued write (keyed=%s) [3.62ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > cleanup preserves a write started after it (keyed=%s) [5.85ms]
+[sessionStore] read failed: JSON Parse error: Unexpected identifier "corrupt"
+(pass) cross-process session cache coherence > cleanup preserves a write started after it (keyed=%s) [4.46ms]
+(pass) cross-process session cache coherence > refreshes a stale in-memory generation from the shared mapping [4.10ms]
+(pass) cross-process session cache coherence > honors an authoritative cross-process eviction over stale local memory [4.25ms]
+(pass) cross-process session cache coherence > never applies a keyed generation token to an unrelated fingerprint key [5.12ms]
+(pass) cross-process session cache coherence > purges every local alias when Claude-ID lookup observes durable absence [3.94ms]
+
+ 10 pass
+ 0 fail
+ 26 expect() calls
+Ran 10 tests across 1 file. [125.00ms]
